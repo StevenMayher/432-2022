@@ -1,6 +1,6 @@
 # R-Basics
 
-This section has some information to remind you of some things when using R. I hope it will be of some use to students in both 432 and 500. Most thf document was written prior to the pandemic, but the ideas still hold up.
+This section has some information to remind you of some things when using R. I hope it will be of some use to students in both 432 and 500. Most of this document was written prior to the pandemic, but the ideas still hold up.
 
 - The [r-basics.pdf](https://github.com/THOMASELOVE/432-2022/blob/main/r-basics/r-basics.pdf) PDF file and the [r-basics.Rmd](https://github.com/THOMASELOVE/432-2022/blob/main/r-basics/r-basics.Rmd) R Markdown file remind/show you how to do a number of things you'll need, especially in the early homework assignments. I used the R Markdown file to create the PDF.
 - This includes some data management, some fundamental statistical inference ideas, and (especially) some logistic regression.
