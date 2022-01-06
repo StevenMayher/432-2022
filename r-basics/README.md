@@ -7,12 +7,12 @@ This section has some information to remind you of some things when using R. I h
 
 Sections of the document include
 
-3. Getting Data into R from Excel
-4. Describing a Pilot Study
-5. A Logistic Regression Example
-6. Logistic Regression with Multiple Predictors
-7. A Data Management Primer (includes recoding and simple imputation materials)
-12. Some tips for using RStudio and R Markdown
+- Getting Data into R from Excel
+- Describing a Pilot Study
+- A Logistic Regression Example
+- Logistic Regression with Multiple Predictors
+- A Data Management Primer (includes recoding and simple imputation materials)
+- Some tips for using RStudio and R Markdown
 
 There's a lot of stuff here, and I don't expect you to devour it, but I do hope it serves as a useful guide for remembering / learning how to do some of the "basics" that will be relevant in our course.
 
