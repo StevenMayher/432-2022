@@ -1,6 +1,6 @@
 # 432 Spring 2022 Lab Assignments
 
-The deadlines for all Lab assignments are scheduled on Monday evenings at 9 PM, as indicated in the Calendar.
+The deadlines for all Lab assignments are scheduled on Monday evenings at 9 PM, as indicated in the [Calendar](https://thomaselove.github.io/432/calendar.html).
 
 ## Lab 01
 
