@@ -6,7 +6,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Materials for Today's Class
 
-- Today's Slides are [available in PDF](), as well as in [R Markdown]().
+- Today's Slides are [available in PDF](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class01/432_2022_slides01.pdf), as well as in [R Markdown](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class01/432_2022_slides01.Rmd).
 - All 432 Zoom classes are video-recorded, and the recordings will be archived in the Modules, and Echo 360 sections of [Canvas](https://canvas.case.edu).
 - **BONUS video** I pre-recorded a 9-minute video walking through (fairly quickly) the development of the Bradley example in R Studio, anticipating that I might not get to it today in class. This is actually a recording I made in 2021, so it uses an older version of R, but is otherwise correct.
     - You'll find that recording on our Shared Google Drive (log into Google with your CWRU account).
