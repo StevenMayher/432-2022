@@ -8,7 +8,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 - Today's Slides are [available in PDF](), as well as in [R Markdown]().
 - All 432 Zoom classes are video-recorded, and the recordings will be archived in the Modules, and Echo 360 sections of [Canvas](https://canvas.case.edu).
-- **BONUS video** I pre-recorded a 9-minute video walking through (fairly quickly) the development of the Bradley example in R Studio, anticipating that I might not get to it today in class. 
+- **BONUS video** I pre-recorded a 9-minute video walking through (fairly quickly) the development of the Bradley example in R Studio, anticipating that I might not get to it today in class. This is actually a recording I made in 2021, so it uses an older version of R, but is otherwise correct.
     - You'll find that recording on our Shared Google Drive (log into Google with your CWRU account).
     - The Shared Drive is called *432 Spring 2022 Dr Love and Students*. Inside that Drive, you should see a folder called *432 Spring 2022 Bonus Videos*. 
 
