@@ -19,8 +19,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Logistics and Reminders
 
-1. You should have received an email from me in the last 2-3 days with the subject heading "**3 of 46,354
-PQHS / CRSP / MPHP 432 begins Tuesday at 1 PM**" 
+1. You should have received an email from me in the last 2-3 days with the subject heading "**PQHS / CRSP / MPHP 432 begins Tuesday at 1 PM**" 
     - If you have this email, please attend to what it asks you to do. 
     - If you don't have this email, please let me know that via email to **Thomas dot Love at case dot edu** now.
 2. If you haven't taken the Welcome to 432 survey already, please [do so today](https://bit.ly/432-2022-welcome-survey).
