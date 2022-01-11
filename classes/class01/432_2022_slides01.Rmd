@@ -1,0 +1,326 @@
+---
+title: "432 Class 01 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-01-11"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+options(width = 60)
+```
+
+## Today's Agenda
+
+1. Mechanics of the course
+2. Why I write dates the way I do
+3. Data organization in spreadsheets
+4. Naming Things and Getting Organized
+5. Building a Table 1 (see Course Notes, Chapter 1)
+
+There's a (pre-recorded) "live code" demo, too.
+
+## Welcome to 432.
+
+Everything is at https://thomaselove.github.io/432/
+
+- Syllabus
+- Calendar
+    - with all deadlines, and links to class READMEs
+- Course Notes
+- Details on Assignments to come (+ next slide)
+- R and Data
+    - Updating / Installing R, RStudio, necessary R Packages
+    - Review / Learn some R Basics (also see 431 web site)
+- Sources
+    - Books, Articles, YouTube series, etc.
+- Links to Canvas, Piazza and Contact Us
+
+## Assignments
+
+Every deliverable for the entire semester is listed in the Calendar, except for the Welcome to 432 Survey, which at least 30 of you've done, and if you haven't, visit https://bit.ly/432-2022-welcome-survey.
+
+- Two projects 
+    - Project 1 (use publicly available data for linear & logistic models)
+        1. Proposal due 2022-01-31 (data selection, cleaning, exploration)
+        2. Final Materials due 2022-03-04 (analyses, discussion)
+    - Project 2 (use almost any data you like and analyze it well)
+- Two Quizzes (Quiz 1 due 2022-02-21, Quiz 2 due 2022-03-28)
+    - Multiple choice and short answer, mostly, taken via a Google Form
+- Six labs  
+    - Labs will be posted before our next class. Lab 01 is due Monday 2022-01-24 at 9 PM.
+- Ten minute papers 
+    - First is due 2022-01-19. These actually take about 5 minutes each.
+
+Syllabus and Instructions will provide more information on grading/feedback.
+
+## The Spring 2022 Teaching Assistants for 432 are:
+
+- Stephanie Merlino Barr, PhD student in Clinical Translational Science
+- Wyatt Bensken, PhD student in Epidemiology \& Biostatistics
+- Ali Elsharkawi, MS student in Clinical Research
+- Shiying Liu, PhD student in Epidemiology \& Biostatistics
+- Marie Michenkova, MS student in Biomedical Health Informatics
+- Julia Yang Payne, PhD student in Clinical \& Translational Science
+- Monika Strah, MS student in Epidemiology \& Biostatistics
+- Yanning Wu, PhD student in Epidemiology \& Biostatistics
+
+All return from working with students in 431 this past Fall, and I couldn't be more grateful for their energy and effort. Learn more about the TAs in Section 6 of the Syllabus.
+
+## Getting Help
+
+- Piazza is the location for discussion about the class. I follow it closely.
+- We have 8 teaching assistants volunteering their time to help you.
+- TAs will hold Office Hours beginning next Monday 2021-01-17 via Zoom, and the details will be available on Canvas (see Announcements) and our shared Google Drive.
+- Dr. Love is available before and (especially) after class.
+- Email Dr. Love directly only if you have a matter you need to discuss with him specifically. He's at `Thomas dot Love` at `case dot edu`.
+
+We WELCOME your questions/comments/corrections/thoughts!
+
+## Tools You Will Definitely Use in this Class
+
+- **Course Website** (see the bottom of this slide) especially the Calendar
+    - Each class has a README (announcements, reminders, etc.) plus slides
+- **R, RStudio and R Markdown** for, well, everything
+- **Canvas** for access to Zoom meetings *and 432 recordings*, submission of most assignments
+- **Google Drive via CWRU** for *recordings from 431*, forms (Minute Papers/Surveys/Quizzes) and receiving feedback on labs, projects, and Minute Papers
+- **Piazza** is our discussion board. It's a moderated place to ask questions, answer questions of your colleagues, and get help fast. You don't have to pay to use it.
+- **Zoom** for class sessions and for TA office hours
+
+Some source materials are **password-protected**. What is the password?
+
+---
+
+```{r, echo = FALSE, fig.align = "center", out.width = '90%'}
+knitr::include_graphics("figures/tukey.png")
+```
+
+## How To Write Dates (https://xkcd.com/1179/)
+
+```{r, echo = FALSE, fig.align = "center", out.height = '80%'}
+knitr::include_graphics("figures/iso_8601.png")
+```
+
+## Tidy Data (Wickham)
+
+> "A huge amount of effort is spent cleaning data to get it ready for analysis, but there has been little research on how to make data cleaning as easy and effective as possible....
+
+**Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.**
+
+> This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores."
+
+https://www.jstatsoft.org/article/view/v059i10
+
+## "Data Tidying" presentation in *R for Data Science*
+
+- Defines tidy data
+- Demonstrates methods for tidying messy data in R
+
+Read Sections 
+
+- 5 (Data transformation), 
+- 10 (Tibbles), 11 (Data import) and, especially, 12 (Tidy data) 
+
+https://r4ds.had.co.nz/
+
+## Data Organization in Spreadsheets (Broman & Woo)
+
+- Create a data dictionary.
+    - Jeff Leek has good thoughts on this in "How to Share Data with a Statistician" at https://github.com/jtleek/datasharing
+    - Shannon Ellis and Jeff Leek's preprint "How to Share data for Collaboration" touches on many of the same points at https://peerj.com/preprints/3139v5.pdf
+    
+We want:
+
+1. The raw data.
+2. A tidy data set.
+3. A codebook describing each variable and its values in the tidy data set.
+4. An explicit and exact recipe describing how you went from 1 to 2 and 3.
+
+
+## Data Organization in Spreadsheets: **Be Consistent**
+
+- Consistent codes for categorical variables.
+    - Either "M" or "Male" but not both at the same time.
+    - Make it clear enough to reduce dependence on a codebook.
+    - No spaces or special characters other than _ in category names.
+- Consistent fixed codes for missing values.
+    - NA is the most convenient R choice.
+- Consistent variable names
+    - In R, I'll use `clean_names` from the `janitor` package to turn everything into snake_case.
+    - In R, start your variable names with letters. No spaces, no special characters other than _.
+- Consistent subject / record identifiers
+    - And if you're building a .csv in Excel, don't use ID as the name of that identifier.
+- Consistent data layouts across multiple files.
+
+
+
+
+
+## What Goes in a Cell?
+
+- Make your data a rectangle.
+    - Each row represents a record (sometimes a subject).
+    - Each column represents a variable.
+    - First column is a unique identifier for each record.
+- No empty cells.
+- One Thing in each cell.
+- No calculations in the raw data
+- No font colors
+- No highlighting
+
+## Naming Files is Hard (https://xkcd.com/1459/)
+
+```{r, echo = FALSE, fig.align = "center", out.height = '80%'}
+knitr::include_graphics("figures/documents.png")
+```
+
+## How To Name Files
+
+```{r, echo = FALSE, fig.align = "center", out.height = '80%'}
+knitr::include_graphics("figures/bryan_names_no_yes.png")
+```
+
+## Data Organization in Spreadsheets: Use consistent, strong file names.
+
+Jenny Bryan's advice on "Naming Things" hold up well. There's a full presentation at [SpeakerDeck](https://speakerdeck.com/jennybc/how-to-name-files).
+
+Good file names:
+
+- are machine readable (easy to search, easy to extract info from names)
+- are human readable (name contains content information, so it's easy to figure out what something is based on its name)
+- play well with default ordering (something numeric first, left padded with zeros as needed, use ISO 8601 standard for dates)
+
+Avoid: spaces, punctuation, accented characters, case sensitivity
+
+## from Jenny Bryan's "Naming Things" slides...
+
+```{r, echo = FALSE, fig.align = "center", out.height = '80%'}
+knitr::include_graphics("figures/bryan_leftpad.png")
+```
+
+## Jenny Bryan: Deliberate Use of Delimiters
+
+Deliberately use delimiters to make things easy to compute on and make it easy to recover meta-data from the filenames.
+
+```{r, echo = FALSE, fig.align = "center", out.height = '60%'}
+knitr::include_graphics("figures/bryan_delimiters.png")
+```
+
+## Don't get too cute.
+
+```{r, echo = FALSE, fig.align = "center", out.width = '80%'}
+knitr::include_graphics("figures/bryan_tw_naming01.png")
+```
+
+## Goal: Avoid this...
+
+```{r, echo = FALSE, fig.align = "center", out.height = '80%'}
+knitr::include_graphics("figures/final_names.png")
+```
+
+## Get organized
+
+```{r, echo = FALSE, fig.align = "center", out.height = '60%'}
+knitr::include_graphics("figures/bryan_get_organized.png")
+```
+
+Don't spend a lot of time bemoaning or cleaning up past ills. Strive to improve this sort of thing going forward.
+
+## "Good Enough Practices in Scientific Computing"
+
+1. Save the raw data.
+2. Ensure that raw data is backed up in more than one location.
+3. Create the data you wish to see in the world (the data you wish you had received.)
+4. Create analysis-friendly, tidy data.
+5. Record all of the steps used to process data.
+6. Anticipate the need for multiple tables, and use a unique identifier for every record.
+
+**http://bit.ly/good-enuff**
+
+Lots of great advice here on software, collaboration and project organization.
+
+# Something Practical: Building Table 1
+
+## An Original Clinical Investigation
+
+![](figures/bradley_title.png)
+
+[Link to Source](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2720923)
+
+## Part of Bradley et al.'s Table 1
+
+![](figures/bradley_table1.png)
+
+## Table Creation Instructions, JAMA: [linked here](https://jama.jamanetwork.com/data/ifora-forms/jama/tablecreationinst.pdf)
+
+![](figures/jama_table_instructions.png)
+
+## A Data Set
+
+The `bradley.csv` data set on our web site is simulated, but consists of 1,374 observations (687 Cases and 687 Controls) containing:
+
+- a subject identification code, in `subject`
+- `status` (case or control)
+- age (in years)
+- sex (Male or Female)
+- race/ethnicity (white or non-white)
+- married (1 = yes or 0 = no)
+- location (ICU, bed, other)
+
+The `bradley.csv` data closely match the summary statistics provided in Table 1 of the Bradley et al. article. Our job is to recreate that part of Table 1, as best as we can.
+
+## The `bradley.csv` data (first 5 rows)
+
+- The `bradley_sim.md` file on our web site shows you how I simulated the data.
+
+![](figures/bradley_csv.png)
+
+## To "Live" Coding
+
+On our web site (Data and Code + Class 01 materials)
+
+- In the `data` folder:
+    - `bradley.csv` data file
+- `bradley_table1.Rmd` R Markdown script
+- `bradley_table1.md` Results of running R Markdown
+- `bradley_table1_result.csv` is the table generated by that R Markdown script
+
+# To The "Live Code"
+
+## Opening `bradley_table1_result.csv` in Excel
+
+![](figures/bradley_table1_result.png)
+
+## Learning More About Table 1
+
+Chapter 1 of the Course Notes covers two larger examples, and more details, like...
+
+- specifying factors, and re-ordering them when necessary
+- using non-normal summaries or exact categorical tests
+- dealing with warning messages and with missing data
+- producing Table 1 in R so you can cut and paste it into Excel or Word
+
+FYI: Lab 01 requires you to build a Table 1 from data.
+
+## Wrapping Up
+
+Today we discussed
+
+1. Why I write dates the way I do
+2. Mechanics of the course
+3. Data organization in spreadsheets
+4. Naming Things and Getting Organized
+5. Building a Table 1 (review Course Notes, Chapter 1)
+
+### Next Steps?
+
+- Complete the Welcome to 432 survey by tomorrow noon.
+- Look over the syllabus and the website, get R up and running.
+- Look at the suggestions in the Class 01 README.
+- Get started reading Leek's short book.
+- You **can** do this.
