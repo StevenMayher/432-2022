@@ -88,17 +88,25 @@ Again, if you haven't taken the survey already, please [do so today](https://bit
     - With regard to the upcoming semester, I am hopeful that we can deliver an effective course, and that we can connect with each of you in a helpful, supportive way. 
     - I am very grateful for [our teaching assistants](https://thomaselove.github.io/432-2022-syllabus/teaching-assistants.html), who do a lot to keep us all moving forward (especially me). [Please let us know](https://thomaselove.github.io/432/contact.html) if we can help you along the way.
 2. Has Dr. Love been boosted against COVID-19?
-    - Yes. Three Pfizer shots.
+    - Yes. Three Pfizer shots. No one in my immediate family has contracted the illness, to our knowledge.
 3. How did Dr. Love spend his holiday season?
     - With my wife and two (adult) children, in the house. We watched a fair amount of stuff together, and did a lot of crossword puzzles and spelling bees, and ate, a lot. The kids and I are now doing [Wordle](https://www.powerlanguage.co.uk/wordle/).
     - My older son has now returned to his apartment in Pittsburgh where he does geographic information systems work for the National Mine Map Repository.
-    - My younger son is in his second year of college (Columbia University) - starting remote classes next week.
-4. Are there multiple students who did not take 431 this past Fall?
-    - Yes, three or four, I think. 
-5. (from a student who did not take 431 with us in the Fall) Are there any specific parts of 431 that we should review and pay special attention to and that will be integral to succeeding in 432? 
+    - My younger son is in his second year of college (Columbia University) - starting remote classes next week for two weeks.
+4. Are the deadlines in the Course Calendar a complete description of what will be required of us this term?
+    - Yes, even though most of the actual instructions for the assignments are not yet posted - every deadline is already on the Calendar. More detailed instructions for all assignments should appear by one week from today.
+5. Are there multiple students in 432 who did not take 431 this past Fall?
+    - Yes, four or five of the 44 students who are enrolled, I think. 
+6. (from a student who did not take 431 with us in the Fall) Are there any specific parts of 431 that we should review and pay special attention to and that will be integral to succeeding in 432? 
     - I expect the most obviously useful elements will be the discussion of specific R packages and functions related to working with linear models. It would also be helpful to look at the lab assignments and project requirements and tips from 431 since we build on that knowledge in the 432 materials. [The R-basics document](https://github.com/THOMASELOVE/432-2022/tree/main/r-basics) from the 432 R and Data menu is certainly worth some of your time, too.
-6. How can I express interest in being a TA next year?
+7. Do you plan to video record all class sessions this term?
+    - Yes, although I may make a mistake at some point.
+8. Will the class go back to being "in person" after the first four sessions?
+    - That's the plan as of now, yes. When that happens, "live" Zoom sessions will no longer be available, but recordings will continue.
+9. How can I express interest in being a TA next year?
     - After this semester is over, Dr. Love will send out an email to everyone who completed 432 in the past two years (plus all of this year's TAs) to explain the process and what would be required of you. If you're interested, all you need to do is respond to that email and apply. We have both compensated (very lightly compensated) and volunteer positions available, and I typically find a position for all applicants that are interested. I welcome anyone and everyone to help. There's plenty of work to go around.
+10. Are you performing in any shows this semester?
+    - The show "Something Rotten" at Hudson Players that I was scheduled to be in has been postponed from February to a new date in Fall 2022 that we cannot announce yet. I have no current plans to do any other shows before that.
 
 ## One Last Thing
 
