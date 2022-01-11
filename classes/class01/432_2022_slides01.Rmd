@@ -50,7 +50,7 @@ Every deliverable for the entire semester is listed in the Calendar, except for 
         1. Proposal due 2022-01-31 (data selection, cleaning, exploration)
         2. Final Materials due 2022-03-04 (analyses, discussion)
     - Project 2 (use almost any data you like and analyze it well)
-- Two Quizzes (Quiz 1 due 2022-02-21, Quiz 2 due 2022-03-28)
+- Two Quizzes (Quiz 1 due 2022-02-21, Quiz 2 due 2022-04-18)
     - Multiple choice and short answer, mostly, taken via a Google Form
 - Six labs  
     - Labs will be posted before our next class. Lab 01 is due Monday 2022-01-24 at 9 PM.
