@@ -23,7 +23,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - If you have this email, please attend to what it asks you to do (register for the Zoom sessions, take the Welcome to 432 survey, buy two books (and read the book by Leek) and get started updating/installing R and R Studio). 
     - If you don't have this email, please let me know that via email to **Thomas dot Love at case dot edu** now.
 2. If you haven't taken the Welcome to 432 survey already, please [do so today](https://bit.ly/432-2022-welcome-survey).
-    - Thanks to the 32 of you who've already completed the survey!
+    - Thanks to the 34 of you who've already completed the survey as of 12:15 this afternoon!
 3. Lab 01 will be posted soon and is due Monday 2022-01-24 at 9 PM.
     - To do this Lab, you'll need to have [R and RStudio up and running for you](https://thomaselove.github.io/432/software_install.html), and [download the data from our Data site](https://thomaselove.github.io/432/data_index.html).
 4. Please read the [Syllabus](https://thomaselove.github.io/432-2022-syllabus/) and familiarize yourself with the [Course Website](https://thomaselove.github.io/432), the Shared Google Drive (which you can see from your Google CWRU account), [Piazza](https://piazza.com/case/spring2022/pqhs432) (be sure you can log in to this tool) and [Canvas](https://canvas.case.edu/) before Thursday's class so that if you have any questions or problems getting started, we can settle them quickly.
