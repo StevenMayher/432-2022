@@ -1,0 +1,715 @@
+---
+title: "432 Class 02 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-01-13"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+## Today's Agenda
+
+- Linear Regression with Categorical Predictors
+- Building Two-Way ANOVA models with interaction
+- Building Analysis of Covariance Models
+
+We'll use some BRFSS/SMART data about Ohio residents to address the following questions.
+
+1. What is the association of diabetes diagnosis and smoking status on BMI?
+2. Does adjusting for subject's age affect our assessments?
+3. How does the subject's level of physical activity fit into this?
+
+**Chapter 2** of the Course Notes builds the BRFSS/SMART data.
+
+## Setup 
+
+```{r, message = FALSE}
+knitr::opts_chunk$set(comment = NA)  
+options(width = 60)     ## for the slides
+
+library(here)           ## project management
+library(knitr)          ## mostly for kable
+library(mosaic)         ## mostly for favstats
+library(patchwork)      ## combine plots
+library(janitor)        ## mostly for tabyl
+library(naniar)         ## missing data tools
+library(simputation)    ## for single imputation
+library(broom)          ## for tidying model output
+library(tidyverse)      ## as always (dplyr, ggplot2, etc.)
+
+theme_set(theme_bw())   ## my personal preference
+```
+
+- I used `message = FALSE` in the code chunk setup.
+
+## Codebook of variables we'll select from `smart_ohio`
+
+```{r, message = FALSE}
+smart_ohio <- read_csv(here("data/smart_ohio.csv"))
+
+dim(smart_ohio)
+```
+
+We'll sample 432 observations from `smart_ohio` on these six variables...
+
+Variable | Type | Description
+-------- | ----- | -------------
+`SEQNO` | ID code | we'll represent as a character
+`bmi` | Quantity | body-mass index (in kg/m^2^)
+`smoker` | 4 levels | smoking status (we'll collapse to 3 levels) 
+`dm_status` | 4 levels | diabetes status (we'll collapse to 2)
+`activity` | 4 levels | physical activity level (we'll re-level)
+`age_imp` | Quantity | age (imputed from groups, see Chapter 2)
+
+## Create our working data set (`day2`)
+
+```{r}
+set.seed(43202)                                ## note 1
+
+day2 <- smart_ohio %>%                         ## note 2
+    select(SEQNO, bmi, smoker, dm_status, 
+           activity, age_imp) %>%              ## note 3
+    slice_sample(n = 432) %>%                  ## note 4
+    type.convert(as.is = FALSE) %>%            ## note 5
+    mutate(SEQNO = as.character(SEQNO))        ## note 6
+```
+
+1. set seed for random sampling
+2. modify `smart_ohio` data and place in new `day2` tibble
+3. select our six variables
+4. take a random sample of 432 rows from the data
+5. convert all character variables into factors
+6. set ID code as a character variable
+
+## The `day2` tibble, printed
+
+```{r}
+day2
+```
+
+## Initial Data Checking (Quantities)
+
+```{r, message = FALSE}
+favstats(~ bmi, data = day2) %>% kable(dig = 1)
+```
+
+```{r}
+favstats(~ age_imp, data = day2) %>% kable(dig = 1)
+```
+
+1. Do the observed ranges of values look plausible in context?
+2. Are there missing values we need to deal with?
+
+## Checking the Categorical Data (`activity`)
+
+```{r}
+day2 %>% count(activity)
+```
+
+> - What does `<NA>` mean? What should we do with this variable?
+
+> - Shortly, we'll **reorder** these levels in a more sensible way (suggestions?) and then we'll have to deal with the missing values, somehow.
+
+## Checking the Categorical Data (`smoker`)
+
+```{r}
+day2 %>% count(smoker)
+```
+
+> - OK. Some missing values to deal with. What else might we do here?
+
+> - Shortly, we'll **collapse** this from 4 to 3 levels (how?)
+
+> - I think we'll go with Current, Former and Never
+
+## Checking the Categorical Data (`dm_status`)
+
+```{r}
+day2 %>% count(dm_status)
+```
+
+> - Next Steps?
+
+> - Shortly, we'll collapse this to two levels (how might we do that?) and then we'll deal with the missing information.
+
+## Re-ordering and collapsing in `day2`
+
+```{r}
+day2 <- day2 %>%
+    mutate(activity = 
+               fct_relevel(activity, "Highly_Active", 
+                           "Active", "Insufficiently_Active",
+                           "Inactive")) %>%
+    mutate(smoker = 
+               fct_collapse(smoker, 
+                    Current = c("Current_not_daily", 
+                                "Current_daily"))) %>%
+    mutate(dm_status = 
+               fct_collapse(dm_status,
+                            No = c("No-Diabetes", 
+                                   "Pre-Diabetes",
+                                   "Pregnancy-Induced"),
+                            Yes = "Diabetes"))
+```
+
+## Sanity Checks
+
+```{r}
+day2 %>% tabyl(activity) %>% adorn_pct_formatting()
+```
+
+- Still need to deal with the missing values, but now the order makes sense.
+
+## Sanity Checks
+
+```{r}
+day2 %>% tabyl(dm_status, smoker)
+```
+
+- OK, now we have two `dm_status` levels and three `smoker` levels, although we don't have a lot of currently smoking people with diabetes.
+- Once we deal with the missing values, we should be all set.
+
+## How many missing values in each variable?
+
+```{r, fig.height = 4, warning = FALSE}
+gg_miss_var(day2) +
+    labs(title = "Missing values in day2 (n = 432)")
+```
+
+- I used `warning = FALSE` in the code chunk setup.
+
+## Table of missing values in each variable?
+
+We can also just get a count of missing values for each variable with `miss_var_summary()`, which is also part of `naniar`.
+
+```{r}
+miss_var_summary(day2)
+```
+
+## How many missing values per row (subject)?
+
+```{r}
+miss_case_table(day2)  ## also from naniar package
+```
+
+- How many observations would we lose in a complete case analysis?
+- Can we make the necessary assumption for a complete case analysis?
+
+## What do we lose in a complete case analysis?
+
+```{r}
+day2_cc <- day2 %>%
+    filter(complete.cases(.))
+
+dim(day2_cc)
+```
+
+This seems clean in some ways (and is the default approach in software), but actually it hides a very important assumption, that the data are **missing completely at random**.
+
+```{r}
+prop_miss_case(day2); prop_miss_case(day2_cc)
+```
+
+
+## Missing Data Mechanisms (Notes, Chapter 3)
+
+- Missing Completely at Random (MCAR)
+    - The probability of missing data is the same for every subject, so that throwing out cases with missing data does not bias inferences.
+
+- Missing at Random (MAR)
+    - Here, the probability that a variable is missing depends only on available information in your data (the other variables we have). If this is so, then **imputation** is the most appropriate option.
+
+- Missing Not at Random (MNAR)
+    - Whether data are missing is dependent on either unobserved predictors, or on the actual true (but unavailable) value of the observation itself or both. Even imputation cannot solve the problem.
+
+What should we assume in our `day2` scenario?
+
+## Formulating a single imputation plan 
+
+```{r}
+miss_var_summary(day2) %>% kable()
+```
+
+Today, we'll use a *naive* approach to generating a single imputation.
+
+- Impute `dm_status` with a random draw from its distribution.
+- Use CART to impute `smoker` and `activity` from `dm_status`.
+- Impute quantities via robust linear models using the factors.
+
+## Single imputation in `day2` to yield `day2_im`
+
+```{r}
+set.seed(432021)
+day2_im <- day2 %>%
+    data.frame() %>%
+    impute_rhd(., dm_status ~ 1) %>%
+    impute_cart(., smoker + activity ~ dm_status) %>%
+    impute_rlm(., age_imp + bmi ~ 
+                   dm_status + smoker + activity) %>%
+    tibble()
+```
+
+- `impute_rhd` (random hot deck) for `dm_status`
+- `impute_cart` (classification and regression trees) for other factors
+- `impute_rlm` (robust linear model) for `age_imp` and `bmi`
+
+```{r}
+prop_miss_case(day2_im)
+```
+
+## Draw the outcome?
+
+- We're interested in diabetes and smoking's association with BMI
+    - What do the BMI data look like? (plots shown on next slide)
+
+```{r, eval = FALSE}
+p1 <- ggplot(day2_im, aes(x = bmi)) +
+    geom_histogram(fill = "navy", col = "white", 
+                   binwidth = 2) +
+    labs(title = "Histogram of BMI")
+
+p2 <- ggplot(day2_im, aes(sample = bmi)) +
+    geom_qq(col = "navy") + geom_qq_line(col = "red") +
+    labs(title = "Normal Q-Q plot of BMI")
+
+p1 + p2
+```
+
+## BMI data in `day2_im`
+
+```{r, echo = FALSE, fig.height = 5}
+p1 <- ggplot(day2_im, aes(x = bmi)) +
+    geom_histogram(fill = "navy", col = "white", 
+                   binwidth = 2) +
+    labs(title = "Histogram of BMI")
+
+p2 <- ggplot(day2_im, aes(sample = bmi)) +
+    geom_qq(col = "navy") + geom_qq_line(col = "red") +
+    labs(title = "Normal Q-Q plot of BMI")
+
+p1 + p2
+```
+
+- These data are a little right-skewed. Transform?
+
+## Consider a logarithmic transformation of BMI?
+
+```{r, echo = FALSE, fig.height = 5}
+p1a <- ggplot(day2_im, aes(x = log(bmi))) +
+    geom_histogram(fill = "navy", col = "white", 
+                   binwidth = 0.1) +
+    labs(title = "Histogram of log(BMI)")
+
+p2a <- ggplot(day2_im, aes(sample = log(bmi))) +
+    geom_qq(col = "navy") + geom_qq_line(col = "red") +
+    labs(title = "Normal Q-Q plot of log(BMI)")
+
+p1a + p2a
+```
+
+## Compare log(BMI) by diabetes and by smoking
+
+```{r, echo = FALSE, fig.height = 5}
+p1b <- ggplot(day2_im, aes(x = dm_status, y = log(bmi))) +
+    geom_violin(col = "navy") +
+    geom_boxplot(width = 0.3, fill = "dodgerblue", notch = T) +
+    labs(title = "log(BMI) by diabetes status")
+
+p2b <- ggplot(day2_im, aes(x = smoker, y = log(bmi))) +
+    geom_violin(col = "red") +
+    geom_boxplot(width = 0.3, fill = "tomato", notch = T) +
+    labs(title = "log(BMI) by smoking status")
+
+p1b + p2b
+```
+
+## log(BMI) by diabetes and smoking together
+
+```{r, echo = FALSE, fig.height = 5}
+ggplot(day2_im, aes(x = dm_status, y = log(bmi))) +
+    geom_violin(col = "navy") +
+    geom_boxplot(width = 0.3, fill = "dodgerblue", notch = T) +
+    labs(title = "log(BMI) by diabetes and smoking status") +
+    facet_wrap(~ smoker, labeller = "label_both")
+```
+
+## Finding the Means of Each Group
+
+We'll plot the mean of `log(bmi)` in six combinations:
+
+- two levels of `dm_status` combined with
+- three levels of `smoker`
+
+```{r}
+summaries_1 <- day2_im %>%
+    group_by(dm_status, smoker) %>%
+    summarise(n = n(), mean = mean(log(bmi)), 
+              stdev = sd(log(bmi)))
+```
+
+We can suppress this message with `message = FALSE` in the code chunk label.
+
+## Here are the means of log(BMI) in each group
+
+```{r}
+summaries_1 %>% kable(digits = 2)
+```
+
+- Can we plot this information?
+
+## Plotting the Means (code)
+
+```{r, eval = FALSE}
+ggplot(summaries_1, aes(x = dm_status, y = mean, 
+                        col = smoker)) +
+    geom_point(size = 2) +
+    geom_line(aes(group = smoker)) +
+    labs(y = "log(bmi)", 
+         title = "Observed Means of log(BMI)",
+         subtitle = "by Diabetes and Smoking Status")
+```
+
+## Plotting the Means (results)
+
+```{r, echo = FALSE, fig.height = 5}
+ggplot(summaries_1, aes(x = dm_status, y = mean, 
+                        col = smoker)) +
+    geom_point(size = 2) +
+    geom_line(aes(group = smoker)) +
+    labs(y = "log(bmi)", 
+         title = "Observed Means of log(BMI)",
+         subtitle = "by Diabetes and Smoking Status")
+```
+
+## Adding in standard deviations (code)
+
+```{r, eval = FALSE}
+pd <- position_dodge(0.1)
+ggplot(summaries_1, aes(x = dm_status, y = mean, 
+                        col = smoker)) +
+    geom_errorbar(aes(ymin = mean - stdev,
+                      ymax = mean + stdev),
+                      width = 0.1, position = pd) +
+    geom_point(size = 2, position = pd) +
+    geom_line(aes(group = smoker)) +
+    labs(y = "log(bmi)", 
+         title = "Means (+/- SD) of log(BMI)",
+         subtitle = "by Diabetes and Smoking Status")
+
+```
+
+## Adding in standard deviations (code)
+
+```{r, echo = FALSE, fig.height = 5}
+pd <- position_dodge(0.1)
+ggplot(summaries_1, aes(x = dm_status, y = mean, 
+                        col = smoker)) +
+    geom_errorbar(aes(ymin = mean - stdev,
+                      ymax = mean + stdev),
+                      width = 0.1, position = pd) +
+    geom_point(size = 2, position = pd) +
+    geom_line(aes(group = smoker)) +
+    labs(y = "log(bmi)", 
+         title = "Means (+/- SD) of log(BMI)",
+         subtitle = "by Diabetes and Smoking Status")
+```
+
+## Review: One-Factor Analysis of Variance
+
+```{r}
+m1 <- lm(log(bmi) ~ dm_status, data = day2_im)
+
+anova(m1)
+```
+
+## Tidied `m1` output
+
+```{r}
+tidy(m1, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, t = statistic, p = p.value) %>%
+    kable(digits = c(0,2,2,2,2,2,5))
+```
+
+## Revising the order?
+
+```{r}
+day2_im <- day2_im %>% 
+    mutate(dm_status = fct_relevel(dm_status, "No", "Yes"))
+
+m1 <- lm(log(bmi) ~ dm_status, data = day2_im)
+
+tidy(m1, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, t = statistic, p = p.value) %>%
+    kable(digits = c(0,2,2,2,2,2,5))
+```
+
+## Glancing at `m1`
+
+```{r}
+glance(m1) %>%
+    select(r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+    kable(digits = c(3, 3, 2, 1, 1))
+```
+
+## Developing a Two-Factor Model
+
+We want to describe the mean of log(BMI) as a function of **both**
+
+- the two-level factor `dm_status`, and
+- the three-level factor `smoker`
+
+One decision is whether we'll consider an **interaction** term between these two factors.
+
+- A model with the interaction will fit the data a bit better, by some measures.
+- A model with the interaction is most appropriate if we believe the `dm_status` relationship with log(BMI) changes depending on the level of `smoker`.
+    - or at least if we are unwilling to assume the `smoker` effect is the same regardless of `dm_status`
+
+## What is an interaction term (a product term)?
+
+When we build our two-way model with interaction, we'll include a product term
+
+```{r}
+m2 <- lm(log(bmi) ~ dm_status*smoker, data = day2_im)
+```
+
+as compared to a model without interaction, which we'd fit with:
+
+```{r}
+m2_no <- lm(log(bmi) ~ dm_status + smoker, data = day2_im)
+```
+
+Our main tool in thinking about these will be a means plot.
+
+## Two-Way ANOVA with Interaction
+
+```{r}
+m2 <- lm(log(bmi) ~ dm_status*smoker, data = day2_im)
+
+anova(m2)
+```
+
+
+## Tidied `m2` coefficients
+
+```{r}
+tidy(m2, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,2,2,2,3))
+```
+
+## Interpreting `m2` (the interaction model)
+
+`m2` estimates derived from the indicator (1/0) variables
+
+```
+log(BMI) = 3.298 + 0.139 (dm_status = Yes) 
+        + 0.011 (smoker = Former) + 0.013 (smoker = Never) 
+        - 0.060 (dm = Yes)(smoker = Former)
+        - 0.036 (dm = Yes)(smoker = Never)
+```
+
+> - Estimated mean for a current smoker with no diabetes diagnosis?
+    - log(BMI) = 3.298, so estimated BMI = exp(3.298) = 27.06
+> - Estimated mean for a never smoker with no diabetes diagnosis?
+    - log(BMI) = 3.298 + 0.013 = 3.311, so BMI = exp(3.311) = 27.41
+> - Estimated mean for a never smoker with a diabetes diagnosis?
+    - log(BMI) = 3.298 + 0.139 + 0.013 - 0.036 = 3.414; BMI = 30.39
+
+## What if we assume there's no interaction?
+
+```{r}
+m2_no <- lm(log(bmi) ~ dm_status + smoker, data = day2_im)
+
+anova(m2_no)
+```
+
+
+## Tidied `m2_no` coefficients
+
+```{r}
+tidy(m2_no, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,2,2,2,3))
+```
+
+## Interpreting `m2_no` (no interaction model)
+
+`m2` estimates derived from the indicator (1/0) variables
+
+```
+log(BMI) = 3.303 + 0.101 (dm_status = Yes) 
+                 + 0.002 (smoker = Former) 
+                 + 0.008 (smoker = Never) 
+```
+
+- Estimated mean for a current smoker with no diabetes diagnosis?
+    - log(BMI) = 3.303, so estimated BMI = exp(3.303) = 27.19
+- Estimated mean for a never smoker with no diabetes diagnosis?
+    - log(BMI) = 3.303 + 0.008 = 3.311, so BMI = exp(3.311) = 27.41
+- Estimated mean for a never smoker with a diabetes diagnosis?
+    - log(BMI) = 3.303 + 0.008 + 0.101 = 3.412 so BMI = 30.33
+
+## What did we see in the data?
+
+Estimates of mean(log(BMI)) from the two models, vs. the actual data.
+
+`dm_status` | `smoker` | n | actual | `m2` est. | `m2_no` est.
+-------: | -----: | ---: | ----: | ----: | ----:
+No | Current | 67 | 3.298 | 3.298 | 3.303
+No | Never | 197 | 3.311 | 3.311 | 3.311
+Yes | Never | 34 | 3.414 | 3.414 | 3.412
+No | Former | 101 | 3.309 | 3.309 | 3.305
+Yes | Current | 10 | 3.437 | 3.437 | 3.404
+Yes | Former | 23 | 3.389 | 3.389 | 3.406
+
+- The two-way ANOVA model with interaction simply reproduces the observed means.
+- Not clear we want to assume the interaction effect is actually zero.
+
+## Interaction Plot shows non-parallel lines?
+
+```{r, echo = FALSE, fig.height = 5}
+p1 <- ggplot(summaries_1, aes(x = smoker, y = mean, 
+                        col = dm_status)) +
+    geom_point(size = 2) +
+    geom_line(aes(group = dm_status)) +
+    labs(y = "log(bmi)", 
+         title = "Observed Means of log(BMI)")
+
+p2 <- ggplot(summaries_1, aes(x = dm_status, y = mean, 
+                        col = smoker)) +
+    geom_point(size = 2) +
+    geom_line(aes(group = smoker)) +
+    labs(y = "log(bmi)", 
+         title = "Observed Means of log(BMI)")
+
+p1 / p2 + plot_annotation(title = "Two versions of the Means Plot")
+```
+
+## How about % of variation explained measures?
+
+```{r}
+tidy(anova(m2)) %>% select(term, df, sumsq) %>% 
+    kable(dig = c(0, 0, 4))
+```
+
+- $R^2$ associated with the interaction term?
+    - SS(interaction) is 0.0214
+    - SS(`m2`) = 0.5748 + 0.0051 + 0.0214 = 0.6013
+    - Interaction accounts for 3.6% of the variation explained by `m2`
+    - Interaction accounts for 0.0214 / (0.6013 + 16.3282) = 0.0013, or about 0.13% of the variation in log(BMI)
+
+## Comparison of Fit across the models?
+
+```{r}
+comp_table <- bind_rows( glance(m2), glance(m2_no) ) %>%
+    mutate(mod = c("m2", "m2_no"))
+
+comp_table %>%
+    select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+    kable(dig = c(0, 3, 3, 3, 1, 1))
+```
+
+- Is there much to choose from in comparing the in-sample performance?
+
+## How else can we assess the fit of these models?
+
+We're not keen on making model decisions based on significance tests. Model selection doesn't actually work well, in practice.
+
+```{r}
+anova(m2, m2_no)
+```
+
+- We'd rather think about how the two models reflect the data we have *and* predict on new data.
+
+## OK, what if we add age as a covariate?
+
+ANCOVA model `m3` takes our model `m2` (with interaction) and adds in `age_imp` (centered by subtracting off its mean) as a predictor. 
+
+```{r}
+day2_im <- day2_im %>%
+    mutate(age_c = age_imp - mean(age_imp))
+
+day2_im %>% select(age_imp, age_c) %>% summary()
+```
+
+## OK, what if we add age as a covariate?
+
+Here's an analysis of **covariance** model `m3` with a factor-factor interaction, plus a centered quantitative covariate.
+
+```{r}
+m3 <- lm(log(bmi) ~ dm_status * smoker + age_c,
+         data = day2_im)
+```
+
+Does this change the nature of the relationship we see between `dm_status`, `smoker` and `bmi`?
+
+## Model `m3` coefficients
+
+```{r}
+tidy(m3, conf.int = TRUE, conf.level = 0.90) %>% 
+    select(term, estimate, low90 = conf.low, 
+           high90 = conf.high) %>% kable(dig = 3)
+```
+
+## ANOVA results for `m2` and `m3`
+
+```{r}
+tidy(anova(m3)) %>% select(term, df, sumsq) %>% kable(dig = 3)
+tidy(anova(m2)) %>% select(term, df, sumsq) %>% kable(dig = 3)
+```
+
+## Does `age_imp` improve quality of fit?
+
+```{r}
+comp_table <- bind_rows( glance(m2), glance(m3) ) %>%
+    mutate(mod = c("m2", "m3"))
+
+comp_table %>%
+    select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+    kable(dig = c(0, 3, 3, 3, 1, 1))
+```
+
+## How about if we add a third factor (`activity`)?
+
+```{r}
+m4 <- lm(log(bmi) ~ dm_status * smoker + age_c + activity, 
+          data = day2_im)
+tidy(anova(m4)) %>% select(term, df, sumsq) %>% 
+    kable(dig = 3)
+```
+## Does `activity` improve quality of fit?
+
+```{r}
+comp_table <- bind_rows( glance(m1), glance(m2), glance(m3), 
+                     glance(m4)) %>%
+    mutate(mod = c("m1", "m2", "m3", "m4"))
+
+comp_table %>%
+    select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+    kable(dig = c(0, 3, 3, 3, 1, 1))
+```
+
+## What's next?
+
+- Is it feasible to look at the assumptions of these models?
+- Could we consider additional interaction terms?
+    - factor-factor interactions?
+    - factor-covariate interactions?
+- Interaction is just one type of non-linearity. Can we include other types?
+- Should we think more about back-transformation in this setting?
+- Could we split the sample and consider how well we'd predict in new data?
+- Is `lm` the best way to fit regression models to a quantitative outcome like log(`bmi`)?
+
+Can we build up our framework for developing regression models?
+
