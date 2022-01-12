@@ -4,7 +4,10 @@
 :-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
 for everything | deadlines | expectations | from Dr. Love | zoom info | downloads | read/watch | need help?
 
-# More to come.
+## Materials for Today's Class
+
+- Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class02/432_2022_slides02.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class02/432_2022_slides02.Rmd).
+- All 432 classes are video-recorded, and the recordings are archived on Canvas. Access the recordings through links on our Shared Drive.
 
 ## Getting Help
 
