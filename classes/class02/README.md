@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Getting Help
 
-The schedule for TA office hours (all of which happen over Zoom) are listed below, and also part of the [Syllabus](https://thomaselove.github.io/432-2022-syllabus/), the [Calendar](https://thomaselove.github.io/432/calendar.html) and the [Contact Us](https://thomaselove.github.io/432/contact.html) pages. 
+The schedule for TA office hours (all of which happen over Zoom) are listed below, and is also now part of the [Syllabus](https://thomaselove.github.io/432-2022-syllabus/), the [Calendar](https://thomaselove.github.io/432/calendar.html) and the [Contact Us](https://thomaselove.github.io/432/contact.html) pages. 
 
 - Zoom information will be posted to our Shared Google Drive and to Canvas as soon as possible.
 
