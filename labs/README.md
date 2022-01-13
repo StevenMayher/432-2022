@@ -4,7 +4,7 @@ The deadlines for all Lab assignments are scheduled on Monday evenings at 9 PM, 
 
 ## Lab 01
 
-Instructions for this Lab will be available soon.
+All materials for this Lab [are available here](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01).
 
 ## Lab 02
 
