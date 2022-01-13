@@ -18,7 +18,7 @@ A suggested R Markdown template for Lab 01 [is available here](https://github.co
 
 ## Questions?
 
-If you have questions about Lab 01, please ask them [at TA office hours](https://thomaselove.github.io/432/contact.html), or [via Piazza](https://piazza.com/case/spring2021/pqhs432) using the **lab01** folder.
+If you have questions about Lab 01, please ask them [at TA office hours](https://thomaselove.github.io/432/contact.html), or [via Piazza](https://piazza.com/case/spring2021/pqhs432) using the **lab1** folder.
 
 ## Post-Deadline Materials
 
