@@ -24,18 +24,18 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Getting Help
 
-The schedule for TA office hours (all of which happen over Zoom) are listed below, and is also now part of the [Syllabus](https://thomaselove.github.io/432-2022-syllabus/), the [Calendar](https://thomaselove.github.io/432/calendar.html) and the [Contact Us](https://thomaselove.github.io/432/contact.html) pages. 
+The schedule for TA office hours (all of which happen over Zoom) is listed below, and is also now part of the [Syllabus](https://thomaselove.github.io/432-2022-syllabus/), the [Calendar](https://thomaselove.github.io/432/calendar.html) and the [Contact Us](https://thomaselove.github.io/432/contact.html) pages. 
 
-- Zoom information will be posted to our Shared Google Drive and to Canvas as soon as possible.
+- Zoom information has now been posted to our Shared Google Drive and to the Announcements section of Canvas.
 
 Date | Time(s)
 ---: | :----------
-Sunday |	9:30 - 10:30 AM, 5:30 - 7:00 PM, 8:30 - 10:00 PM
-Monday |	5:00 - 6:30 PM, 7:00 - 8:30 PM
-Wednesday |	Noon - 1:30 PM
-Thursday |	6:00 - 7:30 PM
-Friday |	Noon - 1:00 PM
-Saturday |	10:30 AM - Noon, 3:30 - 5:00 PM
+Sunday | 9:30 - 10:30 AM, 5:30 - 7:00 PM, 8:30 - 10:00 PM
+Monday | 5:00 - 6:30 PM, 7:00 - 8:30 PM
+Wednesday | Noon - 1:30 PM
+Thursday | 6:00 - 7:30 PM
+Friday | Noon - 1:00 PM
+Saturday | 10:30 AM - Noon, 3:30 - 5:00 PM
 
 - Remember that [Piazza](https://piazza.com/case/spring2022/pqhs432) is available 24 hours a day, 7 days a week for your questions and answers.
 
