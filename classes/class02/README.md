@@ -13,7 +13,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. On our Shared Google Drive, you'll find a document called **Links to Video Recordings of 432 Classes - Spring 2022**. That's the best place to find links to the video recording and transcript (which you can download if you like.) 
     - I'll also try to keep these posted on Canvas through Echo 360, but I'm not 100% sure that's working properly at this point.
-2. [Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01) instructions and materials are now available. Materials for the remaining Labs and for Projects A and B should appear in the next seven days.
+2. [Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01) instructions and materials are now available. 
+    - Materials for Labs 2-6 and for Project A should appear in the next seven days.
 3. Our co-lead TA, Wyatt Bensken, is giving a Zoom seminar tomorrow (2022-01-14) from 9-10 AM as part of the Population Health Research Institute Seminar Series at MetroHealth, on "[Inconsistent Medicaid Coverage is Associated with Negative Health Events for People with Epilepsy](https://www.metrohealth.org/population-health-research-institute/seminar-series)." Additional details, including the Zoom link, [are available here](https://www.metrohealth.org/population-health-research-institute/seminar-series).
 
 ## What Should You Be Working On This Weekend?
@@ -39,4 +40,10 @@ Saturday | 10:30 AM - Noon, 3:30 - 5:00 PM
 
 - Remember that [Piazza](https://piazza.com/case/spring2022/pqhs432) is available 24 hours a day, 7 days a week for your questions and answers.
 
+## Three Last Things
 
+You might be interested in these (new to me) resources:
+
+- [The Hitchhiker’s Guide to Responsible Machine Learning](https://betaandbit.github.io/RML/#p=1) from Przemysław Biecek
+- [Statistical Analysis Illustrated (pdf)](https://statmodeling.stat.columbia.edu/wp-content/uploads/2022/01/Statistical-Analysis-Illustrated-Foundations.pdf) from Jeffrey Kottemann
+- Sprinkle some Studio Ghibli palette magic over your R plots with [the ghibli package](https://github.com/ewenme/ghibli)
