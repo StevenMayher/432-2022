@@ -9,6 +9,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class02/432_2022_slides02.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class02/432_2022_slides02.Rmd).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Drive.
 
+![](), [Link to Video](https://twitter.com/RoyalStatSoc/status/1481563876324003840)
+
 ## Announcements
 
 1. On our Shared Google Drive, you'll find a document called **Links to Video Recordings of 432 Classes - Spring 2022**. That's the best place to find links to the video recording and transcript (which you can download if you like.) 
