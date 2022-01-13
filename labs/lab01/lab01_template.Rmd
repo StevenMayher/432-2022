@@ -1,0 +1,77 @@
+---
+title: "432 Lab 01 Template"
+author: "Your Name Goes Here"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+        toc: TRUE
+        toc_float: TRUE
+        number_sections: TRUE
+        code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE}
+library(here)
+library(magrittr)
+library(janitor)
+
+# add other packages here as desired
+
+library(tidyverse)
+```
+
+## Import the `hbp3456` Data {-}
+
+This template assumes that you've placed the `hbp3456.csv` data set in a sub-folder called `data` beneath the `lab01` project directory you're using in R Studio.
+
+```{r, message = FALSE}
+lab01 <- read_csv(here("data", "hbp3456.csv")) %>%
+    mutate(record = as.character(record))
+
+lab01
+```
+
+### Verifying a Clean Load {-}
+
+Please feel free to use this section in checking your work, but it is not required in your submission, so it can be deleted. If you use some alternate approach to ingest the data, you might want to verify that the sum of the ages matches the sum it should be.
+
+```{r}
+lab01 %>% summarize(sum(age))
+```
+
+You might also check that you have the same distribution of `race` values as I show below.
+
+```{r}
+lab01 %>% tabyl(race)
+```
+
+A more complete summary of the data is available in the instructions for this Lab if you want to check something else.
+
+# Question 1
+
+Place your response to Question 1 here.
+
+# Question 2
+
+Place your response to Question 2 here.
+
+# Question 3
+
+Place your response to Question 3 here.
+
+# Question 4
+
+Place your response to Question 4 here, which should just be "My github name is ...".
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```
+
