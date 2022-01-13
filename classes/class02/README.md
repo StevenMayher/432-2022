@@ -11,16 +11,16 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. On our Shared Google Drive, you'll find a document called **Links to Video Recordings of 432 Classes - Spring 2022**. That's a good place to find links to each class' video recording and transcript (which you can download if you like.) 
+1. On our Shared Google Drive, you'll find a document called **Links to Video Recordings of 432 Classes - Spring 2022**. That's the best place to find links to the video recording and transcript (which you can download if you like.) 
     - I'll also try to keep these posted on Canvas through Echo 360, but I'm not 100% sure that's working properly at this point.
-2. [Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01) instructions and materials are now available.
+2. [Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01) instructions and materials are now available. Materials for the remaining Labs and for Projects A and B should appear in the next seven days.
 3. Our co-lead TA, Wyatt Bensken, is giving a Zoom seminar tomorrow (2022-01-14) from 9-10 AM as part of the Population Health Research Institute Seminar Series at MetroHealth, on "[Inconsistent Medicaid Coverage is Associated with Negative Health Events for People with Epilepsy](https://www.metrohealth.org/population-health-research-institute/seminar-series)." Additional details, including the Zoom link, [are available here](https://www.metrohealth.org/population-health-research-institute/seminar-series).
 
 ## What Should You Be Working On This Weekend?
 
 1. Read Jeff Leek's [How To Be a Modern Scientist](https://leanpub.com/modernscientist).
 2. Read through the [Course Syllabus](https://thomaselove.github.io/432-2022-syllabus/) and familiarize yourself with our [Course Website](https://thomaselove.github.io/432), especially the [Calendar](https://thomaselove.github.io/432/calendar.html), and be sure you can log into [Piazza](https://piazza.com/case/spring2022/pqhs432).
-3. Get your [R and R Studio installations](https://thomaselove.github.io/432/software_install.html) up to date, so you can work on [Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01), which is due at 9 PM on Monday 2022-01-24, as indicated by the [Calendar](https://thomaselove.github.io/432/calendar.html).
+3. Get your [R and R Studio installations](https://thomaselove.github.io/432/software_install.html) up to date, so you can get started on [Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01), which is due at 9 PM on Monday 2022-01-24, as indicated by the [Calendar](https://thomaselove.github.io/432/calendar.html).
 
 ## Getting Help
 
