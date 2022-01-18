@@ -2,7 +2,7 @@
 
 - The titles listed in **bold** at the top were mentioned by two students each. The others are listed alphabetically.
 - I've indicated the current (US) streaming situation as I understand it, and an indication of how much I've seen of each series.
-- n = 42/45 student responses so far...
+- n = 43/45 student responses so far...
 
 Show | Streaming | Dr Love? 
 :----------: | :--------: | :-----:
@@ -39,6 +39,7 @@ The Final Table | Netflix | No
 The Man in the High Castle | Amazon Prime | Every episode
 The Marvelous Mrs Maisel | Amazon Prime | Every episode
 The Walking Dead | Netflix | No
+The X-Files | Hulu | One or two episodes
 Tom and Jerry | HBO Max | One or two episodes
 Twin Peaks | Paramount Plus | Every episode
 WandaVision | Disney Plus | Every episode
