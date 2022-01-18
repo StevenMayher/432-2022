@@ -12,6 +12,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. I wrote up some detailed summaries of comments and other interesting things I learned from reading your [Welcome to 432 Survey responses](https://github.com/THOMASELOVE/432-2022/tree/main/minute/welcome). Please take a look.
+2. TA office hours begin Wednesday.
 
 ## More to come.
 
