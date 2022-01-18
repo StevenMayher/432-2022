@@ -1,8 +1,8 @@
 # TV series recommended by students in 432 (Spring 2022)
 
-- The four titles listed in **bold** were mentioned by two students each.
+- The titles listed in **bold** were mentioned by two students each.
 - I've indicated the current (US) streaming situation, and an indication of how much I've seen of each series.
-- n = 37 student responses so far...
+- n = 39 student responses so far...
 
 Show | Streaming | Dr Love? 
 :----------: | :--------: | :-----:
@@ -18,7 +18,7 @@ Community | Netflix | Seasons 1-5
 Criminal Minds | Netflix | No
 Downton Abbey | Netflix | One or two episodes
 Frasier | Hulu & Peacock | Every episode
-Friends | HBO Max | Most of the early seasons
+**Friends** | HBO Max | Most of the early seasons
 Game of Thrones | HBO Max | One or two episodes
 How I Met Your Mother | Hulu | Every episode
 **Mad Men** | Amazon Prime | One or two episodes
@@ -28,6 +28,7 @@ Parks and Recreation | Peacock | Every episode
 Prison Break | Hulu | No
 Sherlock | Amazon (purchase) | Every episode
 Succession | HBO Max | No
+Supernatural | Netflix | No
 Ted Lasso | Apple TV | Every episode
 The Crown | Netflix | One or two episodes
 The Family Man | Amazon Prime | No
