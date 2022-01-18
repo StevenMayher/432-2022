@@ -23,7 +23,23 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. I wrote up some detailed summaries of comments and other interesting things I learned from reading your [Welcome to 432 Survey responses](https://github.com/THOMASELOVE/432-2022/tree/main/minute/welcome). Please take a look.
 2. Here are the [TV series that students in 432 identified as favorites](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/tv.md) in response to [Syllabus section 14](https://thomaselove.github.io/432-2022-syllabus/one-more-thing.html).
-3. TA office hours begin Wednesday at noon. The schedule and Zoom links are found in our Shared Google Drive (432 Spring 2022 Dr Love and Students) in the **Schedule and Zoom Links: TA office hours for 432 in Spring 2022** document. Remember that [Piazza](https://piazza.com/case/spring2022/pqhs432) remains open for your questions (and answers!) at all times.
+3. TA office hours begin tomorrow (Wednesday 2022-01-19) at noon. The schedule and Zoom links are found in our Shared Google Drive (432 Spring 2022 Dr Love and Students) in the **Schedule and Zoom Links: TA office hours for 432 in Spring 2022** document. Remember that [Piazza](https://piazza.com/case/spring2022/pqhs432) remains open for your questions (and answers!) at all times.
 
-## More to come.
+## A New (to us) R Package
+
+[inspectdf](https://alastairrushworth.github.io/inspectdf/index.html) looks interesting to me. The package describes three aims:
+
+- to speed up repetitive checking and exploratory tasks for data frames
+- to make it easier to compare data frames for differences and inconsistencies
+- to support quick visualisation of data frames
+
+The R Function A Day tweet shown below [can be found here](https://twitter.com/rfunctionaday/status/1481853635978219521).
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/figures/inspect_cat.png)
+
+## One Last Thing
+
+Looking for R resources? You might want to bookmark [The Big Book of R](https://www.bigbookofr.com/index.html#your-last-ever-bookmark) which is a collection of links to more than 200 books about R.
+
+
 
