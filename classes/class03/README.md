@@ -15,7 +15,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) is your first substantial assignment. It is due Monday 2022-01-24 at 9 PM.
 3. By now, you should have ...
     - familiarized yourself with the [course website](https://thomaselove.github.io/432/), 
-    - completed reading through the class [Syllabus](https://thomaselove.github.io/432-2022-syllabus/), which [in section 14](https://thomaselove.github.io/432-2022-syllabus/one-more-thing.html) should have motivated you to post something about your favorite TV show on [Piazza](https://piazza.com/case/spring2022/pqhs432), 
+    - completed reading through the class [Syllabus](https://thomaselove.github.io/432-2022-syllabus/), which [in section 14](https://thomaselove.github.io/432-2022-syllabus/one-more-thing.html) should have motivated you to post something about your favorite TV show on [Piazza](https://piazza.com/case/spring2022/pqhs432) before today's class (though please feel encouraged to do it anyway now if you haven't.)
     - [updated your R and R Studio and installed the necessary packages for 432](https://thomaselove.github.io/432/software_install.html) so you can do [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md).
     - completed reading Jeff Leek's [How to be a Modern Scientist](https://leanpub.com/modernscientist) and you'll need to have done that to successfully complete [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md).
 
