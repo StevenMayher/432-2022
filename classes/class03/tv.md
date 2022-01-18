@@ -2,7 +2,7 @@
 
 - The titles listed in **bold** at the top were mentioned by two students each. The others are listed alphabetically.
 - I've indicated the current (US) streaming situation as I understand it, and an indication of how much I've seen of each series.
-- n = 41/45 student responses so far...
+- n = 42/45 student responses so far...
 
 Show | Streaming | Dr Love? 
 :----------: | :--------: | :-----:
@@ -23,6 +23,7 @@ Downton Abbey | Netflix | One or two episodes
 Frasier | Hulu & Peacock | Every episode
 Game of Thrones | HBO Max | One or two episodes
 How I Met Your Mother | Hulu | Every episode
+MASH | Hulu | Every episode
 New Girl | Netflix | One or two episodes
 Ozark | Netflix | No
 Parks and Recreation | Peacock | Every episode
@@ -45,7 +46,7 @@ WandaVision | Disney Plus | Every episode
 ## Dr. Love's Favorite Shows
 
 - Dr. Love's favorite show at present is [Taskmaster](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)). If you don't know the show and are interested, I recommend Series 5, [currently available on YouTube](https://www.youtube.com/watch?v=5PmmtbBgNLI&list=PLRWvNQVqAeWL5JRKdVCRYY0ONc5n0qWLg) as the place to get started.
-- My favorites of those already on the list above are (in alphabetical order) Parks and Recreation, Sherlock, Ted Lasso and The Marvelous Mrs. Maisel
+- My favorites of those already on the list above are (in alphabetical order) MASH, Parks and Recreation, Sherlock, Ted Lasso and The Marvelous Mrs. Maisel
 
 Other favorites of mine not on this list include ...
 
@@ -57,7 +58,6 @@ Other favorites of mine not on this list include ...
 - From The Earth to the Moon
 - The Good Place
 - The Larry Sanders Show
-- MASH
 - Marvel's Agents of SHIELD
 - Modern Family
 - Monty Python's Flying Circus
