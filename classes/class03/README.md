@@ -27,6 +27,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. Here are the [TV series that students in 432 identified as favorites](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/tv.md) in response to [Syllabus section 14](https://thomaselove.github.io/432-2022-syllabus/one-more-thing.html).
 3. TA office hours begin tomorrow (Wednesday 2022-01-19) at noon. The schedule and Zoom links are found in our Shared Google Drive (432 Spring 2022 Dr Love and Students) in the **Schedule and Zoom Links: TA office hours for 432 in Spring 2022** document. Remember that [Piazza](https://piazza.com/case/spring2022/pqhs432) remains open for your questions (and answers!) at all times.
 4. It is my intention to post instructions for Labs 2-3 and Project A before our next class. That would cover our primary assignments through February.
+5. If you're interested, DPhi has some (as I understand it) [free data science bootcamps](https://dphi.tech/bootcamps#upcoming) coming up in late January. They might be good, although I haven't taken any of them personally.
 
 ## A New (to us) R Package
 
