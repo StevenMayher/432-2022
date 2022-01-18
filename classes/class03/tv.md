@@ -43,6 +43,7 @@ WandaVision | Disney Plus | Every episode
 ## Dr. Love's Favorite Shows
 
 - Dr. Love's favorite show at present is [Taskmaster](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)). If you don't know the show and are interested, I recommend Series 5, [currently available on YouTube](https://www.youtube.com/watch?v=5PmmtbBgNLI&list=PLRWvNQVqAeWL5JRKdVCRYY0ONc5n0qWLg) as the place to get started.
+- My five favorites of those already on the list above are (in alphabetical order) Frasier, Parks and Recreation, Sherlock, Ted Lasso and The Marvelous Mrs. Maisel
 
 Other favorites of mine not on this list include ...
 
