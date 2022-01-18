@@ -14,11 +14,11 @@ Avatar: The Last Airbender | Netflix | One or two episodes
 Better Call Saul | Netflix | No
 **Breaking Bad** | Netflix | No
 Brooklyn Nine-Nine | Hulu & Peacock | Every episode
-Community | Netflix | Almost all episodes
+Community | Netflix | Seasons 1-5
 Criminal Minds | Netflix | No
 Downton Abbey | Netflix | One or two episodes
 Frasier | Hulu & Peacock | Every episode
-Friends | HBO Max | Almost all episodes
+Friends | HBO Max | Most of the early seasons
 Game of Thrones | HBO Max | One or two episodes
 How I Met Your Mother | Hulu | Every episode
 **Mad Men** | Amazon Prime | One or two episodes
