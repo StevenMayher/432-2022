@@ -1,30 +1,32 @@
 # TV series recommended by students in 432 (Spring 2022)
 
-- The titles listed in **bold** were mentioned by two students each.
-- I've indicated the current (US) streaming situation, and an indication of how much I've seen of each series.
-- n = 39 student responses so far...
+- The titles listed in **bold** at the top were mentioned by two students each. The others are listed alphabetically.
+- I've indicated the current (US) streaming situation as I understand it, and an indication of how much I've seen of each series.
+- n = 41/45 student responses so far...
 
 Show | Streaming | Dr Love? 
 :----------: | :--------: | :-----:
+**Avatar: The Last Airbender** | Netflix | One or two episodes
+**Band of Brothers** | HBO Max | One or two episodes
+**Breaking Bad** | Netflix | No
+**Friends** | HBO Max | Most of the early seasons
+**Mad Men** | Amazon Prime | One or two episodes
+**The Office (U.S.)** | Peacock | One or two episodes
 Adventure Time | Hulu | No
 Akasya Duragi | None | No
 Alone | Netflix | No
-Avatar: The Last Airbender | Netflix | One or two episodes
-**Band of Brothers** | HBO Max | One or two episodes
 Better Call Saul | Netflix | No
-**Breaking Bad** | Netflix | No
 Brooklyn Nine-Nine | Hulu & Peacock | Every episode
 Community | Netflix | Seasons 1-5
 Criminal Minds | Netflix | No
 Downton Abbey | Netflix | One or two episodes
 Frasier | Hulu & Peacock | Every episode
-**Friends** | HBO Max | Most of the early seasons
 Game of Thrones | HBO Max | One or two episodes
 How I Met Your Mother | Hulu | Every episode
-**Mad Men** | Amazon Prime | One or two episodes
 New Girl | Netflix | One or two episodes
 Ozark | Netflix | No
 Parks and Recreation | Peacock | Every episode
+Peaky Blinders | Netflix | No
 Prison Break | Hulu | No
 Sherlock | Amazon (purchase) | Every episode
 Succession | HBO Max | No
@@ -35,7 +37,6 @@ The Family Man | Amazon Prime | No
 The Final Table | Netflix | No
 The Man in the High Castle | Amazon Prime | Every episode
 The Marvelous Mrs Maisel | Amazon Prime | Every episode
-**The Office (U.S.)** | Peacock | One or two episodes
 The Walking Dead | Netflix | No
 Tom and Jerry | HBO Max | One or two episodes
 Twin Peaks | Paramount Plus | Every episode
