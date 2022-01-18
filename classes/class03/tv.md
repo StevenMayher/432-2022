@@ -40,4 +40,5 @@ Tom and Jerry | HBO Max | One or two episodes
 Twin Peaks | Paramount Plus | Every episode
 WandaVision | Disney Plus | Every episode
 
-My favorite show at present is Taskmaster. Some of Dr. Love's other favorites not on this list include Arrested Development (seasons 1-3), Broadchurch, Ellery Queen, The Fall and Rise of Reginald Perrin, Fawlty Towers, From The Earth to the Moon, The Good Place,  The Larry Sanders Show, MASH, Marvel's Agents of SHIELD, Modern Family, Monty Python's Flying Circus, NYPD Blue, Rumpole of the Bailey, 30 Rock and The West Wing.
+- Dr. Love's favorite show at present is Taskmaster. 
+- Some of Dr. Love's other favorites not on this list include Arrested Development (seasons 1-3), Broadchurch, Ellery Queen, The Fall and Rise of Reginald Perrin, Fawlty Towers, From The Earth to the Moon, The Good Place,  The Larry Sanders Show, MASH, Marvel's Agents of SHIELD, Modern Family, Monty Python's Flying Circus, NYPD Blue, Rumpole of the Bailey, 30 Rock and The West Wing.
