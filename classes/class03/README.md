@@ -22,7 +22,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. I wrote up some detailed summaries of comments and other interesting things I learned from reading your [Welcome to 432 Survey responses](https://github.com/THOMASELOVE/432-2022/tree/main/minute/welcome). Please take a look.
-2. Here's a list of [TV series that students in 432 identified as favorites](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/tv.md).
+2. Here are the [TV series that students in 432 identified as favorites](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/tv.md) in response to [Syllabus section 14](https://thomaselove.github.io/432-2022-syllabus/one-more-thing.html).
 3. TA office hours begin Wednesday at noon. The schedule and Zoom links are found in our Shared Google Drive (432 Spring 2022 Dr Love and Students) in the **Schedule and Zoom Links: TA office hours for 432 in Spring 2022** document. Remember that [Piazza](https://piazza.com/case/spring2022/pqhs432) remains open for your questions (and answers!) at all times.
 
 ## More to come.
