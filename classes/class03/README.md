@@ -9,6 +9,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/432_2022_slides03.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/432_2023_slides02.Rmd).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](https://imgs.xkcd.com/comics/hypothesis_generation.png). [Link at XKCD](https://xkcd.com/2569)
+
 ## Upcoming Deliverables
 
 1. The [Minute Paper after Class 03](https://github.com/THOMASELOVE/432-2022/tree/main/minute) is due tomorrow (Wednesday 2022-01-19) at noon. Please visit https://bit.ly/432-2022-min-03 to complete the form.
