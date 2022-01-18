@@ -1,0 +1,696 @@
+---
+title: "432 Class 03 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-01-18"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+## Today's Agenda
+
+- Create a data set for week 2 analyses from `smart_ohio`
+- Making cleaning / tidying decisions, then saving our work
+- Simple imputation
+- Splitting the sample with `rsample` tools
+- Fitting a model (and then several more models) with `lm`
+    - Incorporating an interaction between factors
+    - Incorporating polynomial terms
+- Regression Diagnostics via Residual Plots
+- Evaluating results in holdout sample with `yardstick`
+
+# Creating and Managing the Data for Week 2
+
+## Setup 
+
+```{r, message = FALSE}
+knitr::opts_chunk$set(comment = NA)  
+options(width = 60)     
+
+library(here); library(knitr)          
+library(janitor); library(patchwork)       
+library(naniar); library(simputation)    
+library(skimr)          ## for a specific summary  
+library(equatiomatic)   ## print equations
+library(broom)
+library(rsample)        ## new today: data splitting
+library(yardstick)      ## new today: evaluating fits
+library(tidyverse)      
+
+theme_set(theme_bw())   
+options(dplyr.summarise.inform = FALSE)  ## avoid message
+```
+
+## Similar approach as last time...
+
+```{r, message = FALSE}
+smart_ohio <- read_csv(here("data/smart_ohio.csv"))
+
+week2 <- smart_ohio %>%
+    filter(hx_diabetes == 0, 
+           mmsa == "Cleveland-Elyria",
+           complete.cases(bmi)) %>%
+    select(bmi, inc_imp, fruit_day, drinks_wk, 
+           female, exerany, genhealth, race_eth, 
+           hx_diabetes, mmsa, SEQNO) %>%            
+    type.convert(as.is = FALSE) %>%                       
+    mutate(ID = as.character(SEQNO - 2017000000)) %>%
+    relocate(ID)
+```
+
+
+---
+
+```{r}
+week2
+```
+
+## Codebook for useful `week2` variables
+
+- 894 subjects in Cleveland-Elyria with `bmi` and no history of diabetes
+
+Variable | Description
+:----: | --------------------------------------
+`bmi` | (outcome) Body-Mass index in kg/m^2^.
+`inc_imp` | income (imputed from grouped values) in $
+`fruit_day` | average fruit servings consumed per day
+`drinks_wk` | average alcoholic drinks consumed per week
+`female` | sex: 1 = female, 0 = male
+`exerany` | any exercise in the past month: 1 = yes, 0 = no
+`genhealth` | self-reported overall health (5 levels)
+`race_eth` | race and Hispanic/Latinx ethnicity (5 levels)
+
+- plus `ID`, `SEQNO`, `hx_diabetes` (all 0), `MMSA` (all Cleveland-Elyria)
+- See Chapter 2 of the Course Notes for details on the variables
+
+## Basic Data Summaries
+
+Available approaches include:
+
+- `summary`
+- `mosaic` package's `inspect()`
+- `skimr` package's `skim_without_charts()`
+- `Hmisc` package's `describe`
+
+all of which can work nicely in an HTML presentation, but none of them fit well on one of these slides.
+
+## Summarizing the Quantities (Raw `week2`)
+
+```{r}
+week2 %>% select(bmi, inc_imp, fruit_day, drinks_wk) %>%
+    skim_without_charts() %>%
+    yank(., "numeric") %>%
+    select(var = skim_variable, n_missing, min = p0, 
+           median = p50, max = p100, mean, sd) %>%
+    kable(digits = 1)
+```
+
+- Any signs of trouble? (What are we looking for?)
+
+## Quick Histogram of each quantitative variable
+
+```{r, echo = FALSE, warning = FALSE, fig.height = 6}
+p1 <- ggplot(week2, aes(x = bmi)) + 
+    geom_histogram(fill = "navy", col = "white", bins = 20)
+p2 <- ggplot(week2, aes(x = inc_imp)) + 
+    geom_histogram(fill = "forestgreen", col = "white", bins = 20)
+p3 <- ggplot(week2, aes(x = fruit_day)) + 
+    geom_histogram(fill = "tomato", col = "white", bins = 20)
+p4 <- ggplot(week2, aes(x = drinks_wk)) + 
+    geom_histogram(fill = "royalblue", col = "white", bins = 20)
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Code for previous slide
+
+```{r, eval = FALSE, message = FALSE}
+p1 <- ggplot(week2, aes(x = bmi)) + 
+    geom_histogram(fill = "navy", col = "white", bins = 20)
+p2 <- ggplot(week2, aes(x = inc_imp)) + 
+    geom_histogram(fill = "forestgreen", col = "white", 
+                   bins = 20)
+p3 <- ggplot(week2, aes(x = fruit_day)) + 
+    geom_histogram(fill = "tomato", col = "white", bins = 20)
+p4 <- ggplot(week2, aes(x = drinks_wk)) + 
+    geom_histogram(fill = "royalblue", col = "white", 
+                   bins = 20)
+(p1 + p2) / (p3 + p4)
+```
+
+I also used `warning = FALSE` in the plot's code chunk label to avoid warnings about missing values, like this one for `inc_imp`:
+
+```
+Warning: Removed 120 rows containing non-finite values
+```
+
+## Binary variables in raw `week2`
+
+```{r}
+week2 %>% tabyl(female, exerany) %>% adorn_title()
+```
+
+- `female` is based on biological sex (1 = female, 0 = male)
+- `exerany` comes from a response to "During the past month, other than your regular job, did you participate in any physical activities or exercises such as running, calisthenics, golf, gardening, or walking for exercise?" (1 = yes, 0 = no, don't know and refused = missing)
+
+>- Any signs of trouble here?
+>- I think the 1/0 values and names are OK choices.
+
+## Multicategorical `genhealth` in raw `week2`
+
+```{r}
+week2 %>% tabyl(genhealth)
+```
+
+- The variable is based on "Would you say that in general your health is ..." using the five specified categories (Excellent -> Poor), numbered for convenience after data collection.
+- Don't know / not sure / refused were each treated as missing.
+- How might we manage this variable?
+
+## Changing the levels for `genhealth`
+
+```{r}
+week2 <- week2 %>%
+    mutate(health = 
+               fct_recode(genhealth,
+                          E = "1_Excellent",
+                          VG = "2_VeryGood",
+                          G = "3_Good",
+                          F = "4_Fair",
+                          P = "5_Poor"))
+```
+
+Might want to run a sanity check here, just to be sure...
+
+## Checking `health` vs. `genhealth` in `week2`
+
+```{r}
+week2 %>% tabyl(genhealth, health) %>% adorn_title()
+```
+
+- OK. We've preserved the order and we have much shorter labels. Sometimes, that's helpful.
+
+## Multicategorical `race_eth` in raw `week2`
+
+```{r}
+week2 %>% count(race_eth)
+```
+
+"Don't know", "Not sure", and "Refused" were treated as missing.
+
+>- What is this variable actually about?
+>- What is the most common thing people do here?
+
+## What is the question you are asking?
+
+Collapsing `race_eth` levels *might* be rational for *some* questions.
+
+- We have lots of data from two categories, but only two.
+- Systemic racism affects people of color in different ways across these categories, but also *within* them.
+- Is combining race and Hispanic/Latinx ethnicity helpful?
+
+It's hard to see the justice in collecting this information and not using it in as granular a form as possible, though this leaves some small sample sizes. There is no magic number for "too small a sample size."
+
+- Most people identified themselves in one of the categories.
+- These data are not ordered, and (I'd argue) ordering them isn't helpful.
+- Regression models are easier to interpret, though, if the "baseline" category is a common one.
+
+## Resorting the factor for `race_eth`
+
+Let's sort all five levels, from most observations to least...
+
+```{r}
+week2 <- week2 %>%
+    mutate(race_eth = fct_infreq(race_eth))
+```
+
+```{r}
+week2 %>% tabyl(race_eth)
+```
+
+- Not a perfect solution, certainly, but we'll try it out.
+
+## "Cleaned" Data and Missing Values
+
+```{r}
+week2 <- week2 %>%
+    select(ID, bmi, inc_imp, fruit_day, drinks_wk, 
+           female, exerany, health, race_eth, everything())
+
+miss_var_summary(week2)
+```
+
+## Single Imputation Approach?
+
+```{r}
+set.seed(43203)
+week2im <- week2 %>%
+    select(ID, bmi, inc_imp, fruit_day, drinks_wk, 
+           female, exerany, health, race_eth) %>%
+    data.frame() %>%
+    impute_cart(health ~ bmi + female) %>%
+    impute_pmm(exerany ~ female + health + bmi) %>%
+    impute_rlm(inc_imp + drinks_wk + fruit_day ~ 
+                   bmi + female + health + exerany) %>%
+    impute_cart(race_eth ~ health + inc_imp + bmi) %>%
+    tibble()
+
+prop_miss_case(week2im)
+```
+
+## Saving the tidied data
+
+Let's save both the unimputed and the imputed tidy data as R data sets.
+
+```{r}
+saveRDS(week2, here("data", "week2.Rds"))
+
+saveRDS(week2im, here("data", "week2im.Rds"))
+```
+
+To reload these files, we'd use `readRDS`. 
+
+- The main advantage here is that we've saved the whole R object, including all characteristics that we've added since the original download.
+
+## Splitting the Sample
+
+Use `initial_split` from `rsample` to partition the data into:
+
+- Model development (training) sample where we'll build models
+- Model evaluation (testing) sample which we'll hold out for a while
+
+```{r}
+set.seed(432)    ## to make the work replicable in the future
+week2im_split <- initial_split(week2im, prop = 3/4)
+
+train_w2im <- training(week2im_split)
+test_w2im <- testing(week2im_split)
+```
+
+```{r}
+dim(train_w2im); dim(test_w2im)
+```
+
+## Should we transform our outcome?
+
+```{r, fig.height = 6, echo = FALSE}
+p1 <- ggplot(train_w2im, aes(x = bmi)) + 
+    geom_histogram(col = "navy", fill = "gold", bins = 20)
+
+p2 <- ggplot(train_w2im, aes(x = log(bmi))) + 
+    geom_histogram(col = "navy", fill = "gold", bins = 20)
+
+p1 / p2
+```
+
+# Outcome: `bmi`, with key predictors `exerany` and `health` both categorical (two-way ANOVA!)
+
+## `bmi` means by `exerany` and `health`
+
+```{r}
+summaries_1 <- train_w2im %>%
+    group_by(exerany, health) %>%
+    summarise(n = n(), mean = mean(bmi), stdev = sd(bmi))
+summaries_1 %>% kable(digits = 2)
+```
+
+## Code for Interaction Plot 
+
+```{r, eval = FALSE}
+ggplot(summaries_1, aes(x = health, y = mean, 
+                        col = factor(exerany))) +
+    geom_point(size = 2) +
+    geom_line(aes(group = factor(exerany))) +
+    labs(title = "Observed Means of BMI",
+         subtitle = "by Exercise and Overall Health")
+```
+
+- Note the use of `factor` here since the `exerany` variable is in fact numeric, although it only takes the values 1 and 0.
+    - Sometimes it's helpful to treat 1/0 as a factor, and sometimes not.
+- Where is the evidence of serious non-parallelism (if any) in the plot on the next slide that results from this code?
+
+## Resulting Interaction Plot 
+
+```{r, fig.height = 6, echo = FALSE}
+ggplot(summaries_1, aes(x = health, y = mean, 
+                        col = factor(exerany))) +
+    geom_point(size = 2) +
+    geom_line(aes(group = factor(exerany))) +
+    labs(title = "Observed Means of BMI",
+         subtitle = "by Exercise and Overall Health")
+```
+
+## Models we'll build today
+
+- `m_1` a linear model without interaction using `exerany` and `health` to predict `bmi`
+- `m_1int` add the interaction term for `exerany` and `health` to `m_1`
+
+We'll assess these models carefully (today) in the training sample and (next time) in the test sample.
+
+- We'll also explore adding a covariate `fruit_day` to the models in several different ways.
+
+# Fitting ANOVA model `m_1` without interaction
+
+## Building a Model (`m_1`) without interaction
+
+```{r}
+m_1 <- lm(bmi ~ exerany + health,
+          data = train_w2im)
+```
+
+- How well does this model fit the training data?
+
+```{r}
+glance(m_1) %>% 
+    select(r.squared, adj.r.squared, sigma, nobs, 
+           df, df.residual, AIC, BIC) %>%
+    kable(digits = c(3, 3, 2, 0, 0, 0, 1, 1))
+```
+
+## ANOVA for the `m_1` model
+
+```{r}
+anova(m_1)
+```
+
+
+## Tidied ANOVA for the `m_1` model
+
+```{r}
+tidy(anova(m_1)) %>%
+    kable(dig = c(0, 0, 2, 2, 2, 3))
+```
+
+
+## A summary of `m_1` coefficients
+
+```{r}
+summary(m_1)$coeff
+```
+
+## Tidied summary of `m_1` coefficients
+
+```{r}
+tidy(m_1, conf.int = TRUE, conf.level = 0.90) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## Equation for Model without Interaction
+
+From `m1` our equation is ...
+
+```{r, results = "asis"}
+extract_eq(m_1, use_coefs = TRUE, wrap = TRUE) 
+```
+
+- You need to use `results = "asis"` in the code chunk label to get this to work.
+- This function `extract_eq` comes from the `equatiomatic` package.
+
+## Interpreting the `m_1` model
+
+```{r, results = "asis", echo = FALSE}
+extract_eq(m_1, use_coefs = TRUE, wrap = TRUE) 
+```
+
+Name | `exerany` | `health` | predicted `bmi`
+-------- | :------: | :------: | ---------:
+Harry | 0 | Excellent | 26.66
+Sally   | 1 | Excellent | 26.66 - 1.37 = 25.29
+Billy | 0 | Fair | 26.66 + 3.82 = 30.48
+Meg | 1 | Fair | 26.66 - 1.37 + 3.82 = 29.11
+
+- Effect of `exerany`?
+- Effect of `health` = Fair instead of Excellent?
+
+## Plot the Residuals from model `m_1`?
+
+```{r, eval = FALSE}
+par(mfrow = c(2,2))
+plot(m_1)
+par(mfrow = c(1,1))
+```
+
+That's the simplest code to get the four key plots to show up in the most familiar pattern, as shown on the next slide...
+
+## `m_1` Residual Plots (conclusions?)
+
+```{r, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_1)
+par(mfrow = c(1,1))
+```
+
+# Fitting ANOVA model `m_1int` including interaction
+
+## Adding the interaction term to `m_1`
+
+```{r}
+m_1int <- lm(bmi ~ exerany * health,
+             data = train_w2im)
+```
+
+- How does this model compare in terms of fit to the training data?
+
+```{r}
+bind_rows(glance(m_1), glance(m_1int)) %>% 
+    mutate(mod = c("m_1", "m_1int")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+       sigma, nobs, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 3, 3, 2, 0, 0, 0, 1, 1))
+```
+
+## ANOVA for the `m_1int` model
+
+```{r}
+tidy(anova(m_1int)) %>%
+    kable(dig = c(0, 0, 2, 2, 2, 3))
+```
+
+## ANOVA test comparing `m_1` to `m_1int`
+
+```{r}
+anova(m_1, m_1int)
+```
+
+## A summary of `m_1int` coefficients
+
+```{r}
+summary(m_1int)$coeff
+```
+
+## Tidied summary of `m_1int` coefficients
+
+```{r}
+tidy(m_1int, conf.int = TRUE, conf.level = 0.90) %>%
+    rename(se = std.error, t = statistic, p = p.value) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## Equation for Interaction Model 
+
+From `m1_int` our equation is ...
+
+```{r, results = "asis"}
+extract_eq(m_1int, use_coefs = TRUE, 
+           wrap = TRUE, terms_per_line = 2) 
+```
+
+
+Don't forget to use `results = "asis"` in the code chunk label.
+
+## Interpreting the `m_1int` model
+
+```{r, results = "asis", echo = FALSE}
+extract_eq(m_1int, use_coefs = TRUE, 
+           wrap = TRUE, terms_per_line = 2) 
+```
+
+Name | `exerany` | `health` | predicted `bmi`
+-------- | :------: | :------: | ---------:
+Harry | 0 | Excellent | 25.82
+Sally   | 1 | Excellent | 25.82 - 0.41 = 25.41
+Billy | 0 | Fair | 25.82 + 6.88 = 32.70
+Meg | 1 | Fair | 25.82 - 0.41 + 6.88 - 4.83 = 27.46
+
+- How do we interpret effect sizes here?
+
+
+## Interpreting the `m_1int` model
+
+Name | `exerany` | `health` | predicted `bmi`
+-------- | :------: | :------: | ---------:
+Harry | 0 | Excellent | 25.82
+Sally   | 1 | Excellent | 25.82 - 0.41 = 25.41
+Billy | 0 | Fair | 25.82 + 6.88 = 32.70
+Meg | 1 | Fair | 25.82 - 0.41 + 6.88 - 4.83 = 27.46
+
+- How do we interpret effect sizes here? **It depends**.
+- Effect of `exerany`?
+    - If `health` = Excellent, effect is -0.41
+    - If `health` = Fair, effect is (-0.41 - 4.83) = -5.24
+- Effect of `health` = Fair instead of Excellent?
+    - If `exerany` = 0 (no), effect is 6.88
+    - If `exerany` = 1 (yes), effect is (6.88 - 4.83) = 2.05
+
+
+## Plot the Residuals from model `m_1int`?
+
+```{r, fig.height = 6, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_1int)
+par(mfrow = c(1,1))
+```
+
+# Incorporating a Covariate into our two-way ANOVA models
+
+## Taking Stock
+
+So far, we've fit two models to predict `bmi`, using `exerany` and `health`, one with an interaction term and one without.
+
+```{r}
+m_1 <- lm(bmi ~ exerany + health, data = train_w2im)
+m_1int <- lm(bmi ~ exerany * health, data = train_w2im)
+```
+
+Next, we'll fit models incorporating a covariate, specifically, `fruit_day`, a quantity (servings/day).
+
+- `m_2` and `m_2int` will add a linear term for `fruit_day` 
+- Later models (we'll fit next time) will add various non-linear terms in `fruit_day`
+- We'll assess these models in our testing sample (next time) as well as our training sample.
+
+**Giving away the ending**: We'll see that none of these augmented models will clearly improve the fit in our test sample over the performance of `m_1` and `m_1int`.
+
+## Adding in the covariate `fruit_day` to `m_1`
+
+```{r}
+m_2 <- lm(bmi ~ fruit_day + exerany + health,
+          data = train_w2im)
+```
+
+- How well does this model fit the training data?
+
+```{r}
+bind_rows(glance(m_1), glance(m_2)) %>%
+    mutate(mod = c("m_1", "m_2")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+        sigma, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 3, 3, 2, 0, 0, 1, 1))
+```
+
+- Also available in `glance` for a model fit with `lm` are `statistic`, `p.value`, `logLik`, and `deviance`.
+
+## ANOVA for the `m_2` model
+
+```{r}
+tidy(anova(m_2)) %>%
+    kable(dig = c(0, 0, 2, 2, 2, 3))
+```
+
+
+## Tidied summary of `m_2` coefficients
+
+```{r}
+tidy(m_2, conf.int = TRUE, conf.level = 0.90) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## `m_2` Residual Plots (non-constant variance?)
+
+```{r, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_2)
+par(mfrow = c(1,1))
+```
+
+## Who is that poorest fit case?
+
+Plot suggests we look at row 28
+
+```{r}
+train_w2im %>% slice(28) %>%
+    select(ID, bmi, fruit_day, exerany, health) %>% kable()
+```
+
+What is unusual about this subject?
+
+```{r}
+train_w2im %$% sort(bmi) %>% tail()
+```
+
+
+## What if we included the interaction term?
+
+```{r}
+m_2int <- lm(bmi ~ fruit_day + exerany * health, 
+          data = train_w2im)
+```
+
+Compare `m_2int` fit to previous models...
+
+```{r, echo = FALSE}
+bind_rows(glance(m_1), glance(m_2), glance(m_1int), glance(m_2int)) %>%
+    mutate(mod = c("m_1", "m_2", "m_1int", "m_2int")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+           sigma, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 3, 3, 2, 0, 0, 1, 1))
+```
+
+- `m_1` = no `fruit_day`, no `exerany*health` interaction
+- `m_2` = `fruit_day`, but no interaction
+- `m_1int` = no `fruit_day`, with interaction
+- `m_2int` = both `fruit_day` and interaction
+
+## ANOVA for the `m_2int` model
+
+```{r}
+tidy(anova(m_2int)) %>%
+    kable(dig = c(0, 0, 2, 2, 2, 3))
+```
+
+## Tidied summary of `m_2int` coefficients
+
+```{r}
+tidy(m_2int, conf.int = TRUE, conf.level = 0.90) %>%
+    rename(se = std.error, t = statistic, p = p.value) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## ANOVA comparison of `m_2` and `m_2int`
+
+```{r}
+anova(m_2, m_2int)
+```
+
+## Residual plots for model `m_2int`?
+
+```{r, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_2int)
+par(mfrow = c(1,1))
+```
+
+## Which of the four models fits best?
+
+In the **training** sample, we have...
+
+```{r, echo = FALSE}
+bind_rows(glance(m_1), glance(m_2), glance(m_1int), glance(m_2int)) %>%
+    mutate(mod = c("m_1", "m_2", "m_1int", "m_2int")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+           sigma, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 3, 3, 2, 0, 0, 1, 1))
+```
+
+- The interaction models look better by Adjusted $R^2$ and $\sigma$; AIC likes `m_2int` while BIC likes `m1`. What to do? 
+- More importantly, the testing sample cannot judge between models accurately. Our models have already *seen* that data.
+- For fairer comparisons, we'll need to consider the (held out) testing sample.
+
+## Next Time
+
+- Feedback from the Minute Paper after Class 03, due tomorrow at Noon, please.
+- Assessing the models we've fit so far in the testing sample
+- Incorporating polynomial terms and splines into linear regression (ANCOVA) models
+
+
