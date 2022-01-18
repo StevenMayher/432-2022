@@ -6,7 +6,7 @@ The Minute Papers are scheduled on the following Wednesdays. Minute Papers are a
 
 After Class | Due at NOON on | Link to Minute Paper Form | Link to Dr. Love's Feedback
 :-----------: | :-----: | :------: | :--------:
-3 (2022-01-18) | 2022-01-19 | To come. | To come.
+3 (2022-01-18) | 2022-01-19 | https://bit.ly/432-2022-min-03 | To come.
 5 (2022-01-25) | 2022-01-26 | To come. | To come.
 9 (2022-02-08) | 2022-02-09 | To come. | To come.
 11 (2022-02-15) | 2022-02-16 | To come. | To come.
