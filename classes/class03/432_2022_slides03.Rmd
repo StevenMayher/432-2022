@@ -18,9 +18,7 @@ output:
 - Splitting the sample with `rsample` tools
 - Fitting a model (and then several more models) with `lm`
     - Incorporating an interaction between factors
-    - Incorporating polynomial terms
 - Regression Diagnostics via Residual Plots
-- Evaluating results in holdout sample with `yardstick`
 
 # Creating and Managing the Data for Week 2
 
@@ -416,10 +414,10 @@ extract_eq(m_1, use_coefs = TRUE, wrap = TRUE)
 
 Name | `exerany` | `health` | predicted `bmi`
 -------- | :------: | :------: | ---------:
-Harry | 0 | Excellent | 26.66
-Sally   | 1 | Excellent | 26.66 - 1.37 = 25.29
-Billy | 0 | Fair | 26.66 + 3.82 = 30.48
-Meg | 1 | Fair | 26.66 - 1.37 + 3.82 = 29.11
+Harry | 0 | Excellent | 27.91
+Sally   | 1 | Excellent | 27.91 - 2.20 = 25.71
+Billy | 0 | Fair | 27.91 + 3.71 = 31.62
+Meg | 1 | Fair | 27.91 - 2.20 + 3.71 = 29.42
 
 - Effect of `exerany`?
 - Effect of `health` = Fair instead of Excellent?
@@ -509,10 +507,10 @@ extract_eq(m_1int, use_coefs = TRUE,
 
 Name | `exerany` | `health` | predicted `bmi`
 -------- | :------: | :------: | ---------:
-Harry | 0 | Excellent | 25.82
-Sally   | 1 | Excellent | 25.82 - 0.41 = 25.41
-Billy | 0 | Fair | 25.82 + 6.88 = 32.70
-Meg | 1 | Fair | 25.82 - 0.41 + 6.88 - 4.83 = 27.46
+Harry | 0 | Excellent | 27.49
+Sally   | 1 | Excellent | 27.49 - 1.69 = 25.80
+Billy | 0 | Fair | 27.49 + 7.64 = 35.13
+Meg | 1 | Fair | 27.49 - 1.69 + 7.64 - 6.22 = 27.22
 
 - How do we interpret effect sizes here?
 
@@ -521,19 +519,18 @@ Meg | 1 | Fair | 25.82 - 0.41 + 6.88 - 4.83 = 27.46
 
 Name | `exerany` | `health` | predicted `bmi`
 -------- | :------: | :------: | ---------:
-Harry | 0 | Excellent | 25.82
-Sally   | 1 | Excellent | 25.82 - 0.41 = 25.41
-Billy | 0 | Fair | 25.82 + 6.88 = 32.70
-Meg | 1 | Fair | 25.82 - 0.41 + 6.88 - 4.83 = 27.46
+Harry | 0 | Excellent | 27.49
+Sally   | 1 | Excellent | 27.49 - 1.69 = 25.80
+Billy | 0 | Fair | 27.49 + 7.64 = 35.13
+Meg | 1 | Fair | 27.49 - 1.69 + 7.64 - 6.22 = 27.22
 
 - How do we interpret effect sizes here? **It depends**.
 - Effect of `exerany`?
-    - If `health` = Excellent, effect is -0.41
-    - If `health` = Fair, effect is (-0.41 - 4.83) = -5.24
+    - If `health` = Excellent, effect is -1.69
+    - If `health` = Fair, effect is (-1.69 - 6.22) = -7.91
 - Effect of `health` = Fair instead of Excellent?
-    - If `exerany` = 0 (no), effect is 6.88
-    - If `exerany` = 1 (yes), effect is (6.88 - 4.83) = 2.05
-
+    - If `exerany` = 0 (no), effect is 7.64
+    - If `exerany` = 1 (yes), effect is (7.64 - 6.22) = 1.42
 
 ## Plot the Residuals from model `m_1int`?
 
@@ -683,9 +680,9 @@ bind_rows(glance(m_1), glance(m_2), glance(m_1int), glance(m_2int)) %>%
     kable(digits = c(0, 3, 3, 2, 0, 0, 1, 1))
 ```
 
-- The interaction models look better by Adjusted $R^2$ and $\sigma$; AIC likes `m_2int` while BIC likes `m1`. What to do? 
-- More importantly, the testing sample cannot judge between models accurately. Our models have already *seen* that data.
-- For fairer comparisons, we'll need to consider the (held out) testing sample.
+- Adjusted $R^2$, $\sigma$, AIC and BIC all improve as we move down from `m1` towards `m2_int`. 
+- BUT the testing sample cannot judge between models accurately. Our models have already *seen* that data.
+- For fairer comparisons, we'll need to also consider the (held out) testing sample.
 
 ## Next Time
 
