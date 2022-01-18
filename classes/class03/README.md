@@ -7,6 +7,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Materials for Today's Class
 
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/432_2022_slides03.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class03/432_2023_slides02.Rmd).
-- All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Drive.
+- All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
 ## More to come.
