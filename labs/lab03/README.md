@@ -10,7 +10,7 @@ The instructions for completing Lab 03 [are found here](https://github.com/THOMA
 
 ## Data
 
-The data set used in Lab 03 is the `hbp3456.csv` data, available now on our [course data page](https://github.com/THOMASELOVE/432-data). These are the same data as you used in Lab 1.
+The data set used in Lab 03 is the `hbp3456.csv` data, available now on our [course data page](https://github.com/THOMASELOVE/432-data). Lab 01 used the same data.
 
 ## Template
 
