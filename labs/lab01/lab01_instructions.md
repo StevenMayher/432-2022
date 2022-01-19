@@ -1,7 +1,7 @@
 432 Lab 01 for Spring 2022
 ================
 
-Version: 2022-01-12 19:13:51
+Version: 2022-01-19 14:26:38
 
 # General Instructions
 
@@ -13,7 +13,7 @@ Your response should include an R Markdown file and an HTML document
 that is the result of applying your R Markdown file to the `hbp3456.csv`
 data, available on [our Data and Code
 page](https://github.com/THOMASELOVE/432-data), as well as [in the data
-subfolder](https://github.com/THOMASELOVE/432-2021/tree/master/labs/lab01/data)
+subfolder](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01/data)
 for this Lab.
 
 Start a separate R Project for Lab 1, as your first step, and place the
@@ -21,11 +21,13 @@ data in that project’s directory or (if you want to match what I did) in
 a data sub-directory under that project’s directory.
 
 -   There is an R Markdown **template** for Lab 01, which [you can find
-    here](https://github.com/THOMASELOVE/432-2021/blob/master/labs/lab01/lab01_template.Rmd).
-    Please feel encouraged to use the template as it is, or modify it to
-    produce something that you like better.
+    here](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_template.Rmd),
+    or in our Shared Drive in the Lab 01 Materials folder. Please feel
+    encouraged to use the template as it is, or modify it to produce
+    something that you like better.
 -   If you want to see how this template looks as a knitted HTML file,
-    [visit this link](https://rpubs.com/TELOVE/lab01-template-432-2021).
+    you can find the HTML version posted to our Shared Drive in the Lab
+    01 Materials folder.
 
 ## The `hbp3456` data
 
