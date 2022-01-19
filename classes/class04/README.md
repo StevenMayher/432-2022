@@ -9,7 +9,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/432_2022_slides04.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/432_2022_slides04.Rmd).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-## Upcoming deliverables
+## Upcoming Deliverables
 
 1. [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) is due Monday at 9 PM to [Canvas](https://canvas.case.edu). I updated the [Lab 1 instructions](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) to:
     - fix the links to the [R Markdown template](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_template.Rmd) which is also available (Rmd and HTML result) on our Shared Drive in the Lab01 folder
