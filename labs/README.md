@@ -17,4 +17,6 @@ Lab 06 | to appear
 
 Lab | Link
 ----: | :------------
-Lab X | [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX)
+Lab X | [Lab X instructions](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX)
+
+- Dr. Love reserves the right to add other optional Lab(s) as the term continues.
