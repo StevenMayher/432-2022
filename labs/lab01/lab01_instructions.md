@@ -1,7 +1,7 @@
 432 Lab 01 for Spring 2022
 ================
 
-Version: 2022-01-19 14:26:38
+Version: 2022-01-19 15:18:06
 
 # General Instructions
 
@@ -371,7 +371,7 @@ does not exceed 100 words, using complete English sentences**.
     Table 1, so build a note specifying the amount of missing data in a
     footnote to the table. An appropriate approach would be to list
     these notes as a bulleted list in the Markdown file just below your
-    Table.
+    Table. Do not impute for Question 1.
 3.  Some variables will present as characters in the data, but you’d
     instead prefer them to appear as **factors**. Be sure to include
     code in your response to make these changes (the `forcats` package
@@ -424,6 +424,9 @@ model.
     these subjects.
 2.  Do not include R output without complete sentences describing what
     you are doing in each step, and what you conclude from that work.
+3.  You are encouraged to assume that the missingness you observe in the
+    data are MCAR, and that a complete case analysis is thus appropriate
+    for this Question.
 
 ## Question 3. (20 points)
 
