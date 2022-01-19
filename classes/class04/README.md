@@ -12,7 +12,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Upcoming Deliverables
 
 1. [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) is due Monday at 9 PM to [Canvas](https://canvas.case.edu). I updated the [Lab 1 instructions](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) to:
-    - fix the links to the [R Markdown template](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_template.Rmd) which is also available (Rmd and HTML result) on our Shared Drive in the Lab01 folder
+    - fix the links to the [R Markdown template](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_template.Rmd) which is also available (Rmd and HTML result) on our Shared Drive (Lab 1 subfolder)
     - make it explicit that you should **not** impute missing values in Question 1, and that we prefer that you assume MCAR and do a complete case analysis in Question 2.
 2. More to come.
 
