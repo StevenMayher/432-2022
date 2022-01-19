@@ -12,7 +12,7 @@ Alternatively, if you didn't build a personal website for yourself in 431, then 
 
 ## Option C
 
-If you already have a personal website that you built for 431 as part of Lab X for that course, then improve it in some way (add a blog post - anything) that clearly shows that you've improved the page in 2022. Then post to the LabX folder in Piazza a link to your page for your fellow students to be inspired by along with a short note indicating what you improved in 2022.
+If you already have a personal website that you built for 431 or for some other reason, then improve it in some way (add a blog post - anything) that clearly shows that you've improved the page in 2022. Then post to the LabX folder in Piazza a link to your page for your fellow students to be inspired by along with a short note indicating what you improved in 2022.
 
 ## Deadline
 
