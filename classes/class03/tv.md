@@ -13,7 +13,7 @@ Show | Streaming | Dr Love?
 **Mad Men** | Amazon Prime | One or two episodes
 **The Office (U.S.)** | Peacock | One or two episodes
 Adventure Time | Hulu | No
-Akasya Duragi | None | No
+Akasya Duragi | [Star TV](https://www.startv.com.tr/arama-sonuclari?q=akasya%20duragi) (Turkish TV channel) | No
 Alone | Netflix | No
 Better Call Saul | Netflix | No
 Brooklyn Nine-Nine | Hulu & Peacock | Every episode
