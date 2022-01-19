@@ -22,5 +22,5 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. Feedback from Dr. Love on the [Minute Paper after Class 3 is now available](https://github.com/THOMASELOVE/432-2022/tree/main/minute).
-2. Class 05 on Tuesday 2022-01-25 will be our last Zoom-only class session. We will return to in-person learning for 432 on Thursday 2022-01-27, for Class 06. Our classroom is E321-323 (the Alice room) in the Robbins Building at the School of Medicine.
+2. [Class 05](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class05) on Tuesday 2022-01-25 will be (I hope) our last Zoom-only class session. My plan is to return to in-person learning for 432 on Thursday 2022-01-27, for [Class 06](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class06). Our classroom is E321-323 (the Alice room) in the Robbins Building at the School of Medicine.
 3. 
