@@ -46,6 +46,8 @@ oh20 <- oh20 %>%
 oh20
 ```
 
+**NOTE** You're going to want to do more to import these data than what we've shown above. In particular, the incorporation of the `clean_names()` function from the `janitor` package would be an important thing to consider.
+
 # Question 1
 
 Place your response to Question 1 here.
