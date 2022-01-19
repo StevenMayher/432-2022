@@ -1,0 +1,74 @@
+---
+title: "432 Lab 02 Template"
+author: "Your Name Goes Here"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+    self_contained: true
+    number_sections: true
+    code_folding: show
+    df_print: paged
+---
+
+## Setup {-}
+
+```{r setup, message = FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+opts_chunk$set(comment=NA)
+opts_knit$set(width=75)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE}
+library(here)
+library(magrittr)
+library(janitor)
+
+# add other packages here as desired
+
+library(tidyverse)
+```
+
+## Import the `oh_counties_2020` Data {-}
+
+This template assumes that you've placed the `oh_counties_2020.csv` data set in a sub-folder called `data` beneath the `lab02` project directory you're using in R Studio.
+
+```{r, message = FALSE}
+oh20 <- read_csv(here("data", "oh_counties_2020.csv")) 
+
+oh20 <- oh20 %>%
+    mutate(fips = as.character(fips))
+
+oh20
+```
+
+# Question 1
+
+Place your response to Question 1 here.
+
+# Question 2
+
+Place your response to Question 2 here.
+
+# Question 3
+
+Place your response to Question 3 here.
+
+# Question 4
+
+Place your response to Question 4 here. 
+
+# Question 5
+
+Place your response to Question 5 here.
+
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```
