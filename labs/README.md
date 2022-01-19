@@ -2,7 +2,7 @@
 
 The deadlines for all Lab assignments are scheduled on Monday evenings at 9 PM, as indicated in the [Calendar](https://thomaselove.github.io/432/calendar.html).
 
-## Materials for the Labs
+## Materials for the Required Labs
 
 Lab | Link
 ----: | :------------
@@ -13,3 +13,8 @@ Lab 04 | to appear
 Lab 05 | to appear
 Lab 06 | to appear
 
+## Materials for the Optional Lab
+
+Lab | Link
+----: | :------------
+Lab X | [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX)
