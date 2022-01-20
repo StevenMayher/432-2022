@@ -3,7 +3,7 @@
 ## Instructions for Project A
 
 1. [Start here with General instructions (and advice for selecting data) for Project 1](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/00_projectA_general.md). 
-  - Project A includes two Tasks: a Proposal due in late January, followed by Analyses and Presentation work, completed in early March.
+    - Project A includes two Tasks: a Proposal due in late January, followed by Analyses and Presentation work, completed in early March.
 2. Next, visit the [Specific instructions for Task 1 (The Proposal)](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/01_projectA_proposal.md).
     - This includes details on the required data cleaning and exploratory work, and is what you'll need to complete by the end of January.
 3. Next, review the [R Markdown templates for Project 1](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates) and select one to use for your work on Task 1 and (later) on Task 2.
