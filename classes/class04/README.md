@@ -20,7 +20,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - The introduction is really important, and provides a useful framework for what Nate is trying to do in the book.
     - Chapter 1 is entitled "A Catastrophic Failure of Prediction", and focuses on describing the problems of prediction analysis in the financial crises of the early 2010s.
     - Nate is the editor-in-chief of [FiveThirtyEight.com](https://fivethirtyeight.com/), which is a website that I read almost every day.
-3. Read through the [Project A instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) and get started on identifying a data set. Your goal should be to have a data set selected (and pulled into R) before Class 6 next Thursday.
+3. Read through the [Project A instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) and get started on identifying a data set. Your goal should be to have a data set selected (and pulled into R) before Class 6 next Thursday, so that you can complete your proposal on time (by 9 PM on Monday 2022-01-31.) We'll talk about Project A today.
 
 ## Announcements
 
