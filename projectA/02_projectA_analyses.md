@@ -8,6 +8,13 @@ Task 2 (Analyses and Presentation)
         Analyses](#section-8-linear-regression-analyses)
     -   [Section 9: Logistic Regression](#section-9-logistic-regression)
     -   [Section 10: The Discussion](#section-10-the-discussion)
+-   [On the size of the regression models you
+    build](#on-the-size-of-the-regression-models-you-build)
+-   [On Missing Data and Imputation](#on-missing-data-and-imputation)
+    -   [Imputation: What We’ll Focus on in Project
+        A](#imputation-what-well-focus-on-in-project-a)
+    -   [Additional Advice on Imputation for Project
+        A](#additional-advice-on-imputation-for-project-a)
 -   [The Presentation](#the-presentation)
     -   [Your Audience](#your-audience)
     -   [Outline of the Presentation](#outline-of-the-presentation)
@@ -18,7 +25,7 @@ Task 2 (Analyses and Presentation)
         Slides](#evaluating-the-presentations--slides)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:27:23
+Last Update: 2022-01-19 23:37:22
 
 # Your Proposal is Approved. Now What?
 
@@ -311,6 +318,144 @@ following four questions:
     you get past it?
 -   What was the most useful thing you learned while doing the project,
     and why?
+
+# On the size of the regression models you build
+
+For Project A, I have described the following standards in the
+Instructions. I am actively **NOT** suggesting these are appropriate
+standards to use outside of Project A.
+
+-   Fitting a linear regression model with N1 subjects in Project A, I
+    would use up to K1 = 4 + (N1-100)/100 predictors, where K1 is
+    rounded down.
+    -   Suppose we have N = 500 observations with complete data on our
+        outcome. The rule yields K1 = 4 + (500 - 100)/100 = 8 as a
+        maximum number of unique predictors in your main effects model
+        (Model A).
+-   Fitting a logistic regression model in Project A with N2 subjects in
+    the smaller of your two outcome groups, and the remaining subjects
+    in the larger outcome group, I would use up to K2 = 4 + (N2 -
+    100)/100 predictors, where K2 is also rounded down.
+    -   Suppose our outcome has 200 “No” and 275 “Yes” (with some
+        missing values so the available total sample size is now 475.)
+        The smaller of these counts is 200, and so K2 = 4 + (200 - 100)
+        / 100 = 5 as a maximum number of unique predictors in your main
+        effects model (Model Y).
+-   For your “augmented” models in both linear and logistic regression,
+    regardless of your sample size, please use *between 3 and 6*
+    additional degrees of freedom beyond the main effects model to
+    account for non-linearity, and *add no more than 3* non-linear terms
+    to your models A and Y to create models B and Z, respectively.
+-   It’s perfectly fine to be under these maximum numbers, so long as
+    you have a minimum of 4 predictors in both Model A and Model Y, and
+    at least one non-linear term included in models B and Z.
+
+# On Missing Data and Imputation
+
+## Imputation: What We’ll Focus on in Project A
+
+For Project A, I generally regard the use of imputation as:
+
+-   **essential** if you have missing predictor values for more than 10%
+    of your subjects, *and* more than 50 subjects
+-   **unnecessary** if you have missing predictor values for less than
+    1% of your subjects, *and* fewer than 10 subjects
+-   probably worth doing if your data don’t meet either of those
+    standards
+
+It is **very** important to us that people use imputation in their
+Project A if that is appropriate. It is **not at all** important to us
+whether people choose single imputation or multiple imputation for that
+task in Project A.
+
+The five key questions we’ll be asking ourselves when evaluating your
+Project A regarding how you deal with missing data are specified below…
+
+1.  For Project A, we encourage you to exclude subjects with missing
+    outcome data, and to do this separately for your linear modeling and
+    your logistic modeling, all working off the same initial data, but
+    with different “cuts”. Have you successfully done this, so that each
+    model is fit with as much data as are available?
+2.  Now that you’ve removed the missing outcomes, do you have a very
+    small number and proportion of subjects with missing predictors for
+    the models you’re fitting, so that simply dropping cases with
+    missing data is not a substantial concern?
+    -   For example, suppose your study with 1000 observations that have
+        complete data on your outcome, and 990 of those (or 99%) have
+        complete data on all predictors. So you have 10 observations
+        with missing data, and that’s 1% of your total observations. If
+        you are willing to assume MAR, whether you do complete cases,
+        single imputation or multiple imputation, you’ll get very very
+        similar results.
+3.  What are you assuming about the missing data mechanism and why is
+    that assumption reasonable?
+    -   You’re all going to wind up assuming either MCAR (in which case
+        a complete cases analysis is appropriate) or MAR (in which case
+        single or multiple imputation is required). You should be
+        providing an argument for your choice (which includes why MNAR
+        isn’t the most suitable assumption.)
+4.  Does your code (complete cases, single imputation or multiple
+    imputation) work to produce the results you need?
+5.  Can you interpret the coefficients produced by your model
+    appropriately?
+
+You’ve probably figured out already that questions 4-5 are the most
+important ones.
+
+## Additional Advice on Imputation for Project A
+
+1.  If you decide you want to do single imputation in Project A, use any
+    approach that makes sense to you and that you feel is appropriate,
+    from among the options I’ve presented. You should be fine so long as
+    the imputed values aren’t out of keeping with the data you’ve
+    observed.
+2.  If you decide to do multiple imputation in Project A, use the
+    default `aregImpute()` options we’ve demonstrated, so long as you
+    don’t see warning messages (if you do, try setting `nk = 0`). Use a
+    sufficient number of imputed sets to do the work.
+    -   Anything between 5 and 25 imputed sets is appropriate, with a
+        caveat that you use a sufficient number. For instance, if you
+        are missing at least one predictor value in 12% of all
+        observations, use a minimum of 12 imputed data sets.
+    -   If you’re missing predictor values in more than 25% of all
+        observations, contact us.
+3.  The imperative to use multiple imputation rather than single
+    imputation grows as the amount of missingness grows.
+4.  It’s fine to use single imputation for some parts of your work
+    (perhaps for a Spearman rho-squared plot, or for a Box-Cox
+    assessment of outcome transformation) but then switch to multiple
+    imputation for your outcome model.
+5.  Thinking about degrees of freedom conservation is an issue we have
+    discussed only in the context of models for our actual outcomes, not
+    in models built to create multiple imputations or single imputations
+    of data.
+6.  If you have a lot of missing data on a predictor or two (so much so
+    that you’re not comfortable imputing because you’d have to impute
+    for more than 25% of your subjects) consider restricting eligibility
+    for your study to people with complete data on that predictor
+    instead of just the two outcomes (for your two regression models.)
+    This is a particularly good idea prior to sampling down to 1200
+    rows, if that’s also something you are doing.
+    -   Please don’t feel encouraged to eliminate missingness in all
+        predictors this way, but it is fine to eliminate missingness as
+        a problem for your most often missing predictor (or two) if
+        that’s what’s needed to get your data set down to needing to
+        impute for a reasonable percentage (say between 5% and 25%) of
+        your subjects.
+7.  If you’ve done multiple imputation with `aregImpute` and want to
+    extract a single one of the imputed data sets for some reason
+    (perhaps to build a set of residual plots), use the
+    `impute.transcan()` function specifying the `imputation` number that
+    you want. Check, for instance, [this answer on
+    StackOverflow](https://stackoverflow.com/questions/42014442/r-getting-imputed-missing-values-back-into-dataframe)
+    for details.
+
+So, give yourself a break if you’re in good shape otherwise, but the
+multiple imputation is a major concern while single imputation would not
+be. A poorly done multiple imputation will not score anywhere near as
+well as a well-done single imputation, and a well-done multiple
+imputation will only gain you a single point (out of 100) as compared to
+a well-done single imputation.
 
 # The Presentation
 
