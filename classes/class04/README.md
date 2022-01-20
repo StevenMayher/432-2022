@@ -16,7 +16,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) is due Monday 2022-01-24 at 9 PM to [Canvas](https://canvas.case.edu). I updated the [Lab 1 instructions](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) to:
     - fix the links to the [R Markdown template](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_template.Rmd) which is also available (Rmd and HTML result) on our Shared Drive (Lab 1 subfolder)
     - make it explicit that you should **not** impute missing values in Question 1, and that we prefer that you assume MCAR and do a complete case analysis in Question 2.
-2. You should have completed reading "How to be a Modern Scientist" by Jeff Leek already. This weekend, we would like you to read the Introduction and Chapter 1 of Nate Silver's *The Signal and the Noise*. 
+2. You should have completed reading Jeff Leek's *How to be a Modern Scientist* by now. This weekend, we would like you to read the Introduction and Chapter 1 of Nate Silver's *The Signal and the Noise*. 
     - The introduction is really important, and provides a useful framework for what Nate is trying to do in the book.
     - Chapter 1 is entitled "A Catastrophic Failure of Prediction", and focuses on describing the problems of prediction analysis in the financial crises of the early 2010s.
     - Nate is the editor-in-chief of [FiveThirtyEight.com](https://fivethirtyeight.com/), which is a website that I read almost every day.
