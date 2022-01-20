@@ -14,7 +14,7 @@
     A](#running-a-data-set-past-us-for-project-a)
 -   [Links](#links)
 
-Last Update: 2022-01-19 22:53:28
+Last Update: 2022-01-19 23:08:41
 
 # 1 Introduction
 
@@ -216,7 +216,8 @@ Some sources of data we’d like to see people use include:
 
 To get Dr. Love and the TAs to “sign off” on a data set as appropriate
 for your project A proposal, you need to tell us five things in a
-(private or public - your choice) note on Piazza in the project1 folder:
+(private or public - your choice) note on Piazza in the project1 folder.
+Please do this if you’re not sure your data set is appropriate.
 
 1.  the data source, as described [here in item 1 in the proposal
     instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/01_projectA_proposal.md#1-data-source)
@@ -244,7 +245,7 @@ can then change to another option if necessary.
 # Links
 
 -   Detailed [Instructions for Project A Task 1 (The
-    Proposal)](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/01_project1_proposal.md)
+    Proposal)](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/01_projectA_proposal.md)
 -   [Templates for Project
     A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates)
 -   Detailed [Instructions for Project A Task 2 (Analyses and
