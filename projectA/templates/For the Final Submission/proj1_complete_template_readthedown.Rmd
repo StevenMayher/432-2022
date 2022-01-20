@@ -1,0 +1,137 @@
+---
+title: "Real Title Goes Here"
+author: "Your Name(s) Here"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+    number_sections: TRUE
+    code_folding: show
+---
+
+```{r setup, echo = FALSE, cache=FALSE}
+# This is the only chunk where you can use echo = FALSE
+library(knitr)
+options(max.print="250")
+opts_chunk$set(comment=NA) 
+opts_knit$set(width=75)
+```
+
+# R Packages and Setup {-}
+
+```{r packages, message = FALSE}
+library(knitr); library(rmdformats)
+library(here); library(janitor); library(magrittr)
+library(rms); library(broom)
+
+# other packages as needed can go here
+
+library(tidyverse)
+```
+
+# Data Source
+
+Details, details.
+
+# The Subjects
+
+# Loading and Tidying the Data
+
+## Loading the Raw Data
+
+Ingest your raw data here.
+
+## Cleaning the Data
+
+All cleaning and tidying goes here, leading to a single tibble in R. Be sure to explain what you're doing and why you're doing it. Do not show listings of the data as you clean it. 
+
+## Another Cleaning the Data subheading.
+
+I expect you'll use several subheadings here to help delineate tasks.
+
+# The Tidy Tibble
+
+## Listing the Tibble
+
+Here, you will list the tibble, after all cleaning is complete. Just list the tibble.
+
+## Size and Identifiers
+
+Do what we asked you to do in the instructions.
+
+## Saving the R data set
+
+Now, save your tibble as an R data set (.Rds file, which you'll also provide to us.)
+
+# The Code Book
+
+See the instructions and be sure that your code book includes all necessary elements.
+
+## Defining the Variables
+
+Here, to help you get started, is the example from the instructions.
+
+Variable | Role | Type | Description
+-------- | ---- | ---- | -----------------
+`subjectID` | identifier | - | character code for subjects
+`sysbp` | outcome | quant | Most Recent Systolic Blood Pressure, in mm Hg
+`statin` | input | 2-cat | Has a current statin prescription? (Yes or No)
+
+
+## Numerical Description
+
+Here's where you would run `describe` from `Hmisc`.
+
+# Linear Regression Plans
+
+## My Quantitative Outcome
+
+Follow the instructions.
+
+## My Planned Predictors (Linear Model)
+
+Follow the instructions.
+
+# Logistic Regression Plans
+
+## My Binary Outcome
+
+Follow the instructions.
+
+## My Planned Predictors (Logistic Model)
+
+Follow the instructions.
+
+# Linear Regression Modeling
+
+Follow the instructions provided.
+
+# Logistic Regression Modeling
+
+Follow the instructions provided.
+
+# Discussion
+
+Follow the instructions provided.
+
+# Affirmation 
+
+Be sure to include the text provided in the instructions.
+
+# References
+
+If you are including references, here's the place for them. You should likely be providing a reference for your data set, at least.
+
+# Session Information
+
+```{r}
+xfun::session_info()
+```
+
+# Notes from Dr. Love
+
+1. Be sure to spell check the R Markdown document (just hit F5) and also proofread the HTML result that comes out of this work.
+2. Remove these Notes and any other notes guiding you through this template before you knit the work into an HTML file.
+
+
+
