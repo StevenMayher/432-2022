@@ -18,7 +18,7 @@ Task 2 (Analyses and Presentation)
         Slides](#evaluating-the-presentations--slides)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:19:24
+Last Update: 2022-01-19 23:27:23
 
 # Your Proposal is Approved. Now What?
 
@@ -515,6 +515,8 @@ evaluations.
     Instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/00_projectA_general.md)
 -   Detailed [Instructions for Project A Task 1 (The
     Proposal)](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/01_projectA_proposal.md)
+-   [Draft Rubric for the
+    Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md)
 -   [Templates for Project
     A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates)
     also posted to our Shared Drive.

@@ -38,7 +38,7 @@ Task 1 (The Project Proposal)
     Proposal?](#how-will-we-evaluate-the-proposal)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:19:19
+Last Update: 2022-01-19 23:27:30
 
 # Use a template, please!
 
@@ -401,23 +401,30 @@ Your submitted proposal will include the following:
 To evaluate your work, we will have to receive all necessary materials
 (raw data if needed, clean data as .Rds, .Rmd and HTML) successfully.
 
+We have a [draft rubric for the proposal available
+here](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md).
+Please use it to check your work in advance of our assessment.
+
+A few reminders:
+
 -   If you are working with a partner, one of you must submit the
     proposal, and the other must submit a single-page text document
     (Word is fine) which states that their partner will submit the joint
     proposal, before we will evaluate your work.
--   There are 10 elements we will assess (the 10 sections of the
-    proposal), worth one point each.
+-   There are 10 elements we will assess, worth one point each.
 -   If you receive a grade lower than 10, we will specify the
     problematic elements and then you will have to redo the work
     (quickly) to fix the problems until we are satisfied.
--   One you have successfully completed all tasks, you will receive full
-    credit for the proposal and can then move on to Task 2 (Analysis and
-    Presentation).
+-   Once you have successfully completed all tasks, you will receive
+    full credit for the proposal and can then move on to Task 2
+    (Analysis and Presentation).
 
 # Links
 
 -   [General Project A
     Instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/00_projectA_general.md)
+-   [Draft Rubric for the
+    Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md)
 -   [Templates for Project
     A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates)
     also posted to our Shared Drive.
