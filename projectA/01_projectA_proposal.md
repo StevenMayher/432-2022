@@ -38,7 +38,7 @@ Task 1 (The Project Proposal)
     Proposal?](#how-will-we-evaluate-the-proposal)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:09:47
+Last Update: 2022-01-19 23:11:50
 
 # Use a template, please!
 
@@ -106,6 +106,10 @@ your work (follow the approach in the templates.)
 Provide complete information on the source of the data: how did you get
 it, how was it gathered, by whom, in what setting, for what purpose, and
 using what sampling strategy.
+
+Note that information on selecting data (what is required and some good
+options) for your work is contained in the [General Project A
+Instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/00_projectA_general.md).
 
 # 2 The Subjects
 
