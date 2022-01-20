@@ -20,12 +20,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - The introduction is really important, and provides a useful framework for what Nate is trying to do in the book.
     - Chapter 1 is entitled "A Catastrophic Failure of Prediction", and focuses on describing the problems of prediction analysis in the financial crises of the early 2010s.
     - Nate is the editor-in-chief of [FiveThirtyEight.com](https://fivethirtyeight.com/), which is a website that I read almost every day.
+3. Read through the [Project A instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) and get started on identifying a data set.
 
 ## Announcements
 
 1. Feedback from Dr. Love on the [Minute Paper after Class 3 is now available](https://github.com/THOMASELOVE/432-2022/tree/main/minute).
 2. [Class 05](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class05) on Tuesday 2022-01-25 will be (I hope) our last Zoom-only class session. As of now, we will return to in-person learning for 432 on Thursday 2022-01-27, for [Class 06](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class06). Our classroom is E321-323 (the Alice room) in the Robbins Building at the School of Medicine.
 3. Instructions and Materials for [Lab 02](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) and [Lab 03](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03) and the (optional but you should do it) [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) are now available.
+4. Instructions for [Project A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) are also now available.
 
 ## One Last Thing
 
