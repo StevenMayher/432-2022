@@ -38,7 +38,7 @@ Task 1 (The Project Proposal)
     Proposal?](#how-will-we-evaluate-the-proposal)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:11:50
+Last Update: 2022-01-19 23:19:19
 
 # Use a template, please!
 
@@ -351,8 +351,8 @@ xfun::session_info()
 # Submission Requirements
 
 The proposal is to be submitted via file uploads to
-[Canvas](https://canvas.case.edu). Your submitted proposal will include
-the following:
+[Canvas](https://canvas.case.edu) in the Project A Proposal assignment.
+Your submitted proposal will include the following:
 
 1.  A raw data file (we prefer a `.csv` file) containing your raw data
     prior to any cleaning or tidying. This should be the file you load
@@ -405,7 +405,8 @@ To evaluate your work, we will have to receive all necessary materials
     proposal, and the other must submit a single-page text document
     (Word is fine) which states that their partner will submit the joint
     proposal, before we will evaluate your work.
--   There are 10 elements we will assess, worth one point each.
+-   There are 10 elements we will assess (the 10 sections of the
+    proposal), worth one point each.
 -   If you receive a grade lower than 10, we will specify the
     problematic elements and then you will have to redo the work
     (quickly) to fix the problems until we are satisfied.
