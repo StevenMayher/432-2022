@@ -38,7 +38,7 @@ Task 1 (The Project Proposal)
     Proposal?](#how-will-we-evaluate-the-proposal)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:07:23
+Last Update: 2022-01-19 23:09:47
 
 # Use a template, please!
 
@@ -61,7 +61,8 @@ templates for the Proposal.
     you’ve chosen to insert your title and author information.
 -   Unless you really know what you’re doing, I would leave the rest of
     the YAML code alone.
--   Do not use `echo = FALSE` anywhere in your R Markdown code.
+-   Do not use `echo = FALSE` anywhere in your R Markdown code other
+    than the one place we’ve explicitly permitted it.
 -   As in the templates, use `knitr::opts_chunk$set(comment=NA)` in the
     setup chunk to avoid R output being preceded by hashtags.
 -   Do use the ENTER key sufficiently to prevent any code chunks in the
