@@ -1,0 +1,738 @@
+---
+title: "432 Class 04 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-01-20"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+## Today's Agenda
+
+- Data Load from .Rds built in Class 3
+- Fitting models with `lm`
+    - Incorporating an interaction between factors
+    - Incorporating polynomial terms
+    - Incorporating restricted cubic splines
+- Evaluating results in a testing sample with `yardstick`
+
+## Setup 
+
+```{r, message = FALSE}
+knitr::opts_chunk$set(comment = NA)  
+options(width = 60)     
+
+library(here); library(magrittr)
+library(janitor); library(knitr)
+library(patchwork); library(broom)
+library(rsample); library(yardstick)
+
+library(rms)            ## new today: from Frank Harrell
+
+library(tidyverse)      
+
+theme_set(theme_bw())   
+options(dplyr.summarise.inform = FALSE)
+```
+
+## From Class 3
+
+We developed the `week2` data and performed a simple imputation for it (into `week2im`) in Class 3. Here, we'll read in those saved results, and then split into testing and training samples, as we did in Class 3.
+
+```{r}
+week2 <- readRDS(here("data", "week2.Rds"))
+
+week2im <- readRDS(here("data", "week2im.Rds"))
+
+set.seed(432)   
+week2im_split <- initial_split(week2im, prop = 3/4)
+
+train_w2im <- training(week2im_split)
+test_w2im <- testing(week2im_split)
+```
+
+## Codebook for useful `week2` variables
+
+- 894 subjects in Cleveland-Elyria with `bmi` and no history of diabetes
+
+Variable | Description
+:----: | --------------------------------------
+`bmi` | (outcome) Body-Mass index in kg/m^2^.
+`inc_imp` | income (imputed from grouped values) in $
+`fruit_day` | average fruit servings consumed per day
+`drinks_wk` | average alcoholic drinks consumed per week
+`female` | sex: 1 = female, 0 = male
+`exerany` | any exercise in the past month: 1 = yes, 0 = no
+`genhealth` | self-reported overall health (5 levels)
+`race_eth` | race and Hispanic/Latinx ethnicity (5 levels)
+
+- plus `ID`, `SEQNO`, `hx_diabetes` (all 0), `MMSA` (all Cleveland-Elyria)
+- See Chapter 2 of the Course Notes for details on the variables
+
+## Class 03 and Class 04
+
+In Class 03, we fit two models to predict `bmi`, using `exerany` and `health`, one with an interaction term and one without.
+
+```{r}
+m_1 <- lm(bmi ~ exerany + health, data = train_w2im)
+m_1int <- lm(bmi ~ exerany * health, data = train_w2im)
+```
+
+Adding in the covariate `fruit_day`...
+
+```{r}
+m_2 <- lm(bmi ~ fruit_day + exerany + health,
+          data = train_w2im)
+m_2int <- lm(bmi ~ fruit_day + exerany * health, 
+          data = train_w2im)
+```
+
+## Compare fits in the training sample?
+
+```{r, echo = FALSE}
+bind_rows(glance(m_1), glance(m_2), 
+          glance(m_1int), glance(m_2int)) %>%
+    mutate(mod = c("m_1", "m_2", "m_1int", "m_2int")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+           sigma, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 3, 3, 2, 0, 0, 1, 1))
+```
+
+- `m_1` = no `fruit_day`
+- `m_2` = `fruit_day` included
+- `int` = `exerany*health` interaction included
+
+But the training sample cannot judge between models accurately. Our models have already *seen* that data. So fairer comparisons, consider the (held out) testing sample...
+
+## Model predictions of `bmi` in the test sample
+
+We'll use `augment` from the `broom` package...
+
+```{r}
+m1_test_aug <- augment(m_1, newdata = test_w2im)
+m1int_test_aug <- augment(m_1int, newdata = test_w2im)
+m2_test_aug <- augment(m_2, newdata = test_w2im)
+m2int_test_aug <- augment(m_2int, newdata = test_w2im)
+```
+
+This adds fitted values (predictions) and residuals (errors) ...
+
+```{r}
+m1_test_aug %>% select(ID, bmi, .fitted, .resid) %>% 
+    slice(1:2) %>% kable()
+```
+
+## What does the `yardstick` package do?
+
+For each subject in the testing set, we will need:
+
+- estimate = model's prediction of that subject's `bmi`
+- truth = the `bmi` value observed for that subject
+
+Calculate a summary of the predictions across the $n$ test subjects, such as:
+
+- $R^2$ = square of the correlation between truth and estimate 
+- `mae` = mean absolute error ...
+
+$$
+mae = \frac{1}{n} \sum{|truth - estimate|}
+$$
+
+- `rmse` = root mean squared error ...
+
+$$
+rmse = \sqrt{\frac{1}{n} \sum{(truth - estimate)^2}}
+$$
+
+## Testing Results (using $R^2$)
+
+We can use the `yardstick` package and its `rsq()` function.
+
+```{r}
+testing_r2 <- bind_rows(
+    rsq(m1_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m1int_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m2_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m2int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_1int", "m_2", "m_2int"))
+testing_r2 %>% kable(dig = 4)
+```
+
+
+## Mean Absolute Error?
+
+Consider the mean absolute prediction error ...
+
+```{r}
+testing_mae <- bind_rows(
+    mae(m1_test_aug, truth = bmi, estimate = .fitted),
+    mae(m1int_test_aug, truth = bmi, estimate = .fitted),
+    mae(m2_test_aug, truth = bmi, estimate = .fitted),
+    mae(m2int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_1int", "m_2", "m_2int"))
+testing_mae %>% kable(dig = 2)
+```
+
+
+## Root Mean Squared Error?
+
+How about the square root of the mean squared prediction error, or RMSE?
+
+```{r}
+testing_rmse <- bind_rows(
+   rmse(m1_test_aug, truth = bmi, estimate = .fitted),
+   rmse(m1int_test_aug, truth = bmi, estimate = .fitted),
+   rmse(m2_test_aug, truth = bmi, estimate = .fitted),
+   rmse(m2int_test_aug, truth = bmi, estimate = .fitted)) %>%
+   mutate(model = c("m_1", "m_1int", "m_2", "m_2int"))
+testing_rmse %>% kable(digits = 3)
+```
+
+## Other Summaries for Numerical Predictions
+
+Within the `yardstick` package, there are several other summaries, including:
+
+- `rsq_trad()` = defines $R^2$ using sums of squares. 
+    - The `rsq()` measure we showed a few slides ago is a squared correlation coefficient and is guaranteed to fall in (0, 1).
+- `mape()` = mean absolute percentage error
+- `mpe()` = mean percentage error
+- `huber_loss()` = Huber loss (often used in robust regression), which is less sensitive to outliers than `rmse()`.
+- `ccc()` = concordance correlation coefficient, which attempts to measure both consistency/correlation (like `rsq()`) and accuracy (like `rmse()`).
+
+See [the yardstick home page](https://yardstick.tidymodels.org/index.html) for more details.
+
+## Incorporating a non-linear term for `fruit_day`
+
+Suppose we wanted to include a polynomial term for `fruit_day`:
+
+```
+lm(bmi ~ fruit_day, data = train_w2im)
+lm(bmi ~ poly(fruit_day, 2), data = train_w2im)
+lm(bmi ~ poly(fruit_day, 3), data = train_w2im)
+```
+
+```{r, echo = FALSE, fig.height = 4}
+p1 <- ggplot(train_w2im, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.3) + 
+    geom_smooth(formula = y ~ x, method = "lm", 
+                col = "red", se = FALSE) + 
+    labs(title = "Linear Fit")
+
+p2 <- ggplot(train_w2im, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.3) + 
+    geom_smooth(formula = y ~ poly(x, 2), method = "lm",
+                col = "blue", se = FALSE) +
+    labs(title = "2nd order Polynomial")
+
+p3 <- ggplot(train_w2im, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.3) + 
+    geom_smooth(formula = y ~ poly(x, 3), method = "lm",
+                col = "purple", se = FALSE) +
+    labs(title = "3rd order Polynomial")
+
+p1 + p2 + p3
+```
+
+## Polynomial Regression
+
+A polynomial in the variable `x` of degree D is a linear combination of the powers of `x` up to D.
+
+For example:
+
+- Linear: $y = \beta_0 + \beta_1 x$
+- Quadratic: $y = \beta_0 + \beta_1 x + \beta_2 x^2$
+- Cubic: $y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3$
+- Quartic: $y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \beta_4 x^4$
+- Quintic: $y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \beta_4 x^4 + \beta_5 x^5$
+
+Fitting such a model creates a **polynomial regression**.
+
+## Raw Polynomials vs. Orthogonal Polynomials
+
+Predict `bmi` using `fruit_day` with a polynomial of degree 2.
+
+```{r}
+(temp1 <- lm(bmi ~ fruit_day + I(fruit_day^2), 
+             data = train_w2im))
+```
+
+This uses raw polynomials. Predicted `bmi` for `fruit_day = 2` is 
+
+```
+bmi = 29.2991 - 1.3079 (fruit_day) + 0.1284 (fruit_day^2)
+    = 29.2991 - 1.3079 (2) + 0.1284 (4) 
+    = 27.1969
+```
+
+## Does the raw polynomial match our expectations?
+
+```{r}
+temp1 <- lm(bmi ~ fruit_day + I(fruit_day^2), 
+             data = train_w2im)
+```
+
+```{r}
+augment(temp1, newdata = tibble(fruit_day = 2)) %>%
+    kable(digits = 4)
+```
+
+and this matches our "by hand" calculation. But it turns out most regression models use *orthogonal* rather than raw polynomials...
+
+## Fitting an Orthogonal Polynomial
+
+Predict `bmi` using `fruit_day` with an *orthogonal* polynomial of degree 2.
+
+```{r}
+(temp2 <- lm(bmi ~ poly(fruit_day,2), data = train_w2im))
+```
+
+This looks very different from our previous version of the model.
+
+- What happens when we make a prediction, though?
+
+## Prediction in the Orthogonal Polynomial Model
+
+Remember that in our raw polynomial model, our "by hand" and "using R" calculations both concluded that the predicted `bmi` for a subject with `fruit_day` = 2 was 27.1969.
+
+Now, what happens with the orthogonal polynomial model `temp2` we just fit?
+
+```{r}
+augment(temp2, newdata = data.frame(fruit_day = 2)) %>%
+    kable(digits = 4)
+```
+
+- No change in the prediction.
+
+## Fits of raw vs orthogonal polynomials
+
+```{r, echo = FALSE, fig.height = 6}
+temp1_aug <- augment(temp1, train_w2im)
+temp2_aug <- augment(temp2, train_w2im)
+
+p1 <- ggplot(temp1_aug, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.3) +
+    geom_line(aes(x = fruit_day, y = .fitted), 
+              col = "red") +
+    labs(title = "temp1: Raw fit, degree 2")
+
+p2 <- ggplot(temp2_aug, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.3) +
+    geom_line(aes(x = fruit_day, y = .fitted), 
+              col = "blue") +
+    labs(title = "temp2: Orthogonal fit, degree 2")
+
+p1 + p2 + 
+    plot_annotation(title = "Comparing Two Methods of Fitting a Quadratic Polynomial")
+```
+
+- The two models are, in fact, identical.
+
+## Why do we use orthogonal polynomials?
+
+- The main reason is to avoid having to include powers of our predictor that are highly collinear. 
+- Variance Inflation Factor assesses collinearity...
+
+```{r}
+vif(temp1)        ## from rms package
+```
+
+- Orthogonal polynomial terms are uncorrelated with one another, easing the process of identifying which terms add value to our model.
+
+```{r}
+vif(temp2)      
+```
+
+
+## Why orthogonal rather than raw polynomials?
+
+The tradeoff is that the raw polynomial is a lot easier to explain in terms of a single equation in the simplest case. 
+
+Actually, we'll usually avoid polynomials in our practical work, and instead use splines, which are more flexible and require less maintenance, but at the cost of pretty much requiring you to focus on visualizing their predictions rather than their equations. 
+
+## Adding a Second Order Polynomial to our Models
+
+```{r}
+m_3 <- lm(bmi ~ poly(fruit_day,2) + exerany + health,
+          data = train_w2im)
+```
+
+- Comparison to other models without the interaction...
+
+```{r, echo = FALSE}
+bind_rows(glance(m_1), glance(m_2), glance(m_3)) %>%
+    mutate(mod = c("m_1", "m_2", "m_3")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+        sigma, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 4, 4, 2, 0, 0, 1, 1))
+```
+
+
+## Tidied summary of `m_3` coefficients
+
+```{r, echo = FALSE}
+tidy(m_3, conf.int = TRUE, conf.level = 0.90) %>%
+    rename(est = estimate, se = std.error, t = statistic, p = p.value) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## `m_3` Residual Plots
+
+```{r, fig.height = 6, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_3)
+par(mfrow = c(1,1))
+```
+
+## Add in the interaction
+
+```{r}
+m_3int <- lm(bmi ~ poly(fruit_day,2) + exerany * health,
+          data = train_w2im)
+```
+
+- Comparison to other models with the interaction...
+
+```{r, echo = FALSE}
+bind_rows(glance(m_1int), glance(m_2int), glance(m_3int)) %>%
+    mutate(mod = c("m_1int", "m_2int", "m_3int")) %>%
+    select(mod, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+        sigma, df, df.res = df.residual, AIC, BIC) %>%
+    kable(digits = c(0, 4, 4, 2, 0, 0, 1, 1))
+```
+
+
+## Tidied summary of `m_3int` coefficients
+
+```{r, echo = FALSE}
+tidy(m_3int, conf.int = TRUE, conf.level = 0.90) %>%
+    rename(est = estimate, se = std.error, t = statistic, p = p.value) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## `m_3int` Residual Plots
+
+```{r, fig.height = 6, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_3int)
+par(mfrow = c(1,1))
+```
+
+## How do models `m_3` and `m_3int` do in testing?
+
+```{r}
+m3_test_aug <- augment(m_3, newdata = test_w2im)
+m3int_test_aug <- augment(m_3int, newdata = test_w2im)
+
+testing_r2 <- bind_rows(
+    rsq(m1_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m2_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m3_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m1int_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m2int_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m3int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_2", "m_3", "m_1int",
+                     "m_2int", "m_3int"))
+```
+
+- I've hidden my calculations for RMSE and MAE here.
+
+```{r, echo = FALSE}
+testing_rmse <- bind_rows(
+    rmse(m1_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m2_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m3_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m1int_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m2int_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m3int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_2", "m_3", "m_1int",
+                     "m_2int", "m_3int"))
+
+testing_mae <- bind_rows(
+    mae(m1_test_aug, truth = bmi, estimate = .fitted),
+    mae(m2_test_aug, truth = bmi, estimate = .fitted),
+    mae(m3_test_aug, truth = bmi, estimate = .fitted),
+    mae(m1int_test_aug, truth = bmi, estimate = .fitted),
+    mae(m2int_test_aug, truth = bmi, estimate = .fitted),
+    mae(m3int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_2", "m_3", "m_1int",
+                     "m_2int", "m_3int"))
+```
+
+## Results comparing all six models (testing)
+
+```{r}
+bind_cols(testing_r2 %>% select(model, rsquare = .estimate), 
+          testing_rmse %>% select(rmse = .estimate),
+          testing_mae %>% select(mae = .estimate)) %>%
+    kable(digits = c(0, 4, 3, 3))
+```
+
+- Did the polynomial term in `m_3` and `m_3int` improve our predictions?
+
+## Splines
+
+- A **linear spline** is a continuous function formed by connecting points (called **knots** of the spline) by line segments.
+- A **restricted cubic spline** is a way to build highly complicated curves into a regression equation in a fairly easily structured way.
+- A restricted cubic spline is a series of polynomial functions joined together at the knots. 
+    + Such a spline gives us a way to flexibly account for non-linearity without over-fitting the model.
+    + Restricted cubic splines can fit many different types of non-linearities.
+    + Specifying the number of knots is all you need to do in R to get a reasonable result from a restricted cubic spline. 
+
+The most common choices are 3, 4, or 5 knots. 
+
+- 3 Knots, 2 degrees of freedom, allows the curve to "bend" once.
+- 4 Knots, 3 degrees of freedom, lets the curve "bend" twice.
+- 5 Knots, 4 degrees of freedom, lets the curve "bend" three times. 
+
+## A simulated data set
+
+```{r}
+set.seed(4322021)
+
+sim_data <- tibble(
+    x = runif(250, min = 10, max = 50),
+    y = 3*(x-30) - 0.3*(x-30)^2 + 0.05*(x-30)^3 + 
+        rnorm(250, mean = 500, sd = 70)
+)
+
+head(sim_data, 2)
+```
+
+## The `sim_data`, plotted.
+
+```{r, echo = FALSE, fig.height = 5, message = FALSE}
+p1 <- ggplot(sim_data, aes(x = x, y = y)) + 
+    geom_point(alpha = 0.3) +
+    geom_smooth(method = "lm", col = "red", se = FALSE) +
+    labs(title = "With Linear Fit")
+
+p2 <- ggplot(sim_data, aes(x = x, y = y)) + 
+    geom_point(alpha = 0.3) +
+    geom_smooth(method = "loess", col = "blue", se = FALSE) +
+    labs(title = "With Loess Smooth")
+
+p1 + p2
+```
+
+
+## Fitting Restricted Cubic Splines with `lm` and `rcs`
+
+```{r}
+sim_linear <- lm(y ~ x, data = sim_data)
+sim_poly2  <- lm(y ~ poly(x, 2), data = sim_data)
+sim_poly3  <- lm(y ~ poly(x, 3), data = sim_data)
+sim_rcs3   <- lm(y ~ rcs(x, 3), data = sim_data)
+sim_rcs4   <- lm(y ~ rcs(x, 4), data = sim_data)
+sim_rcs5   <- lm(y ~ rcs(x, 5), data = sim_data)
+```
+
+```{r, echo = FALSE, message = FALSE}
+sim_linear_aug <- augment(sim_linear, sim_data)
+sim_poly2_aug <- augment(sim_poly2, sim_data)
+sim_poly3_aug <- augment(sim_poly3, sim_data)
+sim_rcs3_aug <- augment(sim_rcs3, sim_data)
+sim_rcs4_aug <- augment(sim_rcs4, sim_data)
+sim_rcs5_aug <- augment(sim_rcs5, sim_data)
+```
+
+## Looking at the Polynomial Fits
+
+```{r, echo = FALSE, message = FALSE, fig.height = 6}
+p1 <- ggplot(sim_data, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_smooth(method = "lm", col = "black", se = F) +
+    labs(title = "Linear Fit") 
+
+p2 <- ggplot(sim_data, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_smooth(method = "loess", col = "forestgreen", se = F) +
+    labs(title = "Loess Smooth") 
+
+p3 <- ggplot(sim_poly2_aug, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = x, y = .fitted), 
+              col = "blue", size = 1.25) +
+    labs(title = "Quadratic Polynomial") 
+
+p4 <- ggplot(sim_poly3_aug, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = x, y = .fitted), 
+              col = "purple", size = 1.25) +
+    labs(title = "Cubic Polynomial") 
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Looking at the Restricted Cubic Spline Fits
+
+```{r, echo = FALSE, message = FALSE, fig.height = 6}
+p0 <- ggplot(sim_data, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_smooth(method = "lm", col = "black", se = F) +
+    labs(title = "Linear Fit") 
+
+p3 <- ggplot(sim_rcs3_aug, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = x, y = .fitted), 
+              col = "blue", size = 1.25) +
+    labs(title = "RCS with 3 knots") 
+
+p4 <- ggplot(sim_rcs4_aug, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = x, y = .fitted), 
+              col = "red", size = 1.25) +
+    labs(title = "RCS with 4 knots") 
+
+p5 <- ggplot(sim_rcs5_aug, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = x, y = .fitted), 
+              col = "purple", size = 1.25) +
+    labs(title = "RCS with 5 knots") 
+
+(p0 + p3) / (p4 + p5)
+```
+
+
+## Fitting Restricted Cubic Splines with `lm` and `rcs`
+
+For most applications, three to five knots strike a nice balance between complicating the model needlessly and fitting data pleasingly. Let's consider a restricted cubic spline model for `bmi` based on `fruit_day` again, but now with:
+
+- in `temp3`, 3 knots, and
+- in `temp4`, 4 knots,
+
+```{r}
+temp3 <- lm(bmi ~ rcs(fruit_day, 3), data = train_w2im)
+temp4 <- lm(bmi ~ rcs(fruit_day, 4), data = train_w2im)
+```
+
+
+## Spline models for `bmi` and `fruit_day`
+
+```{r, echo = FALSE, message = FALSE, fig.height = 6}
+temp3_aug <- augment(temp3, train_w2im)
+temp4_aug <- augment(temp4, train_w2im)
+
+p1 <- ggplot(train_w2im, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.5) +
+    geom_smooth(method = "lm", col = "black", se = F) +
+    labs(title = "Linear Fit") 
+
+p2 <- ggplot(train_w2im, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.5) +
+    geom_smooth(method = "loess", col = "purple", se = F) +
+    labs(title = "Loess Smooth") 
+
+p3 <- ggplot(temp3_aug, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = fruit_day, y = .fitted), 
+              col = "blue", size = 1.25) +
+    labs(title = "RCS, 3 knots") 
+
+p4 <- ggplot(temp4_aug, aes(x = fruit_day, y = bmi)) +
+    geom_point(alpha = 0.5) +
+    geom_line(aes(x = fruit_day, y = .fitted), 
+              col = "red", size = 1.25) +
+    labs(title = "RCS, 4 knots") 
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Let's try an RCS with 4 knots
+
+```{r}
+m_4 <- lm(bmi ~ rcs(fruit_day, 4) + exerany + health,
+          data = train_w2im)
+
+m_4int <- lm(bmi ~ rcs(fruit_day, 4) + exerany * health,
+          data = train_w2im)
+```
+
+Comparing 4 models including the `exerany*health` interaction... 
+
+```{r, echo = FALSE}
+bind_rows(glance(m_1int), glance(m_2int), glance(m_3int), glance(m_4int)) %>%
+    mutate(mod = c("m_1int", "m_2int", "m_3int", "m_4int")) %>%
+    mutate(fruit = c("not in", "linear", "poly(2)", "rcs(4)")) %>%
+    select(mod, fruit, r.sq = r.squared, adj.r.sq = adj.r.squared, 
+        sigma, df, AIC, BIC) %>%
+    kable(digits = c(0, 0, 4, 4, 3, 0, 1, 1))
+```
+
+
+## Tidied summary of `m_4int` coefficients
+
+```{r, echo = FALSE}
+tidy(m_4int, conf.int = TRUE, conf.level = 0.90) %>%
+    rename(est = estimate, se = std.error, t = statistic, 
+           p = p.value, lo90 = conf.low, hi90 = conf.high) %>%
+    kable(digits = c(0,2,2,2,3,2,2))
+```
+
+## `m_4int` Residual Plots
+
+```{r, fig.height = 6, echo = FALSE}
+par(mfrow = c(2,2))
+plot(m_4int)
+par(mfrow = c(1,1))
+```
+
+## How do models `m_4` and `m_4int` do in testing?
+
+```{r, echo = FALSE}
+m4_test_aug <- augment(m_4, newdata = test_w2im)
+m4int_test_aug <- augment(m_4int, newdata = test_w2im)
+
+testing_r2 <- bind_rows(
+    rsq(m1_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m2_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m3_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m4_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m1int_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m2int_test_aug, truth = bmi, estimate = .fitted),
+    rsq(m3int_test_aug, truth = bmi, estimate = .fitted), 
+    rsq(m4int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_2", "m_3", "m_4", 
+                     "m_1int", "m_2int", "m_3int", "m_4int"))
+
+testing_rmse <- bind_rows(
+    rmse(m1_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m2_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m3_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m4_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m1int_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m2int_test_aug, truth = bmi, estimate = .fitted),
+    rmse(m3int_test_aug, truth = bmi, estimate = .fitted), 
+    rmse(m4int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_2", "m_3", "m_4", 
+                     "m_1int", "m_2int", "m_3int", "m_4int"))
+
+testing_mae <- bind_rows(
+    mae(m1_test_aug, truth = bmi, estimate = .fitted),
+    mae(m2_test_aug, truth = bmi, estimate = .fitted),
+    mae(m3_test_aug, truth = bmi, estimate = .fitted),
+    mae(m4_test_aug, truth = bmi, estimate = .fitted),
+    mae(m1int_test_aug, truth = bmi, estimate = .fitted),
+    mae(m2int_test_aug, truth = bmi, estimate = .fitted),
+    mae(m3int_test_aug, truth = bmi, estimate = .fitted), 
+    mae(m4int_test_aug, truth = bmi, estimate = .fitted)) %>%
+    mutate(model = c("m_1", "m_2", "m_3", "m_4", 
+                     "m_1int", "m_2int", "m_3int", "m_4int"))
+
+bind_cols(testing_r2 %>% select(model, rsquare = .estimate), 
+          testing_rmse %>% select(rmse = .estimate),
+          testing_mae %>% select(mae = .estimate)) %>%
+    kable(digits = c(0, 4, 3, 3))
+```
+
+I'll note that there's a fair amount of very repetitive code in the R Markdown file to create that table. 
+
+- What are our conclusions?
+
+## Next Week
+
+- What if we want to build models for a binary outcome, rather than a quantitative one?
+- Lab 1 due Monday at 9 PM.
+- Tuesday's class will be a Zoom session, Thursday in person.
