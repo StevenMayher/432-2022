@@ -1,9 +1,6 @@
 # 432 Spring 2022 Project A Information
 
-- Deadlines for all 432 assignments are found in the [Course Calendar](https://thomaselove.github.io/432/calendar.html).
-- When available, information on Project B will be [found at this link](https://github.com/THOMASELOVE/432-2022/tree/main/projectB).
-
-## Instructions
+## Instructions for Project A
 
 1. [Start here with General instructions (and advice for selecting data) for Project 1](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/00_projectA_general.md). 
   - Project A includes two Tasks: a Proposal due in late January, followed by Analyses and Presentation work, completed in early March.
@@ -15,3 +12,7 @@
     - This includes data analyses and presentation work, and is what you'll be working on in February.
 
 All deadlines for projects are specified on the [Course Calendar](https://thomaselove.github.io/432/calendar.html).
+
+## What about Project B?
+
+When available, Project B instructions [will appear at this link](https://github.com/THOMASELOVE/432-2022/tree/main/projectB).
