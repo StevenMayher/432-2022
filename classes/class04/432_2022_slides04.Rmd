@@ -262,9 +262,9 @@ Predict `bmi` using `fruit_day` with a polynomial of degree 2.
 This uses raw polynomials. Predicted `bmi` for `fruit_day = 2` is 
 
 ```
-bmi = 29.2991 - 1.3079 (fruit_day) + 0.1284 (fruit_day^2)
-    = 29.2991 - 1.3079 (2) + 0.1284 (4) 
-    = 27.1969
+bmi = 29.5925 - 1.2733 (fruit_day) + 0.1051 (fruit_day^2)
+    = 29.5925 - 1.2733 (2) + 0.1051 (4) 
+    = 27.466
 ```
 
 ## Does the raw polynomial match our expectations?
@@ -276,7 +276,7 @@ temp1 <- lm(bmi ~ fruit_day + I(fruit_day^2),
 
 ```{r}
 augment(temp1, newdata = tibble(fruit_day = 2)) %>%
-    kable(digits = 4)
+    kable(digits = 3)
 ```
 
 and this matches our "by hand" calculation. But it turns out most regression models use *orthogonal* rather than raw polynomials...
@@ -295,13 +295,13 @@ This looks very different from our previous version of the model.
 
 ## Prediction in the Orthogonal Polynomial Model
 
-Remember that in our raw polynomial model, our "by hand" and "using R" calculations both concluded that the predicted `bmi` for a subject with `fruit_day` = 2 was 27.1969.
+Remember that in our raw polynomial model, our "by hand" and "using R" calculations both concluded that the predicted `bmi` for a subject with `fruit_day` = 2 was 27.466.
 
 Now, what happens with the orthogonal polynomial model `temp2` we just fit?
 
 ```{r}
 augment(temp2, newdata = data.frame(fruit_day = 2)) %>%
-    kable(digits = 4)
+    kable(digits = 3)
 ```
 
 - No change in the prediction.
