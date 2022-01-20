@@ -9,7 +9,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/432_2022_slides04.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/432_2022_slides04.Rmd).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-![](https://imgs.xkcd.com/comics/throat_and_nasal_passages.png) [XKCD Link](https://xkcd.com/2563)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/figures/hudon2021.png) [Link](https://twitter.com/beeonaposy/status/1353735905962577920)
 
 ## Upcoming Deliverables
 
@@ -26,3 +26,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. Feedback from Dr. Love on the [Minute Paper after Class 3 is now available](https://github.com/THOMASELOVE/432-2022/tree/main/minute).
 2. [Class 05](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class05) on Tuesday 2022-01-25 will be (I hope) our last Zoom-only class session. As of now, we will return to in-person learning for 432 on Thursday 2022-01-27, for [Class 06](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class06). Our classroom is E321-323 (the Alice room) in the Robbins Building at the School of Medicine.
 3. Instructions and Materials for [Lab 02](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) and [Lab 03](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03) and the (optional but you should do it) [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) are now available.
+
+## One Last Thing
+
+[Some advice for writing a good cover letter](https://twitter.com/vineet_chopra/status/1483855989652656128)...
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/figures/chopra2022.PNG) 
+
