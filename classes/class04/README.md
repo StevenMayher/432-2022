@@ -33,7 +33,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## One Last Thing
 
-[Some advice for writing a good cover letter](https://twitter.com/vineet_chopra/status/1483855989652656128)...
+From Vineet Chopra, some advice for [writing a good cover letter](https://twitter.com/vineet_chopra/status/1483855989652656128)...
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class04/figures/chopra2022.PNG) 
 
