@@ -78,7 +78,7 @@ asked to work alone for Project B later in the term.
 If you have a question about Project A, please feel free to ask it:
 
 1.  [via Piazza](https://piazza.com/case/spring2022/pqhs432) using the
-    **project1** label.
+    **projectA** label.
 2.  at TA office hours
 3.  directly of Professor Love before or after class (or, if necessary,
     via email, although we prefer Piazza)
