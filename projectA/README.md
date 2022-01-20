@@ -8,6 +8,7 @@
     - This includes details on the required data cleaning and exploratory work, and is what you'll need to complete by the end of January.
 3. Next, review the [R Markdown templates for Project 1](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates) and select one to use for your work on Task 1 and (later) on Task 2.
     - Using one of these templates will yield results that are attractive, organized and easy for us to review. Please use them.
+    - The templates (in .Rmd) and their HTML results are also posted on our Shared Google Drive in the Project A Materials folder.
 4. Finally, look at the [Specific instructions for Task 2 (Analyses and Presentation)](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/02_projectA_analyses.md) so you'll know where you're heading.
     - This includes data analyses and presentation work, and is what you'll be working on in February.
 
