@@ -9,11 +9,20 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/432_2022_slides05.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/432_2022_slides05.Rmd).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/figures/brown_tw.PNG)
+
 ## Announcements
 
 1. [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) Answer Sketch will be available soon.
 2. Use the [Project A instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) to help identify a data set for the Project and get it successfully pulled into R. You should have a data set in R before Class 6 on Thursday, so that you can complete your proposal on time (by 9 PM on Monday 2022-01-31.)
 3. Unless something changes, we will return to in-person learning for 432 on Thursday 2022-01-27, for [Class 06](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class06). 
+
+## Sources for further reading on the *Challenger* Example
+
+- Dalal SR Fowlkes EB Hoadley B [Risk analysis of the space shuttle: pre-Challenger prediction of failure](https://github.com/THOMASELOVE/432-2021/blob/master/references/pdf/Dalal_challenger.pdf). JASA 1989: 84, 945-957.
+- Lavine M [Problems in extrapolation illustrated with space shuttle O-ring data](https://www.tandfonline.com/doi/abs/10.1080/01621459.1991.10475132). JASA 1991: 86, 919--922.
+- UCI Machine Learning Repository [Article on the O-Ring data](https://archive.ics.uci.edu/ml/datasets/Challenger+USA+Space+Shuttle+O-Ring)
+- Qian S [A Statistical Analysis of the Challenger Accident](https://www.rebellionresearch.com/blog/a-statistical-analysis-of-the-challenger-accident) posted 2020-10-26.
 
 ## Late Labs Procedure
 
