@@ -14,7 +14,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. [Lab 1](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab01/lab01_instructions.md) Answer Sketch will be available soon.
-2. Use the [Project A instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) to help identify a data set for the Project and get it successfully pulled into R. You should have a data set in R before Class 6 on Thursday, so that you can complete your proposal on time (by 9 PM on Monday 2022-01-31.)
+2. Use the [Project A instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) to help identify a data set for the Project and get it successfully pulled into R. You should have a data set in R before Class 6 this Thursday, so that you can complete your proposal on time (by 9 PM on Monday 2022-01-31.)
 3. Unless something changes, we will return to in-person learning for 432 on Thursday 2022-01-27, for [Class 06](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class06). 
 
 ## Sources for further reading on the *Challenger* Example
