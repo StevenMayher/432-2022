@@ -9,7 +9,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/432_2022_slides05.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/432_2022_slides05.Rmd).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/figures/brown_tw.PNG)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class05/figures/brown_tw.png)
 
 ## Announcements
 
@@ -30,4 +30,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - If for whatever reason you won't be able to submit the lab on time, please submit a short note to Canvas telling the TAs that you will submit the Lab by Wednesday at 9 PM, and then do that. Late submissions (unless excused by me) will lose 10 points (out of 100) if you both (a) submit such a note on time, and then (b) complete the work by Wednesday at 9 PM (48 hours late.) 
 - If you don't submit a note or the Lab by the time we review the Labs (typically shortly after 10 PM Monday), then you will need to appeal by email to Dr. Love for us to grade your Lab, and if we do, it will receive a more substantial penalty.
 - Remember that we will take the five best grades out of Labs 1-6 this semester to form your Lab grade.
+
+## One Last Thing
+
+[Tidy Tuesday](https://www.tidytuesday.com/) is a weekly podcast and community activity from the [R4DS Online Learning Community](https://www.rfordatasci.com/).
 
