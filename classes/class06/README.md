@@ -18,6 +18,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. [Project A proposal](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) is due Monday 2022-01-31 at 9 PM. That should certainly be your main focus for this course right now.
 2. We hope you'll also read through Chapter 2 of *The Signal and the Noise*. It's about making political (and other types) of predictions, and explains what it means to be a fox rather than a hedgehog. We hope you enjoy it.
-3. [Lab 2] is due Monday 2022-02-07. You should be able to do all of it after today's class, if you have the time.
+3. [Lab 2](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) is due Monday 2022-02-07. You should be able to do all five questions after today's class.
 
 
