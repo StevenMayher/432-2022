@@ -13,11 +13,13 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. Feedback on the Minute Paper after Class 05 [is now available](https://bit.ly/432-2022-min-05-feedback). Thanks to you all for completing this.
 2. A draft of the Lab 1 Answer Sketch is now available in our Shared Google Drive. Sorry for the delay. Grades should be available next Tuesday.
+    - I recommend the use of the `cut2` function in the `Hmisc` package for doing some of the work here, otherwise rounding error seems to be an issue.
+    - 
 
 ## What Should I Be Working On?
 
 1. [Project A proposal](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) is due Monday 2022-01-31 at 9 PM. That should certainly be your main focus for this course right now.
-    - The main problem I've had so far is people trying to use hierarchical data.
+    - The main problem so far is people trying to use multilevel (or hierarchical) data, where subjects are contained within other groups in a tree-like structure, with "parents" and "children". An example could be a model of patient health that contains measures for individual patients as well as measures for clinics within which the patients are grouped. Multilevel models are particularly appropriate for research designs where data for participants are organized at more than one level (i.e., nested data). The units of analysis are usually individuals (at a lower level) who are nested within contextual/aggregate units (at a higher level). While the lowest level of data in multilevel models is usually an individual, repeated measurements of individuals may also be examined. That sort of data won't work for Project A.
     - You are welcome to create multi-categorical predictors from quantitative data, but not go in the other direction.
 2. We hope you'll also read through Chapter 2 of *The Signal and the Noise*. It's about making political (and other types) of predictions, and explains what it means to be a fox rather than a hedgehog. We hope you enjoy it.
 3. [Lab 2](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) is due Monday 2022-02-07. You should be able to do all five questions after today's class.
