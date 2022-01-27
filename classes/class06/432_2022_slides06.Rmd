@@ -1,0 +1,537 @@
+---
+title: "432 Class 06 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-01-27"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+## Moving Forward
+
+- Logistic Regression Models and the `smart3_sh` data
+
+## Setup 
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(comment = NA)  
+options(width = 60)     
+```
+
+```{r, message = FALSE}
+library(here); library(magrittr)
+library(janitor); library(knitr)
+library(patchwork); library(broom)
+library(equatiomatic); library(simputation)
+library(naniar)
+library(rsample); library(yardstick)
+library(tidyverse)      
+
+theme_set(theme_bw())
+```
+
+## `smart3` Variables, by Type
+
+Variable | Type | Description
+--------- | :----: | --------------------------------
+`landline` | Binary (1/0) | survey conducted by landline? (vs. cell)
+`healthplan` | Binary (1/0) | subject has health insurance?
+`age_imp` | Quantitative | age (imputed from groups - see Notes)
+`fruit_day` | Quantitative | mean servings of fruit / day
+`drinks_wk` | Quantitative | mean alcoholic drinks / week
+`bmi` | Quantitative | body-mass index (in kg/m^2^)
+`physhealth` | Count (0-30) | of last 30 days, # in poor physical health
+`dm_status` | Categorical | diabetes status (4 levels, *we'll collapse to 2*)
+`activity` | Categorical | physical activity level (4 levels, *we'll re-level*)
+`smoker` | Categorical | smoking status (4 levels, *we'll collapse to 3*)
+`genhealth` | Categorical | self-reported overall health (5 levels)
+
+## The `smart3` data (built last time)
+
+```{r}
+smart3_sh <- readRDS(here("data", "smart3_sh.Rds"))
+
+str(smart3_sh)
+```
+
+## Days (in last 30) of poor physical health 
+
+```{r, fig.height = 3}
+ggplot(smart3_sh, aes(x = physhealth)) +
+    geom_histogram(binwidth = 1, 
+                   fill = "blue", col = "white")
+```
+
+```{r}
+smart3_sh %$% tabyl(physhealth > 0)
+```
+
+## Create `day6` data: predicting Pr(physhealth > 0)?
+
+```{r}
+day6 <- smart3_sh %>% 
+    mutate(sick = as.numeric(physhealth > 0),
+           id = as.character(
+               as.numeric(SEQNO)-2017000000)) %>%
+    select(id, sick, age = age_imp, dm_status, smoker, 
+           bmi, physhealth)
+
+slice(day6, 17:19) # show rows 17-19
+```
+
+## Before fitting models, let's split our sample
+
+```{r}
+set.seed(4322022)
+
+day6_split <- initial_split(day6, prop = 0.7, 
+                            strata = smoker)
+
+d6_train <- training(day6_split)
+d6_test <- testing(day6_split)
+```
+
+What does `strata = smoker` do?
+
+## Impact of `strata = smoker` in split
+
+```{r}
+d6_train %>% tabyl(smoker)
+d6_test %>% tabyl(smoker)
+```
+
+## The logistic regression model
+
+$$
+logit(event) = log\left( \frac{Pr(event)}{1 - Pr(event)} \right) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_k X_k
+$$
+
+$$
+odds(event) = \frac{Pr(event)}{1 - Pr(event)}
+$$
+
+$$
+Pr(event) = \frac{odds(event)}{odds(event) + 1}
+$$
+
+$$
+Pr(event) = \frac{exp(logit(event))}{1 + exp(logit(event))}
+$$ 
+
+## Model 1: predict `sick` from `smoker` and `age`
+
+Fit the model with and without an interaction term?
+
+```{r}
+mod1 <- glm(sick ~ age + smoker, 
+                family = binomial(link = "logit"),
+                data = d6_train)
+
+mod2 <- glm(sick ~ age * smoker,
+               family = binomial(link = "logit"),
+               data = d6_train)
+```
+
+1. Can we use the models to make predictions?
+2. How should we interpret the model coefficients?
+3. Can we compare the models based on in-sample performance?
+4. How can we assess predictions using our test sample?
+
+## Model 1
+
+```{r, results = "asis"}
+extract_eq(mod1, wrap = TRUE, terms_per_line = 2,
+           operator_location = "start", use_coefs = TRUE, 
+           coef_digits = 3)
+```
+
+## Likelihood Ratio Tests: Model 1
+
+```{r}
+anova(mod1, test = "LRT")
+```
+
+## Model 1
+
+```{r}
+tidy(mod1, conf.int = TRUE, conf.level = 0.90) %>% 
+    select(term, estimate, std.error, conf.low, conf.high, p.value) %>% 
+    kable(dig = 3)
+```
+
+## Model 1 Predictions for subjects A-F
+
+- logit(sick) = -0.322 + 0.005 age - 0.318 Former - 0.510 Never
+
+ID | age | smoker | logit(sick) | odds(sick) | Pr(sick)
+---: | ---: | ---: | ---: | ---: | ---:
+A | 33 | Current | -0.157 | 0.8547 | 0.461
+B | 33 | Former | -0.475 | 0.6219 | 0.383
+C | 33 | Never | -0.667 | 0.5132 | 0.339
+D | 55 | Current | -0.047 | 0.9541 | 0.488
+E | 55 | Former | -0.365 | 0.6942 | 0.410
+F | 55 | Never | -0.557 | 0.5729 | 0.364
+
+Sample Calculation (for E): 
+
+- logit(sick) = -0.322 + 0.005 (55) - 0.318 (1) - 0.510 (0) = -0.365
+- odds(sick) = exp(-0.365) = 0.6942
+- Prob(sick) = 0.6942 / (1 + 0.6942) = 0.410
+
+## Model 1 (coefficients exponentiated)
+
+```{r}
+tidy(mod1, exponentiate = TRUE, conf.int = TRUE, 
+     conf.level = 0.90) %>% 
+    select(term, estimate, 
+           lo90 = conf.low, hi90 = conf.high) %>% 
+    kable(dig = 3)
+```
+
+>- So what can we conclude about, for instance, the effect of Never smoking (as compared to Current smoking)?
+>- Suppose Chloe and Nancy are the same age, where Nancy never smoked and Chloe is a current smoker.
+
+## Model 1 (Chloe and Nancy)
+
+```{r, echo = FALSE}
+tidy(mod1, exponentiate = TRUE, conf.int = TRUE, 
+     conf.level = 0.90) %>% 
+    select(term, estimate, 
+           lo90 = conf.low, hi90 = conf.high) %>% 
+    kable(dig = 3)
+```
+
+>- Chloe and Nancy are the same age; Nancy never smoked and Chloe smokes currently. What can we conclude about the relative odds for Nancy of a sick day as compared to Chloe?
+>- Nancy's odds of at least one sick day in the past 30 are 60.1% of Chloe's odds.
+    - 90% CI for this odds ratio is (0.529, 0.681).
+>- Chloe's odds of a sick day are (1/0.601 = 1.664) times those of Nancy.
+
+## Does this match the predictions we made?
+
+- Suppose both Chloe and Nancy are 33 years old.
+- We saw that Nancy's odds(sick) should be 0.601 times Chloe's odds(sick).
+
+ID | age | smoker | logit(sick) | odds(sick) | Pr(sick)
+---: | ---: | ---: | ---: | ---: | ---:
+Chloe | 33 | Current | -0.157 | 0.8547 | 0.461
+Nancy | 33 | Never | -0.667 | 0.5132 | 0.339
+
+- and we have 0.5132 / 0.8547 = 0.600 for the ratio of Nancy's odds to Chloe's odds
+- and Chloe's odds are 0.8547 / 0.5132 = 1.665 times those of Nancy.
+- These discrepancies are just due to rounding error in my table.
+
+## Model 1 results from `glance`
+
+- We'll have some additional measures of fit quality, in time.
+- Deviance = -2(log Likelihood)
+
+```{r}
+glance(mod1) %>% 
+    select(nobs, df.null, null.deviance, 
+           deviance, df.residual) %>%
+    kable(dig = 1)
+```
+
+```{r}
+glance(mod1) %>% 
+    select(nobs, logLik, AIC, BIC) %>%
+    kable(dig = 1)
+```
+
+## Model 2
+
+```{r, results = "asis"}
+extract_eq(mod2, wrap = TRUE, terms_per_line = 1,
+           operator_location = "start", use_coefs = TRUE, 
+           coef_digits = 3)
+```
+
+## Likelihood Ratio Tests: Model 2
+
+```{r}
+anova(mod2, test = "LRT")
+```
+
+## Model 2
+
+```{r}
+tidy(mod2, conf.int = TRUE, conf.level = 0.90) %>% 
+    select(term, estimate, std.error, conf.low, conf.high, p.value) %>% 
+    kable(dig = 3)
+```
+
+- logit(sick) = `-0.188 + 0.002 age - 0.563 Former - 0.642 Never + 0.004 age*Former + 0.003 age*Never`
+
+## Model 2 predictions for subjects A-F
+
+- logit(sick) = `-0.188 + 0.002 age - 0.563 Former - 0.642 Never + 0.004 age*Former + 0.003 age*Never`
+
+ID | age | smoker | logit(sick) | odds(sick) | Pr(sick)
+---: | ---: | ---: | ---: | ---: | ---:
+A | 33 | Current | -0.122 | 0.8851 | 0.470
+B | 33 | Former | -0.553 | 0.5752 | 0.365
+C | 33 | Never | -0.665 | 0.5143 | 0.340
+D | 55 | Current | -0.078 | 0.9250 | 0.481
+E | 55 | Former | -0.421 | 0.6564 | 0.396
+F | 55 | Never | -0.555 | 0.5741 | 0.365
+
+- Subject E: logit(sick) = `-0.188 + 0.002 (55) - 0.563 (1) - 0.642 (0) + 0.004(55)(1) + 0.003(55)(0) = -0.421`
+- odds(sick) = exp(-0.421) = 0.6564 so 
+- Prob(sick) = 0.6564 / (1 + 0.6564) = 0.396 for subject E.
+
+## Model 2 (coefficients exponentiated)
+
+```{r}
+tidy(mod2, exponentiate = TRUE, conf.int = TRUE, 
+     conf.level = 0.90) %>% 
+    select(term, estimate, 
+           lo90 = conf.low, hi90 = conf.high) %>% 
+    kable(dig = 3)
+```
+
+## Model 2 (Chloe and Nancy)
+
+```{r, echo = FALSE}
+tidy(mod2, exponentiate = TRUE, conf.int = TRUE, 
+     conf.level = 0.90) %>% 
+    select(term, estimate, 
+           lo90 = conf.low, hi90 = conf.high) %>% 
+    kable(dig = 3)
+```
+
+>- Chloe and Nancy are the same age; Nancy never smoked and Chloe smokes currently. What can we conclude about the relative odds for Nancy of a sick day as compared to Chloe?
+>- We cannot conclude anything **unless** we know what age Chloe and Nancy are, since the effect of smoking depends on age.
+
+## Model 2 (Chloe and Nancy)
+
+If Chloe (current smoker) and Nancy (never smoker) are each 33, then ...
+
+ID | age | smoker | logit(sick) | odds(sick) | Pr(sick)
+---: | ---: | ---: | ---: | ---: | ---:
+Chloe | 33 | Current | -0.122 | 0.8851 | 0.470
+Nancy | 33 | Never | -0.665 | 0.5143 | 0.340
+
+- Chloe's odds of being sick are 0.8851/0.5143 = 1.72 times that of Nancy, **if** they are each 33 years old.
+- If Chloe and Nancy are each 55, then from the table below, Chloe's odds are 0.9250 / 0.5741 = 1.61 times Nancy's odds of being sick.
+
+ID | age | smoker | logit(sick) | odds(sick) | Pr(sick)
+---: | ---: | ---: | ---: | ---: | ---:
+D | 55 | Current | -0.078 | 0.9250 | 0.481
+F | 55 | Never | -0.555 | 0.5741 | 0.365
+
+## Comparing Model 1 to Model 2 with AIC and BIC
+
+```{r}
+bind_rows(glance(mod1) %>% select(nobs, AIC, BIC),
+          glance(mod2) %>% select(nobs, AIC, BIC)) %>%
+    mutate(mod = c("m1 (no int.)", "m2 (interaction)")) %>%
+    kable(digits = 1)
+```
+
+- Which model looks like it performs better in the training sample?
+
+## Comparison with Mallows' $C_p$ statistic?
+
+```{r}
+anova(mod1, mod2, test = "Cp")
+```
+
+- Same as what we got from `glance` for AIC in this case.
+
+## Can we compare the models with a Test?
+
+```{r}
+anova(mod1, mod2, test = "LRT")
+```
+
+Could also consider:
+
+- Rao's efficient score test (`test = "Rao"`)
+- Pearson's chi-square test (`test = "Chisq"`)
+
+## Let's get predicted probabilities in training sample 
+
+```{r}
+m1_aug <- augment(mod1, type.predict = "response")
+m2_aug <- augment(mod2, type.predict = "response")
+```
+
+The predicted probabilities are in the `.fitted` column.
+
+```{r}
+m1_aug %>% select(age, smoker, sick, .fitted) %>% slice(1)
+m2_aug %>% select(age, smoker, sick, .fitted) %>% slice(1)
+```
+
+## Observed (sick status) vs. Model 1 fitted Pr(sick)
+
+```{r, fig.height = 4}
+ggplot(m1_aug, aes(x = .fitted, y = sick)) +
+    geom_count() + xlim(0.30, 0.55) +
+    labs(title = "Model 1 (no interaction)", 
+         sub = "Training Data")
+```
+
+## Observed (sick status) vs. Model 2 fitted Pr(sick)
+
+```{r, fig.height = 4}
+ggplot(m2_aug, aes(x = .fitted, y = sick)) +
+    geom_count() + xlim(0.30, 0.55) +
+    labs(title = "Model 2 (with interaction)", 
+         sub = "Training Data")
+```
+
+## Making Classification Decisions
+
+- Our outcome is `sick`, where `sick` = 1 if `physact` > 0, otherwise `sick` = 0.
+- We can establish a classification rule based on our model's predicted probabilities of `sick` = 1.
+- 0.5 is a natural (but not inevitable) cut point.
+    - if `.fitted` is below 0.50, we'll predict `sick` = 0
+    - if `.fitted` is 0.50 or larger, we'll predict `sick` = 1.
+    
+```{r}
+m1_aug %$% table(.fitted >= 0.50, sick)
+```
+
+## Standard Epidemiological Format
+
+Confusion matrix for Model `mod1` in the training sample.
+
+```{r}
+confuse_m1 <- m1_aug %>%
+    mutate(sick_obs = factor(sick == "1"),
+           sick_pred = factor(.fitted >= 0.50),
+           sick_obs = fct_relevel(sick_obs, "TRUE"),
+           sick_pred = fct_relevel(sick_pred, "TRUE")) %$%
+    table(sick_pred, sick_obs)
+
+confuse_m1
+```
+
+## Terminology associated with the Confusion Matrix
+
+```{r}
+confuse_m1
+```
+
+- Total Observations = 49 + 75 + 2005 + 3058 = 5187
+- Correct Predictions = 49 + 3058 = 3107, or 59.9% accuracy
+- Incorrect Predictions = 75 + 2005 = 2080 (40.1%)
+- Observed TRUE = 49 + 2005 = 2054, or 39.6% prevalence
+- Predicted TRUE = 49 + 75 = 124, or 2.4% detection prevalence
+
+## Other Summaries from a Confusion Matrix
+
+```{r}
+confuse_m1
+```
+
+- Sensitivity = 49 / (49 + 2005) = 2.4% (also called Recall)
+    - if the subject actually was sick, our model predicts that 2.4% of the time
+- Specificity = 3058 / (3058 + 75) = 97.6%
+    - if the subject was actually not sick, our model predicts that 97.6% of the time
+- Positive Predictive Value (or Precision) = 49 / (49 + 75) = 39.5%
+    - our predictions of sick were correct 39.5% of the time
+- Negative Predictive Value = 3058 / (3058 + 2005) = 60.4%
+    - our predictions of "not sick" were correct 60.4% of the time
+
+
+## Confusion Matrix for `mod2` (training sample)
+
+We can obtain a similar confusion matrix for model `mod2` using the same (arbitrary) cutoff of `.fitted >= 0.5` to indicate `sick`.
+
+```{r, echo = FALSE}
+confuse_m2 <- m2_aug %>%
+    mutate(sick_obs = factor(sick == "1"),
+           sick_pred = factor(.fitted >= 0.50),
+           sick_obs = fct_relevel(sick_obs, "TRUE"),
+           sick_pred = fct_relevel(sick_pred, "TRUE")) %$%
+    table(sick_pred, sick_obs)
+```
+
+```{r}
+confuse_m1
+confuse_m2
+```
+
+Which of these confusion matrices looks better?
+
+## Get confusion matrix more easily?
+
+Switch to a 0.45 cutoff...
+
+```{r}
+m1_aug <- m1_aug %>%
+    mutate(obs = factor(sick),
+           pred = factor(ifelse(.fitted >= 0.45, 1, 0)))
+
+conf_mat(data = m1_aug, truth = obs, estimate = pred)
+```
+
+## Accuracy and Kappa Results for `mod_1`
+
+```{r}
+metrics(data = m1_aug, truth = obs, estimate = pred) %>%
+    kable(digits = 6)
+```
+
+- Kappa = a correlation statistic from -1 to +1, with complete
+agreement +1 and complete disagreement -1.
+- Kappa measures the inter-rater reliability of our predicted and true
+classifications.
+
+## Confusion Matrix for mod_2 with 0.45 cutoff
+
+```{r}
+m2_aug <- m2_aug %>%
+    mutate(obs = factor(sick),
+           pred = factor(ifelse(.fitted >= 0.45, 1, 0)))
+
+conf_mat(data = m2_aug, truth = obs, estimate = pred)
+```
+
+- 493 + 2582 = 3075 accurate predictions (59.3% accuracy)
+- Sensitivity = 493 / (493 + 1561) = 24.0%
+    - for the people who were actually sick, we made correct predictions 24% of the time
+- Specificity = 2582 / (2582 + 551) = 82.4%
+    - for the people who weren't actually sick, we made correct predictions 82.4% of the time with this decision rule and model `mod_2`.
+    
+## Holdout Sample?
+
+```{r}
+mod1_aug_test <- augment(mod1, newdata = d6_test,
+                         type.predict = "response") %>%
+    mutate(obs = factor(sick),
+           pred = factor(ifelse(.fitted >= 0.45, 1, 0)))
+
+mod2_aug_test <- augment(mod2, newdata = d6_test,
+                         type.predict = "response") %>%
+    mutate(obs = factor(sick),
+           pred = factor(ifelse(.fitted >= 0.45, 1, 0)))
+```
+
+## `metrics` for test sample, models 1 and 2
+
+```{r}
+bind_cols(
+    metrics(data = mod1_aug_test, 
+            truth = obs, estimate = pred) %>%
+        select(.metric, mod1 = .estimate),
+    metrics(data = mod2_aug_test,
+            truth = obs, estimate = pred) %>%
+        select(mod2 = .estimate)
+)
+```
+
+## What's Next?
+
+Expanding our options with tidymodels and the Harrell-verse...
+
+- Fitting linear and logistic regression models in new ways
+- Evaluating the success of our models in new ways
+- Incorporating imputation approaches more seamlessly
+
+Please don't forget to submit your Project A proposal by Monday at 9 PM.
