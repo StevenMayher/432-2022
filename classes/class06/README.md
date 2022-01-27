@@ -29,6 +29,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 Updates to some of Jeff Leek's Guides [are found here](https://github.com/search?q=user%3Ajtleek+guides), including guides to data sharing, genomics papers, reading scientific papers and giving talks.
 
-## One Last Thing
+## Two Last Things
 
-[COVID Is Changing the Dynamics of Medical Research and Publishing](https://www.medpagetoday.com/opinion/second-opinions/96786) provides an interesting viewpoint, I thought.
+1. [COVID Is Changing the Dynamics of Medical Research and Publishing](https://www.medpagetoday.com/opinion/second-opinions/96786) by Alexandre Loupy and Marc Raynaud provides an interesting viewpoint, I thought.
+2. [Would seeing Spider-Man: No Way Home decrease COVID-19 Cases?](https://livefreeordichotomize.com/2022/01/16/would-seeing-spider-man-no-way-home-decrease-covid19-cases/) by Lucy D'Agostino McGowan weighs in with a statistical analysis motivated by a sketch on Saturday Night Live earlier this month.
+
