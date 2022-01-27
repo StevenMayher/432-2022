@@ -9,12 +9,13 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class06/432_2022_slides06.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class06/432_2022_slides06.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class06/figures/son2019.png)
+
 ## Announcements
 
 1. Feedback on the Minute Paper after Class 05 [is now available](https://bit.ly/432-2022-min-05-feedback). Thanks to you all for completing this.
 2. A draft of the Lab 1 Answer Sketch is now available in our Shared Google Drive. Sorry for the delay. Grades should be available next Tuesday.
-    - I recommend the use of the `cut2` function in the `Hmisc` package for doing some of the work here, otherwise rounding error seems to be an issue.
-    - 
+    - I recommend the use of [the `cut2` function in the `Hmisc` package](https://search.r-project.org/CRAN/refmans/Hmisc/html/cut2.html) for creating the BMI categories, otherwise rounding error seems to be an issue.
 
 ## What Should I Be Working On?
 
