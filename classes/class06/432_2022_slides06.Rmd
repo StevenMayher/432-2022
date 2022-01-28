@@ -158,7 +158,8 @@ anova(mod1, test = "LRT")
 
 ```{r}
 tidy(mod1, conf.int = TRUE, conf.level = 0.90) %>% 
-    select(term, estimate, std.error, conf.low, conf.high, p.value) %>% 
+    select(term, estimate, std.error, 
+           conf.low, conf.high, p.value) %>% 
     kable(dig = 3)
 ```
 
@@ -231,14 +232,12 @@ Nancy | 33 | Never | -0.667 | 0.5132 | 0.339
 ```{r}
 glance(mod1) %>% 
     select(nobs, df.null, null.deviance, 
-           deviance, df.residual) %>%
-    kable(dig = 1)
+           deviance, df.residual) %>% kable(dig = 1)
 ```
 
 ```{r}
 glance(mod1) %>% 
-    select(nobs, logLik, AIC, BIC) %>%
-    kable(dig = 1)
+    select(nobs, logLik, AIC, BIC) %>% kable(dig = 1)
 ```
 
 ## Model 2
@@ -259,8 +258,8 @@ anova(mod2, test = "LRT")
 
 ```{r}
 tidy(mod2, conf.int = TRUE, conf.level = 0.90) %>% 
-    select(term, estimate, std.error, conf.low, conf.high, p.value) %>% 
-    kable(dig = 3)
+    select(term, estimate, std.error, conf.low, 
+           conf.high, p.value) %>% kable(dig = 3)
 ```
 
 - logit(sick) = `-0.188 + 0.002 age - 0.563 Former - 0.642 Never + 0.004 age*Former + 0.003 age*Never`
