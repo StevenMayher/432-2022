@@ -38,6 +38,10 @@ In classes 07-09, we'll focus on a set of techniques from the `rms` and `Hmisc` 
 
 Now that you have a Github account, you might want to use it. 
 
+![](https://imgs.xkcd.com/comics/git.png) [XKCD link](https://xkcd.com/1597)
+
+Here's some tailored advice from smart people...
+
 - [How to Use Git/GitHub with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r/) blog post from David Keyes.
     - David recently (2022-01-13) tweeted about a new course: [Using Git and Github with R](https://twitter.com/dgkeyes/status/1481686458956075008) which looks like it could be very useful, too.
 - [Happy Git and GitHub for the useR](https://happygitwithr.com/) book from Jennifer Bryan.
