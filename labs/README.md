@@ -27,3 +27,8 @@ Lab | Link
 Lab X | [Lab X instructions](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX)
 
 - Dr. Love reserves the right to add other optional Lab(s) as the term continues.
+
+## Grading
+
+- Lab Grades are posted as they are completed to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grades and read our comments on your Lab work, visit that Sheet and use the Lab Code Dr. Love emailed to you on 2022-01-31. 
+
