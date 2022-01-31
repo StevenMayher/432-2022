@@ -17,7 +17,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. Status update on project proposals.
 3. Results of the Piazza poll on Chapter 2 of *The Signal and the Noise*.
 
-## Notes from Dr. Love on Effect Size and Interpreting Effect Sizes
+## Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes
 
 I [built a description of effect sizes and how to discuss them](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/effects_note.pdf). 
 
