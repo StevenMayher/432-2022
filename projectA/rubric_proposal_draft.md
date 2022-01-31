@@ -1,7 +1,7 @@
 (Draft) Rubric for 432 Project A Proposals
 ================
 Thomas E. Love
-2022-01-19 23:24:37
+2022-01-31 07:30:42
 
 -   [What is the Purpose of this
     Document?](#what-is-the-purpose-of-this-document)
@@ -23,6 +23,7 @@ Thomas E. Love
         proposals?](#when-will-dr-love-see-the-proposals)
 -   [Reminder for Project Groups (rather than
     Individuals)](#reminder-for-project-groups-rather-than-individuals)
+-   [Links](#links)
 
 # What is the Purpose of this Document?
 
@@ -114,7 +115,7 @@ Award the point for Section 3 only if the student(s) have:
     -   code to restrict the sample to no more than 1200 rows, as
         needed.
 -   Sanity checks and testing are an important part of verifying that
-    the code does what you think it does. The student should unclude
+    the code does what you think it does. The student should include
     brief descriptions of whatever checks you do in this section of the
     proposal, in complete sentences between code chunks, but should not
     include any long printouts of data or summaries that are not helpful
@@ -260,3 +261,17 @@ at that time. If he is satisfied, then he won’t.
         their partner will be submitting their joint proposal.
     -   Revisions (as needed) should continue to be submitted by the
         student who submits the initial proposal.
+
+# Links
+
+-   [General Project A
+    Instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/00_projectA_general.md)
+-   Detailed [Instructions for Project A Task 1 (The
+    Proposal)](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/01_projectA_proposal.md)
+-   [Templates for Project
+    A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates)
+    also posted to our Shared Drive.
+-   Detailed [Instructions for Project A Task 2 (Analyses and
+    Presentation)](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/02_projectA_analyses.md)
+-   [Main Page for Project
+    A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA)

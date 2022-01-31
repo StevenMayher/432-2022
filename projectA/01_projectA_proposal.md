@@ -38,7 +38,7 @@ Task 1 (The Project Proposal)
     Proposal?](#how-will-we-evaluate-the-proposal)
 -   [Links](#links)
 
-Last Update: 2022-01-19 23:27:30
+Last Update: 2022-01-31 07:30:07
 
 # Use a template, please!
 
@@ -265,7 +265,10 @@ Now, tell us precisely which four (or more) candidate predictors
 -   Demonstrate to us that you have at least one categorical input which
     has between 3 and 6 categories, that will be used as a factor in
     your modeling, and that has at least 30 observations in each level
-    of the factor.
+    of the factor. If necessary, you can create such a predictor from a
+    quantitative one, but if you are doing this, remember that only the
+    multi-categorical version of the predictor should be included in
+    your models.
 -   Demonstrate that the total number of candidate predictors you
     suggest is no more than 4 + (N-100)/100 candidate regression inputs,
     rounding down, where N is the sample size for your tibble.
