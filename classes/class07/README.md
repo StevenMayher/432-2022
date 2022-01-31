@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. Grades on Lab 1 are now available through the 432 Spring 2022 Grading Roster on our Shared Google Drive. You should have received your **Lab Code** (which you'll need to use the Roster) from me via email on Monday morning 2022-01-31. If you didn't, email Dr. Love immediately and he'll resend it.
+1. Grades on Lab 1 are now available through the 432 Spring 2022 Grading Roster on our Shared Google Drive. You should have received your **Lab Code** (which you'll need to identify your work in the Roster) from me via email on Monday morning 2022-01-31. If you didn't, email Dr. Love immediately and he'll resend it.
     - **Regrade Requests**: If you want Dr. Love to review the grading of any Lab because you believe an error has been made in grading your work, please send those concerns through the Google Form at http://bit.ly/432-2022-lab-regrade-requests. See [Section 10.4 of the Syllabus](https://thomaselove.github.io/432-2022-syllabus/assignments-and-grading.html#appeal-policy-and-regrades) for more on this policy. The one exception is if there is a mistake in adding up points, or some similar clerical error. If you find such an issue, please bring it to Dr. Love’s attention via email, and he will resolve it immediately.
 2. There is no Minute Paper this week. The next Minute Paper will be after Class 09.
 
