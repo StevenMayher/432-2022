@@ -23,4 +23,4 @@ If you have questions about Lab 01, please ask them [at TA office hours](https:/
 ## Post-Deadline Materials
 
 - The Lab 1 answer sketch will be found on our Shared Google Drive in the Lab 01 Materials. 
-- Grades are now posted to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grade and read our comments, visit the Lab 01 Tab on that Sheet use the Lab Code Dr. Love emailed to you on 2022-01-31. 
+- Lab 1 Grades are now posted to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grade and read our comments, visit the Lab 01 Tab on that Sheet use the Lab Code Dr. Love emailed to you on 2022-01-31. 
