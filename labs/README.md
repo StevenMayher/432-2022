@@ -32,3 +32,10 @@ Lab X | [Lab X instructions](https://github.com/THOMASELOVE/432-2022/tree/main/l
 
 - Lab Grades are posted as they are completed to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grades and read our comments on your Lab work, visit that Sheet and use the Lab Code Dr. Love emailed to you on 2022-01-31. 
 
+## Regrade Requests
+
+If you want Dr. Love to review the grading of any Lab because you believe an error has been made, please direct those concerns to Dr. Love through the Google Form at http://bit.ly/432-2022-lab-regrade-requests. See [Section 10.4 of the Syllabus](https://thomaselove.github.io/432-2022-syllabus/assignments-and-grading.html#appeal-policy-and-regrades) for more on this policy.
+
+The TAs and Professor Love are happy to discuss in a general sense any questions about an assignment, but no grades will be changed until the end of the term. The one exception is if there is a mistake in adding up points, or some similar clerical error. If you find such an issue, please bring it to Professor Love’s attention via email, and he will resolve it immediately.
+
+
