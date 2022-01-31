@@ -34,4 +34,11 @@ In classes 07-09, we'll focus on a set of techniques from the `rms` and `Hmisc` 
 2. [Lab 2](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) is due next Monday 2022-02-07 at 9 PM. You should already be able to complete all of the questions.
 3. Don't forget about responding to the Signal and the Noise poll on [Piazza](https://piazza.com/case/spring2022/pqhs432) and be sure you're caught up with the reading. Quiz 1 includes everything through Chapter 5.
 
+## One Last Thing
+
+Now that you have a Github account, you might want to use it. 
+
+- [How to Use Git/GitHub with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r/) blog post from David Keyes.
+    - David recently (2022-01-13) tweeted about a new course: [Using Git and Github with R](https://twitter.com/dgkeyes/status/1481686458956075008) which looks like it could be very useful, too.
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/) book from Jennifer Bryan.
 
