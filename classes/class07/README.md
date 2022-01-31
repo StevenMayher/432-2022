@@ -18,7 +18,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## What Should I Be Working On?
 
-1. Once we review your Project A proposal and post your feedback and initial grade on Canvas, you will have 48 hours to revise your work (assuming your grade on the proposal is less than the full 10 points - see [the proposal rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md) for details on grading.)
+1. I started a poll on Piazza about some ideas from Chapter 2 of *The Signal and the Noise*. Please feel encouraged to vote in the poll, and contribute to the discussion as well for some class participation credit. I'll keep the poll open until Wednesday afternoon.
+2. Once we review your Project A proposal and post your feedback and initial grade on Canvas, you will have 48 hours to revise your work (assuming your grade on the proposal is less than the full 10 points - see [the proposal rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md) for details on grading.)
     - We hope to have all initial proposals reviewed by the end of the day on Thursday.
-2. [Lab 2](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) is due next Monday 2022-02-07 at 9 PM. You should already be able to complete all of the questions.
+3. [Lab 2](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) is due next Monday 2022-02-07 at 9 PM. You should already be able to complete all of the questions.
 
