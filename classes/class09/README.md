@@ -9,4 +9,16 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/432_2022_slides09.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/432_2022_slides09.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-## More to come.
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/figures/rochford_tw.png)
+
+- See [(some of) the responses to this tweet](https://twitter.com/RochfordElle/status/1359887143225733124), too.
+
+## Announcements and More to come.
+
+1. To come.
+
+## One Last Thing
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/figures/maarten_tw.png)
+
+On a related point, if you are interested, please take a look at [The Many Flavours of Missing Values](https://www.njtierney.com/post/2020/09/17/missing-flavour/) by Nicholas Tierney, to learn more about the different versions of `NA` in R, and how to use them.
