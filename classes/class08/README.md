@@ -17,6 +17,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. Status update on project proposals.
 3. Results of the Piazza poll on Chapter 2 of *The Signal and the Noise*.
 
+## Notes from Dr. Love on Effect Size and Interpreting Effect Sizes
+
+I [built a description of effect sizes and how to discuss them](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/effects_note.pdf). 
+
+- I strongly encourage you to read this document over the next couple of weeks. I think it will help you in several ways, most especially for Quiz 1, Lab 3, and Project A. 
+- If you want to see the R Markdown file I used to generate this result, [here it is](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/effects_note.Rmd). The small data set I used to fix ideas is in [today's data folder](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class08/data).
+- For more on these sorts of handouts (popularized by Edward Tufte) see [RStudio's implementation](https://rstudio.github.io/tufte/)
+
 ## One Last Thing
 
 I'll link to an interesting presentation of some survey results on nearly 4000 science and engineering PhDs reported by Maggie Kuo and Jia You in *Science* for 2017-11-27, entitled [Explore the skills that can open career doors after your doctoral training](https://www.sciencemag.org/careers/2017/11/explore-skills-can-open-career-doors-after-your-doctoral-training). 
