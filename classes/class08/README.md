@@ -7,6 +7,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Materials for Today's Class
 
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/432_2022_slides08.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/432_2022_slides08.Rmd). 
+    - We'll actually start today with slide 62 from the [Slides for Class 07](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/432_2022_slides08.pdf).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/figures/harrell_tw.png)
