@@ -4,7 +4,7 @@ This lab is optional, although we **strongly** recommend that you do it.
 
 ## Part 1
 
-Create a visualization (using R) of real data on a subject that is meaningful to you, and share it (the visualization (and the code you used to build it) with us. The visualization should be of a professional quality, include proper labels and a title, as well as a caption of no more than 50 words that highlights the key result. If you decide to create a new visualization based on a revision of someone else's work, you must share with us that original work, as well.
+Create a visualization (using R) of real data on a subject that is meaningful to you but that is not associated with either Project A or Project B, or with any of our Lab assignments. Then share it (the visualization (and the code you used to build it) with us. The visualization should be of a professional quality, include proper labels and a title, as well as a caption of no more than 50 words that highlights the key result. If you decide to create a new visualization based on a revision of someone else's work, you must share with us that original work, as well.
 
 In Part 1, we will assess your work based on the quality of the visualization, its title and caption, in terms of being attractive, well-labeled and useful for representing the data, and how well it adheres to general principles for good visualizations we've seen in 431 and 432.
 
@@ -18,7 +18,7 @@ Write an essay (between 150 and 300 words) describing the background, creation a
 
 ## Deadline
 
-This Lab is optional. To receive credit, you must complete it no later than Monday 2022-05-02 at noon. You can complete it at any time prior to that date.
+This Lab is optional. To receive credit, you must complete it, submitting your R Markdown file and HTML result (along with your data so that we can run your code) no later than Monday 2022-05-02 at noon. You can complete it at any time prior to that date.
 
 ## Why do this?
 
