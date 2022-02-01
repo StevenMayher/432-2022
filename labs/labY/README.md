@@ -18,7 +18,7 @@ Write an essay (between 150 and 300 words) describing the background, creation a
 
 ## Deadline
 
-This Lab is optional. To receive credit, you must complete it, submitting your R Markdown file and HTML result (along with your data so that we can run your code) to the Lab Y assignment in [Canvas](https://canvas.case.edu/) no later than Monday 2022-05-02 at noon. You can complete it at any time prior to that date.
+This Lab is optional. To receive credit, you must complete it, submitting your R Markdown file and HTML result (along with your data so that we can run your code) to the Lab Y assignment in [Canvas](https://canvas.case.edu/) no later than Monday 2022-05-02 at noon. You can complete it at any time prior to that date. Late work will not be accepted or graded on Lab Y.
 
 ## Why do this?
 
