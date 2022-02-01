@@ -249,7 +249,7 @@ https://www.tidymodels.org/find/recipes/ lists all available recipes
 hers_rec <- 
     recipe(ldl_pch ~ age + ht + ldl + globrat, 
            data = hers_new) %>%                    # 1
-    step_bagimpute(all_predictors()) %>%           # 2
+    step_impute_bag(all_predictors()) %>%           # 2
     step_poly(ldl, degree = 2) %>%                 # 3
     step_dummy(all_nominal()) %>%                  # 4
     step_normalize(all_predictors())               # 5
