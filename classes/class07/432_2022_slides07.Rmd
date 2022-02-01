@@ -253,7 +253,7 @@ For our `mod1`,
 
 - Model Likelihood Ratio test output includes `LR chi2 = 295.10, d.f. = 3, Pr(> chi2) = 0.0000`
 
-The log of the likelihood ratio, multiplied by -2, yields a test against a $\chi^2$ distribution. Interpret this as a goodness-of-fit test that compares `mod_first` to a null model with only an intercept term. In `ols` this is similar to a global (ANOVA) F test.
+The log of the likelihood ratio, multiplied by -2, yields a test against a $\chi^2$ distribution. Interpret this as a goodness-of-fit test that compares `mod1` to a null model with only an intercept term. In `ols` this is similar to a global (ANOVA) F test.
 
 - Under the $R^2$ values, we have `g = 9.827`.
 - This is the $g$-index, based on Gini's mean difference. If you randomly selected two of the subjects in the model, the average difference in predicted `cesd` will be 9.827. 
@@ -464,7 +464,7 @@ par(mfrow = c(1,1))
 
 - Plots are shown on the next slide. While the subject in row 351 is more influential than most other points, it doesn't reach the standard of a problematic Cook's distance.
 
-## Residual Plots for `mod_first`
+## Residual Plots for `mod1`
 
 ```{r, echo = FALSE, fig.height = 6}
 mod1_lm <- lm(cesd ~ mcs + subst, data = day7)
