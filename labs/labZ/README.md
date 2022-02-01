@@ -26,6 +26,6 @@ This Lab is optional. To receive credit, you must submit your essay to the Lab Z
 
 ## Why do this?
 
-Completion of Lab Z will improve your course grade at the end of the term to a meaningful degree, and will earn you some of Dr. Love's respect.
+Successful completion of Lab Z will improve your course grade by up to 2 points, and will earn you some of Dr. Love's respect.
 
 
