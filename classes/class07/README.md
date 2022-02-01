@@ -33,7 +33,7 @@ In classes 07-09, we'll focus on a set of techniques from the `rms` and `Hmisc` 
 
 1. Once we review your Project A proposal and post your feedback and initial grade on Canvas, you will have 48 hours to revise your work (assuming your grade on the proposal is less than the full 10 points - see [the proposal rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md) for details on grading.)
     - We hope to have all initial proposals reviewed by the end of the day on Thursday.
-    - I have some initial thoughts on project titles, provided here.
+    - I have [some initial thoughts on project titles, provided here](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 2. [Lab 2](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02) is due next Monday 2022-02-07 at 9 PM. You should already be able to complete all of the questions.
 3. Today would be a good day to update your R packages! Click the Update button in the Packages window in RStudio.
 4. Don't forget about responding to the Signal and the Noise poll on [Piazza](https://piazza.com/case/spring2022/pqhs432) and be sure you're caught up with the reading. Quiz 1 includes everything through Chapter 5.
