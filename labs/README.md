@@ -16,7 +16,7 @@ Lab | Link
 Lab 01 | [Materials for Lab 01](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01)
 Lab 02 | [Materials for Lab 02](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab02)
 Lab 03 | [Materials for Lab 03](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03)
-Lab 04 | to appear
+Lab 04 | [Materials for Lab 04](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04)
 Lab 05 | to appear
 Lab 06 | to appear
 
