@@ -1,7 +1,7 @@
 432 Lab 06 for Spring 2022
 ================
 
-Version: 2022-02-01 09:46:04
+Version: 2022-02-01 09:57:39
 
 # General Instructions
 
@@ -20,15 +20,11 @@ or use an approach that works well for you.
 
 # Question 1 (25 points)
 
-Tell us about the most useful thing (an insight, example or key idea)
-that you learned from reading Nate Silver’s *The Signal and the Noise*.
-Be sure to specify **in detail** how this insight/example/idea connects
-to your own life, or work. Specify at least one quote from the book that
-discusses this issue, and explain the context.
-
-Be sure that when we finish your essay we have a clear understanding of
-how reading this book has changed the way you think about the thing you
-describe or things related to it.
+In *The Signal and The Noise*, Silver writes (in several places prior to
+Chapter 12, but especially there) that the goal of any predictive model
+is to capture as much signal as possible and as little noise as
+possible. What does this mean to you in your scientific and other
+endeavours, going forward? Give a specific example.
 
 ## Specifications for the essay
 
@@ -38,17 +34,12 @@ be met:
 1.  Length is between 200 and 400 words.
 2.  English is correctly used throughout, and there are no
     typographical, grammatical or syntax errors.
-3.  A key idea is identified and clearly stated that actually appears in
-    *The Signal and the Noise*.
-4.  An accurate and properly cited quote from the book is provided that
-    is relevant to the identified key idea.
-5.  The context for the quote within Silver’s book is described in the
-    essay.
-6.  The essay clearly specifies how the idea in the book has changed
-    their way of thinking about something which is explained in the
-    essay.
-7.  The essay is clearly written, in general.
-8.  The essay is interesting to read.
+3.  The example provided clearly addresses the issue discussed above and
+    in *The Signal and the Noise*.
+4.  Enough details are given about the example so that we can follow why
+    this is important to you in your chosen field.
+5.  The essay is clearly written, in general.
+6.  The essay is interesting to read.
 
 # Setup for Questions 2-4
 
