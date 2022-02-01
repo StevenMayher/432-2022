@@ -21,7 +21,7 @@ If you already have a personal website that you built for 431 or for some other 
 
 ## Deadline
 
-This Lab is optional. To receive credit, you must complete it no later than Wednesday 2022-04-20 at noon. You can complete it at any time prior to that date.
+This Lab is optional. To receive credit, you must complete it no later than Wednesday 2022-04-20 at noon. You can complete it at any time prior to that date. Late work will not be graded on Lab X, although we'd still be interested in seeing your site if you do this work later than the deadline.
 
 ## Why do this?
 
