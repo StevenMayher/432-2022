@@ -16,7 +16,7 @@ In reading your essay, we will look for the following specifications to be met:
 3.  A key idea is identified and clearly stated that actually appears in *The Signal and the Noise*.
 4.  An accurate and properly cited quote from the book is provided that is relevant to the identified key idea.
 5.  The context for the quote within Silver’s book is described in the essay.
-6.  The essay clearly specifies how the idea in the book has changed your way of thinking about something which is explained in the essay.
+6.  The essay clearly specifies how the idea in the book has changed your way of thinking about something relevant to you.
 7.  The essay is clearly written, in general.
 8.  The essay is interesting to read.
 
