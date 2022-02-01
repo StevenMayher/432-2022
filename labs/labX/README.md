@@ -9,7 +9,7 @@ This Lab asks you to build a professional personal webpage for yourself.
 
 ## Option A
 
-If you con build a personal website for yourself in 431, then use [these instructions from Keith McNulty to create and host a simple, clean personal website in a few minutes using R](https://towardsdatascience.com/create-and-host-your-personal-website-in-a-few-minutes-using-r-9c94e87e2942) then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achivement and containing a link to your page for your fellow students to be inspired by.
+If you did not build a personal website for yourself in 431, then use [these instructions from Keith McNulty to create and host a simple, clean personal website in a few minutes using R](https://towardsdatascience.com/create-and-host-your-personal-website-in-a-few-minutes-using-r-9c94e87e2942) then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achivement and containing a link to your page for your fellow students to be inspired by.
 
 ## Option B
 
