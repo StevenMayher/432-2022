@@ -25,4 +25,4 @@ This Lab is optional. To receive credit, you must complete it no later than Wedn
 
 ## Why do this?
 
-Completion of Lab X will improve your course grade at the end of the term to a meaningful degree, and will earn you some of Dr. Love's respect. Also, no one exists these days in a professional capacity without a website. If you're looking for Dr. Love to write a letter of recommendation for you in the fullness of time, he's going to want to see your website.
+Successful completion of Lab Z will improve your course grade by as many as 2 points, and will earn you some of Dr. Love's respect. Also, no one exists these days in a professional capacity without a website. If you're looking for Dr. Love to write a letter of recommendation for you in the fullness of time, he's going to want to see your website.
