@@ -18,7 +18,7 @@ in a data sub-directory under that project’s directory. We encourage you
 to make use of one of the templates we’ve provided for a previous Lab,
 or use an approach that works well for you.
 
-# Question 1 (25 points)
+# Question 1 (20 points)
 
 In *The Signal and The Noise*, Silver writes (in several places prior to
 Chapter 12, but especially there) that the goal of any predictive model
@@ -102,7 +102,7 @@ assumptions of a proportional hazards model for your final selection.
 Validate the summary statistics describing your chosen model, and
 explain what those results mean, too.
 
-# Question 5 (20 points)
+# Question 5 (25 points)
 
 The `remission.csv` file contains contains initial remission times, in
 days, for 44 leukemia patients who were randomly allocated to two
