@@ -1,6 +1,6 @@
 # On Project A Titles
 
-As of 2022-02-01 at 8 AM, we have **29** project proposals, expecting an eventual total of 35.
+As of 2022-02-02 at 11:45 AM, we have **30** project proposals, expecting an eventual total of 35.
 
 In [the instructions](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/01_projectA_proposal.md#title-and-authors), I wrote:
 
@@ -68,6 +68,7 @@ Some of you didn't keep your title to less than 80 characters, so you'll want to
 
 ## A Few Titles I Was More Comfortable With
 
+- Factors Associated with Gun Ownership and TV Consumption in the USA in 2021
 - Exploring Risk Factors for Coronary Heart Disease and Depression in the South
 - Comparing Household Conditions in School Districts in Ohio and Florida
 - Predicting Wine Attributes from Typical Indicators of ‘Quality’
