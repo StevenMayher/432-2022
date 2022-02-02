@@ -1,8 +1,8 @@
 # 432 Class 08: 2022-02-03 is cancelled due to weather.
 
-Class is cancelled. No Zoom, no in-person. We will next meet on 2022-02-08 for what we'll call Class 09. TA office hours will resume on Friday 2022-02-04 and all deadlines (including Lab 2 on Monday) remain unchanged.
+432 Class on 2022-02-03 is cancelled. No Zoom, no in-person and no TA office hours. We will next meet on Tuesday 2022-02-08. TA office hours will resume on Friday 2022-02-04 and all deadlines (including Lab 2 on Monday) remain unchanged.
 
-Below is the original plan for Class 08, and we'll revise later sessions to accommodate this material before we meet next Tuesday.
+Below is the original plan for Class 08 in case you are interested, and we'll revise later sessions to accommodate this material before we meet next Tuesday.
 
 Thanks!
 
