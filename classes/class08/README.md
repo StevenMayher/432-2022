@@ -1,4 +1,13 @@
-# 432 Class 08: 2022-02-03
+# 432 Class 08: 2022-02-03 is cancelled due to weather.
+
+Class is cancelled. No Zoom, no in-person. We will next meet on 2022-02-08 for what we'll call Class 09. TA office hours will resume on Friday 2022-02-04 and all deadlines (including Lab 2 on Monday) remain unchanged.
+
+Below is the original plan for Class 08, and we'll revise later sessions to accommodate this material before we meet next Tuesday.
+
+Thanks!
+
+------
+
 
 [Main Website](https://thomaselove.github.io/432/) | [Calendar](https://thomaselove.github.io/432/calendar.html) | [Syllabus](https://thomaselove.github.io/432-2022-syllabus/) | [Course Notes](https://thomaselove.github.io/432-notes/) | [Canvas](https://canvas.case.edu) | [Data and Code](https://github.com/THOMASELOVE/432-data) | [Sources](https://github.com/THOMASELOVE/432-2022/tree/main/references) | [Contact Us](https://thomaselove.github.io/432/contact.html)
 :-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
