@@ -1,7 +1,7 @@
 432 Lab 05 for Spring 2022
 ================
 
-Version: 2022-02-01 11:46:12
+Version: 2022-02-02 12:52:32
 
 # General Instructions
 
@@ -147,19 +147,14 @@ Normal distribution with mean 0 and variance 5 for the predictors.
 
 Produce a tidied and attractive table of the coefficients from this
 `stan` fit for Model 2, including the estimate, standard error, and 95%
-confidence interval for each coefficient. Then compare the coefficients
-you obtain for model 2 from the `stan` fit to the `lm` fit (from
-Question 5) for model 2 in a plot of the coefficients, with a 95%
-confidence interval for each. What do you see in the plot, and what
-conclusions can you draw from it in this case?
+confidence interval for each coefficient.
 
 # Question 8. (10 points)
 
-Now comparing the `lm` vs. the `stan` fits for Model 2 you built
-earlier, use `glance` to summarize the in-sample performance for each
-model in terms of the number of observations used in each fit, as well
-as *R*<sup>2</sup>, AIC and BIC, in an attractive and clear table or
-pair of them. Which model looks better by these standards, and why?
+Compare the coefficients of your `stan` fit (from Question 7) for model
+2 to the `lm` fit (from Question 5) for model 2 in a plot of the
+coefficients, with a 95% confidence interval for each. What do you see
+in the plot, and what conclusions can you draw from it in this case?
 
 # Question 9. (10 points)
 
