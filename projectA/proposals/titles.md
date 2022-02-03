@@ -65,6 +65,8 @@ Some of you didn't keep your title to less than 80 characters, so you'll want to
     - Be careful there, you've misspelled "respondents" which you could probably drop. My bigger concern is that I don't know what you mean by "Weight analysis".
 - How does the University Impact its Alumni’s Income
     - I assume you're talking about some characteristic of a university, but I think you need to be more specific about what that might be. 
+- Relationship of obesity to common co-morbidities
+    - I think you're missing an opportunity here to be more specific about what you're studying.
 
 ## A Few Titles I Was More Comfortable With
 
