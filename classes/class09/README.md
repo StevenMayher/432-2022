@@ -16,7 +16,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements and More to come.
 
 1. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class08/effects_note.pdf) first mentioned [in Class 08](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class08#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
-2. More to come.
+2. Several good essays from Lab 1 Question 3 (about Jeff Leek's book) are now posted to our Shared Google Drive in the Lab 01 Materials section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza.
+3. More to come.
 
 
 ## One Last Thing
