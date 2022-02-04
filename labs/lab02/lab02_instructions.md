@@ -1,7 +1,7 @@
 432 Lab 02 for Spring 2022
 ================
 
-Version: 2022-01-19 17:25:12
+Version: 2022-02-04 10:58:37
 
 # General Instructions
 
@@ -143,7 +143,7 @@ oh20
     #   uninsured <dbl>, pcp_ratio <dbl>, prev_hosp <dbl>, hsgrads <dbl>,
     #   unemployed <dbl>, poor_kids <dbl>, income_ratio <dbl>, associations <dbl>,
     #   pm2.5 <dbl>, h2oviol <chr>, sev_housing <dbl>, drive_alone <dbl>,
-    #   age-adj-mortality <dbl>, dm_prev <dbl>, freq_phys_distress <dbl>, ...
+    #   `age-adj-mortality` <dbl>, dm_prev <dbl>, freq_phys_distress <dbl>, ...
 
 ## Question 1 (40 points)
 
@@ -159,7 +159,8 @@ The visualization should:
     that is of interest),
 -   include proper labels and a meaningful title,
 -   include a *caption* of no more than 75 words that highlights the key
-    result.
+    result. Your caption can be placed within the visualization, or in a
+    note below.
 
 In developing your caption, I find it helpful to think about what
 question this visualization is meant to answer, and then provide a
