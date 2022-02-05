@@ -11,7 +11,7 @@ We have 35 projects underway.
 
 ## Proposals Needing Revision
 
-We need to see a revision of the proposals listed below that addresses the changes we request, before we can accept the proposal and let you move forward. Please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the Project A Proposal Revisions assignment, by **Tuesday 2022-02-08 at 9 PM**. We will be happy to address any questions via TA office hours, or, failing that, through Piazza. New (lightly edited) proposal templates are [available here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Proposal) and on our Shared Drive. These templates have changed only to adjust the instructions in Sections 9 and 11. Check over [the rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md), as well, if you have any questions about our evaluation points, or which section things should be found in.
+We need to see a revision of the proposals listed below that addresses the changes we request, before we can accept the proposal and let you move forward. Please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment, no later than **Tuesday 2022-02-08 at 9 PM**. We will be happy to address any questions via TA office hours, or, failing that, through Piazza. New (lightly edited) proposal templates are [available here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Proposal) and on our Shared Drive. These templates have changed only to adjust the instructions in Sections 9 and 11. Check over [the rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md), as well, if you have any questions about our evaluation points, or which section things should be found in.
 
 Project | Investigator(s) | Comments To Address In Your Revision
 :----: | :---------: | :------------------------------------------------------------------
@@ -39,7 +39,6 @@ Project | Investigator(s) | Comments To Address In Your Revision
 ## Accepted Proposals
 
 While the proposals below need some adjustments, we accept them now and you do not need to submit a revision. Instead, you should make the changes noted below as part of the process of completing the final Project A. Augmented templates for the final project are now available on our Shared Drive and [also here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Final%20Submission). The changes to these templates (as compared to the proposal template you have been working with) are the addition of new sections 8-10, and corrections to the instructions we provided in what are now sections 12 and 14.
-
 
 Project | Investigator(s) | Comments To Address in Your Final Project Submission
 :----: | :---------: | :------------------------------------------------------------------
