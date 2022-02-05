@@ -6,8 +6,8 @@ You should find your proposal, and read the comments regarding it.
 
 We have 35 projects underway.
 
-- We have [accepted 17 of the project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). If you're in this group, please read and incorporate our comments below into your final Project A submission, due 2022-03-04 at 9 PM.
-- So, the [remaining 18 proposals need another revision](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-needing-revision), and those revisions are due to Canvas **Tuesday 2022-02-08 at 9 PM**.
+- We have [accepted 15 of the project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). If you're in this group, please read and incorporate our comments below into your final Project A submission, due 2022-03-04 at 9 PM.
+- So, the [remaining 20 proposals need another revision](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-needing-revision), and those revisions are due to Canvas **Tuesday 2022-02-08 at 9 PM**.
 
 ## Proposals Needing Revision
 
