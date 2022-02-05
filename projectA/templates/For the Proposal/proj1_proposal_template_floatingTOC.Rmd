@@ -119,7 +119,7 @@ before the Affirmation but otherwise leave the template alone.
 
 # References
 
-If you are including references, here's the place for them. You should likely be providing a reference for your data set, at least.
+If you are including references, here's the place for them. You should likely be providing a reference for your data set, at least, including, if available, a hyperlink from which your data can be downloaded.
 
 # Session Information
 
@@ -129,7 +129,7 @@ xfun::session_info()
 
 # Notes from Dr. Love
 
-1. Be sure to spell check the R Markdown document (just hit F5) and also proofread the HTML result that comes out of this work.
+1. Be sure to spell check the R Markdown document (just hit F7) and also proofread the HTML result that comes out of this work.
 2. Remove these Notes and any other notes guiding you through this template before you knit the work into an HTML file.
 
 
