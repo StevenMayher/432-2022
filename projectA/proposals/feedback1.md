@@ -6,10 +6,10 @@ You should find your proposal, and read the comments regarding it.
 
 We have 35 projects underway.
 
-- We have accepted 17 of the project proposals. Please read and incorporate our comments below into your final Project A submission, due 2022-03-04 at 9 PM.
-- Thus, the remaining 18 proposals need another revision, due to Canvas **Tuesday 2022-02-08 at 9 PM**.
+- We have [accepted 17 of the project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). If you're in this group, please read and incorporate our comments below into your final Project A submission, due 2022-03-04 at 9 PM.
+- So, the [remaining 18 proposals need another revision](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-needing-revision), and those revisions are due to Canvas **Tuesday 2022-02-08 at 9 PM**.
 
-## Proposals That Need Another Revision, due Tuesday at 9 PM
+## Proposals Needing Revision
 
 We need to see a revision of the proposals listed below that addresses the changes we request, before we can accept the proposal and let you move forward. Please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the Project A Proposal Revisions assignment, by **Tuesday 2022-02-08 at 9 PM**. We will be happy to address any questions via TA office hours, or, failing that, through Piazza. New (lightly edited) proposal templates are [available here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Proposal) and on our Shared Drive. These templates have changed only to adjust the instructions in Sections 9 and 11. Check over [the rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md), as well, if you have any questions about our evaluation points, or which section things should be found in.
 
