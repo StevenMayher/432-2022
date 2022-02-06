@@ -16,7 +16,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. I updated the [Course Notes](https://thomaselove.github.io/432-notes/), mostly fixing typos, so be sure you're looking at the 2022 edition. Any mistakes you find there can be reported to us through Piazza.
 2. [Feedback on Project A proposals is here](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md), along with my comments on [your titles](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
-    - Those of you needing to submit a revision, please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the Project A Proposal Revision assignment, no later than tonight (Tuesday 2022-02-08) at 9 PM.
+    - Those of you needing to submit a revision, please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment by 9 PM tonight (Tuesday 2022-02-08.)
 3. There is a Minute Paper after Class 09. **Details to come**.
 4. An **Answer Sketch for Lab 2** should be available by class time.
 5. Several good essays from **Lab 1 Question 3** (about Jeff Leek's book) are now posted to our Shared Google Drive in the **Lab 01 Materials** section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza, if you have any thoughts.
