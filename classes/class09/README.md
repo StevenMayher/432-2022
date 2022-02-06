@@ -7,6 +7,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Materials for Today's Class
 
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/432_2022_slides09.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/432_2022_slides09.Rmd). 
+    - We'll begin today's class on Slide 62 from the [Class 07](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class07) slides (available [here in PDF](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/432_2022_slides07.pdf)).
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/figures/harrell_tw.png)
@@ -14,8 +15,9 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements (to come)
 
 1. Status update on project proposals.
-2. Several good essays from Lab 1 Question 3 (about Jeff Leek's book) are now posted to our Shared Google Drive in the Lab 01 Materials section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza.
-3. Thanks to those of you who participated in the poll on Piazza about Chapter 2 of *The Signal and the Noise*. You should be able to see the results there now.
+2. Details on Minute Paper after Class 09.
+3. Several good essays from Lab 1 Question 3 (about Jeff Leek's book) are now posted to our Shared Google Drive in the Lab 01 Materials section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza.
+4. Thanks to those of you who participated in the poll on Piazza about Chapter 2 of *The Signal and the Noise*. You should be able to see the results there now.
 
 ## Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes
 
