@@ -9,4 +9,17 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class12/432_2022_slides12.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class12/432_2022_slides12.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-## More to come.
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class12/figures/amira.png)
+
+## Today's Agenda
+
+We'll continue talking about the `tidymodels` packages today. I'll remind you that there's [a list in the Class 11 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class11#the-tidymodels-packages) of some useful things to read if you want to learn more about or go further with this approach.
+
+## More to come, including details on Quiz 1.
+
+## One Last Thing
+
+It's probably time to trot this out again, from [XKCD](https://xkcd.com/2048/)...
+
+![](https://imgs.xkcd.com/comics/curve_fitting.png)
+
