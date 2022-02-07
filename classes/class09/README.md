@@ -17,7 +17,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. I updated the [Course Notes](https://thomaselove.github.io/432-notes/), mostly fixing typos, so be sure you're looking at the 2022 edition. Any mistakes you find there can be reported to us through Piazza.
 2. [Feedback on Project A proposals is here](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md), along with my comments on [your titles](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
     - Those of you needing to submit a revision, please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment by 9 PM tonight (Tuesday 2022-02-08.)
-3. There is a Minute Paper after Class 09. **Details to come**.
+3. There is a [Minute Paper after Class 09](https://bit.ly/432-2022-min-09) due Wednesday 2022-02-09 at noon.
 4. An **Answer Sketch for Lab 2** should be available by class time.
 5. On 2022-02-06, I made a substantial change to part B of [Lab 3](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03), which is due next Monday 2022-02-14 at 9 PM. The Lab is shorter now: 10 questions rather than 15. 
 6. Several good essays from **Lab 1 Question 3** (about Jeff Leek's book) are now posted to our Shared Google Drive in the **Lab 01 Materials** section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza, if you have any thoughts.
@@ -39,7 +39,7 @@ I [built a description of effect sizes and how to discuss them](https://github.c
 ## What Should I Be Working On?
 
 - If your Project A Proposal is approved, fine. If not, your revision is due tonight at 9 PM. 
-- Complete the Minute Paper after Class 09, due Wednesday (2022-02-09) at noon.
+- Complete the [Minute Paper after Class 09](https://bit.ly/432-2022-min-09), due Wednesday (2022-02-09) at noon.
 - [Lab 3](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03) is due 2022-02-14 at 9 PM. 
     - Be sure your version of the instructions is dated 2022-02-06 or later. 
     - You should see 10 questions in the current version, and you should be able to do questions 5-10 after today's class.
