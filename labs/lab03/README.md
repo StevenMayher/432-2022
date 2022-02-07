@@ -6,7 +6,7 @@ Deadlines for all Labs are provided in the [Course Calendar](https://thomaselove
 
 ## Instructions
 
-The instructions for completing Lab 03 [are found here](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab03/lab03_instructions.md).
+The instructions for completing Lab 03 [are found here](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab03/lab03_instructions.md). Dr. Love revised these substantially on 2022-02-06. Make sure you have the latest version, with 10 questions, rather than 15.
 
 ## Data
 
