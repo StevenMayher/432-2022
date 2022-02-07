@@ -38,7 +38,7 @@ I [built a description of effect sizes and how to discuss them](https://github.c
 
 ## What Should I Be Working On?
 
-- If your Project A Proposal is approved, fine. If not, your revision is due tonight at 9 PM. 
+- If your [Project A Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md) is approved, fine. If not, your revision is due to Canvas **tonight at 9 PM**. 
 - Complete the [Minute Paper after Class 09](https://bit.ly/432-2022-min-09), due Wednesday (2022-02-09) at noon.
 - [Lab 3](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03) is due 2022-02-14 at 9 PM. 
     - Be sure your version of the instructions is dated 2022-02-06 or later. 
