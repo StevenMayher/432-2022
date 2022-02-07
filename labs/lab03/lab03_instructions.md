@@ -1,7 +1,8 @@
 432 Lab 03 for Spring 2022
 ================
 
-Version: 2022-01-19 17:51:13
+Version: 2022-02-06 20:39:43. Note that Part B was substantially revised
+on 2022-02-06.
 
 # General Instructions
 
@@ -30,7 +31,7 @@ This lab again uses the `hbp3456` data, from Lab 01. See [the Lab 01
 materials](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab01)
 for details on that data set.
 
-# Part A (40 points, 10 points for each question)
+# Part A (40 points)
 
 Begin with the `hbp3456` data restricted to the following four
 practices: Center, Elm, Plympton and Walnut, and to subjects with
@@ -126,17 +127,16 @@ of fit quality. Be sure to justify your eventual selection (between the
     sketch, we will use `2022` as our random seed for this work, and
     we’ll do the default amount of bootstrap replications.
 
-# Part B (40 points, 4 points per question)
+# Part B (45 points)
 
-Here, we will walk through the process of fitting and evaluating two
-linear regression fits (one fit with `lm` and the other with `stan`) to
-predict **the square root** of a subject’s estimated (neighborhood)
-median income on the basis of the main effects of the following four
-predictors:
+Here, we will walk through the process of fitting and evaluating linear
+regression fits to predict a subject’s estimated (neighborhood) median
+income on the basis of the following five predictors:
 
 -   the subject’s neighborhood high school graduation rate,
 -   the subject’s race category
--   the subject’s Hispanic/Latinx ethnicity category, and
+-   the subject’s Hispanic/Latinx ethnicity category,
+-   the subject’s age, and
 -   the subject’s current tobacco status.
 
 ## Preliminary work
@@ -163,100 +163,89 @@ Your resulting `hbp_b` tibble should look like this:
 hbp_b
 ```
 
-    # A tibble: 1,000 x 7
-       record income hsgrad race     eth_hisp tobacco sqrtinc
-       <chr>   <int>  <dbl> <fct>    <fct>    <fct>     <dbl>
-     1 903574  34800   94.9 White    No       Current    187.
-     2 926837  24700   74.2 AA_Black No       Current    157.
-     3 929198  14700   40   AA_Black No       Never      121.
-     4 932367  24700   74.2 AA_Black No       Never      157.
-     5 925592  65600   92.2 <NA>     <NA>     Never      256.
-     6 932404  18500   67.8 AA_Black No       Never      136.
-     7 933953  21500   84.4 White    No       Never      147.
-     8 911527  23000   83.6 White    No       Never      152.
-     9 918228  13400   70.3 AA_Black No       Current    116.
-    10 930262  48300   90   <NA>     <NA>     Never      220.
+    # A tibble: 1,000 x 8
+       record income hsgrad race     eth_hisp   age tobacco sqrtinc
+       <chr>   <int>  <dbl> <fct>    <fct>    <int> <fct>     <dbl>
+     1 903574  34800   94.9 White    No          48 Current    187.
+     2 926837  24700   74.2 AA_Black No          55 Current    157.
+     3 929198  14700   40   AA_Black No          35 Never      121.
+     4 932367  24700   74.2 AA_Black No          41 Never      157.
+     5 925592  65600   92.2 <NA>     <NA>        61 Never      256.
+     6 932404  18500   67.8 AA_Black No          67 Never      136.
+     7 933953  21500   84.4 White    No          72 Never      147.
+     8 911527  23000   83.6 White    No          62 Never      152.
+     9 918228  13400   70.3 AA_Black No          52 Current    116.
+    10 930262  48300   90   <NA>     <NA>        73 Never      220.
     # ... with 990 more rows
 
-The ten questions (Questions 5 - 14) below will walk you through the
-process of comparing models fit with the `lm` and `stan` engines for
-these data. The steps are meant to be completed in the specified order.
-
-## Question 5. (4 points)
+## Question 5. (5 points)
 
 How many missing values do you have in each of the important variables
 in your `hbp_b` tibble? The important variables are your outcome (square
 root of estimated neighborhood income) and the four predictors.
 
-## Question 6. (4 points)
+## Question 6. (8 points)
 
-Use an appropriate method from `tidymodels` to split the data into
-training and testing samples, with 70% of the data in the training
-sample. Use `set.seed(2022)` to create your split. We’ll call the
-training sample `b_train` in the sketch, and the testing sample
-`b_test`.
+Using the entire sample in `hbp_b`, obtain an appropriate Spearman
+*ρ*<sup>2</sup> plot and use it to identify a good choice of a single
+non-linear term that adds exactly two degrees of freedom to the main
+effects model using all five predictors for `sqrtinc`. Specify your
+choice of non-linear term.
 
-## Question 7. (4 points)
+## Question 7. (8 points)
 
-Build a recipe for your model, which we’ll call `b_rec` in the sketch.
-This recipe should work for either of the models you fit and include all
-necessary pre-processing, which includes the following four elements:
+Fit the main effects model for `sqrtinc` using `ols` and call that model
+`m1`. Plot the effect summary (using `plot(summary(m1))`) for model `m1`
+and carefully explain the meaning of the `hsgrad` coefficient shown in
+that plot in a complete English sentence.
 
--   specifying the roles of the outcome and the predictors,
--   using imputation via bagged tree models for all predictors with
-    missing data,
--   creating dummy (indicator) variables for all categorical predictors,
--   normalizing all quantitative predictors
+-   Hint 1: you are permitted to also fit the model using `lm`, if that
+    is useful to you.
+-   Hint 2: If you use `anova()` on model `m1` you should have 8 total
+    degrees of freedom in your model.
 
-## Question 8. (4 points)
+## Question 8. (8 points)
 
-Specify modeling engines, separately, for the `lm` and `stan` fits you
-will create. For the Bayesian fit using `stan`, use as a prior Student’s
-t distribution with one degree of freedom for all parameters.
+Fit a new model using `ols`, for `sqrtinc` using all five main effects,
+plus the non-linear term you identified in Question 7 and call that
+model `m2`. Plot the effect summary (using `plot(summary(m2))`) for
+model `m2`, and explain the meaning of the `tobacco` coefficient shown
+in the plot in a complete English sentence.
 
-## Question 9. (4 points)
+-   Hint 1: you are permitted to also fit the model using `lm`, if that
+    is useful to you.
+-   Hint 2: If you use `anova()` on model `m2` you should have 2
+    non-linear degrees of freedom, and 10 total degrees of freedom in
+    your model.
 
-Create a workflow for the `lm` fit, and then use it to fit the `lm`
-model to the training data. Summarize the fit with `tidy`.
+## Question 9. (8 points)
 
-## Question 10. (4 points)
+You’ve now fit models `m1` and `m2`. For each model, obtain the
+following summary statistics: the uncorrected raw *R*<sup>2</sup> value,
+the AIC and BIC. Then validate the model’s *R*<sup>2</sup> and MSE
+values using `set.seed(2022)` and 40 bootstrap replications.
 
-Create a workflow for the `stan` fit, and then use it to fit the `stan`
-model to the training data. Summarize the fit with `tidy`. If you get an
-error message, use `broom.mixed::tidy()` to do the tidying.
+Now, report the five results you obtained for each model in an
+attractive, well-formatted table. Then write a sentence or two
+explaining what your findings mean about the performance of the two
+models.
 
-## Question 11. (4 points)
+## Question 10 (8 points)
 
-Graph the tidied point estimates and 95% confidence intervals for the
-coefficients (excluding the intercept) in the two models in an
-attractive `ggplot` for comparison.
+Test models `m1` and `m2` in the test sample, evaluating their
+performance on predicting **income** (note: not on predicting the square
+root of income) using three performance measures, specifically the root
+mean squared error, the R-squared, and the mean absolute error, being
+sure to look at the predictions on the original scale of income, rather
+than its square root.
 
-## Question 12. (4 points)
+Which model appears to perform better in the test sample? Is there a
+substantial difference between the models (`m1` and `m2`) in terms of
+performance on these metrics?
 
-Interpret the results from the tidied summaries you generated in
-Question 10, and the graph you generated in Question 11. Which
-coefficients change substantially between the two fits (and in what
-direction do they change), and which do not?
+# Part C. Reaction to Silver’s *The Signal and the Noise* (15 points)
 
-## Question 13. (4 points)
-
-Assess performance in the training sample using the two fits and three
-performance measures, specifically the root mean squared error, the
-R-squared, and the mean absolute error. Which model appears to perform
-better within the training sample? Is there a substantial difference
-between the models in terms of performance on these metrics?
-
-## Question 14. (4 points)
-
-Finally, make predictions into the test sample using the two fits and
-the same three performance measures discussed in Question 13. Now, which
-model appears to perform better within the test sample? Is there a
-substantial difference between the models in terms of performance on
-these metrics?
-
-# Part C. Reaction to Silver’s *The Signal and the Noise* (20 points)
-
-## Question 15. (20 points)
+## Question 11. (15 points)
 
 Identify an important thing that you learned about prediction from your
 reading of Nate Silver’s *The Signal and the Noise* either in Chapter 2
@@ -266,9 +255,10 @@ about the way you build prediction models, and how can you adopt this
 new way of thinking to improve the models you’ll generate in this Lab
 and elsewhere in your scientific life?
 
-Write a short essay (between 150 and 250 words is appropriate) using
-clearly constructed and complete sentences to respond to this. The essay
-should be composed using R Markdown.
+Write a short essay (between 150 and 250 words is appropriate: there are
+170 words in the Question 11 instructions) using clearly constructed and
+complete sentences to respond to this. The essay should be composed
+using R Markdown.
 
 -   We encourage you to provide brief citations or quotes from Silver
     and elsewhere as needed.
