@@ -8,7 +8,7 @@ After Class | Due at NOON on | Link to Minute Paper Form | Link to Dr. Love's Fe
 :-----------: | :-----: | :------: | :--------:
 3 (2022-01-18) | 2022-01-19 | https://bit.ly/432-2022-min-03 | https://bit.ly/432-2022-min-03-feedback
 5 (2022-01-25) | 2022-01-26 | https://bit.ly/432-2022-min-05 | https://bit.ly/432-2022-min-05-feedback
-9 (2022-02-08) | 2022-02-09 | To come. | To come.
+9 (2022-02-08) | 2022-02-09 | https://bit.ly/432-2022-min-09 | To come.
 11 (2022-02-15) | 2022-02-16 | To come. | To come.
 14 (2022-03-01) | 2022-03-02 | To come. | To come.
 16 (2022-03-15) | 2022-03-16 | To come. | To come.
