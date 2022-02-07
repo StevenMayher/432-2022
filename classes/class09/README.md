@@ -19,7 +19,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - Those of you needing to submit a revision, please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment by 9 PM tonight (Tuesday 2022-02-08.)
 3. There is a Minute Paper after Class 09. **Details to come**.
 4. An **Answer Sketch for Lab 2** should be available by class time.
-5. On 2022-02-06, I made a substantial change to part B of **Lab 3**, which is due next Monday 2022-02-14 at 9 PM. The Lab is shorter now: 11 questions rather than 15. 
+5. On 2022-02-06, I made a substantial change to part B of **Lab 3**, which is due next Monday 2022-02-14 at 9 PM. The Lab is shorter now: 10 questions rather than 15. 
 6. Several good essays from **Lab 1 Question 3** (about Jeff Leek's book) are now posted to our Shared Google Drive in the **Lab 01 Materials** section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza, if you have any thoughts.
 7. Thanks to those of you who participated in the poll on Piazza about Chapter 2 of *The Signal and the Noise*. You should be able to see the results there now, in the `silver_signal_noise` folder.
     - I asked which of the following principles outlined in Chapter 2 of the Signal and the Noise seems most important to you as you think about improving your own ability to forecast, meaning both (1) use data from the past to make more effective forecasts about what will happen in the future, and (2) learn from the forecasts made by others.
@@ -42,7 +42,7 @@ I [built a description of effect sizes and how to discuss them](https://github.c
 - Complete the Minute Paper after Class 09, due Wednesday (2022-02-09) at noon.
 - [Lab 3](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03) is due 2022-02-14 at 9 PM. 
     - Be sure your version of the instructions is dated 2022-02-06 or later. 
-    - You should see 11 questions in the current version, and you should be able to do questions 5-10 (and maybe 11) after today's class.
+    - You should see 10 questions in the current version, and you should be able to do questions 5-10 after today's class.
 
 ## One Last Thing
 
