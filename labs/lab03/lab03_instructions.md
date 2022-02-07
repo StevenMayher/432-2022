@@ -1,7 +1,7 @@
 432 Lab 03 for Spring 2022
 ================
 
-Version: 2022-02-06 20:39:43. Note that Part B was substantially revised
+Version: 2022-02-06 20:46:07. Note that Part B was substantially revised
 on 2022-02-06.
 
 # General Instructions
@@ -184,7 +184,7 @@ How many missing values do you have in each of the important variables
 in your `hbp_b` tibble? The important variables are your outcome (square
 root of estimated neighborhood income) and the four predictors.
 
-## Question 6. (8 points)
+## Question 6. (10 points)
 
 Using the entire sample in `hbp_b`, obtain an appropriate Spearman
 *ρ*<sup>2</sup> plot and use it to identify a good choice of a single
@@ -192,25 +192,26 @@ non-linear term that adds exactly two degrees of freedom to the main
 effects model using all five predictors for `sqrtinc`. Specify your
 choice of non-linear term.
 
-## Question 7. (8 points)
+## Question 7. (10 points)
 
-Fit the main effects model for `sqrtinc` using `ols` and call that model
-`m1`. Plot the effect summary (using `plot(summary(m1))`) for model `m1`
-and carefully explain the meaning of the `hsgrad` coefficient shown in
-that plot in a complete English sentence.
+Fit the main effects model for `sqrtinc` using `ols` in the `hbp_b`
+sample, and call that model `m1`. Plot the effect summary (using
+`plot(summary(m1))`) for model `m1` and carefully explain the meaning of
+the `hsgrad` coefficient shown in that plot in a complete English
+sentence.
 
 -   Hint 1: you are permitted to also fit the model using `lm`, if that
     is useful to you.
 -   Hint 2: If you use `anova()` on model `m1` you should have 8 total
     degrees of freedom in your model.
 
-## Question 8. (8 points)
+## Question 8. (10 points)
 
 Fit a new model using `ols`, for `sqrtinc` using all five main effects,
-plus the non-linear term you identified in Question 7 and call that
-model `m2`. Plot the effect summary (using `plot(summary(m2))`) for
-model `m2`, and explain the meaning of the `tobacco` coefficient shown
-in the plot in a complete English sentence.
+plus the non-linear term you identified in Question 7 in the `hbp_b`
+sample, and call that model `m2`. Plot the effect summary (using
+`plot(summary(m2))`) for model `m2`, and explain the meaning of the
+`tobacco` coefficient shown in the plot in a complete English sentence.
 
 -   Hint 1: you are permitted to also fit the model using `lm`, if that
     is useful to you.
@@ -218,7 +219,7 @@ in the plot in a complete English sentence.
     non-linear degrees of freedom, and 10 total degrees of freedom in
     your model.
 
-## Question 9. (8 points)
+## Question 9. (10 points)
 
 You’ve now fit models `m1` and `m2`. For each model, obtain the
 following summary statistics: the uncorrected raw *R*<sup>2</sup> value,
@@ -230,22 +231,9 @@ attractive, well-formatted table. Then write a sentence or two
 explaining what your findings mean about the performance of the two
 models.
 
-## Question 10 (8 points)
-
-Test models `m1` and `m2` in the test sample, evaluating their
-performance on predicting **income** (note: not on predicting the square
-root of income) using three performance measures, specifically the root
-mean squared error, the R-squared, and the mean absolute error, being
-sure to look at the predictions on the original scale of income, rather
-than its square root.
-
-Which model appears to perform better in the test sample? Is there a
-substantial difference between the models (`m1` and `m2`) in terms of
-performance on these metrics?
-
 # Part C. Reaction to Silver’s *The Signal and the Noise* (15 points)
 
-## Question 11. (15 points)
+## Question 10. (15 points)
 
 Identify an important thing that you learned about prediction from your
 reading of Nate Silver’s *The Signal and the Noise* either in Chapter 2
