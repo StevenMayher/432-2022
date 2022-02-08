@@ -1,7 +1,7 @@
 432 Lab 03 for Spring 2022
 ================
 
-Version: 2022-02-06 20:46:07. Note that Part B was substantially revised
+Version: 2022-02-08 11:10:16. Note that Part B was substantially revised
 on 2022-02-06.
 
 # General Instructions
@@ -182,7 +182,7 @@ hbp_b
 
 How many missing values do you have in each of the important variables
 in your `hbp_b` tibble? The important variables are your outcome (square
-root of estimated neighborhood income) and the four predictors.
+root of estimated neighborhood income) and the five predictors.
 
 ## Question 6. (10 points)
 
