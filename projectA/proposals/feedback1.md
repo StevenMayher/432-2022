@@ -1,6 +1,6 @@
 # Feedback on Current Drafts of Project Proposals
 
-Last Update: 2022-02-08 10:30 AM
+Last Update: 2022-02-08 Noon
 
 You should find your proposal, and read the comments regarding it.
 
