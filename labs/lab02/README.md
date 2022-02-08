@@ -23,5 +23,5 @@ If you have questions about Lab 02, please ask them [at TA office hours](https:/
 ## Post-Deadline Materials
 
 - The Lab 2 answer sketch will be found on our Shared Google Drive in the Lab 02 Materials. 
-- Grades and (potentially) other materials will appear by 2022-02-15.
+- Grades and (potentially) other materials will appear on 2022-02-15.
 
