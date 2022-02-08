@@ -16,7 +16,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements and More to come.
 
 1. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
-2. More to come.
+2. This weekend would be a very good time to [update your R packages](https://thomaselove.github.io/500/r_packages.html). In particular, there's a new version of `dplyr` (version 1.0.8) which substantially improves some common error messages.
+3. Minute Paper Feedback **should appear by class time**.
+4. Update on Project A Proposals
+5. More to come.
 
 ## One Last Thing
 
