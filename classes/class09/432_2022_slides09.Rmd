@@ -299,7 +299,7 @@ What happens when we add a non-linear term?
 - Adding a polynomial of degree D costs D degrees of freedom.
   - So a polynomial of degree 2 (quadratic) costs 2 df, or 1 more than the main effect alone.
 - Adding a restricted cubic spline with K knots costs K-1 df.
-  - So adding a rcs with 4 knots uses 3 df, or 2 more than the main effect.
+  - So adding a spline with 4 knots uses 3 df, or 2 more than the main effect.
   - We restrict ourselves to considering splines with 3, 4, or 5 knots.
 - Adding an interaction (product term) depends on the main effects of the predictors we are interacting
   - If the product term's predictors have df1 and df2 degrees of freedom, product term adds df1 $\times$ df2 degrees of freedom.
@@ -639,7 +639,7 @@ imputed_df5 <- as.data.frame(do.call(cbind, imputed_5))
 
 fifth_imp <- 
   bind_cols(subject = hers1$subject, imputed_df5) %>%
-  type.convert() %>% tibble()
+  type.convert(as.is = FALSE) %>% tibble()
 ```
 
 We'll show the result on the next slide.
