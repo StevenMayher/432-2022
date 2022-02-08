@@ -17,10 +17,11 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. I updated the [Course Notes](https://thomaselove.github.io/432-notes/), mostly fixing typos, so be sure you're looking at the 2022 edition. Any mistakes you find there can be reported to us through Piazza.
 2. [Feedback on Project A proposals is here](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md), along with my comments on [your titles](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
     - Those of you needing to submit a revision, please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment by 9 PM tonight (Tuesday 2022-02-08.)
+    - I am caught up on reviewing revisions through Canvas as of 11 AM today. I'll catch up further later today and again early tomorrow.
 3. There is a [Minute Paper after Class 09](https://bit.ly/432-2022-min-09) due Wednesday 2022-02-09 at noon.
-4. An **Answer Sketch for Lab 2** should be available by class time.
-5. On 2022-02-06, I made a substantial change to part B of [Lab 3](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03), which is due next Monday 2022-02-14 at 9 PM. The Lab is shorter now: 10 questions rather than 15. 
-6. Several good essays from **Lab 1 Question 3** (about Jeff Leek's book) are now posted to our Shared Google Drive in the **Lab 01 Materials** section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza, if you have any thoughts.
+4. An **Answer Sketch for Lab 2** is now available on our Shared Drive.
+5. Several good essays from **Lab 1 Question 3** (about Jeff Leek's book) are now posted to our Shared Google Drive in the **Lab 01 Materials** section, and also as separate notes on Piazza. Please feel encouraged to add to the discussion of these pieces on Piazza, if you have any thoughts.
+6. On 2022-02-06, I made a substantial change to part B of [Lab 3](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab03), which is due next Monday 2022-02-14 at 9 PM. The Lab is shorter now: 10 questions rather than 15. Plus, I fixed a typo this morning in Question 5.
 7. Thanks to those of you who participated in the poll on Piazza about Chapter 2 of *The Signal and the Noise*. You should be able to see the results there now, in the `silver_signal_noise` folder.
     - I asked which of the following principles outlined in Chapter 2 of the Signal and the Noise seems most important to you as you think about improving your own ability to forecast, meaning both (1) use data from the past to make more effective forecasts about what will happen in the future, and (2) learn from the forecasts made by others.
         - 19 people (46% of respondents) chose Today's Forecast is the First Forecast of the Rest of Your Life
