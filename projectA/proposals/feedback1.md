@@ -1,13 +1,12 @@
-# Feedback on Current Drafts of Project Proposals
+# Feedback on Project A Proposals
 
-Last Update: 2022-02-08 10:06 PM
-
-We have 34 projects underway. There are comments below for each of them.
-
-- Dr. Love has [accepted 27 project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals) so far. Please read and incorporate our comments below (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
-- For 4 other projects, Dr. Love has [received your latest revision, and will review it as soon as possible](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love).
-- So far, 2 [proposals need an additional revision](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm), due to Canvas **Thursday 2022-02-10 at 9 PM**.
-- 1 proposal revision (that was due Tuesday 2022-02-08 at 9 PM) [has not yet been submitted](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm) as of our most recent update.
+Proposals | Status as of 2022-02-08 10:10 PM
+:--------: | :---------------------------------
+27 | [Accepted](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
+4 | [Revision received, and now under review by Dr. Love](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love). Comments will appear on Canvas as soon as possible.
+1 | [Revision not yet received](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm) although it's now overdue.
+2 | [Additional revision required, now due to Canvas Thursday 2022-02-10 at 9 PM](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm). See my comments on Canvas.
+**34** | Projects Currently Underway
 
 # Project Proposals Not Yet Accepted
 
@@ -37,7 +36,7 @@ Project | Investigator(s) | Comments To Address In Your Revision
 24 | Sarah Nock and Harrison Lindley | **Revision Received. Dr. Love will review soon.** Section 6: You need to more clearly specify the predictors that you will use in your linear regression model, and show us that they meet all necessary standards. Section 7: There is no clear question that we can hope to answer with your proposed logistic model. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 29 | Chris Jones | **Revision Received. Dr. Love will review soon.** Please include your raw data and your .Rds file. Section 1 and 2: I'm a little confused about the years you are talking about. 1930s/1940s and 1990s and then 2020 and 2021? This needs much greater explanation. You'll need to think about how you're going to handle missingness and provide us with those details. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 
-## Accepted Proposals
+# Accepted Project A Proposals
 
 While the proposals below need some adjustments, we accept them now and you do not need to submit a revision. Instead, you should make the changes noted below as part of the process of completing the final Project A. Augmented templates for the final project are now available on our Shared Drive and [also here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Final%20Submission). The changes to these templates (as compared to the proposal template you have been working with) are the addition of new sections 8-10, and corrections to the instructions we provided in what are now sections 12 and 14.
 
