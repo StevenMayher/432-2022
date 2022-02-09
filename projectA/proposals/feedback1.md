@@ -1,13 +1,13 @@
 # Feedback on Current Drafts of Project Proposals
 
-Last Update: 2022-02-08 9:58 PM
+Last Update: 2022-02-08 10:01 PM
 
 You should find your proposal, and read the comments regarding it.
 
 We have 34 projects underway.
 
-- Dr. Love has [accepted 25 project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). If you're in this group, please read and incorporate our comments below into your final Project A submission, due 2022-03-04 at 9 PM.
-- For 6 other projects, Dr. Love has received your latest revision, and will review it as soon as possible.
+- Dr. Love has [accepted 26 project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). If you're in this group, please read and incorporate our comments below into your final Project A submission, due 2022-03-04 at 9 PM.
+- For 5 other projects, Dr. Love has received your latest revision, and will review it as soon as possible.
 - So far, 2 proposals need an additional revision, and those are now due to Canvas **Thursday 2022-02-10 at 9 PM**.
 - 1 proposal revision (that was due Tuesday 2022-02-08 at 9 PM) has not yet been submitted as of our most recent update.
 
@@ -39,7 +39,6 @@ Project | Investigator(s) | Comments To Address In Your Revision
 19 | Cerag Oguztuzun and Abhishek Bhardwaj | **Revision Received. Dr. Love will review soon.** Minor comments: Please update to R version 4.1.2. Section 2: Please include a description of the subjects, i.e., the rows, rather than the variables for this section. Section 3: You should place all the cleaning and data management operations in Section 3.2. Also, for your categorical predictor, health_con, the level `poor` only has 29 observations. Section 4: For the listing, you must simply type in the name of your tibble, so that we can see that only ten rows print and can thus verify that you have a tibble. Section 5: Please add details about what levels (in the correct order) are included in each categorical variable in the codebook's description column. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 24 | Sarah Nock and Harrison Lindley | **Revision Received. Dr. Love will review soon.** Section 6: You need to more clearly specify the predictors that you will use in your linear regression model, and show us that they meet all necessary standards. Section 7: There is no clear question that we can hope to answer with your proposed logistic model. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 29 | Chris Jones | **Revision Received. Dr. Love will review soon.** Please include your raw data and your .Rds file. Section 1 and 2: I'm a little confused about the years you are talking about. 1930s/1940s and 1990s and then 2020 and 2021? This needs much greater explanation. You'll need to think about how you're going to handle missingness and provide us with those details. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
-33 | Norman Luc | **Revision Received. Dr. Love will review soon.** See my comments on your materials posted to Canvas, and produce a new revision by Tuesday 9 PM to address those issues.
 
 ## Accepted Proposals
 
@@ -71,4 +70,5 @@ Project | Investigator(s) | Comments To Address in Your Final Project Submission
 28 | Katie Heinzinger | Section 1: recommend providing a little more descriptive information to better meet the section requirements. Section 7: you don't have a research question written out. What I can determine based on your information in this section is basically a prediction of whipped cream vs. no whipped cream. You say: "I am curious about what factors impact others’ decision to add whipped cream." From the limited information provided on these data, it appears that this is just the nutritional information on all the drinks at Starbucks - so it describes the quality of the drink rather than an individual's choice of adding whipped cream. In conclusion: this (not yet stated) question seems a bit odd with the narrative you are providing. 
 30 | David Selvaraj | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 31 | Makaela Mews | Section 2: we'd like a little more detail. All counties in the US? Is that what you have? There are better ways to reorder the columns in section 3.2 - using the tidyverse and the select() function to specify the order you want from the beginning, and you should really be able to avoid using clean_names() twice. Your Section 3.3 heading is misspelled. You should use message = FALSE to avoid the message when you call favstats in section 3.3, or else include mosaic as a package you load at the start. In your table in section 5.1, I don't know what an fct code means. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
+33 | Norman Luc | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 34 | Steven Mayher | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
