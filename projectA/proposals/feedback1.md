@@ -1,9 +1,9 @@
 # Feedback on Project A Proposals
 
-Proposals | Status as of 2022-02-08 10:21 PM
+Proposals | Status as of 2022-02-08 10:30 PM
 :--------: | :---------------------------------
-29 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
-2 | [Revision received, and now under review by Dr. Love](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love). Comments will appear on Canvas as soon as possible.
+31 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
+0 | [Revision received, and now under review by Dr. Love](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love). Comments will appear on Canvas as soon as possible.
 1 | [Revision not yet received](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm) although it's now overdue.
 2 | [Additional revision required, now due to Canvas Thursday 2022-02-10 at 9 PM](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm). See my comments on Canvas.
 **34** | **Total Project A Proposals Received**
@@ -27,12 +27,7 @@ Project | Investigator(s) | Comments To Address In Your Revision
 
 ## Revised Proposals Currently Under Review by Dr. Love
 
-Dr. Love has received revisions on the proposals below, and is reviewing them.
-
-Project | Investigator(s) | Comments To Address In Your Revision
-:----: | :---------: | :------------------------------------------------------------------
-18 | Kiran Desai and Grace Armstrong | **Revision Received. Dr. Love will review soon.** Minor comments: in section 2 you have some formatting mistakes (see "loading the data"); you should remove all of Dr. Love's instructions from your submission. I believe you mean "impact" in your title- some other spelling errors throughout. Please include your .RDS in submission. Section 1: small language clarification here: you state that your subjects are mothers of Puerto Ricans, does it makes more sense to say "Puerto Rican mothers" (and/or mothers of Puerto Rican descent - you mention there is data collection outside of PR); providing some additional context to the inclusion criteria would be beneficial for better understanding of this work. Section 3: you likely don't need both `age_at_birth` and `age_at_birth_years` in your final tibble- you don't include age_at_birth in your codebook. Also, it would be beneficial to state why you categorized the annual income levels as you did. Section 6: you should rephrase your research question so it better matches your planned analysis. Additionally, your birth_weight variable looks incredibly odd to me.  Your visualizations indicate that the majority of infants in this study were born at <500 grams (in 1994-95, no less!), which seems suspicious, at best. In your histogram there also appear to be several infants with a birthweight of 0 (or very close to 0)... that seems incorrect. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
-19 | Cerag Oguztuzun and Abhishek Bhardwaj | **Revision Received. Dr. Love will review soon.** Minor comments: Please update to R version 4.1.2. Section 2: Please include a description of the subjects, i.e., the rows, rather than the variables for this section. Section 3: You should place all the cleaning and data management operations in Section 3.2. Also, for your categorical predictor, health_con, the level `poor` only has 29 observations. Section 4: For the listing, you must simply type in the name of your tibble, so that we can see that only ten rows print and can thus verify that you have a tibble. Section 5: Please add details about what levels (in the correct order) are included in each categorical variable in the codebook's description column. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
+Dr. Love is currently up to date.
 
 # Accepted Project A Proposals
 
@@ -56,6 +51,8 @@ Project | Investigator(s) | Comments To Address in Your Final Project Submission
 15 | Ria Tilve | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 16 | Carly Rose and Diya Yang | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 17 | Michael Douglass | Section 1: it would be helpful if you would provide a little more context on the data to better understand the variables you go on to describe.
+18 | Kiran Desai and Grace Armstrong | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
+19 | Cerag Oguztuzun and Abhishek Bhardwaj | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 20 | Tyler Petrie | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 21 | Aaron Fletcher | In sections 6 and 7, you don't capitalize BMI, and more importantly, you don't actually ask a question. Be sure to present a clear question in each section that relates directly to your planned model for that analysis. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 22 | Audrey Zhu | Section 6 & 7: Please show that you have no more than 4 + (N - 100)/100 candidate inputs, where N is the number of rows in the tibble. Section 9: Provide a link to the dataset if it can be found online. If not, describe the source and your access to it explicitly. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
