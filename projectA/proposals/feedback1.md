@@ -2,7 +2,7 @@
 
 Proposals | Status as of 2022-02-08 10:10 PM
 :--------: | :---------------------------------
-27 | [Accepted](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
+27 | [Proposal Accepted](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
 4 | [Revision received, and now under review by Dr. Love](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love). Comments will appear on Canvas as soon as possible.
 1 | [Revision not yet received](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm) although it's now overdue.
 2 | [Additional revision required, now due to Canvas Thursday 2022-02-10 at 9 PM](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm). See my comments on Canvas.
