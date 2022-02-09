@@ -3,30 +3,17 @@
 Proposals | Status as of 2022-02-08 10:30 PM
 :--------: | :---------------------------------
 32 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
-0 | [Revision received, and now under review by Dr. Love](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love). Comments will appear on Canvas as soon as possible.
-1 | [Initial Revision now overdue](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm)
-1 | [Additional revision required, now due to Canvas Thursday 2022-02-10 at 9 PM](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm). See my comments on Canvas.
+2 | [Revision still required](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#project-proposals-not-yet-accepted). See my comments below, and on Canvas, if appropriate.
 **34** | **Total Project A Proposals Received**
 
 # Project Proposals Not Yet Accepted
 
 We need to see a revision of the proposals listed below that addresses the changes we request, before we can accept the proposal and let you move forward. Please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment. We will be happy to address any questions via TA office hours, or, failing that, through Piazza. New (lightly edited) proposal templates are [available here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Proposal) and on our Shared Drive. These templates have changed only to adjust the instructions in Sections 9 and 11. Check over [the rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md), as well, if you have any questions about our evaluation points, or which section things should be found in.
 
-## Proposals That Need An Additional Revision, due Thursday 2022-02-10 at 9 PM
-
 Project | Investigator(s) | Please visit Canvas for Dr. Love's comments
 :----: | :---------: | :------------------------------------------------------------------
 25 | Ziyin Zhao | Thank you for your first revision, which I have now responded to on Canvas. Please produce an additional revision by Thursday 9 PM to address the remaining issues identified in my comments of 2022-02-08, and let us know if you have any questions.
-
-## Proposals Where Dr. Love is Awaiting The First Revision, due Tuesday 2022-02-08 at 9 PM
-
-Project | Investigator(s) | Comments To Address In Your Revision
-:----: | :---------: | :------------------------------------------------------------------
-32 | Cyrus Nosrati | Make sure you you delete all of Dr. Love's instructions from your final file. Section 2: saying "Each individual subject is meant to represent 65,000 people" is somewhat of an odd phrasing when describing each row - it makes sense when you're describing the rationale of the sampling method for the overall data, but not so much in this section. Each row isn't the average of 65,000 responses, right? Section 3: not sure that having Hmisc::describe twice in this work is needed, it may be more beneficial to have some smaller/more straight forward sanity checks throughout your data cleaning jsut so that it's clear that things are going as you anticipate. Section 6 &7: you don't actually ask a question, with a question mark. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
-
-## Revised Proposals Currently Under Review by Dr. Love
-
-Dr. Love is currently up to date.
+32 | Cyrus Nosrati | **We are still awaiting your revision that was due Tuesday 2022-02-08 at 9 PM**. Please get this done now. When you do it, make sure you you delete all of Dr. Love's instructions from your final file. Section 2: saying "Each individual subject is meant to represent 65,000 people" is somewhat of an odd phrasing when describing each row - it makes sense when you're describing the rationale of the sampling method for the overall data, but not so much in this section. Each row isn't the average of 65,000 responses, right? Section 3: not sure that having Hmisc::describe twice in this work is needed, it may be more beneficial to have some smaller/more straight forward sanity checks throughout your data cleaning jsut so that it's clear that things are going as you anticipate. Section 6 &7: you don't actually ask a question, with a question mark. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 
 # Accepted Project A Proposals
 
