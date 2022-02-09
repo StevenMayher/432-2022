@@ -7,7 +7,7 @@ We have 34 projects underway. There are comments below for each of them.
 - Dr. Love has [accepted 27 project proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-proposals) so far. Please read and incorporate our comments below (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
 - For 4 other projects, Dr. Love has received your latest revision, and will review it as soon as possible.
 - So far, 2 [proposals need an additional revision](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm), due to Canvas **Thursday 2022-02-10 at 9 PM**.
-- 1 proposal revision (that was due Tuesday 2022-02-08 at 9 PM) has not yet been submitted as of our most recent update.
+- 1 proposal revision (that was due Tuesday 2022-02-08 at 9 PM) [has not yet been submitted](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm) as of our most recent update.
 
 # Project Proposals Not Yet Accepted
 
