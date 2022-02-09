@@ -20,7 +20,7 @@ Project | Investigator(s) | Please visit Canvas for Dr. Love's comments
 3 | Kyaw Oo Hla | Thank you for your revisions so far, which I have now responded to on Canvas. Please produce an additional revision by Thursday 9 PM to address the remaining issues identified in my comments of 2022-02-08, and let us know if you have any questions.
 25 | Ziyin Zhao | Thank you for your first revision, which I have now responded to on Canvas. Please produce an additional revision by Thursday 9 PM to address the remaining issues identified in my comments of 2022-02-08, and let us know if you have any questions.
 
-## Proposals Where Dr. Love is waiting for your revision (that was due Tuesday 2022-02-08 at 9 PM)
+## Proposals Where Dr. Love is Awaiting The First Revision, due Tuesday 2022-02-08 at 9 PM
 
 Project | Investigator(s) | Comments To Address In Your Revision
 :----: | :---------: | :------------------------------------------------------------------
