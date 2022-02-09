@@ -2,10 +2,10 @@
 
 Proposals | Status as of 2022-02-08 10:30 PM
 :--------: | :---------------------------------
-31 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
+32 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
 0 | [Revision received, and now under review by Dr. Love](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#revised-proposals-currently-under-review-by-dr-love). Comments will appear on Canvas as soon as possible.
 1 | [Initial Revision now overdue](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-where-dr-love-is-awaiting-the-first-revision-due-tuesday-2022-02-08-at-9-pm)
-2 | [Additional revision required, now due to Canvas Thursday 2022-02-10 at 9 PM](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm). See my comments on Canvas.
+1 | [Additional revision required, now due to Canvas Thursday 2022-02-10 at 9 PM](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#proposals-that-need-an-additional-revision-due-thursday-2022-02-10-at-9-pm). See my comments on Canvas.
 **34** | **Total Project A Proposals Received**
 
 # Project Proposals Not Yet Accepted
@@ -16,7 +16,6 @@ We need to see a revision of the proposals listed below that addresses the chang
 
 Project | Investigator(s) | Please visit Canvas for Dr. Love's comments
 :----: | :---------: | :------------------------------------------------------------------
-3 | Kyaw Oo Hla | Thank you for your revisions so far, which I have now responded to on Canvas. Please produce an additional revision by Thursday 9 PM to address the remaining issues identified in my comments of 2022-02-08, and let us know if you have any questions.
 25 | Ziyin Zhao | Thank you for your first revision, which I have now responded to on Canvas. Please produce an additional revision by Thursday 9 PM to address the remaining issues identified in my comments of 2022-02-08, and let us know if you have any questions.
 
 ## Proposals Where Dr. Love is Awaiting The First Revision, due Tuesday 2022-02-08 at 9 PM
@@ -37,6 +36,7 @@ Project | Investigator(s) | Comments To Address in Your Final Project Submission
 :----: | :---------: | :------------------------------------------------------------------
 1 | Erika Hutt and Alan Kiang | Section 6: Your question also includes your binary outcome, so just edit this. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 2 | Alise Carlson | Minor comments: the websites in your first two references aren't linked correctly. You don't capitalize "united states" in section 2 and you probably should. Section 3: I am not seeing any confirmation that all categorical variables included in the tibble have at least 30 observations at each level/discussion of sanity checks- although this information is available later on - it would be nice to be told here, rather than looking for it. I'm also not certain why you would have/need two ID variables.  Section 5: It took me a while to fully understand what your variables were, with part of my confusion stemming from this table - you say for all of your `rep_race` categories that the possible values are 0-100, when I believe it would be -100 to 100.  More clearly stating what these variables are/how they are made would also be helpful. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
+3 | Kyaw Oo Hla | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 4 | Kristi Lin-Rahardja | Please include your .Rds and raw data in submission. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
 5 | Jay Wei | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 6 | Gen Li and Jiayue Yang | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
