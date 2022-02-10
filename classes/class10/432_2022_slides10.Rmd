@@ -207,6 +207,14 @@ mod_cc <- lrm(chd10 ~ glucose + smoker + sbp + educ,
             data = fram_cc, x = TRUE, y = TRUE)
 ```
 
+This works very nicely when `chd10` = 1 (for Yes) or 0 (for No), as it does here. What if your outcome was actually a factor with values Yes and No? Use the following...
+
+```{r, eval = FALSE}
+mod_cc <- lrm(outcome == "Yes" ~ 
+                  glucose + smoker + sbp + educ,
+            data = fram_cc, x = TRUE, y = TRUE)
+```
+
 ## Main Output for `mod_cc`
 
 ```{r, eval = FALSE}
