@@ -18,7 +18,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
 2. This weekend would be a very good time to [update your R packages](https://thomaselove.github.io/500/r_packages.html). In particular, there's a new version of `dplyr` (version 1.0.8) which substantially improves some common error messages.
 3. Minute Paper Feedback [is now available](https://bit.ly/432-2022-min-09-feedback).
-    - Someone mentioned in the Minute Paper that they were interviewing for a data science job. Here's a Twitter thread with some [good advice about applying for a data science job](https://twitter.com/DrJasonBrinkley/status/1448475546514513920).
+    - Someone mentioned in the Minute Paper that they were interviewing for a data science job. I found some [good advice about applying for a data science job](https://twitter.com/DrJasonBrinkley/status/1448475546514513920).
 4. Update on [Project A Proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md) and on Project A Working Day, which is 2022-02-24, as indicated on [the Calendar](https://thomaselove.github.io/432/calendar.html).
 
 ## What Should I Be Working On?
