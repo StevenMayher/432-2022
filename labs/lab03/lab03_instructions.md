@@ -1,7 +1,7 @@
 432 Lab 03 for Spring 2022
 ================
 
-Version: 2022-02-08 11:10:16. Note that Part B was substantially revised
+Version: 2022-02-09 19:24:45. Note that Part B was substantially revised
 on 2022-02-06.
 
 # General Instructions
@@ -146,10 +146,9 @@ that we’ll call `hbp_b` in the answer sketch:
 
 1.  Exclude the 25 subjects in `hbp3456` who have missing values of
     either `hsgrad` or `income`.
-2.  Restrict your data to the variables we’ll use in our models for
-    Question 2 (the four predictors listed above, and the estimated
-    neighborhood income) and the subject identifying code (the
-    `record`).
+2.  Restrict your data to the variables we’ll use in our models for Part
+    B (the five predictors listed above, and the estimated neighborhood
+    income) and the subject identifying code (the `record`).
 3.  Ensure that all character variables (other than `record`) in your
     tibble are recognized as factors.
 4.  Create a new variable called `sqrtinc` which will serve as your
