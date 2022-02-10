@@ -13,17 +13,20 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 - See [(some of) the responses to this tweet](https://twitter.com/RochfordElle/status/1359887143225733124), too.
 
-## Announcements and More to come.
+## Announcements
 
 1. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
 2. This weekend would be a very good time to [update your R packages](https://thomaselove.github.io/500/r_packages.html). In particular, there's a new version of `dplyr` (version 1.0.8) which substantially improves some common error messages.
-3. Minute Paper Feedback **should appear by class time**.
-4. Update on Project A Proposals and Project A Working Day
+3. Minute Paper Feedback [is now available](https://bit.ly/432-2022-min-09-feedback).
+4. Update on [Project A Proposals](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md) and on Project A Working Day, which is 2022-02-24, as indicated on [the Calendar](https://thomaselove.github.io/432/calendar.html).
 
 ## What Should I Be Working On?
 
-1. Lab 3 is due Monday at 9 PM. I fixed some typos thanks to a question on Piazza, last night. Get [the current version here](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab03/lab03_instructions.md). You should be able to do questions 1-4 after today's class, and you should already be able to do questions 5-10.
-2. Quiz 1 is coming.
+1. If your Project A proposal isn't yet approved, get your revision in by 9 PM tonight to Canvas.
+2. [Lab 3](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab03/lab03_instructions.md) is due Monday 2022-02-14 at 9 PM. I fixed some typos thanks to a question on Piazza, last night. Get [the current version here](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab03/lab03_instructions.md). 
+    - You should be able to do questions 1-4 after today's class, and you should already be able to do questions 5-10.
+3. [Quiz 1](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1) is coming, although I haven't finished writing it.
+    - You'll have all Quiz materials by 5 PM Thursday 2022-02-17. The Quiz is due Monday 2022-02-21 at 9 PM.
     - For those of you who've never taken one of my Quizzes before or who are nervous, you may want to look at this [draft of the instructions for Quiz 1](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/draft_instructions_for_quiz1.pdf), which will eventually be superceded by the actual Quiz instructions when those become available.
     - In developing the Quiz, I can use materials from Classes 1-12, Chapters 1-14 of the Course Notes, all of Jeff Leek's *How to be a Modern Scientist*, Chapters 1-5 of Nate Silver's *The Signal and the Noise* and major items from the READMEs, like the lists of imporant things you've learned from the [Minute Paper feedback](https://github.com/THOMASELOVE/432-2022/tree/main/minute) and the note on [interpreting effect sizes from Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes).
 
