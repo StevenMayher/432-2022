@@ -18,8 +18,12 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
 2. This weekend would be a very good time to [update your R packages](https://thomaselove.github.io/500/r_packages.html). In particular, there's a new version of `dplyr` (version 1.0.8) which substantially improves some common error messages.
 3. Minute Paper Feedback **should appear by class time**.
-4. Update on Project A Proposals
-5. More to come.
+4. Update on Project A Proposals and Project A Working Day
+
+## What Should I Be Working On?
+
+1. Lab 3 is due Monday at 9 PM. I fixed some typos thanks to a question on Piazza, last night. Get [the current version here](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab03/lab03_instructions.md). You should be able to do questions 1-4 after today's class, and you should already be able to do questions 5-10.
+2. 
 
 ## One Last Thing
 
