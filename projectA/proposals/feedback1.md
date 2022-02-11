@@ -8,11 +8,9 @@ Proposals | Status as of 2022-02-10 11:30 AM
 
 # Project Proposals Not Yet Accepted
 
-Please submit your revised proposal, including R Markdown, HTML, raw data, and Rds (cleaned data) to Canvas in the **Project A Proposal Revision** assignment. New (lightly edited) proposal templates are [available here](https://github.com/THOMASELOVE/432-2022/tree/main/projectA/templates/For%20the%20Proposal) and on our Shared Drive. These templates have changed only to adjust the instructions in Sections 9 and 11. Check over [the rubric](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/rubric_proposal_draft.md), as well, if you have any questions about our evaluation points, or which section things should be found in.
-
 Project | Investigator(s) | Please visit Canvas for Dr. Love's comments
 :----: | :---------: | :------------------------------------------------------------------
-32 | Cyrus Nosrati | **We are still awaiting your revision that was due Tuesday 2022-02-08 at 9 PM**. Please get this done now. When you do it, make sure you you delete all of Dr. Love's instructions from your final file. Section 2: saying "Each individual subject is meant to represent 65,000 people" is somewhat of an odd phrasing when describing each row - it makes sense when you're describing the rationale of the sampling method for the overall data, but not so much in this section. Each row isn't the average of 65,000 responses, right? Section 3: not sure that having Hmisc::describe twice in this work is needed, it may be more beneficial to have some smaller/more straight forward sanity checks throughout your data cleaning jsut so that it's clear that things are going as you anticipate. Section 6 &7: you don't actually ask a question, with a question mark. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
+32 | Cyrus Nosrati | Please see my email or Canvas for my comments on your latest revision, and resubmit to fix those issues by Sunday 9 AM.
 
 # Accepted Project A Proposals
 
