@@ -1,7 +1,7 @@
 432 Lab 03 for Spring 2022
 ================
 
-Version: 2022-02-09 19:24:45. Note that Part B was substantially revised
+Version: 2022-02-11 09:03:08. Note that Part B was substantially revised
 on 2022-02-06.
 
 # General Instructions
@@ -243,7 +243,7 @@ new way of thinking to improve the models you’ll generate in this Lab
 and elsewhere in your scientific life?
 
 Write a short essay (between 150 and 250 words is appropriate: there are
-170 words in the Question 11 instructions) using clearly constructed and
+170 words in the Question 10 instructions) using clearly constructed and
 complete sentences to respond to this. The essay should be composed
 using R Markdown.
 
