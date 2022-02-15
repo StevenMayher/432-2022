@@ -9,10 +9,13 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class11/432_2022_slides11.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class11/432_2022_slides11.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-## More To Come
+## Announcements
 
-1. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
-2. More to come.
+1. There is a [Minute Paper after Class 11](https://bit.ly/432-2022-min-11), due at noon tomorrow (Wednesday 2022-02-16).
+2. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
+3. The Answer Sketch for Lab 3 is now posted to our Shared Drive.
+4. Grades and TA feedback on Lab 2 are now available in the Grading Roster on our Shared Drive.
+    - Four nice examples of Plots for Question 1 from Lab 2 are now available [in our Shared Drive](https://docs.google.com/document/d/1pohRZSY38S2L449l05PWNJkZvWQX9XNc-sA2OLIfQrw/edit?usp=sharing), along with the code used to create them.
 
 ## The `tidymodels` packages
 
@@ -37,3 +40,6 @@ In linear regression work, the "adjusted R-square" statistic attempts to use the
 - some other cross-validated r-square statistic, as can be developed using the `rsample` and `yardstick` packages (see, for example, Chapters 9 and 10 in [Tidy Modeling with R](https://www.tmwr.org/).
 
 So my main point is that I wouldn't use adjusted R-square much (if at all) in linear regression, instead using a better method to assess predictive power in linear regression.
+
+
+![](https://imgs.xkcd.com/comics/health_stats.png)  https://xkcd.com/2581
