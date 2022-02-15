@@ -23,5 +23,5 @@ If you have questions about Lab 02, please ask them [at TA office hours](https:/
 ## Post-Deadline Materials
 
 - The Lab 2 answer sketch will be found on our Shared Google Drive in the Lab 02 Materials. 
-- Grades and (potentially) other materials will appear on 2022-02-15.
-
+- Grades and (potentially) other materials should appear on 2022-02-15. (We've got a small discrepancy we're trying to iron out before posting.)
+- Four nice examples of Plots for Question 1 from Lab 2 are now available [in our Shared Drive](https://docs.google.com/document/d/1pohRZSY38S2L449l05PWNJkZvWQX9XNc-sA2OLIfQrw/edit?usp=sharing), along with the code used to create them.
