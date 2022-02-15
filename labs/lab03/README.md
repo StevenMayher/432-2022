@@ -22,4 +22,5 @@ If you have questions about Lab 03, please ask them [at TA office hours](https:/
 
 ## Post-Deadline Materials
 
-will appear after the deadline.
+- The Lab 3 answer sketch will be found on our Shared Google Drive in the Lab 03 Materials. 
+- Grades and (potentially) other materials should appear on 2022-02-22.
