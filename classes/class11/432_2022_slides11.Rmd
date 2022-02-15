@@ -79,7 +79,7 @@ For linear models, we have:
 For logistic models, we have:
 
 - `glm` to fit models for binary outcomes, compute and plot predictions, hypothesis tests and confidence intervals
-- `lrm` from `rms` to save and explore additional components of the model's fit and to (slightly) expand the capacity for `lm` fits to incorporate non-linear terms and multiple imputations.
+- `lrm` from `rms` to save and explore additional components of the model's fit and to (slightly) expand the capacity for `glm` fits to incorporate non-linear terms and multiple imputations.
 
 These are by no means the only options for fitting or working with models.
 
@@ -109,7 +109,7 @@ When you use `library(tidymodels)`, this makes the core packages available in yo
 
 as well as `dials` and `tune`, which help manage and optimize tuning parameters in certain types of models.
 
-## Today's Data (from Class 08)
+## Today's Data (from Class 09)
 
 Heart and Estrogen/Progestin Study (HERS)
 
@@ -598,7 +598,6 @@ stan_res_test %>% kable()
     - The Basics section (Chapters 4-9) as well as chapters 10-11 were my main tools for learning about these ideas.
 - Julia Silge has many nice videos on YouTube demonstrating various things that `tidymodels` can accomplish.
     - I've recommended several in the Class 10 README.
-- Lab 3 Part B requires you to use `tidymodels` approaches to complete a linear regression model using two different fitting engines
 
 ### Next Time
 
