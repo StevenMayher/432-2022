@@ -1,14 +1,14 @@
 # Quiz 1
 
-All materials will be posted for the Quiz by 5 PM on 2022-02-17. If a link is broken below, it should be fixed by that time. 
+All materials will be posted for the Quiz by **5 PM on 2022-02-17**. If a link is broken prior to that time, it should be working soon.
 
 The files you will need to complete Quiz 1 are:
 
 1. The [PDF "Main Document"](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) is a 20-page PDF containing all instructions and the 24 questions, along with all of the output we are providing for you. 
     - The main document will be found at https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf as soon as Dr. Love posts it.
-    - A document containing **only the instructions and none of the questions** is [available here now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf).
+    - A document containing **only the instructions and none of the questions** is [available here now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf). This will disappear in favor of the main document once that is posted.
 2. the [Google Form Answer Sheet for Quiz 1](https://bit.ly/432-2022-quiz1-answer-sheet) which will be found at https://bit.ly/432-2022-quiz1-answer-sheet (where you will submit your responses by the deadline) 
-    - The Answer Sheet will begin accepting responses when Dr. Love turns it on.
+    - The Answer Sheet will begin accepting responses when Dr. Love turns it on at 5 PM on Thursday 2022-02-17.
 3. three data files, which are available **now** in our Shared Google Drive in the Quiz 1 Materials ... data folder
     - The three files are called [`set1.csv`](https://raw.githubusercontent.com/THOMASELOVE/432-2022/main/quiz/quiz1/data/set1.csv), [`set13.Rds`](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/data/set13.Rds), and [`set22.csv`](https://raw.githubusercontent.com/THOMASELOVE/432-2022/main/quiz/quiz1/data/set22.csv) and are [also available here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1/data) if you prefer.
 
@@ -24,7 +24,7 @@ The Quiz is due when [the Calendar](https://thomaselove.github.io/431/calendar.h
 
 ## Read the Instructions in the Actual Quiz PDF, now.
 
-- Remember that there is a [document containing just the instructions available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf) if you'd like to review them ahead of time. 
+- Remember that there is a [document containing just the instructions available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf) if you'd like to review them ahead of time, but this will disappear when the actual Main Document is posted. 
 - Use the instructions in the [actual Main Document](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf), as soon as those become available.
 - These instructions include information on:
     - The Google Form Answer Sheet
