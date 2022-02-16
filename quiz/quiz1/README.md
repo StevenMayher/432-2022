@@ -6,7 +6,7 @@ The files you will need to complete Quiz 1 are:
 
 1. The [PDF "Main Document"](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) is a 20-page PDF containing all instructions and the 24 questions, along with all of the output we are providing for you. 
     - The main document will be found at https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf as soon as Dr. Love posts it.
-    - A document containing **only the instructions and none of the questions** is [available here now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf). This will disappear in favor of the main document once that is posted.
+    - A document containing **only the instructions and none of the questions** is [available here now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf). This will disappear in favor of the main document once the Main Document is posted.
 2. the [Google Form Answer Sheet for Quiz 1](https://bit.ly/432-2022-quiz1-answer-sheet) which will be found at https://bit.ly/432-2022-quiz1-answer-sheet (where you will submit your responses by the deadline) 
     - The Answer Sheet will begin accepting responses when Dr. Love turns it on at 5 PM on Thursday 2022-02-17.
 3. three data files, which are available **now** in our Shared Google Drive in the Quiz 1 Materials ... data folder
@@ -19,8 +19,9 @@ The Quiz is due when [the Calendar](https://thomaselove.github.io/431/calendar.h
 - No late work will be accepted, so do not wait until the last minute to enter your work in the Google Form Answer Sheet and press Submit. We will not accept Quizzes received after 9:15 PM.
 - You can edit your work on the Answer Sheet after you submit, up until the deadline. 
 - No responses outside of the Google Form Answer Sheet will be accepted.
-- During the time when the Quiz is available, you can ask questions about the Quiz using **only** the two methods described in the instructions (private posts to Piazza or email to 431-help). The TAs and Dr. Love will respond as soon as possible. 
-- All questions received by 5 PM on Monday 2022-02-21 will be answered by that time.
+- During the time when the Quiz is available, you can ask questions about the Quiz using **only** the two methods described in the instructions (private posts to Piazza or email to `431-help at case dot edu`). The TAs and Dr. Love will respond as soon as possible. 
+- Piazza will be closed to public posts (but still open for private ones) while the Quiz is available.
+- All questions received via Piazza or email to 431-help by 5 PM on Monday 2022-02-21 will be answered by that time.
 
 ## Read the Instructions in the Actual Quiz PDF, now.
 
