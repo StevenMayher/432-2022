@@ -12,7 +12,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. There is a [Minute Paper after Class 11](https://bit.ly/432-2022-min-11), due at noon tomorrow (Wednesday 2022-02-16).
-2. I'll be sending out a short recording / document later today via email. Please keep an eye out for it. 
+2. I was planning to send out a short recording / document on Tuesday, but have decided instead to fold that into Class 12 on Thursday. 
 3. If you haven't yet read this [Important Note from Dr. Love on Effect Size and Interpreting Effect Sizes](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class09/effects_note.pdf) first mentioned [in Class 09](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class09#important-note-from-dr-love-on-effect-size-and-interpreting-effect-sizes), then I encourage you to do so.
 4. The Answer Sketch for Lab 3 is now posted to our Shared Drive.
 5. Grades and TA feedback on Lab 2 are now available in the Grading Roster on our Shared Drive.
