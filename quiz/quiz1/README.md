@@ -10,7 +10,7 @@ The files you will need to complete Quiz 1 are:
 2. the [Google Form Answer Sheet for Quiz 1](https://bit.ly/432-2022-quiz1-answer-sheet) which will be found at https://bit.ly/432-2022-quiz1-answer-sheet (where you will submit your responses by the deadline) 
     - The Answer Sheet will begin accepting responses when Dr. Love turns it on.
 3. three data files, which are available **now** in our Shared Google Drive in the Quiz 1 Materials ... data folder
-    - The three files are called `[set1.csv](https://raw.githubusercontent.com/THOMASELOVE/432-2022/main/quiz/quiz1/data/set1.csv)`, `[set13.Rds](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/data/set13.Rds)`, and `[set22.csv](https://raw.githubusercontent.com/THOMASELOVE/432-2022/main/quiz/quiz1/data/set22.csv)` and are [also available here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1/data) if you prefer.
+    - The three files are called [`set1.csv`](https://raw.githubusercontent.com/THOMASELOVE/432-2022/main/quiz/quiz1/data/set1.csv), [`set13.Rds`](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/data/set13.Rds), and [`set22.csv`](https://raw.githubusercontent.com/THOMASELOVE/432-2022/main/quiz/quiz1/data/set22.csv) and are [also available here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1/data) if you prefer.
 
 ## Deadline
 
