@@ -2,15 +2,14 @@
 
 Proposals | Status as of 2022-02-10 11:30 AM
 :--------: | :---------------------------------
-33 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
-1 | [Revision still required](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#project-proposals-not-yet-accepted). See my comments below, and on Canvas, if appropriate.
+34 | [Accepted Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals). Please incorporate our [comments below](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#accepted-project-a-proposals) (and on Canvas, if applicable) into your final Project A submission, due 2022-03-04 at 9 PM.
+0 | [Revision still required](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/feedback1.md#project-proposals-not-yet-accepted). See my comments below, and on Canvas, if appropriate.
 **34** | **Total Project A Proposals Received**
 
 # Project Proposals Not Yet Accepted
 
 Project | Investigator(s) | Please visit Canvas for Dr. Love's comments
 :----: | :---------: | :------------------------------------------------------------------
-32 | Cyrus Nosrati | Please see my email or Canvas for my comments on your latest revision, and resubmit to fix those issues by Sunday 9 AM.
 
 # Accepted Project A Proposals
 
@@ -49,5 +48,6 @@ Project | Investigator(s) | Comments To Address in Your Final Project Submission
 29 | Chris Jones | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 30 | David Selvaraj | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 31 | Makaela Mews | Section 2: we'd like a little more detail. All counties in the US? Is that what you have? There are better ways to reorder the columns in section 3.2 - using the tidyverse and the select() function to specify the order you want from the beginning, and you should really be able to avoid using clean_names() twice. Your Section 3.3 heading is misspelled. You should use message = FALSE to avoid the message when you call favstats in section 3.3, or else include mosaic as a package you load at the start. In your table in section 5.1, I don't know what an fct code means. Also, [change the title](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/proposals/titles.md).
+32 | Cyrus Nosrati | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 33 | Norman Luc | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
 34 | Steven Mayher | Thanks for your successful revision. See my remaining comments on Canvas and keep them in mind as you prepare your final project.
