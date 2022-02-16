@@ -1,7 +1,5 @@
 # Quiz 1
 
-## Instructions
-
 All materials will be posted for the Quiz by 5 PM on 2022-02-17. If a link is broken below, it should be fixed by that time. 
 
 The files you will need to complete Quiz 1 are:
