@@ -13,7 +13,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Today's Agenda
 
-We'll clean up some loose ends related to linear and logistic regression today, in light of questions we've seen in the Labs and in the Minute Papers.
+We'll clean up some loose ends related to linear and logistic regression today, in light of questions we've seen in the Labs, in TA office hours, on Piazza, and in the Minute Papers.
 
 ## Announcements
 
