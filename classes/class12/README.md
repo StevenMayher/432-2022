@@ -20,7 +20,8 @@ We'll clean up some loose ends related to linear and logistic regression today, 
 1. We'll continue talking about the `tidymodels` packages in Class 13, in particular describing some methods for doing logistic regression with those tools. I'll remind you that there's [a list in the Class 11 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class11#the-tidymodels-packages) of some useful things to read if you want to learn more about or go further with this approach. I will modify the [Course Calendar](https://thomaselove.github.io/432/calendar.html) to reflect this change by class time, or shortly thereafter.
 2. A reminder that we do have class next Tuesday 2022-02-22, but **not** on Thursday 2022-02-24. Dr. Love will be at AHRQ study section, reviewing grants. We hope you'll use this time to work on Project A, which we'll remind you is due on **Friday 2022-03-04 at 9 PM**.
 3. Sorry to be picky, but it's called **logistic** regression. It's **not** called *logistical* regression or *logistics* regression or anything else.
-4. Minute Paper after Class 11 feedback is on its way. The Course Grading Roster on our Shared Drive is up to date through this Minute Paper, and Lab 2. Lab 3 grades will appear early next week.
+4. [Minute Paper after Class 11 feedback](https://bit.ly/432-2022-min-11-feedback) is now available. The Course Grading Roster on our Shared Drive is up to date through this Minute Paper, and Lab 2. Lab 3 grades will appear early next week.
+5. I've posted to Piazza (in Question @134) in an effort to try to identify some great restaurants in the Cleveland area that won't break a student's budget. If you have a suggestion, please add to the discussion there. I'll keep it up until Spring Break.
 
 ## On Why We Impute
 
@@ -39,8 +40,6 @@ Thinking of it that way isn’t helping you. So stop. Some key points:
 
 > Clinical researcher: I'm not considering multiple imputation for my study because I read that the data have to be missing at random. I am using routine health records, and I have missing blood pressure data. But they won't be randomly missing, because people with blood pressure missing are totally different to people with blood pressure recorded.
 
-
-
 ## About [Quiz 1](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1) and Related Issues
 
 1. Quiz 1 will be available to you by 5 PM today. [Go here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1) for everything you need. The Quiz is due Monday 2022-02-21 at 9 PM.
@@ -51,6 +50,7 @@ Thinking of it that way isn’t helping you. So stop. Some key points:
         - In either case, we will answer all questions received by 5 PM Monday. After that, you're basically on your own.
 2. TA office hours **will be** held during the Quiz, for general questions and project questions, but if you have a specific question about the Quiz, you'll have to ask it in one of the two allowable ways mentioned above.
 3. Piazza will close at 5 PM to everything but private questions to the instructors. It'll reopen after the Quiz deadline.
+4. It is extremely rare for a student to receive a perfect score on one of my Quizzes. There are just too many ways to make a small mistake, and too many details I'm trying to assess. Don't panic if you have trouble with two or three questions. Just walk away and try again later. Or ask us for help! **Good luck to you all**!
 
 ## One Last Thing
 
