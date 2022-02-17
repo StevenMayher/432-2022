@@ -39,7 +39,7 @@ The Quiz is due when [the Calendar](https://thomaselove.github.io/431/calendar.h
 
 As mentioned in the [Main Document](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf), each question is worth between 2 and 6 points. In fact, almost all questions are worth 2-4 points. Here's the breakdown.
 
-# of Points | Questions  
+Maximum Points | Questions  
 :-----------: | :---------------------------
 2 | 2a, 2b, 2c, 2d, 5a, 8a, 9, 13a, 13b, 16a, 19b, 19c
 3 | 3, 4, 5b, 6, 7, 8b, 10, 11, 12, 16b, 17a, 17b, 18, 20, 23
