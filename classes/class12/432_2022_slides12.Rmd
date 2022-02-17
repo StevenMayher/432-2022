@@ -17,12 +17,12 @@ options(width = 60)
 
 ## Today's Agenda
 
-Fitting logistic regressions using `tidymodels` packages
+Some reminders and loose ends
 
-- Pre-processing activities
-- Model building (with multiple fitting engines)
-- Measuring model effectiveness
-- Creating a model workflow
+- for linear regression models
+- for logistic regression models
+
+We'll return to `tidymodels` next time.
 
 ## Setup
 
@@ -30,14 +30,557 @@ Fitting logistic regressions using `tidymodels` packages
 library(here); library(knitr)
 library(magrittr); library(janitor)
 library(naniar); library(equatiomatic)
+library(GGally); library(broom)
+library(rms)
 
-library(tidymodels)
 library(tidyverse)
 
 theme_set(theme_bw())
 ```
 
-## Today's Data (from Class 10)
+# Linear Regression
+
+## The `day12` Data Set
+
+These data are simulated.
+
+```{r, echo = FALSE, eval = FALSE}
+## How I created dat12
+
+set.seed(4322022)
+q1 <- rnorm(n = 400, mean = 100, sd = 20)
+c2_raw <- rbernoulli(n = 400)
+q3 <- rnorm(n = 400, mean = 150, sd = 25)
+c4_raw <- rbinom(n = 400, size = 3, prob = 0.44) + 1
+er <- rnorm(n = 400, mean = 0, sd = 48)
+
+out1 <- 
+    0.1*(3000 + 0.05*q1 + 0.005*(q1-100)^3 - 2.05*q3 + 
+             104*c2_raw - 29.5*c4_raw + er)
+
+
+dat12 <- tibble(subj = 1:400, out1, q1, c2 = factor(c2_raw), q3, 
+                c4 = factor(c4_raw)) 
+
+dat12 <- dat12 %>%
+    mutate(c2 = fct_recode(c2, 
+                            "Yes" = "TRUE", "No" = "FALSE")) %>%
+    mutate(c4 = fct_recode(c4, 
+                            "E" = "1", "VG" = "2",
+                            "G" = "3", "F" = "4")) %>%
+    mutate(subj = as.character(subj)) %>%
+    mutate(q3 = round_half_up(q3, digits = 0)) %>%
+    mutate(q1 = round_half_up(q1, digits = 0)) %>%
+    mutate(out1 = round_half_up(out1, digits = 0) - 100) %>%
+    rename(result = out1, sur_s = q1,
+           sbp = q3, typeA = c2, sroh = c4) %>%
+    select(subj, result, sur_s, typeA, sbp, sroh)
+
+saveRDS(dat12, here("data/dat12.Rds"))
+```
+
+```{r}
+dat12 <- readRDS(here("data/dat12.Rds"))
+
+names(dat12)
+
+miss_case_table(dat12)
+```
+
+## The `dat12` codebook
+
+Variable | Description | Type
+---: | :----: | :----
+`result` | Our outcome (0-500 scale) | quant.
+`sur_s` | Survey sur_s (0-200 scale) | quant.
+`typeA` | Type A (No or Yes) | binary
+`sbp` | Systolic Blood Pressure | quant.
+`sroh` | Self-Reported Health (E/VG/G/F) | 4 cats.
+
+## Summary of `dat12`
+
+```{r}
+summary(dat12 %>% select(-subj))
+```
+
+## OLS Model for `result`` without Non-Linear Terms
+
+Variable | Description
+-------: | ------------------------------------------------
+`result` | Our outcome (0-500 scale)
+`sur_s` | Survey sur_s (0-200 scale)
+`typeA` | Type A (No or Yes)
+`sbp` | Systolic Blood Pressure
+`sroh` | Self-Reported Health (E/VG/G/F)
+
+```{r}
+d <- datadist(dat12)
+options(datadist = "d")
+
+modA <- ols(result ~ sur_s + typeA + sbp + sroh, 
+               data = dat12, x = TRUE, y = TRUE)
+```
+
+How many degrees of freedom does the model `modA` use?
+
+## Model `modA`
+
+```{r, eval = FALSE}
+modA
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small1.png")
+```
+
+## ANOVA results for `modA`
+
+```{r}
+anova(modA)
+```
+
+## Plot Effect Sizes
+
+```{r, fig.height = 5}
+plot(summary(modA))
+```
+
+
+## Consider Potential Non-Linear Terms
+
+```{r, fig.height = 4.5}
+plot(spearman2(result ~ sur_s + typeA + sbp + sroh, 
+               data = dat12))
+```
+
+## Using the Spearman plot as a guide...
+
+Variable | Description | Adj. Spearman $\rho^2$
+-------: | ----------------------------------------- | -----
+`sur_s` | Survey sur_s (0-200 scale) | Highest
+`typeA` | Type A (No or Yes) | 2nd Highest
+`sbp` | Systolic Blood Pressure | 3rd Highest
+`sroh` | Self-Reported Health (E/VG/G/F) | Lowest
+
+### Using Polynomials or Splines
+
+- Can we build a (polynomial or spline) non-linear term that will add one more degree of freedom to our original main-effects model?
+- What if we can afford 2 additional df? Or 3?
+
+### Using Interaction terms
+
+- How many df does the best categorical-categorical interaction use?
+- How many df does the best categorical-quantitative interaction use?
+
+## Adding Polynomial Terms in `sur_s`
+
+We'll look at a quadratic, then a cubic polynomial...
+
+```{r}
+modP2 <- ols(result ~ pol(sur_s,2) + typeA + sbp + sroh, 
+               data = dat12, x = TRUE, y = TRUE)
+modP3 <- ols(result ~ pol(sur_s,3) + typeA + sbp + sroh, 
+               data = dat12, x = TRUE, y = TRUE)
+```
+
+## Quadratic Polynomial adds 1 df to `modA`'s 6
+
+```{r, eval = FALSE}
+modP2
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small2.png")
+```
+
+## Plot Effect Sizes
+
+```{r, fig.height = 5}
+plot(summary(modP2))
+```
+
+## What does model `modA` look like?
+
+```{r, fig.height = 5.5}
+ggplot(Predict(modA))
+```
+
+## What does model `modP2` look like?
+
+```{r, fig.height = 5.5}
+ggplot(Predict(modP2))
+```
+
+## Nomogram for model `modA`
+
+```{r, fig.height = 5.5}
+plot(nomogram(modA))
+```
+
+## Nomogram for model `modP2`
+
+```{r, fig.height = 5.5}
+plot(nomogram(modP2))
+```
+
+## Do the non-linear terms in `modP2` do much?
+
+```{r}
+anova(modP2)
+```
+
+## Do the non-linear terms in `modP2` help much?
+
+```{r}
+AIC(modA); BIC(modA)
+AIC(modP2); BIC(modP2)
+```
+
+## Cubic (degree 3) polynomial adds 2 df to `modA`'s 6
+
+```{r, eval = FALSE}
+modP3
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small3.png")
+```
+
+## What does model `modP3` look like?
+
+```{r, fig.height = 5.5}
+ggplot(Predict(modP3))
+```
+
+## Nomogram for model `modP3`
+
+```{r, fig.height = 5.5}
+plot(nomogram(modP3))
+```
+
+## How about a restricted cubic spline in `cigs`?
+
+```{r}
+modC3 <- ols(result ~ rcs(sur_s,3) + typeA + sbp + sroh, 
+               data = dat12, x = TRUE, y = TRUE)
+modC4 <- ols(result ~ rcs(sur_s,4) + typeA + sbp + sroh, 
+               data = dat12, x = TRUE, y = TRUE)
+modC5 <- ols(result ~ rcs(sur_s,5) + typeA + sbp + sroh, 
+               data = dat12, x = TRUE, y = TRUE)
+```
+
+
+## RCS with 3 knots adds 1 df to `modA`'s 6
+
+```{r, eval = FALSE}
+modC3
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small4.png")
+```
+
+## What does model `modC3` look like?
+
+```{r, fig.height = 5.5}
+ggplot(Predict(modC3))
+```
+
+## What does the nomogram for `modC3` look like?
+
+```{r, fig.height = 5.5}
+plot(nomogram(modC3))
+```
+
+## Do the non-linear terms help much in `modC3`?
+
+```{r}
+AIC(modC3); BIC(modC3)
+AIC(modA); BIC(modA)
+```
+
+## ANOVA table for `modC3`?
+
+```{r}
+anova(modC3)
+```
+
+## RCS with 4 knots adds 2 df to `modA`'s 6
+
+```{r, eval = FALSE}
+modC4
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small5.png")
+```
+
+## What does model `modC4` look like?
+
+```{r, fig.height = 5.5}
+ggplot(Predict(modC4))
+```
+
+## What does the nomogram for `modC4` look like?
+
+```{r, fig.height = 5.5}
+plot(nomogram(modC4))
+```
+
+## RCS with 5 knots adds 3 df to `modA`'s 6
+
+```{r, eval = FALSE}
+modC5
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small6.png")
+```
+
+## What does model `modC5` look like?
+
+```{r, fig.height = 5.5}
+ggplot(Predict(modC5))
+```
+
+## What does the nomogram for `modC5` look like?
+
+```{r, fig.height = 5.5}
+plot(nomogram(modC5))
+```
+
+## Splines and Polynomials with `ols` (or `lrm`)
+
+Model | Coeffs. | "Bends" | DF added
+-----: | :-----: | :------: | :-----:
+Main Effects (`modA`) | None | None | --
+Polynomial, degree 2 (`P2`) | `^2` | 1 | 1
+Polynomial, degree 3 (`P3`) | `^2, ^3` | 2 | 2
+RCS, 3 knots (`C3`) | `'` | 2 | 1
+RCS, 4 knots (`C4`) | `', ''` | 3 | 2
+RCS, 5 knots (`C5`) | `', '', '''` | 4 | 3 
+
+- RCS = Restricted Cubic Spline
+
+## What about an interaction term instead?
+
+1. How many df does the best categorical-categorical interaction use?
+2. How many df does the best categorical-quantitative interaction use?
+
+```{r, fig.height = 4}
+plot(spearman2(result ~ sur_s + typeA + sbp + sroh, 
+               data = dat12))
+```
+
+## Models with Interaction Terms
+
+```{r}
+# already set up datadist for dat12
+
+modI1 <- ols(result ~ sur_s * typeA + sbp + sroh,
+             data = dat12, x = TRUE, y = TRUE)
+modI2 <- ols(result ~ rcs(sur_s, 4) + typeA + 
+                 sur_s %ia% typeA + sbp + sroh, 
+             data = dat12, x = TRUE, y = TRUE)
+```
+
+## Model `modI1` adds how many df to `modA`?
+
+```{r, eval = FALSE}
+modI1
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small7.png")
+```
+
+## ANOVA for `modI1`
+
+```{r, eval = FALSE}
+anova(modI1)
+```
+
+```{r, echo = FALSE, fig.align = "center", out.width = '85%'}
+include_graphics("figures/small7b.png")
+```
+
+## What does `modI1` look like?
+
+```{r, fig.height = 5}
+ggplot(Predict(modI1))
+```
+
+
+## Nomogram for `modI1`
+
+```{r, fig.height = 5}
+plot(nomogram(modI1))
+```
+
+## Model `modI2` adds how many df to `modC4`?
+
+```{r, eval = FALSE}
+modI2
+```
+
+```{r, echo = FALSE, fig.align = "center", out.height = '65%'}
+include_graphics("figures/small8.png")
+```
+
+
+## ANOVA for `modI2`
+
+```{r, eval = FALSE}
+anova(modI2)
+```
+
+```{r, echo = FALSE, fig.align = "center", out.width = '85%'}
+include_graphics("figures/small8b.png")
+```
+
+## What does `modI2` look like?
+
+```{r, fig.height = 5}
+ggplot(Predict(modI2))
+```
+
+## Nomogram for `modI2`
+
+```{r, fig.height = 5}
+plot(nomogram(modI2))
+```
+
+## Comparing Models?
+
+```{r}
+set.seed(4321); validate(modA)
+```
+
+- Ran validate for other models (see next slide)
+
+```{r, echo = FALSE, eval = FALSE}
+set.seed(4322); validate(modP2)
+set.seed(4323); validate(modP3)
+set.seed(4324); validate(modC3)
+set.seed(4325); validate(modC4)
+set.seed(4326); validate(modC5)
+set.seed(4327); validate(modI1)
+set.seed(4328); validate(modI2)
+```
+
+## Table of `validate` Results
+
+Model | Raw $R^2$ | Corrected $R^2$ | Corrected MSE
+----- | --------: | -------: | -----:
+`modA` (Main Effects) | 0.5239 | 0.4788 | 261.8
+`modP2` (Quadr. Pol.) | 0.5863 | 0.4756 | 293.8
+`modP3` (Cubic Pol.) | 0.9535 | 0.9684 | 28.5
+`modC3` (RCS, 3 knots) | 0.5399 | 0.4510 | 313.0
+`modC4` (RCS, 4 knots) | 0.7864 | 0.7294 | 162.8
+`modC5` (RCS, 5 knots) | 0.8106 | 0.7580 | 137.6
+`modI1` (interaction) | 0.5422 | 0.4413 | 339.2
+`modI2` (int + RCS4) | 0.7953 | 0.7337 | 161.4
+
+## Making Predictions
+
+Suppose we want to predict the `result` for these new subjects:
+
+```{r}
+new_people <- tibble(
+    name = c("Dave", "Edna"),
+    sur_s = c(100, 115), typeA = c("Yes", "No"),
+    sbp = c(140, 125), sroh = c("G", "E"))
+
+new_people %>% kable()
+```
+
+## Predicting Dave and Edna with `modA`
+
+- Individual Prediction Intervals
+
+```{r}
+predict(modA, newdata = data.frame(new_people), 
+        conf.int = 0.95, conf.type = "individual")
+```
+
+## Predicting mean of people just like Dave and Edna with `modA`
+
+- Mean Prediction Intervals
+
+```{r}
+predict(modA, newdata = data.frame(new_people), 
+        conf.int = 0.95, conf.type = "mean")
+```
+
+## Predicting Dave and Edna with other models
+
+```{r}
+predict(modP3, newdata = data.frame(new_people))
+predict(modC4, newdata = data.frame(new_people))
+predict(modI2, newdata = data.frame(new_people))
+```
+
+## Predicting Dave via the Nomogram for model `modC3`
+
+- Dave has `sur_s` = 100, is typeA, Good `sroh`, `sbp` = 140.
+
+```{r, fig.height = 4}
+plot(nomogram(modC3))
+```
+
+## Dave's Actual Predicted Value (from `modC3`)
+
+```{r}
+predict(modC3, newdata = data.frame(new_people))[1]
+```
+
+## Running the `lm` version of `modC5`
+
+```{r}
+modC5_lm <- lm(result ~ rcs(sur_s,5) + typeA + sbp + sroh,
+               data = dat12)
+
+anova(modC5_lm)
+```
+
+## The `modC5_lm` model equation
+
+```{r, asis = TRUE}
+extract_eq(modC5_lm, use_coefs = TRUE, wrap = TRUE, 
+           terms_per_line = 2)
+```
+
+## Residual Plots for `modC5`
+
+```{r, eval = FALSE}
+par(mfrow = c(2,2)); plot(modC5_lm); par(mfrow = c(1,1))
+```
+
+- Results shown on next slide (not for the faint of heart)
+
+## Residual Plots for `modC5`
+
+```{r, echo = FALSE}
+par(mfrow = c(2,2)); plot(modC5_lm); par(mfrow = c(1,1))
+```
+
+## Oh dear...
+
+```{r}
+dat12 %>% slice(84) %>% kable()
+summary(dat12 %>% select(result, sur_s, sbp, sroh, typeA))
+```
+
+## Was this foreseeable?
+
+```{r, fig.height = 4}
+ggplot(data = dat12, aes(x = result)) +
+    geom_histogram(bins = 15, col = "blue", fill = "tan")
+```
+
+# Logistic Regression
+
+## Framingham Data (from Class 10)
 
 ```{r, message = FALSE}
 fram_raw <- read_csv(here("data/framingham.csv")) %>%
@@ -45,7 +588,7 @@ fram_raw <- read_csv(here("data/framingham.csv")) %>%
     clean_names() 
 ```
 
-Again, the variables describe n = `r nrow(fram_raw)` adults examined at baseline, then followed for 10 years to see if they developed incident coronary heart disease. Our outcome (below) has no missing values.
+The variables describe n = `r nrow(fram_raw)` adults examined at baseline, then followed for 10 years to see if they developed incident coronary heart disease. The binary outcome (below) has no missing values.
 
 ```{r}
 fram_raw %>% tabyl(ten_year_chd)
@@ -72,15 +615,15 @@ fram_new <- fram_raw %>%
            cigs, educ, hrate, sbp, stroke)
 ```
 
-## Data Descriptions (Main Variables Today)
+## Data Descriptions
 
-The variables we'll use today are:
+Today, we'll only use the `chd` variables, plus `age`.
 
 Variable | Description
 -------: | ------------------------------------------------
 `subj_id` | identifying code added by Dr. Love
 `chd10_n` | (numeric) 1 = coronary heart disease in next 10 years
-`chd10_f` | (factor) "chd_yes" or "chd_no" in next ten years
+`chd10_f` | (factor) "chd" or "chd_no" in next ten years
 `age`     | in years (range is 32 to 70)
 `cigs`    | number of cigarettes smoked per day
 `educ`    | 4-level factor: educational attainment
@@ -88,29 +631,20 @@ Variable | Description
 `sbp`     | systolic blood pressure in mm Hg
 `stroke`  | 1 = history of stroke, else 0
 
-## Steps we'll describe today
+## Missing Data?
 
-1. Prepare our (binary) outcome.
-2. Split the data into training and testing samples.
-3. Build a recipe for our model.
-    - Specify roles for outcome and predictors.
-    - Deal with missing data in a reasonable way.
-    - Complete all necessary pre-processing so we can fit models.
-4. Specify a modeling engine for each fit we will create.
-    - There are five available engines just for linear regression!
-5. Create a workflow for each engine and fit model to the training data.
-6. Compare coefficients graphically from two modeling approaches.
-7. Assess performance in the models we create in the training data.
-8. Compare multiple models based on their performance in test data.
+```{r}
+miss_var_summary(fram_new)
+```
 
-Key Reference: Kuhn and Silge, *Tidy Modeling with R* or TMWR
 
-## Stage 1. Prepare our outcome.
+## Prepare our outcome.
 
-To do logistic regression using `tidymodels`, we'll want our binary outcome to be a factor variable.
+We have our binary outcome as both a factor variable and a numeric (0/1) variable
 
 ```{r}
 fram_new %$% str(chd10_f)
+fram_new %$% str(chd10_n)
 ```
 
 ```{r}
@@ -214,338 +748,104 @@ x6 <- glm((chd10_f == "chd_no") ~ age,
 extract_eq(x6, use_coefs = TRUE)
 ```
 
-## Stage 2. Split the data into training/test samples.
+## Making Predictions with a `glm` model
 
 ```{r}
-set.seed(20210311)
+modelL1 <- glm(chd10_f == "chd" ~ age, 
+               family = binomial, data = fram_new)
 
-fram_splits <- 
-    initial_split(fram_new, prop = 3/4, strata = chd10_f)
+new_folks <- tibble(name = c("Frank", "Grace"),
+                    age = c(42, 56))
 
-fram_train <- training(fram_splits)
-fram_test <- testing(fram_splits)
+new_folks %>% kable()
 ```
 
-## Did the stratification work?
+## Predictions from a `glm` model (`modelL1`)
+
+### predictions on the logit scale
 
 ```{r}
-fram_train %>% tabyl(chd10_f)
+predict(modelL1, newdata = data.frame(new_folks))
 ```
+
+### or on the probability scale (reminder: `glm` fit)
 
 ```{r}
-fram_test %>% tabyl(chd10_f)
+predict(modelL1, newdata = data.frame(new_folks),
+        type = "response")
 ```
 
-## Stage 3. Build a recipe for our model.
+## Building a different model with `lrm`
 
 ```{r}
-fram_rec <- 
-    recipe(chd10_f ~ age + cigs + educ + hrate + 
-               sbp + stroke, data = fram_new) %>%
-    step_impute_bag(all_predictors()) %>%
-    step_dummy(all_nominal(), -all_outcomes()) %>%
-    step_normalize(all_predictors())
+dd <- datadist(fram_new)
+options(datadist = "dd")
+
+modelL2 <- lrm(chd10_f == "chd" ~ rcs(age, 4), 
+               data = fram_new, x = TRUE, y = TRUE)
 ```
 
-1. Specify the roles for the outcome and the predictors.
-2. Use bagged trees to impute missing values in predictors.
-3. Form dummy variables to represent all categorical variables.
-    - Forgetting the `-all_outcomes()` wasted a half hour of my life, so learn from my mistake.
-4. Normalize (subtract mean and divide by SD) all quantitative predictors.
-
-## Stage 4. Specify engines for our fit(s).
-
-```{r}
-fram_glm_model <- 
-    logistic_reg() %>% 
-    set_engine("glm")
-
-prior_dist <- rstanarm::normal(0, 3)
-
-fram_stan_model <- logistic_reg() %>%
-    set_engine("stan",
-               prior_intercept = prior_dist,
-               prior = prior_dist)
-```
-
-## Stage 5. Create a workflow and fit model(s).
-
-```{r}
-fram_glm_wf <- workflow() %>%
-    add_model(fram_glm_model) %>%
-    add_recipe(fram_rec)
-
-fram_stan_wf <- workflow() %>%
-    add_model(fram_stan_model) %>%
-    add_recipe(fram_rec)
-```
-
-Ready to fit the models?
-
-## Fit the `glm` and `stan` models
-
-```{r}
-fit_A <- fit(fram_glm_wf, fram_train)
-
-set.seed(432)
-fit_B <- fit(fram_stan_wf, fram_train)
-```
-
-## Produce tidied coefficients (log odds scale)
-
-```{r, message = FALSE}
-A_tidy <- tidy(fit_A, conf.int = T) %>%
-    mutate(modname = "glm")
-
-B_tidy <- broom.mixed::tidy(fit_B, conf.int = T) %>%
-    mutate(modname = "stan")
-
-coefs_comp <- bind_rows(A_tidy, B_tidy)
-```
-
-That's set us up for some plotting.
-
-## Stage 6. Compare coefficients of the fits.
-
-```{r, fig.height = 6, echo = FALSE}
-ggplot(coefs_comp, aes(x = term, y = estimate, col = modname,
-                       ymin = conf.low, ymax = conf.high)) +
-  geom_point(position = position_dodge2(width = 0.4)) +
-  geom_pointrange(position = position_dodge2(width = 0.4)) +
-  geom_hline(yintercept = 0, lty = "dashed") +
-  coord_flip() +
-  labs(x = "", y = "Estimate (with 95% confidence interval) on log odds scale",
-    title = "Comparing the glm (A) and stan (B) coefficients")
-```
-
-## Can we compare coefficients as odds ratios?
-
-```{r}
-A_odds <- A_tidy %>% 
-    mutate(odds = exp(estimate),
-           odds_low = exp(conf.low),
-           odds_high = exp(conf.high)) %>%
-    filter(term != "(Intercept)") %>%
-    select(modname, term, odds, odds_low, odds_high)
-
-head(A_odds, 2)
-```
-
-Then repeat to create `B_odds` (see next slide)
-
-## Creating `B_odds`
-
-```{r}
-B_odds <- B_tidy %>% 
-    mutate(odds = exp(estimate),
-           odds_low = exp(conf.low),
-           odds_high = exp(conf.high)) %>%
-    filter(term != "(Intercept)") %>%
-    select(modname, term, odds, odds_low, odds_high)
-```
-
-## Combined Results Plotted on Odds Ratio scale
-
-```{r, echo = FALSE, fig.height = 6}
-odds_comp <- bind_rows(A_odds, B_odds)
-
-ggplot(odds_comp, aes(x = term, y = odds, col = modname,
-                  ymin = odds_low, ymax = odds_high)) +
-  geom_point(position = position_dodge2(width = 0.4)) +
-  geom_pointrange(position = position_dodge2(width = 0.4)) +
-  geom_hline(yintercept = 1, lty = "dashed") +
-  coord_flip() +
-  labs(x = "", y = "Odds Ratio estimate (with 95% confidence interval)",
-    title = "Comparing glm (A) and stan (B) coefficients as Odds Ratios")
-```
-
-## Stage 7. Assess training sample performance.
-
-1. We'll make predictions for the training sample using each model, and use them to find the C statistic and plot the ROC curve.
-2. We'll show some other summaries of performance in the training sample.
-
-## Make Predictions with `fit_A`
-
-We'll start by using the `glm` model `fit_A` to make predictions.
-
-```{r}
-glm_probs <- 
-    predict(fit_A, fram_train, type = "prob") %>%
-    bind_cols(fram_train %>% select(chd10_f))
-
-head(glm_probs, 4)
-```
-
-## Obtain C statistic for `fit_A`
-
-Next, we'll use `roc_auc` from `yardstick`. This assumes that the first level of `chd10_f` is the thing we're trying to predict. Is that true in our case?
-
-```{r}
-fram_train %>% tabyl(chd10_f)
-```
-
-No. We want to predict the second level: `chd`. So we need to switch the `event_level` to "second", like this.
-
-```{r}
-glm_probs %>% roc_auc(chd10_f, .pred_chd, 
-                      event_level = "second") %>%
-    kable(dig = 5)
-```
-
-## Can we plot the ROC curve for `fit_A`?
-
-```{r, fig.height = 3.5, fig.align = "center"}
-glm_roc <- glm_probs %>%
-    roc_curve(chd10_f, .pred_chd, event_level = "second")
-autoplot(glm_roc)
-```
-
-- Again, our C statistic for the `glm` fit is 0.717.
-
-## Make Predictions with `fit_B`
-
-We'll use the `stan` model `fit_B` to make predictions.
-
-```{r}
-stan_probs <- 
-    predict(fit_B, fram_train, type = "prob") %>%
-    bind_cols(fram_train %>% select(chd10_f))
-```
-
-Now, we'll obtain the C statistic for `fit_B`
-
-```{r}
-stan_probs %>% 
-    roc_auc(chd10_f, .pred_chd, 
-                      event_level = "second") %>%
-    kable(dig = 5)
-```
-
-## Plotting the ROC curve for `fit_B`?
-
-```{r, fig.height = 3.5, fig.align = "center"}
-stan_roc <- stan_probs %>%
-    roc_curve(chd10_f, .pred_chd, event_level = "second")
-autoplot(stan_roc)
-```
-
-- Again, our C statistic for the `stan` fit is also 0.717.
-
-## Other available summaries from `yardstick`
-
-For a logistic regression where we're willing to specify a decision rule, we can consider:
-
-- `Conf_mat` which produces a confusion matrix if we specify a decision rule.
-    - There is a way to tidy a confusion matrix, summarize it with `summary()` and autoplot it with either a mosaic or a heatmap.
-- `accuracy` = proportion of the data that are predicted correctly
-- `kap` is very similar to `accuracy` but is normalized by the accuracy that would be expected by chance alone and is most useful when one or more classes dominate the distribution - attributed to Cohen (1960)
-- `sens` = sensitivity and `spec` specificity
-- `ppv` positive predictive value and `npv` negative predictive value
-
-## Establishing a decision rule for the `glm` fit
-
-Let's use `.pred_chd > 0.2` for now to indicate a prediction of `chd`.
-
-```{r}
-glm_probs <- 
-    predict(fit_A, fram_train, type = "prob") %>%
-    bind_cols(fram_train %>% select(chd10_f)) %>%
-    mutate(chd10_pre = 
-               ifelse(.pred_chd > 0.2, "chd", "chd_no")) %>%
-    mutate(chd10_pre = fct_relevel(factor(chd10_pre),
-                                   "chd_no"))
-```
-
-## What can we run now?
-
-```{r}
-conf_mat(glm_probs, truth = chd10_f, estimate = chd10_pre)
-metrics(glm_probs, truth = chd10_f, estimate = chd10_pre)
-```
-
-## Plot a confusion matrix for the `glm` fit?
+## Plot Effect Sizes from `modelL2`
 
 ```{r, fig.height = 5}
-conf_mat(glm_probs, 
-         truth = chd10_f, estimate = chd10_pre) %>% 
-    autoplot(type = "heatmap")
+plot(summary(modelL2))
 ```
 
-## More Confusion Matrix Summaries?
-
-Other available metrics include:
-
-- sensitivity, specificity, positive predictive value, negative predictive value, and the statistics below.
+## Making Predictions with `lrm` (`modelL2`)
 
 ```{r}
-conf_mat(glm_probs, truth = chd10_f, estimate = chd10_pre) %>% 
-    summary() %>% slice(7:13)
+new_folks %>% kable()
 ```
 
-## Establishing a decision rule for the `stan` fit
-
-Let's also use `.pred_chd > 0.2` to indicate a prediction of `chd`.
+- Predictions on the logit scale
 
 ```{r}
-stan_probs <- 
-    predict(fit_B, fram_train, type = "prob") %>%
-    bind_cols(fram_train %>% select(chd10_f)) %>%
-    mutate(chd10_pre = 
-               ifelse(.pred_chd > 0.2, "chd", "chd_no")) %>%
-    mutate(chd10_pre = fct_relevel(factor(chd10_pre),
-                                   "chd_no"))
+predict(modelL2, newdata = data.frame(new_folks))
 ```
 
-## Confusion Matrix and Basic Metrics
+## Useful Predictions with `lrm` (`modelL2`)
 
 ```{r}
-conf_mat(stan_probs, truth = chd10_f, estimate = chd10_pre)
-metrics(stan_probs, truth = chd10_f, estimate = chd10_pre)
+new_folks %>% kable()
 ```
 
-## Plot a confusion matrix?
+- Predicted probabilities after an `lrm` fit...
+
+```{r}
+predict(modelL2, newdata = data.frame(new_folks),
+        type = "fitted")
+```
+
+## Using the Nomogram to predict for Age 50
 
 ```{r, fig.height = 5}
-conf_mat(stan_probs, 
-         truth = chd10_f, estimate = chd10_pre) %>% 
-    autoplot(type = "mosaic")
+plot(nomogram(modelL2, fun = plogis))
 ```
 
-## More Confusion Matrix Summaries?
+## Compare our results from the nomogram...
 
-```{r, fig.height = 5}
-conf_mat(stan_probs, 
-         truth = chd10_f, estimate = chd10_pre) %>% 
-    summary()
-```
-
-## Stage 8. Assess test sample performance.
+- Predicted probabilities after an `lrm` fit...
 
 ```{r}
-glm_test <- 
-    predict(fit_A, fram_test, type = "prob") %>%
-    bind_cols(fram_test %>% select(chd10_f))
-
-stan_test <- 
-    predict(fit_B, fram_test, type = "prob") %>%
-    bind_cols(fram_test %>% select(chd10_f))
+predict(modelL2, newdata = data.frame(age = 50),
+        type = "fitted")
 ```
 
-## Test Sample C statistic comparison?
+## Validate C statistic, Nagelkerke $R^2$, Brier score
 
-```{r}
-glm_test %>% roc_auc(chd10_f, .pred_chd, 
-                     event_level = "second") %>%
-    kable(dig = 4)
+```{r, eval = FALSE}
+set.seed(2022)
+validate(modelL2, B = 50)
 ```
 
-```{r}
-stan_test %>% roc_auc(chd10_f, .pred_chd, 
-                     event_level = "second") %>%
-    kable(dig = 4)
+```{r, echo = FALSE, fig.align = "center", out.width = '90%'}
+include_graphics("figures/framval1.png")
 ```
+
+
+
 
 ## Next Time
 
-- Regression on Count Outcomes
-- Quiz 1 will be made available today at 5 PM.
+- Logistic Regression using `tidymodels`
+- Quiz 1 will be made available today at 5 PM. Good luck!
