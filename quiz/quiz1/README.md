@@ -5,8 +5,7 @@ All materials will be posted for the Quiz by **5 PM on 2022-02-17**. If a link i
 The files you will need to complete Quiz 1 are:
 
 1. The [PDF "Main Document"](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) is a 20-page PDF containing all instructions and the 24 questions, along with all of the output we are providing for you. 
-    - The main document will be found at https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf as soon as Dr. Love posts it.
-    - A document containing **only the instructions and none of the questions** is [available here now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf). This will disappear in favor of the main document once the Main Document is posted.
+    - The main document will be found at https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf.
 2. the [Google Form Answer Sheet for Quiz 1](https://bit.ly/432-2022-quiz1-answer-sheet) which will be found at https://bit.ly/432-2022-quiz1-answer-sheet (where you will submit your responses by the deadline) 
     - The Answer Sheet will begin accepting responses when Dr. Love turns it on at 5 PM on Thursday 2022-02-17.
 3. three data files, which are available **now** in our Shared Google Drive in the Quiz 1 Materials ... data folder
@@ -25,16 +24,27 @@ The Quiz is due when [the Calendar](https://thomaselove.github.io/431/calendar.h
 
 ## Read the Instructions in the Actual Quiz PDF, now.
 
-- Remember that there is a [document containing just the instructions available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022_instructions_only.pdf) if you'd like to review them ahead of time, but this will disappear when the actual Main Document is posted. 
-- Use the instructions in the [actual Main Document](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf), as soon as those become available.
+- Use the instructions in the [Main Document](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf).
 - These instructions include information on:
     - The Google Form Answer Sheet
     - The Data Sets
     - How You Can Get Help During the Quiz (there are only two ways: a private post to Piazza or via email to 431-help)
     - When You Should Ask for Help during the Quiz
-    - Scoring and Timing
+    - Scoring and Timing (and see below for how many points each question will be worth.)
     - What Does the Quiz Cover?
     - Special Instructions for Questions Which Require You To Write Code into the Answer Sheet
     - Packages and Settings Dr. Love Used in Building the Quiz and its Answer Sketch
 
+## Grading
 
+As mentioned in the [Main Document](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf), each question is worth between 2 and 6 points. In fact, almost all questions are worth 2-4 points. Here's the breakdown.
+
+# of Points | Questions  
+:-----------: | :---------------------------
+2 | 2a, 2b, 2c, 2d, 5a, 8a, 9, 13a, 13b, 16a, 19b, 19c
+3 | 3, 4, 5b, 6, 7, 8b, 10, 11, 12, 16b, 17a, 17b, 18, 20, 23
+4 | 1, 15, 19a, 21, 24
+5 | 22
+6 | 14
+
+This adds up to 100 points.
