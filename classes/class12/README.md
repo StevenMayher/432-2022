@@ -22,6 +22,21 @@ We'll clean up some loose ends related to linear and logistic regression today, 
 3. Sorry to be picky, but it's called **logistic** regression. It's **not** called *logistical* regression or *logistics* regression or anything else.
 4. Minute Paper after Class 11 feedback is on its way. The Course Grading Roster on our Shared Drive is up to date through this Minute Paper, and Lab 2. Lab 3 grades will appear early next week.
 
+## On Why We Impute
+
+A student asked: 
+
+> Can you explain why imputing is sometimes preferred over doing complete cases analysis? I still can’t wrap around the idea of faking values and then predicting based on that.
+
+Thinking of it that way isn’t helping you. So stop. Some key points:
+
+1. Data are expensive to gather - you don't want to waste them. Moving to a complete case analysis means any observations partially completed go totally unused.
+2. Our choice is between assuming all missing values are missing completely at random (the missing values are simply a random subset of all of the observations so that there are NO systematic differences between the missing values and the observed values), which is the only case in which a complete case analysis would be appropriate. Such an assumption...
+    - can never be proven to be true in real data.
+    - is easily shown to be false in lots of real data settings, or at least it can be easily shown that the known data on other variables for people with a missing value in some target are different from the known data on those same other variables for people with an observed value of the target.
+3. When data are not MCAR but just missing at random (MAR = Missing at random means there might be systematic differences between the missing and observed values, but these can be entirely explained by other observed variables) a complete case analysis would be much worse than multiple imputation, and somewhat worse than single imputation. In health data, MAR is usually a much more tenable assumption - or at least one that’s easier to convince yourself of - than MCAR.
+4. You might want to read [this interesting article "What is the difference between missing completely at random and missing at random?"](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4121561/) by Krishnan Bhaskaran and Liam Smeeth in the International Journal of Epidemiology, 2014.
+
 ## About [Quiz 1](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1) and Related Issues
 
 1. Quiz 1 will be available to you by 5 PM today. [Go here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1) for everything you need. The Quiz is due Monday 2022-02-21 at 9 PM.
