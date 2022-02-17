@@ -18,8 +18,9 @@ We'll clean up some loose ends related to linear and logistic regression today, 
 ## Announcements
 
 1. We'll continue talking about the `tidymodels` packages in Class 13, in particular describing some methods for doing logistic regression with those tools. I'll remind you that there's [a list in the Class 11 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class11#the-tidymodels-packages) of some useful things to read if you want to learn more about or go further with this approach. I will modify the [Course Calendar](https://thomaselove.github.io/432/calendar.html) to reflect this change by class time, or shortly thereafter.
-2. Sorry to be picky, but it's called **logistic** regression. It's **not** called *logistical* regression or *logistics* regression or anything else.
-3. Minute Paper after Class 11 feedback is on its way. The Course Grading Roster on our Shared Drive is up to date through this Minute Paper, and Lab 2. Lab 3 grades will appear early next week.
+2. A reminder that we do have class next Tuesday 2022-02-22, but **not** on Thursday 2022-02-24. Dr. Love will be at AHRQ study section, reviewing grants. We hope you'll use this time to work on Project A, which we'll remind you is due on **Friday 2022-03-04 at 9 PM**.
+3. Sorry to be picky, but it's called **logistic** regression. It's **not** called *logistical* regression or *logistics* regression or anything else.
+4. Minute Paper after Class 11 feedback is on its way. The Course Grading Roster on our Shared Drive is up to date through this Minute Paper, and Lab 2. Lab 3 grades will appear early next week.
 
 ## About [Quiz 1](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz1) and Related Issues
 
