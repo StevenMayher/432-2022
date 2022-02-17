@@ -27,7 +27,7 @@ We'll clean up some loose ends related to linear and logistic regression today, 
     - **PLEASE** read the Quiz 1 instructions carefully.
     - **PLEASE** submit your completed Google Form Answer Sheet by **9 PM Monday**. We won't grade late work on the Quiz, and we won't be sympathetic to pleas for extensions. You have four days to do the Quiz, and it should take you 4-6 hours.
     - If you have questions about the Quiz, you have only two ways to get an answer:
-        - Post a private question on Piazza to the instructors, or email 431-help at case dot edu.
+        - Post a **private** question on Piazza to the instructors, or email `431-help at case dot edu`.
         - In either case, we will answer all questions received by 5 PM Monday. After that, you're basically on your own.
 2. TA office hours **will be** held during the Quiz, for general questions and project questions, but if you have a specific question about the Quiz, you'll have to ask it in one of the two allowable ways mentioned above.
 3. Piazza will close at 5 PM to everything but private questions to the instructors. It'll reopen after the Quiz deadline.
