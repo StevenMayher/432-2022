@@ -1,8 +1,10 @@
 # Quiz 1
 
-All materials will be posted for the Quiz by **5 PM on 2022-02-17**. If a link is broken prior to that time, it should be working soon.
+## Corrections
 
-The files you will need to complete Quiz 1 are:
+- On 2022-02-18 at 08:17 AM, Dr. Love edited the [Main Document for Quiz 1](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) to correct the plot for Question 3, which may affect your responses to Questions 3 and/or 4. This is indicated at the start of the (corrected) Main Document, and in the materials describing the Plot for Question 3. Be sure your Main Document is the most up-to-date version.
+
+All materials are posted for the Quiz. The files you will need to complete Quiz 1 are:
 
 1. The [PDF "Main Document"](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) is a 20-page PDF containing all instructions and the 24 questions, along with all of the output we are providing for you. 
     - The main document will be found at https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf.
