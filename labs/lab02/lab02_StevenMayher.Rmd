@@ -1,0 +1,131 @@
+---
+title: "432 Lab 02"
+author: "Steven Mayher"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+    self_contained: true
+    number_sections: true
+    code_folding: show
+    df_print: paged
+---
+
+## Setup {-}
+
+```{r setup, message = FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+opts_chunk$set(comment=NA)
+opts_knit$set(width=75)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE, warning = FALSE}
+library(here)
+library(magrittr)
+library(janitor)
+library(broom)
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+## Import the `oh_counties_2020` Data {-}
+
+```{r, message = FALSE}
+oh20 <- read_csv(here("data", "oh_counties_2020.csv")) 
+
+oh20 <- oh20 %>%
+  mutate(fips = as.character(fips)) %>%
+  clean_names()
+
+oh20
+```
+
+# Question 1
+
+```{r fig.height=6, fig.width=8}
+ggplot(data = oh20, aes(x = freq_mental_distress, y = age_adj_mortality, col = freq_phys_distress, color)) +
+    geom_point() +
+    geom_smooth(method = "lm", formula = y ~ x, se = FALSE) + 
+    scale_color_gradient(low = "dodgerblue", high = "firebrick1") +
+    labs(title = "Premature Age-Adjusted Mortality vs Mental & Physical Distress Frequency",
+         subtitle = "Examination of the effectiveness of physical and mental distress frequencies data for predicting premature age-\nadjusted mortality in Ohio Counties",
+         x = "Mental Distress Frequency (Population Percentage)",
+         y = "# of Premature Mortalities, Age-Adjusted",
+         color = "Physical\nDistress\nFrequency\n(Pop %)",
+         caption = "* Data above collected from the County Health Rankings report for 2020") 
+```
+
+
+# Question 2
+
+As instructed, a linear model for predicting `obese_pct` as a function of `food_env` that adjusts for `median_income` has been generated below, and has been accompanied with a tidy that contains the estimated coefficients and 90% confidence intervals for these estimates:
+
+```{r}
+model_1 = lm(obese_pct ~ food_env*median_income, data = oh20)
+
+tidy(model_1, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,3,3,3,3))
+```
+
+From the tidy above, we can see that the estimated coefficient of `food_env` in this model is approximately 55.153 - 0.858 = 54.295, with a 90% confidence interval that has a lower end of approximately 22.463 - 4.863 = 17.6, and an upper end of approximately 87.843 + 3.146 = 90.989. Written more concisely the approximate 90% confidence interval is (17.6, 90.989).
+
+# Question 3
+
+The code below will generate a Residuals vs Fitted plot for `model_1`, and will also produce a Normal Q-Q plot, Scale-Location, and Residuals vs Leverage plot for `model_1` as well:
+
+```{r fig.height=6, fig.width=8}
+par(mfrow = c(2,2)); plot(model_1); par(mfrow = c(1,1))
+```
+
+From the plots above, we can see that the three most outlying counties are Logan county (point 46), Preble county (point 68), and Wayne county (point 85), having been flagged as such due to their unusually high residuals and standardized residuals. Further investigation into the reasons as to why these counties residuals are so high could lead us to adjust our model to better account for them, or potentially provide a justification for their removal from the dataset.
+
+# Question 4
+
+The code below both generates a new linear model, `model_2`, which only uses `food_env` as a predictor for `obese_pct`, and subsequently generates a table that compares this model to the first model generated above, which adjusts for `median_income` as an interaction term. Specifically, the table compares the overall fit of the two models by displaying their respective R^2, Adjusted R^2, sigma, AIC, and BIC values:
+
+```{r}
+model_2 = lm(obese_pct ~ food_env, data = oh20)
+
+comp_table = bind_rows( glance(model_1), glance(model_2) ) %>%
+  mutate(mod = c("model_1", "model_2"))
+
+comp_table %>% select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+  kable(dig = c(0, 3, 3, 3, 1, 1))
+```
+ 
+Based on the metrics provided by the table above, I would conclude that `model_1`, which includes `median_income` as an interaction term, fits the Ohio 2020 data more effectively, as this model performs better across all of the above metrics, as `model_1` has a much higher R^2 and Adjusted R^2 value, and overall lower sigma, AIC, and BIC values than `model_2`.
+
+# Question 5
+
+In order to create a logistic regression model to predict the presence of a water violation (`h2oviol`) on the basis of `sev_housing` and `pm2.5`, the `h2oviol` variable needs to be re-coded from "Yes" and "No" to a "1" and "0" respectively first, which has been accomplished below:
+
+```{r}
+oh20_q5 = oh20 %>%
+  mutate(h2oviol = fct_recode(h2oviol, "1" = "Yes", "0" = "No"))
+```
+
+Now that the variable has been properly re-coded, the logistic regression model and subsequent tidy containing the odds ratio associated with the `sev_housing` effect with a 90% confidence interval can be generated:
+
+```{r}
+log_mod = glm(h2oviol ~ sev_housing + pm2_5, data = oh20_q5, family = binomial(link = "logit"))
+
+tidy(log_mod, exponentiate = TRUE, conf.int = TRUE) %>%
+  select(c(term, estimate, std.error, conf.low, conf.high)) %>%
+  kable(digits = c(0,3,3,3,3))
+```
+
+The resulting tidy above shows that the estimated odds ratio for `sev_housing` are 0.953, with (0.775, 1.155) as the approximate 90% confidence interval. To best explain this, lets say we have two counties, county A and county B, and county A's `sev_housing` is 1% higher than county B's `sev_housing`. This means that the odds of having a water violation in county A are 0.953 times as large as they are for county B.
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```

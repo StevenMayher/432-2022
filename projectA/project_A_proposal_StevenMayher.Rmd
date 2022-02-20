@@ -1,0 +1,666 @@
+---
+title: "Can We Utilize Diet, Age, and Sleep Quality Measurements to Effectively Model Blood Pressure?"
+author: "Steven Mayher"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+    number_sections: TRUE
+    code_folding: show
+---
+
+```{r setup, echo = FALSE, cache=FALSE}
+# This is the only chunk where you can use echo = FALSE
+library(knitr)
+options(max.print="250")
+opts_chunk$set(comment=NA) 
+opts_knit$set(width=75)
+```
+
+
+
+# R Packages and Setup {-}
+
+```{r packages, message = FALSE}
+library(knitr)
+library(rmdformats)
+library(janitor)
+library(magrittr)
+library(naniar)
+library(broom)
+library(patchwork)
+library(nhanesA)
+library(measurements)
+library(readxl)
+library(Epi)
+library(Hmisc)
+library(pander)
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+
+
+# Data Source
+
+The data for this project was acquired from the *National Health and Nutrition Examination Survey* (i.e. NHANES), specifically from their [2017-2018 data files](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017), as this was the last year that the National Center for Health Statistics was able to finish without interference from the pandemic. The National Center for Health Statistics, as a [division of the CDC](https://www.cdc.gov/nchs/about/organization.htm), collects this data to assess the health and nutritional status of adults and children in the United States, and has been continuously collecting and publishing this data for public use every 2 years since 1999. According to the CDC's [National Health and Nutrition Examination Survey: Plan and Operations, 1999-2010 documentation](https://www.cdc.gov/nchs/data/series/sr_01/sr01_056.pdf), the 2-year cycle for collecting and publishing data was chosen to ensure the stability/accuracy of these measurements, as well as to mitigate the possibility of unintentional disclosure of a sample person's identity. Additionally, the documentation states the general sample design methodology used to determine the selection of subjects for this survey, however some alterations were made to these methods for the 2015-2018 cycles, as is detailed in the CDC's [National Health and Nutrition Examination Survey, 2015-2018: Sample Design and Estimation Procedures documentation](https://www.cdc.gov/nchs/data/series/sr_02/sr02-184-508.pdf). The documentation states that the general sample design for their data collection was not simple random sampling, but complex, multistage probability sampling, utilized to develop a representative sample of the United States' civilian non-institutionalized household population. Briefly, this involved four steps:
+
+  - First, selecting for primary sampling units, which consisted of either counties or small groups of contiguous counties
+    
+  - Then selecting segments within these areas that contain a cluster of households
+    
+  - Then selecting for specific households within the segments chosen above
+    
+  - Lastly then selecting for individuals within each household for sampling
+    
+For the 2015-2018 cycles, this same methodology was used, however some sub-groups were over-sampled to increase the precision of the associated sub-group estimates. These sub-groups are as follows:
+
+  - Hispanic persons
+    
+  - Non-Hispanic black persons
+    
+  - Non-Hispanic, non-black Asian persons
+
+  - Non-Hispanic white persons and persons of other races and ethnicities at or below 185% of the federal poverty level
+    
+  - Non-Hispanic white persons and persons of other races and ethnicities aged 0–11 years or 80 years and over
+
+
+
+# The Subjects
+
+The subjects in my analyses will be individuals selected from the 2017-2018 NHANES datasets as discussed above, where each row represents one participant. The goal will be to generate models to examine two different outcomes - the systolic blood pressure of the participants as measured with an oscillometric device (quantitative outcome), and whether or not they have been diagnosed with high blood pressure by their doctor (binary outcome) - by using the participant's sodium levels (mmol/L), potassium levels (mmol/L), insomnia diagnosis, and milk consumption type as the predictors.
+
+
+
+# Loading and Tidying the Data
+
+This section will involve downloading the necessary data files from the respective sources for use in this project, and will process these files as necessary to prepare them for use in creating the analysis dataset.
+
+
+
+## Loading the Raw Data
+
+The code below utilizes the `nhanesA` library to download the necessary data files from the NHANES databases by loading them into RStudio as tibbles, saving them as .Rds files so they do not need to be downloaded again, and then redefining the variables currently assigned to load the files from the website to load the local copies back instead to use to create the analysis dataset: 
+
+
+```{r data_load, message = FALSE}
+DEMO_J_raw <- nhanes('DEMO_J') %>% tibble()
+BPXO_J_raw <- nhanes('BPXO_J') %>% tibble()
+BPQ_J_raw <- nhanes('BPQ_J') %>% tibble()
+BIOPRO_J_raw <- nhanes('BIOPRO_J') %>% tibble()
+DBQ_J_raw <- nhanes('DBQ_J') %>% tibble()
+SLQ_J_raw <- nhanes('SLQ_J') %>% tibble()
+
+saveRDS(DEMO_J_raw, "data/DEMO_J.Rds")
+saveRDS(BPXO_J_raw, "data/BPXO_J.Rds")
+saveRDS(BPQ_J_raw, "data/BPQ_J.Rds")
+saveRDS(BIOPRO_J_raw, "data/BIOPRO_J.Rds")
+saveRDS(DBQ_J_raw, "data/DBQ_J.Rds")
+saveRDS(SLQ_J_raw, "data/SLQ_J.Rds")
+
+DEMO_J_raw <- readRDS("data/DEMO_J.Rds")
+BPXO_J_raw <- readRDS("data/BPXO_J.Rds")
+BPQ_J_raw <- readRDS("data/BPQ_J.Rds")
+BIOPRO_J_raw <- readRDS("data/BIOPRO_J.Rds")
+DBQ_J_raw <- readRDS("data/DBQ_J.Rds")
+SLQ_J_raw <- readRDS("data/SLQ_J.Rds")
+```
+
+
+
+## Cleaning the Data
+
+The predictors and outcome variables will be clearly defined in the **Defining the Variables** sub-section of **The Code Book** section below, but before that the raw data files need to be processed and ultimately combined into an aggregated tibble for use in each analysis. This will be accomplished in steps in the following section.
+
+### Selecting and Filtering for the Relevant Data
+
+The first step of the data cleaning process will be to select for and filter each of the raw data files for just the variables needed, and also filter out any unwanted results from the variables where appropriate. This is accomplished with the following code, and while again each variable will be clarified in **The Code Book** section, it's worth noting the following about the keys from the NHANES website at this point to understand the code below:
+
+  -  7 represents instances where the respondent refused to respond to the question
+
+  -  9 represents instances where the respondent reported that they didn't know the answer to the question
+
+
+Additionally, it's worth noting the following about the demographics data selection from the `DEMO_J` data shown below:
+
+  - `RIDAGEYR` represents the respondent's age, and for the following analyses we will only be interested in respondents that are between the ages of 18 and 79, as ages past 79 are all recorded as 80, and while we could include children in this study, we will omit them and focus the study on adults of 18 or older.
+
+
+The code for selecting and filtering the data is as follows:
+
+
+```{r}
+DEMO_J_data = DEMO_J_raw %>% 
+  select(c(SEQN, RIDAGEYR)) %>%
+  filter(RIDAGEYR <= 79) %>%
+  filter(RIDAGEYR >= 18)
+
+BPXO_J_data = BPXO_J_raw %>% 
+  select(c(SEQN, BPXOSY3))
+
+BPQ_J_data = BPQ_J_raw %>%
+  select(c(SEQN, BPQ020)) %>%
+  filter(BPQ020 != 7) %>%
+  filter(BPQ020 != 9)
+
+SLQ_J_data = SLQ_J_raw %>%
+  select(c(SEQN, SLQ050)) %>%
+  filter(SLQ050 != 7) %>%
+  filter(SLQ050 != 9)
+
+BIOPRO_J_data = BIOPRO_J_raw %>% 
+  select(c(SEQN, LBXSNASI, LBXSKSI))
+```
+
+
+It's worth noting that the code above selects and filters for all but 1 variable that will be used in this analysis. This last variable will require a more complex approach than the above, so it will be addressed in its own sub-section after the rest of the variables above have been addressed. For now, we can proceed to the next step in preparing the above data.
+
+
+
+### Renaming & Formatting the Data
+
+The next logical step for preparing the data is to properly format each variable, and provide each with a more appropriate name, both of which are accomplished below with the following code:
+
+
+```{r}
+DEMO_J_data = DEMO_J_data %>% 
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(RIDAGEYR = as.numeric(RIDAGEYR)) %>%
+  rename(Age = RIDAGEYR)
+
+BPXO_J_data = BPXO_J_data %>% 
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(BPXOSY3 = as.numeric(BPXOSY3)) %>%
+  rename("Systolic_BP" = BPXOSY3)
+
+BPQ_J_data = BPQ_J_data %>%
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(BPQ020 = fct_recode(as.factor(BPQ020),
+                             "Yes" = "1",
+                             "No" = "2")) %>%
+  rename("High_BP" = BPQ020)
+
+SLQ_J_data = SLQ_J_data %>%
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(SLQ050 = fct_recode(as.factor(SLQ050),
+                             "Yes" = "1",
+                             "No" = "2")) %>%
+  rename("Insomnia" = SLQ050)
+
+BIOPRO_J_data = BIOPRO_J_data %>% 
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(LBXSNASI = as.numeric(LBXSNASI)) %>%
+  mutate(LBXSKSI = as.numeric(LBXSKSI)) %>%
+  rename(Sodium = LBXSNASI) %>%
+  rename(Potassium = LBXSKSI)
+```
+
+
+With the code above, all but two of the variables have been properly extracted and reformatted. The only variables that has not been addressed yet are the `SEQN` variable, which is the subject ID variable, and another variable from the `DBQ_J` data file, which will become the `Milk` multi-categorical variable. Both of these have been set aside intentionally, as it will be more efficient to rename the `SEQN` variable in the analysis tibble itself after it is generated, instead of altering each instance of it in each of the individual data files above, and the `Milk` variable is complicated enough to warrant its own sub-section, which will be addressed next.
+
+
+
+### The Milk Variable
+
+As mentioned above, all of the variables have been addressed above, with only two exceptions - the subject ID variable `SEQN`, which will be renamed once the tibble is generated, and the Milk variable, which will be addressed in this section. The intent is to use this variable as an additional multi-categorical variable for both analyses, however preparing it for such use will require additional and more sophisticated steps because of the manner in which it was recorded in the NHANES dataset. In particular, the survey participants were asked two questions:
+
+  - How often did they drink milk in the past 30 day period?
+  
+  - If they did drink any milk, what type of milk did they mainly drink?
+  
+While the former question's results were recorded as a single, multi-categorical variable, the results to the latter, which is what we are interested in, were stored in 6 unique variables, depending on their answer - Whole Milk, 2% Milk, 1% Milk, Skim Milk, Soy Milk, or Other Milk. Additionally, if the participant was uncertain of which milk they mainly drink, the survey recorder was to record all of the milk types that the participant reported that they drank. This means that to prepare this variable for use in the later analyses, the results from all 6 answer variables need to be collapsed into one multi-categorical field that both keeps the NA values for later imputation, but also removes participants that were uncertain as to which milk they mainly drank and as such reported multiple milk types, as there would be no clear way to classify the latter results into any of the other pre-defined fields. To accomplish this, the first step was taken with the code below, which extracts the variables from the raw data file and stores the positive values and NA values in separate data frames:
+
+
+```{r}
+DBQ_J_data1 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223A)) %>%
+  filter(DBQ223A == 10) %>%
+  mutate(DBQ223A = as.numeric(DBQ223A))
+  
+DBQ_J_data2 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223B)) %>%
+  filter(DBQ223B == 11) %>%
+  mutate(DBQ223B = as.numeric(DBQ223B))
+  
+DBQ_J_data3 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223C)) %>%
+  filter(DBQ223C == 12) %>%
+  mutate(DBQ223C = as.numeric(DBQ223C))
+
+DBQ_J_data4 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223D)) %>%
+  filter(DBQ223D == 13) %>%
+  mutate(DBQ223D = as.numeric(DBQ223D))
+
+DBQ_J_data5 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223E)) %>%
+  filter(DBQ223E == 14) %>%
+  mutate(DBQ223E = as.numeric(DBQ223E))
+  
+DBQ_J_data6 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223U)) %>%
+  filter(DBQ223U == 30) %>%
+  mutate(DBQ223U = as.numeric(DBQ223U))
+
+
+DBQ_J_data1_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223A)) %>%
+  filter(is.na(DBQ223A)) %>%
+  rename(DBQ223 = DBQ223A) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data2_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223B)) %>%
+  filter(is.na(DBQ223B)) %>%
+  rename(DBQ223 = DBQ223B) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+  
+DBQ_J_data3_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223C)) %>%
+  filter(is.na(DBQ223C)) %>%
+  rename(DBQ223 = DBQ223C) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data4_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223D)) %>%
+  filter(is.na(DBQ223D)) %>%
+  rename(DBQ223 = DBQ223D) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data5_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223E)) %>%
+  filter(is.na(DBQ223E)) %>%
+  rename(DBQ223 = DBQ223E) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+  
+DBQ_J_data6_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223U)) %>%
+  filter(is.na(DBQ223U)) %>%
+  rename(DBQ223 = DBQ223U) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+```
+
+
+Now that the variables have been properly extracted from the raw files, the milk results and NA results for each milk type can be combined to form two files - one for people who responded with at least one milk type, and one where the participant did not answer with any milk type, which will be the missing values for this variable. The former will be generated using `full_join` to preserve all responses, and the latter will be generated using `inner_join` to filter only for missing responses present in all 6 variables, effectively filtering only for participants with missing data:
+
+
+```{r}
+DBQ_J_data_milk = full_join(
+  full_join(
+    full_join(
+      full_join(
+        full_join(DBQ_J_data1,
+                  DBQ_J_data2,
+                  by = c("SEQN")),
+        DBQ_J_data3,
+        by = c("SEQN")),
+      DBQ_J_data4,
+      by = c("SEQN")),
+    DBQ_J_data5,
+    by = c("SEQN")),
+  DBQ_J_data6,
+  by = c("SEQN"))
+
+DBQ_J_data_NA = inner_join(
+  inner_join(
+    inner_join(
+      inner_join(
+        inner_join(DBQ_J_data1_NA,
+                   DBQ_J_data2_NA,
+                   by = c("SEQN", "DBQ223")),
+        DBQ_J_data3_NA,
+        by = c("SEQN", "DBQ223")),
+      DBQ_J_data4_NA,
+      by = c("SEQN", "DBQ223")),
+    DBQ_J_data5_NA,
+    by = c("SEQN", "DBQ223")),
+  DBQ_J_data6_NA,
+  by = c("SEQN", "DBQ223"))
+```
+
+
+Before the two resulting tables above can be combined, the results in `DBQ_J_data_milk` need to be further processed to collapse all of the results down into one column in a manner that also creates a means for removing any participants that answered with multiple milk types. This will be accomplished by creating a new field that sums all of the fields together per row - as each answer was given a unique numeric identifier in the survey data, and since no combination(s) of these numbers when summed equal each other, summing their responses is one method that can be used to determine whether or not a participant answered with multiple milk types without affecting those that only provided a single answer. As such, the code below generates this new column to this end, filtering out any unsuitable participants, and after doing so formats and renames the column as appropriate:
+
+
+```{r}
+DBQ_J_data_milk = DBQ_J_data_milk %>%
+  mutate(DBQ223 = rowSums(across(DBQ223A:DBQ223U), na.rm = TRUE)) %>%
+  select(c(SEQN, DBQ223)) %>%
+  filter(DBQ223 == 10 |
+           DBQ223 == 11 |
+           DBQ223 == 12 |
+           DBQ223 == 13 |
+           DBQ223 == 14 |
+           DBQ223 == 30)
+```
+
+
+Now that the responses have been properly filtered for participants who only answered with one milk type, the `DBQ_J_data_milk` and `DBQ_J_data_NA` files can be joined together using `full_join` as shown below:
+
+
+```{r}
+DBQ_J_data = full_join(DBQ_J_data_milk, DBQ_J_data_NA, by = c("SEQN", "DBQ223"))
+```
+
+
+As the last step, the milk type variable will be reformatted as a factor variable, with appropriate names given to each factor level, and will be renamed more appropriately using the code below:
+
+
+```{r}
+DBQ_J_data = DBQ_J_data %>%
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(DBQ223 = fct_recode(as.factor(DBQ223),
+                                  "Whole Milk" = "10",
+                                  "2% Milk" = "11",
+                                  "1% Milk" = "12",
+                                  "Skim Milk" = "13",
+                                  "Soy Milk" = "14",
+                                  "Other Milk" = "30")) %>%
+  rename(Milk = DBQ223)
+```
+
+
+With all of the above finally out of the way, all of the necessary preparation steps have been taken for each variable, and the data can be pulled together to form the analysis tibble, which will be accomplished in the last sub-section below.
+
+
+
+## Creating the Tibble
+
+Now that the data for all of the variables have been properly selected and formatted, the files can be pulled together to create the analysis tibble, reorder the variables for more logical discussion in **The Code Book** section, and the subject ID variable `SEQN` can be renamed to something more suitable, all of which have been accomplished with the code below:
+
+```{r}
+analysis_data_raw = inner_join(inner_join(inner_join(inner_join(inner_join(DEMO_J_data, BPXO_J_data, by = c("SEQN")), BPQ_J_data, by = c("SEQN")), SLQ_J_data, by = c("SEQN")), BIOPRO_J_data, by = c("SEQN")), DBQ_J_data, by = c("SEQN")) %>%
+  rename(Subject_ID = SEQN)
+
+col_order = c("Subject_ID", "Systolic_BP", "High_BP", "Age", "Sodium", "Potassium", "Insomnia", "Milk")
+
+analysis_data_raw = analysis_data_raw[, col_order]
+```
+
+
+Now that the analysis dataset has been generated, we need to make sure that it fits the necessary criteria for this project. First of all, the dataset needs to have no more than 1200 subjects, so lets check how many it has:
+
+
+```{r}
+count(analysis_data_raw)
+```
+
+
+It clearly has more than 1200 samples, currently having 4955 currently. As such we'll use the following code to create a sub-set of this dataset for this project using the following code:
+
+
+```{r}
+set.seed(43202)
+
+analysis_data = analysis_data_raw %>%
+  slice_sample(n = 1200)
+```
+
+
+For confirmation that this worked as intended, let's check the subject count again:
+
+
+```{r}
+count(analysis_data)
+```
+
+Looks good - now let's check each of the categorical predictor/input variables - `Milk` and `Insomnia` - and the outcome variable, `High_BP`, to ensure that they all have a minimum of 30 values in each category:
+
+
+```{r}
+analysis_data %>% count(Milk)
+analysis_data %>% count(Insomnia)
+analysis_data %>% count(High_BP)
+```
+
+
+The **Soy Milk** category in the `Milk` variable just barely passes, having exactly 30 instances, however it is unwise to use a categorical variable with so few instances, so to rectify this the `1% Milk` and `Skim Milk` categories will be collapsed together to form a single category. Additionally, since the counts are rather low for the `Soy Milk` and `Other Milk` categories, these two categories will be collapsed together as well, which will create a 4-level categorical variable instead:
+
+
+```{r}
+analysis_data = analysis_data %>%
+  mutate(Milk = fct_recode(as.factor(Milk),
+         "1% or Skim Milk" = "1% Milk",
+         "1% or Skim Milk" = "Skim Milk",
+         "Soy or Other Milk" = "Soy Milk",
+         "Soy or Other Milk" = "Other Milk"))
+
+analysis_data %>% count(Milk)
+```
+
+
+For the last check, let's check each of the quantitative variables - `Age`, `Sodium`, and `Potassium` - and the outcome variable, `Systolic_BP`, to ensure that they all have a minimum of 10 different, ordered, observed values:
+
+
+```{r}
+analysis_data %$% n_distinct(Age)
+analysis_data %$% n_distinct(Sodium)
+analysis_data %$% n_distinct(Potassium)
+analysis_data %$% n_distinct(Systolic_BP)
+```
+
+The variable with the lowest number of distinct values, `Sodium`, has 20 distinct values, so the data meets the this criteria, and should be suitable for the following analyses.
+
+
+
+# The Tidy Tibble
+
+## Listing the Tibble
+
+The following code lists the first 10 rows of the tibble:
+
+```{r}
+analysis_data
+```
+
+
+
+## Size and Identifiers
+
+### Size
+
+The size of the `analysis_data` dataset was technically already established in the previous sub-section above, as the generated tibble states that the dataset has 1200 rows (as we reduced it to for this analysis) and 8 columns. This can be verified again through the use of the `nrow` and `ncol` functions as shown below:
+
+
+```{r}
+nrow(analysis_data)
+ncol(analysis_data)
+```
+
+
+With this verified, we can proceed to the next step of verifying the unique row identifiers in the next sub-section.
+
+
+
+### Identifiers
+
+As already mentioned during the data preparation phase, the `Subject ID` variable (formally the `SEQN` variable) represents each subject's unique ID, and as such can be used to uniquely identify each entry in the `analysis_data` dataset. This is illustrated with the use of the following code below:
+
+
+```{r}
+analysis_data %$% n_distinct(Subject_ID)
+```
+
+
+
+## Saving the R data set
+
+The following code will save the `analysis_data` tibble as an .Rds file:
+
+```{r}
+saveRDS(analysis_data, "data/analysis_data.Rds")
+```
+
+
+
+# The Code Book
+
+## Defining the Variables
+
+Variable | Role | Type | Description
+-------- | ---- | ---- | -----------------
+`Subject_ID` | Identifier | - | The unique numeric code assigned to each NHANES respondent/subject/participant.
+`Systolic_BP` | Outcome | Quantitative | Respondent's/Subject's/Participant's 3rd reading for their Systolic Blood Pressure, in mm Hg, as measured with an oscillometric device.
+`High_BP` | Outcome | 2-Categorical | Has the respondent/subject/participant been diagnosed with high blood pressure by their doctor? (Yes or No)
+`Age` | Input | Quantitative | What was the age of the respondent/subject/participant at the time the data was collected?
+`Sodium` | Input | Quantitative | Respondent's/Subject's/Participant's sodium level in mmol/L, as indicated by their blood test.
+`Potassium` | Input | Quantitative | Respondent's/Subject's/Participant's potassium level in mmol/L, as indicated by their blood test. 
+`Insomnia` | Input | 2-Categorical | Has the respondent/subject/participant disclosed that they have been having trouble sleeping to their doctor? (Yes or No)
+`Milk` | Input | 4-Categorical | What type of milk does the respondent/subject/participant mainly drink? (Whole Milk, 2% Milk, 1% or Skim Milk, Soy or Other Milk)
+
+
+
+## Numerical Description
+
+The following code provides a numerical description of the `analysis_data` dataset through the use of the `describe` function from the `Hmisc` package:
+
+```{r}
+describe(analysis_data)
+```
+
+
+
+# Linear Regression Plans
+
+With my linear model as detailed below, I hope to answer the following question:
+
+  - Can an adult's systolic blood pressure be effectively predicted as a function of their sodium levels, potassium levels, age, milk consumption type, and their insomnia disclosure?
+
+
+
+## My Quantitative Outcome
+
+While this was briefly broached in **The Subjects** section above, the quantitative outcome that will be used for the linear regression model in this project is the 3rd systolic blood pressure measurement as taken with an oscillometric device, which is listed as `Systolic_BP` in **The Code Book** section above. The 3rd measurement taken with an oscillometric device was specifically chosen in an effort to use the most accurate "at rest" systolic blood pressure as possible. In order to assess this outcome graphically without imputing data, we'll need to filter out any missing data, which consequently will allow us to provide a count of rows with complete data on this outcome. The code necessary to create a new dataset that has been filtered for complete data only, for `Systolic_BP` in particular, and provides the count for the number of rows (i.e. subjects) with complete data on this metric is as follows:
+
+
+```{r}
+demo_data = analysis_data %>%
+  filter(Systolic_BP != ".")
+
+nrow(demo_data)
+```
+
+
+As can be seen above, there are 1049 rows with complete data on this outcome - using just the complete data, we can create the following Normal Q-Q plot, Histogram with an overlaying Density Plot, and Violin Box-plot to assess the distribution of this outcome:
+
+
+```{r fig.height=6, fig.width=8}
+a1 <- ggplot(demo_data, aes(x = "", y = Systolic_BP)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: SBP", x = "", y = "Systolic Blood Pressure (mm Hg)")
+
+a2 <- ggplot(demo_data, aes(x = Systolic_BP)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(demo_data$Systolic_BP), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(demo_data$Systolic_BP), sd = sd(demo_data$Systolic_BP)), col = "red", lwd = 1) +
+  labs(title = "Density Function: SBP", x = "Systolic Blood Pressure (mm Hg)")
+
+a3 <- ggplot(demo_data, aes(sample = Systolic_BP)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: SBP", x = "", y = "Systolic Blood Pressure (mm Hg)")
+
+(a3 + a2) / a1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Systolic Blood Pressure",
+                  subtitle = "Distribution & Normality Assessment of subject's 3rd systolic blood pressure measurement as taken with an oscillometric device",
+                  caption = "All data above pulled from 2017-2018 NHANES datasets")
+```
+
+
+As we might expect for systolic blood pressure data, there does appear to be some right-skew in the distribution, however it does appear to be fairly continuous, with the only noticeable gap appearing from about 75 to 100 mm Hg. Given both these results and the simple fact that it is blood pressure data, a natural logarithmic transformation may be appropriate here, however this will be determined for certain in analyses sections.
+
+Additionally, while this was already demonstrated in the **Creating the Tibble** sub-section of the **Loading and Tidying ** section above, this outcome variable has a least 10 different, ordered, observed values, specifically having 92, which can once again be seen with the following code:
+
+
+```{r}
+analysis_data %$% n_distinct(Systolic_BP)
+```
+
+
+This code produces a tibble showing all of the unique values, counting how many times each one occurs:
+
+
+```{r}
+analysis_data %>% count(Systolic_BP)
+```
+
+
+
+## My Planned Predictors (Linear Model)
+
+This model will be generated by using all 5 input variables selected for in the data preparation steps above, with `Age`, `Sodium`, and `Potassium` all representing quantitative variables, `Insomnia Diagnosis` representing the binary categorical variable, and `Milk` representing the multi-categorical variable. Again, it was already demonstrated in the **Creating the Tibble** sub-section of the **Loading and Tidying ** section above, however all of the quantitative variables have at least 10 different, ordered, observed values, both the binary and multi-categorical variable have at least 30 observations in each categorical level, and the multi-categorical has been limited to 6 categories (Whole Milk, 2% Milk, 1% Milk, Skim Milk, Soy Milk, and Other Milk). This has been demonstrated again below for each, starting first with the quantitative variables:
+
+
+```{r}
+analysis_data %$% n_distinct(Age)
+analysis_data %$% n_distinct(Sodium)
+analysis_data %$% n_distinct(Potassium)
+```
+
+
+As with the outcome variable `Systolic_BP` shown above, the following code produces a tibble for each, each showing all of the unique values and counting how many times each one occurs:
+
+
+```{r}
+analysis_data %>% count(Age)
+analysis_data %>% count(Sodium)
+analysis_data %>% count(Potassium)
+```
+
+
+and the following code produces a tibble for both categorical variables, demonstrating that each categorical level has at least 30 observations, and the multi-categorical variable `Milk` has 6 total levels, disregarding missing data:
+
+
+```{r}
+analysis_data %>% count(Milk)
+analysis_data %>% count(Insomnia)
+```
+
+
+Lastly, given that the `analysis_data` dataset has 1200 samples, then the suggested maximum number of candidate regression inputs would be 4 + (1200-100)/100 = 15 inputs, which is well above the 5 we have suggested using, so we should be alright proceeding with the creation of this model. 
+
+
+
+# Logistic Regression Plans
+
+With my suggested logistic regression model as detailed below, I hope to be able to answer the following question:
+
+  - Can a high blood pressure diagnoses be effectively predicted as a function of a subject's age, sodium levels, potassium levels, insomnia disclosure, and their main milk consumption type?
+
+
+
+## My Binary Outcome
+
+Again while this was briefly broached in **The Subjects** section above, the binary outcome that will be used for this logistic regression model in this project will whether or not the subject's doctor has diagnosed the subject with high blood pressure, which is recorded as `High_BP` in **The Code Book** section above. This variable was chosen because I thought it would compliment the `Systolic_BP` quantitative outcome rather well, and from a practical standpoint, would allow me to use the same predictors for this model as were chosen for the linear regression model. Like with the quantitative outcome variable, this was already demonstrated above as well, but this outcome variable does have at least 30 observations for both categories, and the variable does not actually appear to have any missing values. The code below demonstrates this again for the purposes of this section:
+
+
+```{r}
+analysis_data %>% count(High_BP)
+```
+
+
+
+## My Planned Predictors (Logistic Model)
+
+I will be using the same predictors for this model as I will be using for the linear regression model detailed above - `Age`, `Sodium`, `Potassium`, `Insomnia`, and `Milk`.
+
+# Affirmation 
+
+I am certain that it is completely appropriate for these data to be shared with anyone, without any conditions. There are no concerns about privacy or security.
+
+# References
+
+[1. National Health and Nutrition Examination Survey, 2017 - 2018 Data Files](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017)
+
+
+
+# Session Information
+
+```{r}
+xfun::session_info()
+```
+

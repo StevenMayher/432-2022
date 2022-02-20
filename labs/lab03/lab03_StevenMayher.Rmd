@@ -1,0 +1,292 @@
+---
+title: "432 Lab 03"
+author: "Steven Mayher"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+        toc: TRUE
+        toc_float: TRUE
+        number_sections: TRUE
+        code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE, warning = FALSE}
+library(conflicted)
+library(here)
+library(magrittr)
+library(janitor)
+library(naniar)
+library(tableone)
+library(patchwork)
+library(knitr)
+library(broom)
+library(rms)
+library(equatiomatic)
+library(tidyverse)
+
+theme_set(theme_bw())
+conflict_prefer("summarize", "dplyr") # choose over Hmisc
+conflict_prefer("filter", "dplyr") # choose over stats
+```
+
+## Import the `hbp3456` Data {-}
+
+```{r, message = FALSE}
+lab03 <- read_csv(here("data", "hbp3456.csv")) %>%
+    mutate(record = as.character(record))
+```
+# Part A
+
+The following code filters the `hbp3456` data as instructed for the first part of this lab:
+
+```{r}
+part_a = lab03 %>%
+  filter(practice == "Center" |
+           practice == "Elm" |
+           practice == "Plympton" |
+           practice == "Walnut") %>%
+  filter(complete.cases(ldl))
+```
+
+
+## Question 1
+
+The following code generates the two logistic regression models requested for this question, with `mod_q1` including the interaction term, and `mod_q1_no` not including the interaction term:
+
+```{r}
+mod_q1 = glm(statin == "Yes" ~ ldl * practice + rcs(age, 4), data = part_a, family = binomial(link = "logit"))
+
+mod_q1_no = glm(statin == "Yes" ~ ldl + practice + rcs(age, 4), data = part_a, family = binomial(link = "logit"))
+```
+
+The coefficients for `mod_q1` are as follows:
+
+```{r}
+tidy(mod_q1, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,3,3,3,3))
+```
+The coefficients for `mod_q1_no` are as follows:
+
+```{r}
+tidy(mod_q1_no, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,3,3,3,3))
+```
+
+
+## Question 2
+
+Although already given in the answer to the previous question, the coefficients and 90% confidence interval for the model without an interaction term (`mod_q1_no`) has been provided again below, both in the same manner as above and also provided with the `summary` function:
+
+```{r}
+tidy(mod_q1_no, exponentiate = TRUE, conf.int = TRUE, conf.level = 0.90) %>%
+    filter(term == "ldl") %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,3,3,3,3))
+```
+
+
+```{r}
+summary(mod_q1_no, conf.int = 0.9)
+```
+
+```{r}
+exp(coef(mod_q1_no))
+```
+
+
+From the above we can see that, if all other predictors are equal as suggested between our two examples of Harry and Sally, then a 1 unit increase in `ldl` increases the odds of taking a statin by a factor of 0.993.
+
+
+## Question 3
+
+Although already given in the answer to the previous question, the coefficients and 90% confidence interval for the model with an interaction term (`mod_q1`) has been provided again below, both in the same manner as above and also provided with the `summary` function:
+
+```{r}
+tidy(mod_q1, exponentiate = TRUE, conf.int = TRUE, conf.level = 0.90) %>%
+    filter(term == "ldl") %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,3,3,3,3))
+```
+
+
+```{r}
+summary(mod_q1, conf.int = 0.9)
+```
+
+From the above we can see that, if all other predictors are equal as suggested between our two examples of Harry and Sally, then a 1 unit increase in `ldl` increases the odds of taking a statin by a factor of 0.993.
+
+```{r}
+exp(coef(mod_q1))
+```
+
+
+
+
+
+## Question 4
+
+From the analyses of the two models above, 
+
+# Part B
+
+```{r}
+set.seed(432)
+
+hbp_b = lab03 %>%
+  filter(complete.cases(hsgrad, income)) %>%
+  select(c("record", "income", "hsgrad", "race", "eth_hisp", "age", "tobacco")) %>%
+  mutate(sqrtinc = sqrt(income)) %>%
+  mutate(income = as.integer(income)) %>%
+  mutate(race = as.factor(race)) %>%
+  mutate(eth_hisp = as.factor(eth_hisp)) %>%
+  mutate(age = as.integer(age)) %>%
+  mutate(tobacco = as.factor(tobacco)) %>%
+  slice_sample(n = 1000)
+
+hbp_b
+```
+
+
+## Question 5
+
+As can be seen below, there's 37 missing values in `eth_hisp`, 31 missing values in `race`, and 2 missing values in `tobacco`:
+
+```{r}
+miss_var_summary(hbp_b)
+```
+
+
+## Question 6
+
+The code below generates the Spearman ρ2 plot:
+
+```{r}
+spear_hbp_b = spearman2(sqrtinc ~ eth_hisp + race + tobacco + age + hsgrad, data = hbp_b)
+plot(spear_hbp_b)
+```
+
+From the plot above, the single non-linear term that adds exactly two degrees of freedom is the `hsgrad` variable, and thus would make the best choice that adds two degrees of freedom.
+
+
+## Question 7
+
+The code necessary for creating the model `m1` and it's associated ANOVA and effects summary plot have been provided in the following few chunks:
+
+```{r}
+dd <- datadist(hbp_b)
+options(datadist = "dd")
+
+m1 = ols(sqrtinc ~ hsgrad + race + age + tobacco + eth_hisp, data = hbp_b, x = TRUE, y = TRUE)
+```
+
+
+
+```{r}
+anova(m1)
+```
+
+
+
+```{r}
+plot(summary(m1))
+```
+
+The effects summary plot shows the effect on the outcome `sqrtinc` of moving from the 25th to the 75th percentile of each variable while holding the other variable at the level specified at the bottom of the output. In the case of `hsgrad`, the 25th percentile is 75, and the 75th percentile is 90, and the effect estimate is approximately 36.51, with an approximate 90% confidence interval of (0.595, 5.231), as confirmed with the numerical summary below:
+
+```{r}
+summary(m1, conf.int = 0.9)
+```
+
+
+
+## Question 8
+
+
+```{r}
+dd <- datadist(hbp_b)
+options(datadist = "dd")
+
+m2 = ols(sqrtinc ~ rcs(hsgrad, 4) + race + age + tobacco + eth_hisp, data = hbp_b, x = TRUE, y = TRUE)
+```
+
+
+```{r}
+anova(m2)
+```
+
+```{r}
+plot(summary(m2))
+```
+
+
+As discussed in the answer to question 7, the effects summary plot shows the effect on the outcome `sqrtinc` of moving from the 25th to the 75th percentile of each variable while holding the other variable at the level specified at the bottom of the output, this time for model `m2` instead of `m1`. In the case of `tobacco`, the 25th percentile is 75, and the 75th percentile is 90, and the effect estimate is approximately 36.51, with an approximate 90% confidence interval of (0.595, 5.231), as confirmed with the numerical summary below:
+
+
+```{r}
+summary(m2)
+```
+
+
+
+## Question 9
+
+Unfortunately, I was unable to determine how to aggregate the results into one single table, however the uncorrected raw R^2, AIC, and BIC values for model `m1` have been provided below along with the model's validated R^2 and MSE values:
+
+```{r}
+set.seed(2022)
+
+validate(m1, method = "boot", B = 40)
+
+m1 = lm(sqrtinc ~ hsgrad + race + age + tobacco + eth_hisp, data = hbp_b, x = TRUE, y = TRUE)
+
+
+glance(m1) %>%
+  select(r.squared, AIC, BIC) %>%
+  kable(digits = c(3, 1, 1))
+```
+
+And the following code provides the same for model `m2`:
+
+```{r}
+set.seed(2022)
+
+validate(m2, method = "boot", B = 40)
+
+m2 = lm(sqrtinc ~ rcs(hsgrad, 4) + race + age + tobacco + eth_hisp, data = hbp_b, x = TRUE, y = TRUE)
+
+
+glance(m2) %>%
+  select(r.squared, AIC, BIC) %>%
+  kable(digits = c(3, 1, 1))
+```
+
+By reviewing the above metrics, it appears that `m2` represents a better fit than `m1`, as `m2` appears to have outperformed `m1` in all of the above metrics.
+
+# Part C
+
+## Question 10
+
+One important thing I learned from Nate Silver's "The Signal and the Noise" is the importance of thinking probabilistically. To be fair, this is not exactly a new concept at this point to me, as this has been heavily emphasized throughout 431 and 432. However, the importance of this concept cannot be overstated, and neither can it's execution. Nate Silver’s discussion of November 2010 U.S. House election results illustrated the importance of this concept in real-world practice. In particular, he demonstrated how the employment of a something as simple as a probability bell-curve can be far more useful than any simple remarks or statements for conveying the probable outcomes of the elections, and while this is a rather fundamental tool for statistical analysis, it should not be underestimated or understated. I will continue to employ and further develop this manner of thinking when approaching labs and the upcoming projects  in this course to improve the accuracy of my reports, and beyond this course the accuracy of my research projects both here at Case and elsewhere.
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```
+

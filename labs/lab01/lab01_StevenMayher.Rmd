@@ -1,0 +1,649 @@
+---
+title: "432 Lab 01"
+author: "Steven Mayher"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+        toc: TRUE
+        toc_float: TRUE
+        number_sections: TRUE
+        code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE, warning = FALSE}
+library(here)
+library(magrittr)
+library(janitor)
+library(naniar)
+library(tableone)
+library(patchwork)
+library(knitr)
+library(broom)
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+## Import the `hbp3456` Data {-}
+
+```{r, message = FALSE}
+lab01 <- read_csv(here("labs/lab01/data", "hbp3456.csv")) %>%
+    mutate(record = as.character(record))
+```
+
+# Question 1
+
+The first step that will be taken to produce this table will be to create a new field in the data set that calculates the body mass index of all of the participants by using their height and weight data (`height` and `weight` respectively). For now, this field will be named `bmi`, and has been created with the code below: 
+
+```{r}
+lab01$bmi = round(lab01$weight/((lab01$height)^2), digits = 1)
+```
+
+Next, the `bmi` data will be used to create the other requested field that is not present in the data set, the BMI Category field, which will classify each patient into 1 of 4 body mass index categories - Underweight, Healthy weight, Overweight, and Obesity - as outlined by [this CDC article on BMI](https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html). This was accomplished with the code below, which records the results in a field called `bmi_category`, and subsequently re-levels the data for logical interpretation in the table we will be creating:
+
+```{r}
+lab01 = lab01 %>%
+    mutate(bmi_category = case_when(bmi < 18.5 ~ "Underweight",
+                                   bmi >= 18.5 & bmi < 25.0 ~ "Healthy Weight",
+                                   bmi >= 25.0 & bmi < 30.0 ~ "Overweight",
+                                   bmi >= 30.0 ~ "Obesity"))
+lab01 = lab01 %>%
+  mutate(bmi_category = fct_relevel(bmi_category, 
+                             "Underweight", "Healthy Weight", "Overweight", "Obesity"))
+```
+
+To check whether or not each field is formatted correctly, we'll use the `glimpse()` function below to examine the current status of all of the fields:
+
+```{r}
+lab01 %>% select(age, race, eth_hisp, sex, insurance, bmi, bmi_category, sbp, dbp, practice) %>% glimpse()
+```
+
+The fields `sex`, `race`, `eth_hisp`, `insurance`, and `practice` are all categorical variables, so while unnecessary, we'll redefine them as factor variables below:
+
+```{r}
+lab01 = lab01 %>%
+  mutate(eth_hisp = as.factor(eth_hisp)) %>%
+  mutate(race = as.factor(race)) %>%
+  mutate(sex = as.factor(sex)) %>%
+  mutate(insurance = as.factor(insurance))
+```
+
+Examination of the actual level designations for `race` and `sex` indicates that better names could be used for them, and the `race` variable should probably be re-leveled, so this was executed below:
+
+```{r}
+lab01 = lab01 %>%
+  mutate(race = fct_recode(factor(race), "Caucasian" = "White", "African American" = "AA_Black")) %>%
+  mutate(race = fct_relevel(race, "African American", "Caucasian", "Asian", "Other")) %>%
+  mutate(sex = fct_recode(factor(sex), "Male" = "M", "Female" = "F"))
+```
+
+With all of the above accomplished, we can make our subset of data that we'll need to produce table one by filtering the data for only the Highland and Sycamore practices and selecting the relevant variables as shown below:
+
+```{r}
+table01_raw = lab01 %>% filter(practice != "Walnut") %>%
+  filter(practice != "King") %>%
+  filter(practice != "Center") %>%
+  filter(practice != "Elm") %>%
+  filter(practice != "North") %>%
+  filter(practice != "Plympton") %>%
+  select(age, race, eth_hisp, sex, insurance, bmi, bmi_category, sbp, dbp, practice)
+```
+
+Next, let's examine if there's any missing data in the `table01_raw` data:
+
+```{r}
+miss_var_summary(table01_raw)
+```
+
+There's definitely some missing data, so the code below will be used to filter out any missing data, and will also rename our variables to reflect their naming scheme from the question prompt:
+
+```{r}
+table01_data = table01_raw %>% filter(complete.cases(age, race, eth_hisp, sex, insurance, bmi, bmi_category, sbp, dbp, practice)) %>%
+  rename("Hispanic ethnicity" = eth_hisp, "primary insurance" = insurance, "body mass index" = bmi, "BMI category" = bmi_category, "systolic blood pressure" = sbp, "diastolic blood pressure" = dbp)
+```
+
+Additionally, we'll need to record how many records with missing data we had/removed, and the code below represents one method we can use to determine this:
+
+```{r}
+table01_raw_Highland = table01_raw %>% filter(practice == "Highland")
+table01_raw_Sycamore = table01_raw %>% filter(practice == "Sycamore")
+
+table01_data_Highland = table01_data %>% filter(practice == "Highland")
+table01_data_Sycamore = table01_data %>% filter(practice == "Sycamore")
+
+count(table01_raw_Highland) - count(table01_data_Highland)
+count(table01_raw_Sycamore) - count(table01_data_Sycamore)
+count(table01_raw) - count(table01_data)
+
+rm(table01_raw_Highland, table01_raw_Sycamore, table01_data_Highland, table01_data_Sycamore)
+```
+
+So there's a total of 41 records that have some form of missing data, 7 of which are from the Highland practice records, and 34 of which are from the Sycamore practice records.
+
+With this out of the way, the last step we need to take before creating our Table 1 is to assess the normality of our quantitative variables `age`, `systolic blood pressure`, `diastolic blood pressure`, and `body mass index`, all of which will be accomplished using the following code to create a histogram, normal q-q plot, and violin box-plot for each:
+
+```{r fig.height=6, fig.width=8}
+table01_Highland = table01_data %>% filter(practice == "Highland")
+table01_Sycamore = table01_data %>% filter(practice == "Sycamore")
+
+a1 <- ggplot(table01_Highland, aes(x = "", y = age)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: Age", x = "", y = "Patient Age (Years)")
+
+a2 <- ggplot(table01_Highland, aes(x = age)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Highland$age), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Highland$age), sd = sd(table01_Highland$age)), col = "red", lwd = 1) +
+  labs(title = "Density Function: Age", x = "Patient Age (Years)")
+
+a3 <- ggplot(table01_Highland, aes(sample = age)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: Age", x = "", y = "Patient Age")
+
+p1_age_Highland = (a3 + a2) / a1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Age - Highland Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of patient age from the Highland Practice",
+                  caption = "All data above pulled from the hbp3456.csv dataset")
+
+
+
+
+
+a4 <- ggplot(table01_Sycamore, aes(x = "", y = age)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: Age", x = "", y = "Patient Age (Years)")
+
+a5 <- ggplot(table01_Sycamore, aes(x = age)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Sycamore$age), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Sycamore$age), sd = sd(table01_Sycamore$age)), col = "red", lwd = 1) +
+  labs(title = "Density Function: Age", x = "Patient Age (Years)")
+
+a6 <- ggplot(table01_Sycamore, aes(sample = age)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: Age", x = "", y = "Patient Age")
+
+p2_age_Sycamore = (a6 + a5) / a4 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Age - Sycamore Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `age` as pulled from the `hbp3456.csv` dataset",
+                  caption = "All data above pulled from the hbp3456.csv dataset")
+
+
+
+
+
+b1 <- ggplot(table01_Highland, aes(x = "", y = `systolic blood pressure`)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: SBP", x = "", y = "Patient Systolic Blood Pressure")
+
+b2 <- ggplot(table01_Highland, aes(x = `systolic blood pressure`)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Highland$`systolic blood pressure`), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Highland$`systolic blood pressure`), sd = sd(table01_Highland$`systolic blood pressure`)), col = "red", lwd = 1) +
+  labs(title = "Density Function: SBP", x = "Patient Systolic Blood Pressure")
+
+b3 <- ggplot(table01_Highland, aes(sample = `systolic blood pressure`)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: SBP", x = "", y = "Patient Systolic Blood Pressure")
+
+p3_sbp_Highland = (b3 + b2) / b1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Systolic Blood Pressure - Highland Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `systolic blood pressure` as pulled from the `hbp3456.csv` dataset",
+                  caption = "* SBP = Systolic Blood Pressure\nAll data above pulled from the hbp3456.csv dataset.")
+
+
+
+
+
+b4 <- ggplot(table01_Sycamore, aes(x = "", y = `systolic blood pressure`)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: SBP", x = "", y = "Patient Systolic Blood Pressure")
+
+b5 <- ggplot(table01_Sycamore, aes(x = `systolic blood pressure`)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Sycamore$`systolic blood pressure`), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Sycamore$`systolic blood pressure`), sd = sd(table01_Sycamore$`systolic blood pressure`)), col = "red", lwd = 1) +
+  labs(title = "Density Function: SBP", x = "Patient Systolic Blood Pressure")
+
+b6 <- ggplot(table01_Sycamore, aes(sample = `systolic blood pressure`)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: SBP", x = "", y = "Patient Systolic Blood Pressure")
+
+p4_sbp_Sycamore = (b6 + b5) / b4 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Systolic Blood Pressure - Sycamore Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `systolic blood pressure` outcome as pulled from the `hbp3456.csv` dataset",
+                  caption = "* SBP = Systolic Blood Pressure\nAll data above pulled from lBody Mass Index (kg/m^2) data pulled from the hbp3456.csv dataset")
+
+
+
+
+
+c1 <- ggplot(table01_Highland, aes(x = "", y = `diastolic blood pressure`)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: DBP", x = "", y = "Patient Diastolic Blood Pressure")
+
+c2 <- ggplot(table01_Highland, aes(x = `diastolic blood pressure`)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Highland$`diastolic blood pressure`), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Highland$`diastolic blood pressure`), sd = sd(table01_Highland$`diastolic blood pressure`)), col = "red", lwd = 1) +
+  labs(title = "Density Function: DBP", x = "Patient Diastolic Blood Pressure")
+
+c3 <- ggplot(table01_Highland, aes(sample = `diastolic blood pressure`)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: DBP", x = "", y = "Patient Diastolic Blood Pressure")
+
+p5_dbp_Highland = (c3 + c2) / c1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Diastolic Blood Pressure - Highland Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `diastolic blood pressure` outcome as pulled from the `hbp3456.csv` dataset",
+                  caption = "* DBP = Diastolic Blood Pressure\nAll data above pulled from the hbp3456.csv dataset")
+
+
+
+
+
+c4 <- ggplot(table01_Sycamore, aes(x = "", y = `diastolic blood pressure`)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: DBP", x = "", y = "Patient Diastolic Blood Pressure")
+
+c5 <- ggplot(table01_Sycamore, aes(x = `diastolic blood pressure`)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Sycamore$`diastolic blood pressure`), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Sycamore$`diastolic blood pressure`), sd = sd(table01_Sycamore$`diastolic blood pressure`)), col = "red", lwd = 1) +
+  labs(title = "Density Function: DBP", x = "Patient Diastolic Blood Pressure")
+
+c6 <- ggplot(table01_Sycamore, aes(sample = `diastolic blood pressure`)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: DBP", x = "", y = "Patient Diastolic Blood Pressure")
+
+p6_dbp_Sycamore = (c6 + c5) / c4 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Diastolic Blood Pressure - Sycamore Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `diastolic blood pressure` as pulled from the `hbp3456.csv` dataset",
+                  caption = "* DBP = Diastolic Blood Pressure\nAll data above pulled from lBody Mass Index (kg/m^2) data pulled from the hbp3456.csv dataset")
+
+
+
+
+
+d1 <- ggplot(table01_Highland, aes(x = "", y = `body mass index`)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: BMI", x = "", y = "Patient Body Mass Index (kg/m^2)")
+
+d2 <- ggplot(table01_Highland, aes(x = `body mass index`)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Highland$`body mass index`), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Highland$`body mass index`), sd = sd(table01_Highland$`body mass index`)), col = "red", lwd = 1) +
+  labs(title = "Density Function: BMI", x = "Patient Body Mass Index (kg/m^2)")
+
+d3 <- ggplot(table01_Highland, aes(sample = `body mass index`)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: BMI", x = "", y = "Patient Body Mass Index (kg/m^2)")
+
+p7_bmi_Highland = (d3 + d2) / d1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Body Mass Index - Highland Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `body mass index` outcome as pulled from the `hbp3456.csv` dataset",
+                  caption = "* BMI = Body Mass Index (kg/m^2)\nAll data above pulled from the hbp3456.csv dataset")
+
+
+
+
+
+d4 <- ggplot(table01_Sycamore, aes(x = "", y = `body mass index`)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: BMI", x = "", y = "Patient Body Mass Index (kg/m^2)")
+
+d5 <- ggplot(table01_Sycamore, aes(x = `body mass index`)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.scott(table01_Sycamore$`body mass index`), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(table01_Sycamore$`body mass index`), sd = sd(table01_Sycamore$`body mass index`)), col = "red", lwd = 1) +
+  labs(title = "Density Function: BMI", x = "Patient Body Mass Index (kg/m^2)")
+
+d6 <- ggplot(table01_Sycamore, aes(sample = `body mass index`)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: BMI", x = "", y = "Patient Body Mass Index (kg/m^2)")
+
+p8_bmi_Sycamore = (d6 + d5) / d4 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Body Mass Index - Sycamore Practice Patients",
+                  subtitle = "Distribution & Normality Assessment of `body mass index` outcome as pulled from the `hbp3456.csv` dataset",
+                  caption = "* BMI = Body Mass Index (kg/m^2)\nAll data above pulled from lBody Mass Index (kg/m^2) data pulled from the hbp3456.csv dataset")
+
+
+rm(a1, a2, a3, a4, a5, a6, b1, b2, b3, b4, b5, b6, c1, c2, c3, c4, c5, c6, d1, d2, d3, d4, d5, d6)
+
+
+p1_age_Highland
+p2_age_Sycamore
+p3_sbp_Highland
+p4_sbp_Sycamore
+p5_dbp_Highland
+p6_dbp_Sycamore
+p7_bmi_Highland
+p8_bmi_Sycamore
+```
+
+There appears to be some issues with normality in at least one of each of the practices' data for all four variables, so we'll use the non-normality option to assess each category. With all of this out of the way, we can finally create our Table 1:
+
+
+```{r}
+vars = c("age", "race", "Hispanic ethnicity", "sex", "primary insurance", "body mass index", "BMI category", "systolic blood pressure", "diastolic blood pressure")
+
+fct.vars = c("race", "Hispanic ethnicity", "sex", "primary insurance", "BMI category")
+
+trt = c("practice")
+
+
+table01 = CreateTableOne(data = table01_data, vars = vars, factorVars = fct.vars, strata = trt, includeNA = TRUE)
+
+print(table01, nonnormal = c("age", "systolic blood pressure", "diastolic blood pressure", "body mass index"))
+```
+
+* Again, to reiterate, there were **41** records with missing data from both practices combined, **7** of which were patients from the Highland practice, with the other **34** being patients from the Sycamore practice.
+
+Table 1 Important Results Description:
+
+Sycamore’s records primarily consist of African Americans, and no reports of Hispanic ethnicity, while the Highland’s primarily consist of Caucasians, with 21% of patients reporting Hispanic ethnicity. Median age of Sycamore patients was 10 years older than Highland's, and there's an appreciable difference between the practices’ age interquartile ranges. The Sycamore practice also had far more patients with Commercial insurance than Highland practice, had no one with Medicaid or without insurance, however Highland had patients without insurance, and most had Medicaid. Highland also had delectably more obese patients, and a correspondingly higher median BMI, SBP, and DBP as well.
+
+# Question 2
+
+Before we examine whether `insurance` status meaningfully impacts `systolic blood pressure` when adjusting for whether or not the patient uses a `beta blocker`, we should start by examining the format of the data to verify whether we need to redefine or re-level any of the fields. The code below lets us confirm the field types as they are now:
+
+```{r}
+lab01 %>% select(insurance, sbp, betab) %>% glimpse()
+```
+
+The insurance variable is already formatted as a factor from the previous question, so the only field that needs redefining is the beta-blocker field `betab`. The code below redefines the field as a factor, and for good measure also re-levels the field to insure that the "Yes" category will be listed first in our analyses:
+
+```{r}
+lab01 = lab01 %>%
+  mutate(betab = as.factor(betab)) %>%
+  mutate(betab = fct_relevel(betab, "Yes", "No")) %>%
+  mutate(insurance = fct_relevel(insurance, "Uninsured", "Medicaid", "Medicare", "Commercial"))
+
+lab01 %>% select(insurance, sbp, betab) %>% glimpse()
+```
+
+With this accomplished, we can create our sub-set of data for this analysis and check for missing-ness below:
+
+```{r}
+q2_data = lab01 %>% select(insurance, sbp, betab)
+
+miss_var_summary(q2_data)
+```
+
+The results above indicate that we do not have any missing data for these fields, so we'll proceed with the analyses. We'll start by simply checking if we should transform the systolic blood pressure data:
+
+```{r fig.height=6, fig.width=8}
+a1 <- ggplot(q2_data, aes(x = "", y = sbp)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: SBP", x = "", y = "Systolic Blood Pressure")
+
+a2 <- ggplot(q2_data, aes(x = sbp)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.Sturges(q2_data$sbp), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(q2_data$sbp), sd = sd(q2_data$sbp)), col = "red", lwd = 1) +
+  labs(title = "Density Function: SBP", x = "Systolic Blood Pressure")
+
+a3 <- ggplot(q2_data, aes(sample = sbp)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: SBP", x = "", y = "Systolic Blood Pressure")
+
+q2_sbp = (a3 + a2) / a1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "Systolic Blood Pressure",
+                  subtitle = "Distribution & Normality Assessment of patient Systolic Blood Pressure",
+                  caption = "All data above pulled from the hbp3456.csv dataset")
+
+rm(a1, a2, a3)
+
+q2_sbp
+```
+
+The histogram, normal q-q plot, and violin box-plot above all suggest some issues with normality, specifically some right-skew. Let's see which transformation would be most appropriate by evaluating them all:
+
+```{r fig.height=8, fig.width=8}
+p1 <- ggplot(q2_data, aes(sample = sbp^3)) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "Cube (power 3)")
+
+p2 <- ggplot(q2_data, aes(sample = sbp^2)) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "Square (power 2)")
+
+p3 <- ggplot(q2_data, aes(sample = sbp)) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "Original Data")
+
+p4 <- ggplot(q2_data, aes(sample = sqrt(sbp))) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "sqrt (power 0.5)")
+
+p5 <- ggplot(q2_data, aes(sample = log(sbp))) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "log (power 0)")
+
+p6 <- ggplot(q2_data, aes(sample = sbp^(0.5))) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "1/sqrt (power -0.5)")
+
+p7 <- ggplot(q2_data, aes(sample = 1/sbp)) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "Inverse (power -1)")
+
+p8 <- ggplot(q2_data, aes(sample = 1/(sbp^2))) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "1/Square (power -2)")
+
+p9 <- ggplot(q2_data, aes(sample = 1/(sbp^3))) +
+    geom_qq(col = "royalblue") + 
+    geom_qq_line(col = "black") +
+    labs(title = "1/Cube (power -3)")
+
+p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 +
+    plot_layout(nrow = 3) +
+    plot_annotation(title = "Transformations of Systolic Blood Pressure")
+
+rm(p1, p2, p3, p4, p5, p6, p7, p8, p9)
+```
+
+It seems a log transformation would be most appropriate - we could use a log function to transform the data every time we want to analyze it, however we'll instead create a new variable for it in the `q2_data` table:
+
+```{r}
+q2_data$log_sbp = log(q2_data$sbp)
+```
+
+Let's examine the transformation using the same kind of histogram, normal q-q plot, and violin box-plot from earlier:
+
+```{r fig.height=6, fig.width=8}
+a1 <- ggplot(q2_data, aes(x = "", y = log_sbp)) +
+  geom_violin(fill = "dodgerblue", alpha = 0.3) +
+  geom_boxplot(width = 0.25, fill = "dodgerblue", notch = TRUE) +
+  coord_flip() +
+  labs(title = "Violin Boxplot: log(SBP)", x = "", y = "log(Systolic Blood Pressure)")
+
+a2 <- ggplot(q2_data, aes(x = log_sbp)) +
+  geom_histogram(aes(y = stat(density)), bins = nclass.Sturges(q2_data$log_sbp), col = "white", fill = "dodgerblue") +
+  stat_function(fun = dnorm, args = list(mean = mean(q2_data$log_sbp), sd = sd(q2_data$log_sbp)), col = "red", lwd = 1) +
+  labs(title = "Density Function: log(SBP)", x = "log(Systolic Blood Pressure)")
+
+a3 <- ggplot(q2_data, aes(sample = log_sbp)) +
+  geom_qq(col = "dodgerblue") +
+  geom_qq_line(col = "red") +
+  labs(title = "Normal Q-Q plot: log(SBP)", x = "", y = "log(Systolic Blood Pressure)")
+
+q2_log_sbp = (a3 + a2) / a1 + 
+  plot_layout(heights = c(5,2)) +
+  plot_annotation(title = "log(Systolic Blood Pressure)",
+                  subtitle = "Distribution & Normality Assessment of the Natural Logarithm of patient Systolic Blood Pressure",
+                  caption = "All data above pulled from the hbp3456.csv dataset")
+
+rm(a1, a2, a3)
+
+q2_log_sbp
+```
+
+There appears to still be a number of outliers, however this appears to be a better linear fit than the original systolic blood pressures, so we will use `log_sbp` moving forward.
+
+Next, lets create a table and plot of the means of `log_sbp` in eight combinations - two levels for beta-blocker prescription status `betab` combined with the four insurance categories:
+
+```{r}
+summaries_1 <- q2_data %>%
+  group_by(insurance, betab) %>%
+  summarise(n = n(), mean = mean(log_sbp),
+            stdev = sd(log_sbp))
+
+summaries_1 %>% kable(digits = 2)
+```
+
+```{r fig.height=6, fig.width=8}
+pd = position_dodge(0.1)
+
+ggplot(summaries_1, aes(x = betab, y = mean, col = insurance)) +
+  geom_errorbar(aes(ymin = mean - stdev, ymax = mean + stdev),
+                width = 0.1, position = pd) +
+  geom_point(size = 2,
+             position = pd) +
+  geom_line(aes(group = insurance)) +
+  labs(y = "log(Systolic Blood Pressure)",
+       x = "Beta-Blocker Status",
+       title = "Means (+/- SD) of log(Systolic Blood Pressure)",
+       subtitle = "by Insurance and Beta-Blocker Status")
+
+pd = position_dodge(0.1)
+
+ggplot(summaries_1, aes(x = insurance, y = mean, col = betab)) +
+  geom_errorbar(aes(ymin = mean - stdev, ymax = mean + stdev),
+                width = 0.1, position = pd) +
+  geom_point(size = 2,
+             position = pd) +
+  geom_line(aes(group = betab)) +
+  labs(y = "log(Systolic Blood Pressure)",
+       x = "Insurance",
+       title = "Means (+/- SD) of log(Systolic Blood Pressure)",
+       subtitle = "by Insurance and Beta-Blocker Status")
+```
+
+Both of the graphs above indicate that some an interaction effect between `insurance` and `betab` may be occurring, as the lines do not run entirely parallel to each other. As such, a model that designates `betab` as an interaction term would likely be the better choice. As such, we'll create this model below and examine it's overall quality of fit and will interpret the coefficients for this model. First, to create the model:
+
+```{r}
+m1 = lm(log_sbp ~ insurance*betab, data = q2_data)
+```
+
+Next, to assess it's quality of fit and interpret the coefficients:
+
+```{r}
+anova(m1)
+
+glance(m1)
+
+q2_data = q2_data %>%
+  mutate(betab = fct_relevel(betab, "No", "Yes"))
+
+m1 = lm(log_sbp ~ insurance*betab, data = q2_data)
+
+tidy(m1, conf.int = TRUE, conf.level = 0.90) %>%
+    select(term, estimate, 
+           low90 = conf.low, high90 = conf.high, 
+           se = std.error, p = p.value) %>%
+    kable(digits = c(0,3,3,2,2,3))
+
+```
+
+From the tidy above, we can see that:
+
+* The estimated mean log(sbp) for an uninsured person without a beta-blocker prescription is 
+    log(sbp) = 4.880, so exp(4.880) = 131.6307
+
+* The estimated mean log(sbp) for a Medicaid insured person without a beta-blocker prescription is
+    log(sbp) = 4.880 + 0.003 = 4.883, so exp(4.883) = 132.0261
+
+* The estimated mean log(sbp) for a Medicare insured person without a beta-blocker prescription is 
+    log(sbp) = 4.880 - 0.006 = 4.874, so exp(4.874) = 130.8432
+
+* The estimated mean log(sbp) for a Commercially insured person without a beta-blocker prescription is 
+    log(sbp) = 4.880 - 0.012 = 4.868, so exp(4.868) = 130.0605
+
+* The estimated mean log(sbp) for an uninsured person with a beta-blocker prescription is 
+    log(sbp) = 4.880 + 0.013 = 4.893, so exp(4.893) = 133.353
+
+* The estimated mean log(sbp) for a Medicaid insured person with a beta-blocker prescription is 
+    log(sbp) = 4.880, so exp(4.880) = 131.6307
+
+* The estimated mean log(sbp) for a Medicare insured person with a beta-blocker prescription is 
+    log(sbp) = 4.880 - 0.006 = 4.874, so exp(4.874) = 130.8432
+
+* The estimated mean log(sbp) for a Commercially insured person with a beta-blocker prescription is
+    log(sbp) = 4.880 + 0.013 = 4.893, so exp(4.893) = 133.353
+
+So in summation, it seems that uninsured and Commercially insured patients with beta-blocker prescriptions had higher estimated systolic blood pressures than their non-beta-blocker counterparts. Medicaid insured patients with beta-blockers conversely had a slightly lower estimated systolic blood pressure than the non-beta-blocker Medicaid insured patients, and their was no change in estimated blood pressure for Medicare patients. It's worth noting that if we were to increase the number of significant figures for our estimates though we could have slightly different results. Additionally, the results from the ANOVA do not suggest a strong interaction between our interaction variables, however lets compare this model's fit to that of its non-interaction model equivalent below:
+
+To assess the quality of fit for this model, we'll compare it to the fit to a non-interaction model:
+
+```{r}
+m1_no = lm(log_sbp ~ insurance + betab, data = q2_data)
+
+comp_table <- bind_rows( glance(m1), glance(m1_no) ) %>%
+  mutate(mod = c("m1", "m1_no"))
+
+comp_table %>% select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+  kable(dig = c(0, 5, 5, 3, 1, 1))
+```
+
+The above shows that the interaction model was a better choice between the two models, as although both models have approximately the same sigma values, the interaction model `m1` has better r^2, adjusted r^2, AIC, and BIC values.
+
+# Question 3
+
+An important idea that resonates with me from Jeff Leek's **How To Be a Modern Scientist** is the necessity of having a career plan and developing a career trajectory. When I completed my undergraduate education, I admittedly didn’t spend much time considering my career trajectory until my final year of the program, and despite the time I did spend considering this moving forward I wasn’t entirely certain what to do next once I finished my degree. I had originally wanted to major in biology because I wanted to help people in a medical setting, however I wasn’t really sure in what capacity I’d like to do that, and while my coursework and college advising was excellent at educating me on the subject matter, it wasn’t great at providing me any insight into this matter, much like Jeff Leek remarks on page 70 in the Career Planning section of the book:
+
+“Sometimes I feel like this altruism has negative consequences. For example, I think that there is less emphasis on the career planning and development side in the academic community. I don’t think this is malicious, but…being brilliant and good at science is not enough. You also need to pay attention to and plan carefully your career trajectory.” 
+
+It took me some time to figure out a plan, but after working here at Case and continuing my education as a non-degree Grad Student, I finally gained some direction, and know what direction I want to develop my career towards, however I know the contents of this section (and honestly the whole book) will help me to continue to refine this and also help me in many other ways (such as writing a thesis) as I continue through and complete the Systems Biology and Bioinformatics program.
+
+# Question 4
+
+My github name is StevenMayher.
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```
+
