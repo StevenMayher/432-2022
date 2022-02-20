@@ -1,0 +1,42 @@
+---
+title: "Quiz 1"
+author: "Steven Mayher"
+date: "2/20/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(here)
+library(knitr)
+library(janitor)
+library(magrittr)
+library(naniar)
+library(patchwork)
+library(GGally)
+library(ggrepel)
+library(equatiomatic)
+library(simputation)
+library(rms) # includes Hmisc
+library(tidymodels) # includes broom, rsample, etc.
+library(tidyverse) # includes dplyr, ggplot, etc.
+
+# Note that all data files were downloaded onto
+# my machine into a subfolder called data below
+# my main R Project directory for Quiz 1.
+
+theme_set(theme_bw())
+opts_chunk$set(comment = NA)
+options(dplyr.summarise.inform = FALSE)
+```
+
+
+## Question 1
+
+```{r}
+
+```
+
