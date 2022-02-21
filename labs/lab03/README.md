@@ -23,5 +23,5 @@ If you have questions about Lab 03, please ask them [at TA office hours](https:/
 ## Post-Deadline Materials
 
 - The Lab 3 answer sketch will be found on our Shared Google Drive in the Lab 03 Materials. 
-- Grades and (potentially) other materials should appear on 2022-02-22.
+- Lab 3 Grades are now posted to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grade and read our comments, visit the Lab 03 Tab on that Sheet using the Lab Code Dr. Love emailed to you on 2022-01-31. 
 - Four nice examples of Essays responding to Question 10 from Lab 3 are now available [in our Shared Drive](https://docs.google.com/document/d/1edHhTNRs-S4UEbNN-HWqOShxrb718zrTF44RY13_6dM/edit?usp=sharing).
