@@ -24,7 +24,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 6. You'll need to finish reading *The Signal and the Noise* through Chapter 8 by our first class after Spring Break on 2022-03-15.
     - Chapter 6 is about how sensitive outcomes can be to error and look at predicting GDP growth
     - Chapter 7 is about disease outbreaks
-    - Chapter 8 is about the importance of Bayes' Theorem
+    - Chapter 8 demonstrates the importance of Bayes' Theorem
 
 ## Quiz 1 Grading Update
 
