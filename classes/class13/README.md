@@ -13,15 +13,15 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. [Project A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) is due next Friday 2022-03-04 at 9 PM. Please do not be late.
+1. [Project A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) is due next Friday 2022-03-04 at 9 PM. 
     - Be sure to review the [Submission Requirements](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/02_projectA_analyses.md#submission-requirements) and some of what we'll be doing to [evaluate your final materials](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/02_projectA_analyses.md#evaluating-your-final-materials) before you submit your work.
     - You should be submitting (1) a single R Markdown file containing the 13 section headings [described here](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/02_projectA_analyses.md#the-portfolio) that produces (2) a single HTML file containing all work on the portfolio, plus (3) your slides for your presentation and (4) your video recording (we prefer .mp4) and (5) your raw data and (6) your cleaned (.Rds) data.
-    - Take the [Discussion section (section 10)](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/02_projectA_analyses.md#section-10-the-discussion) as seriously as you take the new analytic sections 8 and 9.
-2. [TA Office Hours](https://thomaselove.github.io/432/contact.html) continue through 2022-03-04 but will then close until 2022-03-12.
-3. Remember that we don't have class (Project A working day) this Thursday. We return one week from today. We will hold TA office hours on Thursday.
+    - In writing your portfolio, take the [Discussion section (section 10)](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/02_projectA_analyses.md#section-10-the-discussion) as seriously as you take the new analytic sections 8 and 9.
+2. Remember that we don't have class (Project A working day) this Thursday. We return to in-person class one week from today.
+3. [TA Office Hours](https://thomaselove.github.io/432/contact.html) continue every day through 2022-03-04 but will then close until 2022-03-12.
 4. There is no Minute Paper this week. Our next Minute Paper is due next Wednesday (after Class 14).
 5. Spring Break (no class March 8 or 10) is an excellent time to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX), not to mention [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and (if you've finished reading *The Signal and the Noise*, [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labZ). 
-6. You'll need to finish reading *The Signal and the Noise* through Chapter 8 by the end of the break.
+6. You'll need to finish reading *The Signal and the Noise* through Chapter 8 by our first class after Spring Break.
 
 ## Quiz 1 Grading Update
 
