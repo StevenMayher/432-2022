@@ -21,7 +21,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 3. [TA Office Hours](https://thomaselove.github.io/432/contact.html) continue every day through 2022-03-04 but will then close until 2022-03-12.
 4. There is no Minute Paper this week. Our next Minute Paper is due next Wednesday (after Class 14).
 5. Spring Break (no class March 8 or 10) is an excellent time to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX), not to mention [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and (if you've finished reading *The Signal and the Noise*, [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labZ).) 
-6. You'll need to finish reading *The Signal and the Noise* through Chapter 8 by our first class after Spring Break.
+6. You'll need to finish reading *The Signal and the Noise* through Chapter 8 by our first class after Spring Break on 2022-03-15.
+    - Chapter 6 is about how sensitive outcomes can be to error and look at predicting GDP growth
+    - Chapter 7 is about disease outbreaks
+    - Chapter 8 is about the importance of Bayes' Theorem
 
 ## Quiz 1 Grading Update
 
