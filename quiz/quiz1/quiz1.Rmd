@@ -23,6 +23,7 @@ library(simputation)
 library(rms) # includes Hmisc
 library(tidymodels) # includes broom, rsample, etc.
 library(tidyverse) # includes dplyr, ggplot, etc.
+library(readxl)
 
 # Note that all data files were downloaded onto
 # my machine into a subfolder called data below
@@ -37,6 +38,291 @@ options(dplyr.summarise.inform = FALSE)
 ## Question 1
 
 ```{r}
+set1_raw = read.csv(here("data", "set1.csv"), na.strings=c("","NA"))
 
+set1 = set1_raw %>%
+  type.convert(as.is = FALSE) %>%
+  clean_names()
 ```
+
+
+## Quetion 2
+
+```{r}
+miss_var_summary(set1)
+miss_case_table(set1)
+
+set1 %>%
+  count(us_region)
+#  count(smoker) %>%
+set1 %>% count(sex)
+```
+
+
+## Questions 3 & 4
+
+```{r}
+ggplot(data = set1, 
+       aes(x = age_of_subject, y = total_charges)) +
+    geom_point(shape = 1) +
+    geom_point(data = set1 %>% filter(subj_no == "S-1037"), color = "pink") +
+    geom_smooth(method = "loess", formula = y ~ x) +
+    labs(title = "Plot for Question 3", subtitle = "Charges (on log10 scale) vs. Age, by Sex", x = "Age", y = "Total Charges (in $)") +
+    facet_wrap(~ sex, labeller = "label_both") +
+    scale_y_log10()
+```
+
+
+## Questions 5 & 6
+
+```{r}
+set1_q5 = set1 # %>%
+#  filter(complete.cases(.))
+
+m5 = lm(log10(total_charges) ~ us_region*smoker, data = set1_q5)
+```
+
+```{r}
+levels(set1$us_region)
+```
+
+
+```{r}
+anova(m5)
+```
+
+
+```{r}
+tidy(m5, conf.int = TRUE, conf.level = 0.90) %>%
+  select(term, estimate, conf.low, conf.high) %>%
+  kable(digits = c(0,2,3,3))
+```
+
+
+```{r}
+glance(m5)
+```
+
+
+
+## Question 7
+
+
+```{r}
+set1_q7 = set1 #%>% filter(complete.cases(.))
+
+dd <- datadist(set1_q5)
+options(datadist="dd")
+
+m7 = ols(log10(total_charges) ~ us_region*smoker + rcs(age_of_subject, 5) + age_of_subject %ia% smoker, data = set1_q7, x = TRUE, y = TRUE)
+```
+
+
+```{r}
+m7
+```
+
+
+## Question 8
+
+```{r}
+set.seed(432); validate(m7)
+```
+
+## Question 11
+
+```{r}
+dd = datadist(set22)
+options(datadist = "dd")
+
+set22_q11 = set22 %>%
+  filter(complete.cases(.))
+
+m11 = glm(hisp ~ cleve + nincome, data = set22, x = TRUE, y = TRUE)
+```
+
+```{r}
+summary(m11)$coeff
+```
+
+
+```{r}
+plot(nomogram(m11))
+```
+
+
+
+## Question 13
+
+```{r}
+set13 = readRDS("data/set13.Rds")
+```
+
+
+```{r}
+miss_case_table(set13)
+```
+
+
+
+```{r}
+d = datadist(set13)
+options(datadist = "d")
+
+m13 = lrm(fair == "High" ~ minority + older, data = set13, x = TRUE, y = TRUE)
+```
+
+
+```{r}
+m13.glm = glm(fair == "High" ~ minority + older, data = set13, family = binomial)
+```
+
+
+
+```{r}
+kable(summary(m13), digits = 2)
+```
+
+
+```{r}
+summary(m13, conf.int = 0.95)
+```
+
+
+```{r}
+summary(m13.glm, conf.int = 0.95)
+```
+
+
+
+
+```{r}
+kable(tidy(m13.glm, exponentiate = TRUE, conf.int = TRUE), digits = 3)
+```
+
+
+## Question 15
+
+
+```{r}
+plot(spearman2(fair == "High" ~ minority + older + side + medinc, data = set13))
+```
+
+
+```{r}
+d = datadist(set13)
+options(datadist = "d")
+
+m15 = lrm(fair == "High" ~ minority + older + side + medinc, data = set13, x = TRUE, y = TRUE)
+```
+
+
+```{r}
+anova(m15)
+```
+
+## Question 16
+
+```{r}
+m16_b = lrm(fair == "High" ~ minority + rcs(older, 4) + side + medinc, data = set13, x = TRUE, y = TRUE)
+
+m16_c = lrm(fair == "High" ~ minority + older + side + rcs(medinc, 4), data = set13, x = TRUE, y = TRUE)
+
+m16_d = lrm(fair == "High" ~ minority + older + side + medinc + medinc %ia% side, data = set13, x = TRUE, y = TRUE)
+
+m16_e = lrm(fair == "High" ~ minority + older + side + medinc + minority %ia% side, data = set13, x = TRUE, y = TRUE)
+
+m16_f = lrm(fair == "High" ~ minority + older + side + medinc + older %ia% side, data = set13, x = TRUE, y = TRUE)
+```
+
+
+
+
+
+```{r}
+anova(m16_b)
+anova(m16_c)
+anova(m16_d)
+anova(m16_e)
+anova(m16_f)
+```
+
+
+```{r}
+set.seed(2022); validate(m16_b)
+```
+
+```{r}
+set.seed(2022); validate(m16_c)
+```
+
+```{r}
+set.seed(2022); validate(m16_d)
+```
+
+```{r}
+set.seed(2022); validate(m16_e)
+```
+
+```{r}
+set.seed(2022); validate(m16_f)
+```
+
+
+
+```{r}
+anova(m15, m16_d)
+```
+
+
+## Question 17
+
+```{r}
+q17 = tibble(minority = 55, older = 70, medinc = 10, side = c("s"))
+
+predict(m13, q17, type = "fitted")
+
+predict(m16_c, q17, type = "fitted")
+```
+
+
+
+## Question 22
+
+```{r}
+set22_raw = read.csv(here("data", "set22.csv"), na.strings=c("","NA"))
+
+set22 = set22_raw %>%
+  type.convert(as.is = FALSE) %>%
+  clean_names()
+```
+
+
+```{r}
+miss_var_summary(set22)
+set22
+```
+
+
+
+```{r}
+set22 = set22 %>%
+  mutate(gov_ins = case_when(
+    insurance == "Medicare" ~ "Yes",
+    insurance == "Medicaid") ~ "Yes",
+    insurance == "Commercial" ~ "No",
+    insurance == "Uninsured" ~ "No")
+```
+
+```{r}
+set22 <- set22 %>%
+  mutate(gov_ins = fct_collapse(insurance,
+                                Yes = c("Medicare", "Medicaid"),
+                                No = c("Commercial", "Uninsured")))
+```
+
+
+
+
+
 
