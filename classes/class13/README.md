@@ -32,6 +32,9 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 I'll provide an update in class.
 
+- Items 14, 19a and 22
+- Items 2abcd, **5b**, **6**, 8a, 11, 13ab, 16ab, **17ab**, 18
+
 ## References from Today's Class
 
 Three articles by Jonah Gabry and Ben Goodrich:
