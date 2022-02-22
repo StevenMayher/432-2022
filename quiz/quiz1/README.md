@@ -3,6 +3,7 @@
 ## Corrections
 
 - On 2022-02-18 at 08:17 AM, Dr. Love edited the [Main Document for Quiz 1](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) to correct the plot for Question 3, which may affect your responses to Questions 3 and/or 4. This is indicated at the start of the (corrected) Main Document, and in the materials describing the Plot for Question 3. Be sure your Main Document is the most up-to-date version.
+- On 2022-02-21 at 09:58 AM, Dr. Love edited the [Main Document for Quiz 1](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz1/432_quiz1_2022.pdf) to make it clear that the coefficients shown in Model 11 at the top of the Output for Questions 11-12 on page 9 are in fact exponentiated, in response to a student question about them. This should not in any way affect your answer to Questions 11 or 12, but if it was confusing to you, that may help. I also noted that the coefficients were exponentiated in the stem for Question 11. Again, I can't see how this would change your responses, but it might help you a little.
 
 All materials are posted for the Quiz. The files you will need to complete Quiz 1 are:
 
