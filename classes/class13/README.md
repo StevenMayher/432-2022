@@ -30,7 +30,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Quiz 1 Grading Update
 
-I'll provide an update in class.
+I'll provide an update in class. The two bullets below will help me do so.
 
 - Items 14, 19a and 22
 - Items 2abcd, **5b**, **6**, 8a, 11, 13ab, 16ab, **17ab**, 18
