@@ -9,6 +9,16 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class14/432_2022_slides14.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class14/432_2022_slides14.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+## Today's Agenda
+
+Today, we'll be presenting some key ideas on fitting models for count outcomes. Counts are discrete (rather than continuous) and counts are typically integers (0, 1, 2, 3 and so on) and cannot be made more precise. Relevant materials (some a little out of date now, I fear) are available in Chapter 19 of the [Course Notes](https://thomaselove.github.io/432-notes/).
+
+Methods we will touch on today include Poisson regression and negative binomial regression, along with augmentations of these two approaches to inflate the number of zeros predicted, and also "hurdle" versions which specify one process for zero counts and another for positive counts. In Chapter 19, we discuss all of these, as well as another approach, called a tobit (or censored) regression model, which we will postpone until later in the term.
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class14/figures/ghement.png)
+
+Here's [a link to the start of the "tweetorial"](https://twitter.com/IsabellaGhement/status/1363957122787024901) on some key practical aspects of understanding Poisson regression models.
+
 ## 432-Specific Items
 
 1. There is a Minute Paper after today's class. **Details to come.**
