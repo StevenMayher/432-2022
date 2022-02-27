@@ -37,9 +37,13 @@ Here's [a link to the start of the "tweetorial"](https://twitter.com/IsabellaGhe
 - For more details, see the [Data import section of R for Data Science](https://r4ds.had.co.nz/data-import.html).
 - From Josh Gonzales at Medium: [read_csv(): The Best Way to import CSV data into R](https://medium.com/r-tutorials/r-functions-daily-read-csv-3c418c25cba4)
 
-## Exploding Coefficients in Logistic Regression
+## Exploding Coefficients and Related Problems in Logistic Regression
 
 Take a look at [this toy example with explosive coefficients](https://rpubs.com/TELOVE/explosion_logistic_432) to see one way in which this problem can emerge and what to do about it.
+
+- The most common problem I see is people fitting models to predict a binary outcome using a predictor which completely determines that outcome (for example, if predictor > 12, then outcome is always no, or if predictor = "Yes" then outcome is always no.)
+- The second most common problem I see is people failing to drop levels of a categorical predictor after combining levels. Use the droplevels() command.
+- The third most common problem I see is people fitting restricted cubic splines or polynomials either to categorical predictors or to quantitative predictors with just a few observed values.
 
 ## More General Announcements
 
