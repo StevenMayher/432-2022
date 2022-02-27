@@ -34,7 +34,7 @@ Take a look at [this toy example with explosive coefficients](https://rpubs.com/
 1. David Robinson did a Tidy Tuesday live screencast on YouTube [analyzing the World Freedom Index in R](https://www.youtube.com/watch?v=VOzUHk3aaBw). I hope you find it useful and interesting.
 2. The [Cleveland R Users Group](https://www.meetup.com/Cleveland-UseR-Group/) is holding a Project Showcase on 2022-03-23 at 6 PM. If you're interested in attending or presenting, [here is the information](https://www.meetup.com/Cleveland-UseR-Group/events/284281072/).
 3. DPhi is holding a [5-week data science bootcamp in Python](https://dphi.tech/bootcamps/5-week-data-science-bootcamp) starting 2022-03-11 which seems to be free. I can't tell you anything about it, except that a couple of past students took a prior version and told me they liked it. There's material here on feature selection and building machine learning models.
-4. If you're interested in working on a COVID-19 project in Project B, you might consider [these repositories from BroadStreet Health](https://github.com/orgs/BroadStreet-Health/repositories)
+4. If you're interested in working on a COVID-19 project for Project B, you might consider [these repositories from BroadStreet Health](https://github.com/orgs/BroadStreet-Health/repositories).
 
 ## One Last Thing
 
