@@ -11,8 +11,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## 432-Specific Items
 
-1. The Quiz 1 answer sketch is now on our Shared Drive in the Quiz 1 folder, and has been revised to add materials for Questions 2 and 21. You should have an email from me (dated 2022-02-23) containing your grade. Updated details on how the class did on each item and overall are available on the last page of the Answer Sketch. Ask the TAs or on Piazza if you need help understanding something in the Sketch. If you have questions about your grade on the Quiz after reviewing the sketch in detail, please let me (Dr. Love) know via direct email to Thomas dot Love at case dot edu, sometime before the Project is due on 2022-03-04 at 9 PM, at which point I will consider Quiz 1 grading closed.
-2. There is a Minute Paper after today's class. **Details to come.**
+1. There is a Minute Paper after today's class. **Details to come.**
+2. The Quiz 1 answer sketch is now on our Shared Drive in the Quiz 1 folder, and has been revised to add materials for Questions 2 and 21. You should have an email from me (sent 2022-02-23) containing your grade. See the last page of the Answer Sketch for class-wide results. I will close the Quiz 1 grades on 2022-03-04 at 9 PM. If you have questions about your grade, please email me before then to ask them.
+3. The [Course Calendar](https://thomaselove.github.io/432/calendar.html) now shows March at the top. January and February are now found at the bottom of the document.
+4. Project B instructions are coming this week. **Details to come.**
 
 ## Why I use `read_csv()` all the time, and never use `read.csv()` anymore
 
@@ -27,7 +29,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Exploding Coefficients in Logistic Regression
 
-Take a look at [this toy example with explosive coefficients](https://rpubs.com/TELOVE/explosion_logistic_432).
+Take a look at [this toy example with explosive coefficients](https://rpubs.com/TELOVE/explosion_logistic_432) to see one way in which this problem can emerge and what to do about it.
 
 ## More General Announcements
 
