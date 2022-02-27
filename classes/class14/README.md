@@ -51,6 +51,8 @@ Take a look at [this toy example with explosive coefficients](https://rpubs.com/
 2. The [Cleveland R Users Group](https://www.meetup.com/Cleveland-UseR-Group/) is holding a Project Showcase on 2022-03-23 at 6 PM. If you're interested in attending or presenting, [here is the information](https://www.meetup.com/Cleveland-UseR-Group/events/284281072/).
 3. DPhi is holding a [5-week data science bootcamp in Python](https://dphi.tech/bootcamps/5-week-data-science-bootcamp) starting 2022-03-11 which seems to be free. I can't tell you anything about it, except that a couple of past students took a prior version and told me they liked it. There's material here on feature selection and building machine learning models.
 4. If you're interested in working on a COVID-19 project for Project B, you might consider [these repositories from BroadStreet Health](https://github.com/orgs/BroadStreet-Health/repositories).
+5. The American Statistical Association's 2022 Women in Statistics and Data Science conference will be [held in St. Louis, MO on October 6-8](https://ww2.amstat.org/meetings/wsds/2022/conferenceinfo.cfm) and session submission starts today. 
+    - If you're interested in a [student membership in ASA, go here](https://www.amstat.org/membership/become-a-member). It's $25 per year for full-time students.
 
 ## One Last Thing
 
