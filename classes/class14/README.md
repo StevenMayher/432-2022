@@ -37,6 +37,12 @@ Here's [a link to the start of the "tweetorial"](https://twitter.com/IsabellaGhe
 - For more details, see the [Data import section of R for Data Science](https://r4ds.had.co.nz/data-import.html).
 - From Josh Gonzales at Medium: [read_csv(): The Best Way to import CSV data into R](https://medium.com/r-tutorials/r-functions-daily-read-csv-3c418c25cba4)
 
+## What should I do if I have a problem with Normality in my linear model (Project A)?
+
+1. Not all problems can be fixed with power transformations and non-linear terms.
+2. You should describe what the residual plots show, accurately.
+3. If there is a problem with the residual plots, use that fact in making a decision about which model to select as your final model. If you select a final model with residual plot problems, describe how those problems might affect your conclusions.
+
 ## Exploding Coefficients and Related Problems in Logistic Regression
 
 Take a look at [this toy example with explosive coefficients](https://rpubs.com/TELOVE/explosion_logistic_432) to see one way in which this problem can emerge and what to do about it.
