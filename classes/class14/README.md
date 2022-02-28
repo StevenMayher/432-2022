@@ -46,15 +46,16 @@ Take a look at [this toy example with explosive coefficients](https://rpubs.com/
 
 1. Sometimes, we see people failing to drop levels of a categorical predictor after combining levels. Use the `droplevels()` command.
 2. Sometimes, we see people fitting restricted cubic splines or polynomials either to categorical predictors or to quantitative predictors with just a few observed values.
-3. Suppose you decide to create a decision rule for a logistic regression model. If 10% of your observations are "Yes" on your binary outcome, and 90% are "No", then use a .fitted value of something like 0.1 as your decision rule. Don't use 50% unless your observations are split pretty close to 50-50 between your two categories for your binary outcome.
-4. When you build a plot of the ROC curve for your final model, be sure it provides the same C statistic value as you get from the `lrm` fit to the data, and that you also provide the validation-adjusted C statistic estimate for that model.
-5. Something we've seen **a lot** in looking at R Markdown files people have sent is the failure to include a blank line **before and after** every **heading and subheading**, and **every block of code**.
-6. Please make sure you have a real title for the work, that is no more than 80 characters long.
-7. Don't name the file `projectAproposal.Rmd` when it's not your proposal. A good generic name would be `2022_03_04_432_projA.Rmd` or `432projectA_2022-03-04.Rmd` assuming it's the version from that date (2022-03-04).
-8. Be sure to run the spell-check, and ideally, have someone else read through your work.
-9. We hate scrolling windows in HTML output caused by code that runs too long on one line. Use the ENTER key liberally to help avoid this problem, and check your HTML to see if it is happening.
-10. Make sure your headings are in an appropriate order, and that you have 13 main sections in your Project, as laid out in the sample project. Check your HTML to make sure the headings make sense, for instance, `10`, then `10.1`, then `10.1.1.` is OK, but `10`, then `10.0.1` isn't OK.
-11. If you're loading a package not on our [R packages list](https://thomaselove.github.io/432/r_packages.html), then you should definitely indicate why you're doing this at the top of your work as you load it. Also, don't load elements of the `tidyverse` separately - load them with `tidyverse` only.
+3. Remember that it's perfectly fine to add fewer than 3 additional degrees of freedom beyond the main effects model [if necessary, so long as you include at least one non-linear term](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/02_projectA_analyses.md#on-the-size-of-the-regression-models-you-build).
+4. Suppose you decide to create a decision rule for a logistic regression model. If 10% of your observations are "Yes" on your binary outcome, and 90% are "No", then use a .fitted value of something like 0.1 as your decision rule. Don't use 50% unless your observations are split pretty close to 50-50 between your two categories for your binary outcome.
+5. When you build a plot of the ROC curve for your final model, be sure it provides the same C statistic value as you get from the `lrm` fit to the data, and that you also provide the validation-adjusted C statistic estimate for that model.
+6. Something we've seen **a lot** in looking at R Markdown files people have sent is the failure to include a blank line **before and after** every **heading and subheading**, and **every block of code**.
+7. Please make sure you have a real title for the work, that is no more than 80 characters long.
+8. Don't name the file `projectAproposal.Rmd` when it's not your proposal. A good generic name would be `2022_03_04_432_projA.Rmd` or `432projectA_2022-03-04.Rmd` assuming it's the version from that date (2022-03-04).
+9. Be sure to run the spell-check, and ideally, have someone else read through your work.
+10. We hate scrolling windows in HTML output caused by code that runs too long on one line. Use the ENTER key liberally to help avoid this problem, and check your HTML to see if it is happening.
+11. Make sure your headings are in an appropriate order, and that you have 13 main sections in your Project, as laid out in the sample project. Check your HTML to make sure the headings make sense, for instance, `10`, then `10.1`, then `10.1.1.` is OK, but `10`, then `10.0.1` isn't OK.
+12. If you're loading a package not on our [R packages list](https://thomaselove.github.io/432/r_packages.html), then you should definitely indicate why you're doing this at the top of your work as you load it. Also, don't load elements of the `tidyverse` separately - load them with `tidyverse` only.
 
 ## More General Announcements
 
