@@ -50,7 +50,7 @@ Take a look at [this toy example with explosive coefficients](https://rpubs.com/
 4. When you build a plot of the ROC curve for your final model, be sure it provides the same C statistic value as you get from the `lrm` fit to the data, and that you also provide the validation-adjusted C statistic estimate for that model.
 5. Something we've seen **a lot** in looking at R Markdown files people have sent is the failure to include a blank line **before and after** every **heading and subheading**, and **every block of code**.
 6. Please make sure you have a real title for the work, that is no more than 80 characters long.
-7. Don't name the file projectAproposal.Rmd when it's not your proposal.
+7. Don't name the file `projectAproposal.Rmd` when it's not your proposal. A good generic name would be `2022_03_04_432_projA.Rmd` or `432projectA_2022-03-04.Rmd` assuming it's the version from that date (2022-03-04).
 8. Be sure to run the spell-check, and ideally, have someone else read through your work.
 9. We hate scrolling windows in HTML output caused by code that runs too long on one line. Use the ENTER key liberally to help avoid this problem, and check your HTML to see if it is happening.
 10. Make sure your headings are in an appropriate order, and that you have 13 main sections in your Project, as laid out in the sample project. Check your HTML to make sure the headings make sense, for instance, `10`, then `10.1`, then `10.1.1.` is OK, but `10`, then `10.0.1` isn't OK.
