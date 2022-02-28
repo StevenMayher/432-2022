@@ -63,6 +63,7 @@ Take a look at [this toy example with explosive coefficients](https://rpubs.com/
 7. Be sure to run the spell-check, and ideally, have someone else read through your work.
 8. We hate scrolling windows in HTML output caused by code that runs too long on one line. Use the ENTER key liberally to help avoid this problem, and check your HTML to see if it is happening.
 9. Make sure your headings are in an appropriate order, and that you have 13 main sections in your Project, as laid out in the sample project. Check your HTML to make sure the headings make sense, for instance, 10, then 10.1, then 10.1.1. is OK, but 10, then 10.0.1 isn't OK.
+10. If you're loading a package not on our [R packages list](https://thomaselove.github.io/432/r_packages.html), then you should definitely indicate why you're doing this at the top of your work as you load it. Also, don't load elements of the `tidyverse` separately - load them with `tidyverse` only.
 
 ## More General Announcements
 
