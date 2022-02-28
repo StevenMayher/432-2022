@@ -44,13 +44,17 @@ Here's [a link to the start of the "tweetorial"](https://twitter.com/IsabellaGhe
 3. If there is a problem with the residual plots, use that fact in making a decision about which model to select as your final model. 
 4. If you have to select a final model with residual plot problems, describe how those problems might affect your conclusions.
 
-## Exploding Coefficients and Related Problems in Logistic Regression
+## Exploding Coefficients and Problems in Logistic Regression, and more generally, in Project A
 
 Take a look at [this toy example with explosive coefficients](https://rpubs.com/TELOVE/explosion_logistic_432) to see one way in which this problem can emerge and what to do about it.
 
 - The most common problem I see is people fitting models to predict a binary outcome using a predictor which completely determines that outcome (for example, if predictor > 12, then outcome is always no, or if predictor = "Yes" then outcome is always no.)
 - The second most common problem I see is people failing to drop levels of a categorical predictor after combining levels. Use the droplevels() command.
 - The third most common problem I see is people fitting restricted cubic splines or polynomials either to categorical predictors or to quantitative predictors with just a few observed values.
+- Another common problem happens when creating a decision rule. If 10% of your observations are "Yes" on your binary outcome, and 90% are "No", then use a .fitted value of something like 0.1 as your decision rule. Don't use 50% unless your observations are split pretty close to 50-50 between your two categories for your binary outcome.
+- Another problem I've seen **a lot** in looking at R Markdown files people have sent is the failure to include a blank line **before and after** every **heading and subheading**, and **every block of code**. Please make sure you have done this before you submit your Project A. 
+- Also, be sure to run the spell-check, and ideally, have someone else read through your work.
+- We also hate the scrolling windows in HTML output caused by code that runs too long on one line. Use the ENTER key liberally to help avoid this problem.
 
 ## More General Announcements
 
