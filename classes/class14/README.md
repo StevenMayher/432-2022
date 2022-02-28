@@ -59,11 +59,12 @@ Take a look at [this toy example with explosive coefficients](https://rpubs.com/
 
 ## More General Announcements
 
-1. David Robinson did a Tidy Tuesday live screencast on YouTube [analyzing the World Freedom Index in R](https://www.youtube.com/watch?v=VOzUHk3aaBw). I hope you find it useful and interesting.
-2. The [Cleveland R Users Group](https://www.meetup.com/Cleveland-UseR-Group/) is holding a Project Showcase on 2022-03-23 at 6 PM. If you're interested in attending or presenting, [here is the information](https://www.meetup.com/Cleveland-UseR-Group/events/284281072/).
-3. DPhi is holding a [5-week data science bootcamp in Python](https://dphi.tech/bootcamps/5-week-data-science-bootcamp) starting 2022-03-11 which seems to be free. I can't tell you anything about it, except that a couple of past students took a prior version and told me they liked it. There's material here on feature selection and building machine learning models.
-4. If you're interested in working on a COVID-19 project for Project B, you might consider [these repositories from BroadStreet Health](https://github.com/orgs/BroadStreet-Health/repositories).
-5. The American Statistical Association's 2022 Women in Statistics and Data Science conference will be [held in St. Louis, MO on October 6-8](https://ww2.amstat.org/meetings/wsds/2022/conferenceinfo.cfm) and session submission starts today. 
+1. Today, 2022-03-01 at 4 PM, Dr. Nancy Geller, Director of the Office of Biostatistics Research at the Heart and Lung Institute of the National Institutes of Health and past-President of the American Statistical Association, is speaking to CWRU students (especially in our MS program) about [What am I going to be when I grow up? Evolving as a statistician (zoom link)](https://cwru.zoom.us/j/98644220705?pwd%3DSGZkUFo0K2JMakFqOVpkUkdnYkZvZz09&sa=D&source=calendar&ust=1646496376642569&usg=AOvVaw2uDNWauFKQ_DW8KCpZLYNl). Please attend if you can (this is mandatory for our MS students.).
+2. David Robinson did a Tidy Tuesday live screencast on YouTube [analyzing the World Freedom Index in R](https://www.youtube.com/watch?v=VOzUHk3aaBw). I hope you find it useful and interesting.
+3. The [Cleveland R Users Group](https://www.meetup.com/Cleveland-UseR-Group/) is holding a Project Showcase on 2022-03-23 at 6 PM. If you're interested in attending or presenting, [here is the information](https://www.meetup.com/Cleveland-UseR-Group/events/284281072/).
+4. DPhi is holding a [5-week data science bootcamp in Python](https://dphi.tech/bootcamps/5-week-data-science-bootcamp) starting 2022-03-11 which seems to be free. I can't tell you anything about it, except that a couple of past students took a prior version and told me they liked it. There's material here on feature selection and building machine learning models.
+5. If you're interested in working on a COVID-19 project for Project B, you might consider [these repositories from BroadStreet Health](https://github.com/orgs/BroadStreet-Health/repositories).
+6. The American Statistical Association's 2022 Women in Statistics and Data Science conference will be [held in St. Louis, MO on October 6-8](https://ww2.amstat.org/meetings/wsds/2022/conferenceinfo.cfm) and session submission starts today. 
     - If you're interested in a [student membership in ASA, go here](https://www.amstat.org/membership/become-a-member). It's $25 per year for full-time students.
 
 ## Today's Agenda
