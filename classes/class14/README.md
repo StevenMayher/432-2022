@@ -21,7 +21,7 @@ Here's [a link to the start of the "tweetorial"](https://twitter.com/IsabellaGhe
 
 ## 432-Specific Items
 
-1. There is a Minute Paper after today's class. **Details to come.**
+1. There is a [Minute Paper after today's class](https://bit.ly/432-2022-min-14). Please complete it by noon tomorrow (2022-03-02).
 2. The Quiz 1 answer sketch is now on our Shared Drive in the Quiz 1 folder, and has been revised to add materials for Questions 2 and 21. You should have an email from me (sent 2022-02-23) containing your grade. See the last page of the Answer Sketch for class-wide results. I will close the Quiz 1 grades on 2022-03-04 at 9 PM. If you have questions about your grade, please email me before then to ask them.
 3. The [Course Calendar](https://thomaselove.github.io/432/calendar.html) now shows March at the top. January and February are now found at the bottom of the document.
 4. Project B instructions are coming this week. **Details to come.**
