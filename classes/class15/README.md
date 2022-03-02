@@ -23,9 +23,9 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 3. Remember that we do not have class next week, thanks to Spring Break. Our next class will be Tuesday 2022-03-15.
     - Dr. Love will be mostly away from email and not responding to Piazza from March 5-10. 
     - TA office hours are cancelled from March 5-11.
-    - It would be a great idea to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) (and catch up on reading *The Signal and the Noise* - you should have completed at least through Chapter 8) over the break.
-    - If you need more work over the break, I'd focus on [Lab 4](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab04/lab04_instructions.md) which is due on 2022-03-21, and which you should be able to complete after today's class.
-3. [Project B](https://github.com/THOMASELOVE/432-2022/tree/main/projectB) instructions will be available by 9 PM Friday.
+    - It would be a great idea to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) (and catch up on reading *The Signal and the Noise* - you should have completed at least through Chapter 8) over the break. I also posted an op-ed to Piazza that we'll discuss on 2022-03-15, to which you can contribute discussion.
+    - If you want to get a little bit ahead over the break, I'd focus on [Lab 4](https://github.com/THOMASELOVE/432-2022/blob/main/labs/lab04/lab04_instructions.md) which is due on 2022-03-21, and which you should be able to complete after today's class.
+4. [Project B](https://github.com/THOMASELOVE/432-2022/tree/main/projectB) instructions will be available by 9 PM Friday.
     - During the break, I recommend you read through the Project B instructions, and perhaps try to identify a partner if you want to work with one, but otherwise let that wait until we return on 2022-03-15. This will let me discuss the assignment with you in class 16. Also, the first deliverable with regard to Project B is brief and isn't due until 2022-03-28.
 
 ## This is our cat, Fuzzington.
