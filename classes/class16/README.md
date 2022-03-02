@@ -4,8 +4,19 @@
 :-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
 for everything | deadlines | expectations | from Dr. Love | zoom info | downloads | read/watch | need help?
 
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/figures/peng_2019-04-17.png)
+
 ## Materials for Today's Class
 
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/432_2022_slides16.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/432_2022_slides16.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+## Agenda
+
+1. We'll discuss the Project B instructions.
+2. We'll discuss how Project A went.
+3. We'll see examples of using multinomial models to fit regressions to predict nominal multi-categorical outcomes.
+
+## Announcements
+
+1. To come.
