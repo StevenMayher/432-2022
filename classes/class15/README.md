@@ -49,7 +49,7 @@ Here are some other issues that came up and that I want to talk about.
     - We don't grade by volume of written material, but by the quality of the material you present. Less is more. Some specific examples:
         - Validating the models. For OLS, the minimum requirement is validated summary statistics with validate for models A and B. There is no requirement that you also do something like split into training/test samples or use a k-fold cross-validation strategy. Same applies (with different summaries) for models Y and Z.
         - Writing a description of the effect of at least one predictor doesn’t mean you have to write one for each of the predictors. And you do this for the two **winning** models (one linear, one logistic) not all of the models you fit.
-        - Nowhere in the instructions do we suggest that you need to use tidymodels methods to fit models, or to use things like stan to fit a model. We're not secretly hoping you'll do so anyway.
+        - Nowhere in the instructions do we suggest that you need to use tidymodels methods to fit models, or to use things like stan to fit a model. We're **not** secretly hoping you'll do so anyway.
 3. Don't go over the time limit in the video presentation. Cut some of what you were going to talk about instead. Focus on the things we emphasized in the instructions.
 4. Good luck!
 
