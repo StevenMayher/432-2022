@@ -22,24 +22,28 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ### A Few Last Thoughts on Project A
 
-I asked people in the Minute Paper to tell me what their biggest concern was. Most of those concerns fell under the heading of 
+I asked people in the Minute Paper to tell me what their biggest concern was about the Minute Paper. Some common concerns were:
 
 - Getting it finished on time.
 - Making sure I meet all of the requirements.
 - Making good choices about what to present in the available time.
 - Feeling not completely confident about my decisions during the analysis.
+
+A few other common issues:
+
 - Using an outcome transformation other than the square, the square root, the logarithm or the inverse makes it very challenging to interpret the results.
     - Indeed it does. That's why I wouldn't do it.
 - I have one predictor which is on a very different scale than the others.
-    - Have you considered rescaling it?
+    - Have you considered rescaling it? If it's in thousands of dollars, rather than dollars, does that help?
 - Improving my visualizations 
-    - Generating attractive and readable versions of nomograms, plot(summary()) seem to be a big concern here. Be sure to show your data.
+    - Generating attractive and readable versions of nomograms, plot(summary()) seem to be the main concern here. Be sure to show your data.
 - Working with missing data. 
     - It is safest to assume MCAR for outcomes, MAR for all predictors for this project, from my perspective.
+    - I am equally happy with single or multiple imputation strategies for most of the work in this Project.
 
 Here are some other issues that came up and that I want to talk about.
 
-1. An ANOVA comparison of model Z to model Y can usually be done with lrm fits by running just anova(modelZ), since model Y is just model Z without the non-linear or interaction pieces, and anova(modelZ) tells us about that directly.
+1. An ANOVA comparison of model Z to model Y can usually be done with `lrm` fits by running just `anova(modelZ)`, since model Y is just model Z without the non-linear or interaction pieces, and `anova(modelZ)` tells us about that directly. Same goes for model B vs. A.
 2. There are **no** key steps to Project A analyses deliberately unmentioned in the instructions.
     - A related question is "Should I do everything I can think of with my data" and the clear answer is **NO**.
     - We don't grade by volume of written material, but by the quality of the material you present. Less is more. Some specific examples:
