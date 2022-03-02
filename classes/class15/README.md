@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. Please remember to submit Project A by 9 PM on Friday 2022-03-04. 
+1. Please remember to submit [Project A](https://github.com/THOMASELOVE/432-2022/tree/main/projectA) by 9 PM on Friday 2022-03-04. 
     - Incomplete work, or late work (arriving after 9:30 PM) will be massively penalized. Do not be late.
     - If you are working with a partner, one of you should submit everything, and the other should submit a one-page note to Canvas stating who your partner is, and that your partner will submit the work by 9 PM Friday.
     - If you are in the midst of a crisis that will prevent you from submitting the work in a timely fashion, Dr. Love needs to know that **now**. Email him directly (and now), or talk to him right after class.
