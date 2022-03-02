@@ -14,7 +14,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 1. Please remember to submit Project A by 9 PM on Friday 2022-03-04. 
     - Incomplete work, or late work (arriving after 9:30 PM) will be massively penalized. Do not be late.
     - If you are working with a partner, one of you should submit everything, and the other should submit a one-page note to Canvas stating who your partner is, and that your partner will submit the work by 9 PM Friday.
-    - If you are in the midst of a crisis that will prevent you from submitting the work in a timely fashion, Dr. Love needs to know that **now**.
+    - If you are in the midst of a crisis that will prevent you from submitting the work in a timely fashion, Dr. Love needs to know that **now**. Email him directly (and now), or talk to him right after class.
 2. Remember that we do not have class next week, thanks to Spring Break. Dr. Love will be mostly away from email from March 5-10. Our next class will be Tuesday 2022-03-15.
 3. It would be a great idea to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) (and catch up on reading *The Signal and the Noise* - you should have completed at least through Chapter 8) over the break.
 4. Project B instructions will be available by 9 PM Friday.
