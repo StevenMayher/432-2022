@@ -15,7 +15,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. We'll discuss the Project B instructions.
 2. We'll discuss how Project A went.
-3. We'll see examples of using multinomial models to fit regressions to predict nominal multi-categorical outcomes.
+3. We'll see whether [this op-ed piece by Aubrey Clayton in the New York Times](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/nyt_clayton_2022-03-01.pdf) prompted any discussion on Piazza.
+4. We'll see examples of using multinomial models to fit regressions to predict nominal multi-categorical outcomes.
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/figures/peng_2019-04-17.png)
 
