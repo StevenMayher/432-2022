@@ -1,7 +1,7 @@
 432 Project B Instructions for Spring 2022
 ================
 Thomas E. Love
-Last Updated: 2022-03-03 00:19:20
+Last Updated: 2022-03-04 08:42:20
 
 -   [1. Overview of Project B](#1-overview-of-project-b)
 -   [2. Deliverables and Deadlines](#2-deliverables-and-deadlines)
