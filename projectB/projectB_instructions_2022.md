@@ -105,12 +105,12 @@ B, you can work individually or in a group of two people.
         proceed further.
 
 6.  After receiving Dr. Love’s approval, you will prepare a portfolio of
-    your results with R Markdown and HTML, and give a 12 to 15-minute
+    your results with R Markdown and HTML, and give a 15-minute
     presentation (if no one asked any questions) of your work to
     Dr. Love in late April.
 
 7.  You will then make changes (as needed) in response to Dr. Love’s
-    comments during your presentation) and submit the final version of
+    comments during your presentation and submit the final version of
     the portfolio (Rmd and HTML and some data) to Canvas at the start of
     May.
 
@@ -127,7 +127,7 @@ There are three Project B deliverables:
     -   The form will open for responses on 2022-03-15.
     -   If you are working with a partner, exactly one of you will fill
         out the form, representing the team.
-2.  Your 20-minute **presentation** to Dr. Love in late April, which is
+2.  Your **presentation** to Dr. Love in late April, which is
     then followed by you revising your work in light of that
     conversation to produce …
 3.  Your **final version** of your portfolio and presentation materials.
@@ -823,8 +823,8 @@ helpful.
 > observations for Project B?
 
 I wouldn’t, no. If you want to work with a huge data set, then I
-encourage you to sample it down to at most 2,000 observations in a model
-development sample first (and perhaps as many as another 2,000
+encourage you to sample it down to at most 1,500 observations in a model
+development sample first (and perhaps as many as another 1,500
 observations in a model testing sample.) There are three main reasons
 for this:
 
@@ -838,9 +838,9 @@ for this:
     about 1000 observations tend to be very difficult to interpret, even
     if they are quite large.
 
-Some of you want to work with data sets up to 10,000 observations and
+Some of you want to work with data sets with more than 1,500 observations and
 that’s certainly fine, but if you propose a project where your analyses
-will involve more than 10,000 observations in total, I will be very
+will involve more than 2,000 observations in total, I will be very
 likely to require you to take a sample from your current proposed data
 to proceed. It’s just not worth boiling the ocean in this project. Of
 course, after the course is over, you can always ramp back up to a
@@ -869,7 +869,7 @@ What I would definitely not do is scan a list of correlations in the
 current data to see which ones look promising, and then forget that I
 did that when it came time to evaluate the models I developed. It’s fine
 to go on a fishing expedition in Project B, but then you have to
-severely temper your claims, an in particular you have to give up on
+severely temper your claims, and in particular you have to give up on
 drawing any substantial conclusions about causation or explanation and
 focus instead on a question about prediction, and (of course) validation
 of your model becomes essential.
