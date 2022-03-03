@@ -1,0 +1,536 @@
+---
+title: "NHANES Toy Data Cleaning Example for Project B"
+author: "Thomas E. Love"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+        toc: TRUE
+        toc_float: TRUE
+        number_sections: TRUE
+        code_folding: show
+        code_download: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+# Important Note {-}
+
+This is just the data cleaning work, and the creation of a codebook and summary of the data. Use the Project B template for a more complete discussion of what you need to do in the Project.
+
+# Packages I'll Use
+
+```{r, message = FALSE}
+library(here)
+library(magrittr)
+library(janitor)
+library(haven)
+library(nhanesA)
+library(naniar)
+library(rsample)
+library(gtsummary)
+library(tidyverse)
+```
+
+# Objective
+
+Suppose I wanted to include the following items in a data set, from both 2017-18 and 2015-16 NHANES.
+
+From the DEMO files: [`DEMO_J` for 2017-18](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.htm) and [`DEMO_I` for 2015-16](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.htm)
+
+- SEQN = Subject identifying code 
+- RIDSTATR = Interview/Examination Status (categorical)
+    - 1 = Interview only
+    - 2 = Interview and MEC examination (MEC = mobile examination center)
+- RIDAGEYR = Age in years (quantitative, topcoded at 80)
+    - All subjects ages 80 and over are coded as 80
+- RIAGENDR = Sex (categorical)
+    - 1 = Male, 2 = Female
+- RIDRETH3 = Race/Ethnicity (categorical)
+    - 1 = Mexican-American, 
+    - 2 = Other Hispanic (1 and 2 are often combined)
+    - 3 = Non-Hispanic White
+    - 4 = Non-Hispanic Black
+    - 6 = Non-Hispanic Asian
+    - 7 = Other Race including Multi-Racial
+    - Note that categories 1 and 2 are often combined, and sometimes we leave out category 7, or combine it with 6.
+
+From the Body Measures (BMX) files: [`BMX_J` for 2017-18](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm) and [`BMX_I` for 2015-16](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.htm) (BMX is part of the Examination data)
+
+- BMXWAIST = Waist Circumference in cm (quantitative)
+
+From the Cholesterol - High-Density Lipoprotein (HDL) files: [`HDL_J` for 2017-18](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/HDL_J.htm) and [`HDL_I` for 2015-16](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/HDL_I.htm) (HDL is part of the Lab data)
+
+- LBDHDD = Direct HDL cholesterol in mg/dl (quantitative)
+
+From the Current Health Status (HSQ) file [`HSQ_J` for 2017-18](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/HSQ_J.htm) and [`HSQ_I` for 2015-16](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/HSQ_I.htm) (HSQ is part of the Questionnaire data)
+
+- HSD010 = Self-reported general health (categorical)
+    - 1 = Excellent
+    - 2 = Very good
+    - 3 = Good
+    - 4 = Fair
+    - 5 = Poor
+    - 7 = Refused
+    - 9 = Don't Know
+
+Here is the process I would use to get going.
+
+# Get and do initial cleaning on the 2017-18 data
+
+## Pull in the Data from each necessary database for 2017-18, zap the labels and convert to tibbles
+
+```{r}
+demo_17raw <- nhanes('DEMO_J') %>%
+    zap_label() %>% tibble()
+
+# check: DEMO_J should have 9254 observations on 46 variables
+dim(demo_17raw)
+
+bmx_17raw <- nhanes('BMX_J') %>%
+    zap_label() %>% tibble()
+
+# check: BMX_J should have 8704 observations on 21 variables
+dim(bmx_17raw)
+
+hdl_17raw <- nhanes('HDL_J') %>%
+    zap_label() %>% tibble()
+
+# check: HDL_J should have 7435 observations on 3 variables
+dim(hdl_17raw)
+
+hsq_17raw <- nhanes('HSQ_J') %>%
+    zap_label() %>% tibble()
+
+# check: HSQ_J should have 8366 observations on 9 variables
+dim(hsq_17raw)
+```
+
+## Merge the data with `inner_join()`
+
+```{r}
+# create temp1 which includes all rows in both DEMO and BMX
+temp1 <- inner_join(demo_17raw, bmx_17raw, by = "SEQN")
+
+# check: temp1 should have 8704 observations on 66 variables
+# since everyone in BMX will also be in DEMO, by design
+# but not everyone in DEMO should also be in BMX
+# and since SEQN is in both files
+dim(temp1)
+
+# create temp2 which includes all rows in both HDL and HSQ
+temp2 <- inner_join(hdl_17raw, hsq_17raw, by = "SEQN")
+
+# check: temp2 should have 7435 observations on 11 variables
+# since everyone in HDL will also be in HSQ, by design
+# but not everyone in HSQ should also be in HDL
+# and since SEQN is in both files
+dim(temp2)
+
+# create merge_17raw which is all rows in both temp1 and temp2
+merge_17raw <- inner_join(temp1, temp2, by = "SEQN")
+
+# check: merge_17raw should have 7435 observations on 76 variables
+dim(merge_17raw)
+
+# clean up
+rm(temp1, temp2)
+```
+
+## Select the 8 variables we'll need and convert categorical variables to factors
+
+```{r}
+nh_17 <- merge_17raw %>%
+    select(SEQN, RIDSTATR, RIDAGEYR, RIAGENDR, RIDRETH3,
+           BMXWAIST, LBDHDD, HSD010) %>%
+    mutate(SEQN = as.character(SEQN),
+           RIDSTATR = factor(RIDSTATR),
+           RIAGENDR = factor(RIAGENDR),
+           RIDRETH3 = factor(RIDRETH3),
+           HSD010 = factor(HSD010))
+```
+
+## Add an indicator of the CYCLE in which the data were drawn
+
+```{r}
+nh_17 <- nh_17 %>%
+    mutate(CYCLE = "2017-18")
+
+nh_17
+```
+
+The resulting `nh_17` data should have 7435 observations on 9 variables
+
+# Get and do initial cleaning on the 2015-16 data
+
+## Pull in the Data from each necessary database for 2015-16, zap the labels and convert to tibbles
+
+```{r}
+demo_15raw <- nhanes('DEMO_I') %>%
+    zap_label() %>% tibble()
+
+# check: DEMO_I should have 9971 observations on 47 variables
+dim(demo_15raw)
+
+bmx_15raw <- nhanes('BMX_I') %>%
+    zap_label() %>% tibble()
+
+# check: BMX_I should have 9544 observations on 26 variables
+dim(bmx_15raw)
+
+hdl_15raw <- nhanes('HDL_I') %>%
+    zap_label() %>% tibble()
+
+# check: HDL_I should have 8021 observations on 3 variables
+dim(hdl_15raw)
+
+hsq_15raw <- nhanes('HSQ_I') %>%
+    zap_label() %>% tibble()
+
+# check: HSQ_I should have 9165 observations on 9 variables
+dim(hsq_15raw)
+```
+
+## Merge the data with `inner_join()`
+
+```{r}
+# create tempA which includes all rows in both DEMO and BMX
+tempA <- inner_join(demo_15raw, bmx_15raw, by = "SEQN")
+
+# check: tempA should have 9544 observations on 72 variables
+dim(tempA)
+
+# create tempB which includes all rows in both HDL and HSQ
+tempB <- inner_join(hdl_15raw, hsq_15raw, by = "SEQN")
+
+# check: tempB should have 8021 observations on 11 variables
+dim(tempB)
+
+# create merge_15raw which is all rows in both tempA and tempB
+merge_15raw <- inner_join(tempA, tempB, by = "SEQN")
+
+# check: merge_15raw should have 8021 observations on 82 variables
+dim(merge_15raw)
+```
+
+## Select the 8 variables we'll need and convert categorical variables to factors
+
+```{r}
+nh_15 <- merge_15raw %>%
+    select(SEQN, RIDSTATR, RIDAGEYR, RIAGENDR, RIDRETH3,
+           BMXWAIST, LBDHDD, HSD010) %>%
+    mutate(SEQN = as.character(SEQN),
+           RIDSTATR = factor(RIDSTATR),
+           RIAGENDR = factor(RIAGENDR),
+           RIDRETH3 = factor(RIDRETH3),
+           HSD010 = factor(HSD010))
+```
+
+## Add an indicator of the CYCLE in which the data were drawn
+
+```{r}
+nh_15 <- nh_15 %>%
+    mutate(CYCLE = "2015-16")
+
+nh_15
+```
+
+The resulting `nh_15` data should have 8021 observations on 9 variables
+
+# Combine the 2017-18 and 2015-16 tibbles
+
+```{r}
+nh_proj <- full_join(nh_15, nh_17)
+```
+
+Result should have 15456 observations on the same 9 variables.
+
+```{r}
+dim(nh_proj)
+```
+
+Most of the time in working with NHANES data, I restrict my work to adult subjects. Suppose here we want people between the ages of 20 and 79, to avoid the fact that NHANES classifies everyone over age 80 as `RIDAGEYR` = 80. The code I'd use is:
+
+```{r}
+nh_proj <- nh_proj %>%
+    filter(RIDAGEYR > 19 & RIDAGEYR < 80)
+
+nh_proj
+```
+
+and we wind up with 10,014 observations on 9 variables.
+
+# Checking The Variables
+
+## Quantitative variables 
+
+We have three quantitative variables: age (`RIDAGEYR`), waist circumference (`BMXWAIST`) and HDL Cholesterol (`LBDHDD`).
+
+Let's rename those variables.
+
+```{r}
+nh_proj <- nh_proj %>%
+    rename(AGE = RIDAGEYR, WAIST = BMXWAIST, HDL = LBDHDD)
+```
+
+Now, we'll check their ranges, and how much missingness we're dealing with using a quick `summary()`.
+
+```{r}
+nh_proj %>% select(AGE, WAIST, HDL) %>%
+    summary()
+```
+
+The ranges (minimum and maximum) for Age, Waist Circumference and HDL Cholesterol all seem fairly plausible to me in light of our earlier decisions. Perhaps you know better, and please do use that knowledge. We do have several hundred missing values in the waist circumference and HDL cholesterol values that we will need to deal with.
+
+## Categorical Variables
+
+### `RIDSTATR` and `CYCLE`
+
+We're just checking here to see that everyone has `RIDSTATR` status 2, meaning they completed both the questionnaire and the examination. Since they do, we'll also make sure our `CYCLE` variable works to indicate the NHANES reporting CYCLE for each subject.
+
+```{r}
+nh_proj %>% tabyl(CYCLE, RIDSTATR)
+```
+
+### RIAGENDR, which we'll change to `SEX` or `FEMALE`
+
+```{r}
+nh_proj %>% tabyl(RIAGENDR)
+```
+
+We certainly want to recode this and name it more effectively, and make it a non-numerical factor.
+
+```{r}
+nh_proj <- nh_proj %>%
+    mutate(SEX = ifelse(RIAGENDR == 1, "M", "F"))
+```
+
+Checking our results...
+
+```{r}
+nh_proj %>% tabyl(SEX, RIAGENDR)
+```
+
+Good. We can replace `RIAGENDR` with `SEX` moving forward. Another option would have been to use a 1/0 numeric variable, and if I'd wanted to do that, I would have run something like 
+
+```{r}
+nh_proj <- nh_proj %>%
+    mutate(FEMALE = as.numeric(RIAGENDR) - 1)
+
+nh_proj %>% tabyl(FEMALE, SEX)
+```
+
+### `RIDRETH3`, which we'll change to `RACE_ETH`
+
+Let's do the following:
+
+- Recode the levels of the `RIDRETH3` variable to use short, understandable group names.
+- Collapse the first two categories (Mexican-American and Other Hispanic) into a single category.
+- Change the variable name to `RACE_ETH`.
+- Sort the resulting factor in order of their counts.
+
+
+```{r}
+nh_proj <- nh_proj %>%
+    mutate(RACE_ETH = fct_recode(RIDRETH3,
+                                 "Hispanic" = "1",
+                                 "Hispanic" = "2",
+                                 "NH_White" = "3",
+                                 "NH_Black" = "4",
+                                 "NH_Asian" = "6",
+                                 "Other" = "7"),
+           RACE_ETH = fct_infreq(RACE_ETH))
+```
+
+Let's look at the results. Do we need to collapse further in this case?
+
+```{r}
+nh_proj %>% tabyl(RACE_ETH, RIDRETH3)
+```
+
+The most common `RACE_ETH` is Non-Hispanic White, followed by Hispanic, then Non-Hispanic Black, Non-Hispanic Asian and finally Other Race (including Multi-Racial.) We won't collapse any further for now.
+
+### `HSD010`, which we'll change to `SROH`
+
+- Again, we need to recode the levels of this categorical variable. 
+- I'll also rename the variable SROH (which is an abbreviation for self-reported overall health.) Always explain abbreviations.
+- We also need to convert the values 7 (Refused) and 9 (Don't Know) to missing values.
+
+```{r}
+nh_proj <- nh_proj %>%
+    mutate(HSD010 = na_if(HSD010, 7),
+           HSD010 = na_if(HSD010, 9)) %>%
+    mutate(SROH = fct_recode(HSD010,
+                             "Excellent" = "1",
+                             "Very_Good" = "2",
+                             "Good" = "3",
+                             "Fair" = "4",
+                             "Poor" = "5")) %>%
+    droplevels() # drop unused levels in all factors
+```
+
+```{r}
+nh_proj %>% tabyl(SROH, HSD010)
+```
+
+## Reset the variables we will actually use
+
+- We don't need `RIDSTATR` any more because we've checked and see that all its values are 2, as needed.
+- We've renamed some variables and replaced others with better versions.
+
+```{r}
+nh_proj <- nh_proj %>% 
+    select(SEQN, CYCLE, AGE, SEX, RACE_ETH, WAIST, HDL, SROH)
+```
+
+We should now have 10,014 observations on these 8 variables.
+
+```{r}
+dim(nh_proj)
+```
+
+## Missingness check
+
+```{r}
+miss_var_summary(nh_proj)
+```
+
+Three of our eight variables have missing values. We've got some imputation ahead of us.
+
+## What if HDL was our outcome?
+
+If one of those three variables with missing values was our outcome, say, for example, HDL, then we would filter our data for complete cases on that variable.
+
+```{r}
+nh_proj <- nh_proj %>% filter(complete.cases(HDL))
+
+dim(nh_proj)
+```
+
+and we're now down to 9418 observations on 8 variables. Here's the revised report on missing data.
+
+```{r}
+miss_var_summary(nh_proj) %>% filter(n_miss > 0)
+```
+
+How many observations have any missing values at all, now? How many are missing both `SROH` and `WAIST`?
+
+```{r}
+miss_case_table(nh_proj)
+```
+
+# Saving a Tidy Tibble
+
+```{r}
+saveRDS(nh_proj, here("data", "nh_proj.Rds"))
+```
+
+# Codebook
+
+A successful codebook for Project 2 will include:
+
+- a set of five or so statements about the data, followed by 
+- a `tbl_summary()` report from `gtsummary` or some equivalent brief description of the data, and that should be followed by 
+- a fuller report on the distributions from the `describe()` function from `Hmisc`.
+
+I've chosen here to build a codebook with some useful information describing the entire sample. In your project 2, I would be happy with a codebook using only your model training sample, or including the whole sample (training and testing together), or whatever else you feel is most useful to present. I would begin the codebook with statements like the ones shown below to fix ideas about the sample size, the missingness, the outcome (and you might have more than one, of course) and a statement about the roles for the other variables shown in the table below. If you look at the R Markdown code that generated this document, you will see that I have used in-line coding to fill in the counts of subjects in statements 1 and 2. You should, too.
+
+1. **Sample Size** The data in our complete `nh_proj` sample consist of `r nrow(nh_proj)` subjects from NHANES 2015-16 and NHANES 2017-18 between the ages of 20 and 79 in whom our outcome variable was measured. (If I had other inclusion/exclusion criteria, I would list them here.)
+2. **Missingness** Of the `r nrow(nh_proj)` subjects, `r n_case_complete(nh_proj %>% select(HDL, AGE, WAIST, CYCLE, SEX, RACE_ETH, SROH))` have complete data on all variables listed below.
+3. Our **outcome** variable is `HDL`, which is the subject's serum HDL cholesterol measured in mg/dl.
+4. All other variables listed below will serve as candidate **predictors** for our models.
+5. The other variable contained in my tidy tibble is `SEQN` which is the subject identifying code.
+
+## Using `gtsummary` to present key information about the variables
+
+Variables included in our analyses are summarized in the following table.
+
+```{r, warning = FALSE}
+nh_proj %>% 
+    select(HDL, AGE, WAIST, CYCLE, SEX, RACE_ETH, SROH) %>%
+    tbl_summary(.,
+        label = list(
+            HDL = "HDL (HDL Cholesterol in mg/dl)",
+            AGE = "AGE (in years)",
+            WAIST = "WAIST (circumference in cm)",
+            CYCLE = "CYCLE (NHANES reporting)",
+            RACE_ETH = "RACE_ETH (Race/Ethnicity)",
+            SROH = "SROH (Self-Reported Overall Health)"),
+        stat = list( all_continuous() ~ 
+                "{median} [{min} to {max}]" ))
+```
+
+## Data Distribution Description
+
+```{r, warning = FALSE}
+nh_proj %>% 
+    select(HDL, AGE, WAIST, CYCLE, SEX, RACE_ETH, SROH) %>%
+    Hmisc::describe() %>% Hmisc::html()
+```
+
+# Splitting into Testing/Training Samples
+
+## Splitting by `CYCLE`
+
+I've suggested to some of you that you use the `CYCLE` variable to split the data into a training sample (2015-16 data) and a test sample (2017-18 data). That would work like this:
+
+```{r}
+nh_1516 <- nh_proj %>% filter(CYCLE == "2015-16")
+nh_1718 <- nh_proj %>% filter(CYCLE == "2017-18")
+```
+
+and that's fine: you fit the model on `nh_1516` and then test it on the quality of predictions made for `nh_1718`. 
+
+## Splitting The Data with `initial_split`
+
+An **even better** option that takes advantage of the `initial_split` function would be to simply create a split of the data across the two cycles, ensuring that a similar fraction of subjects in each cycle are found in both the training and test samples.
+
+Suppose we want to accomplish the following:
+
+1. We want to use `initial_split()` to do our splitting into a training set of 1000 subjects and a testing set of 2500 additional subjects from the NHANES data in `nh_proj`, which contains `r nrow(nh_proj)` observations.
+
+2. We want the proportion of subjects within each combination of the categorical variable `CYCLE` within `nh_proj` to be preserved in both our training set and our testing set.
+
+Note that the table of percentages for `CYCLE` for the full `nh_proj` data follows.
+
+```{r}
+nh_proj %>% tabyl(CYCLE)
+```
+
+We first select 3500 subjects from our `nh_proj` data set in such a way as to preserve the percentages who fall into each `CYCLE`. 
+
+```{r}
+set.seed(432)
+nh_3500 <- nh_proj %>% group_by(CYCLE) %>% 
+    slice_sample(., prop = 3501/nrow(nh_proj))
+
+nh_3500 %>% tabyl(CYCLE)
+```
+
+- Note that these percentages are essentially the same as the percentages we saw across the full sample in `nhanes_proj` but now this is a (stratified) random sample of 3500 observations. 
+- Note also that I had to fool `slice_sample` into thinking I wanted a sample of 3501 out of the total rather than 3500 until I actually got exactly 3500 sampled subjects.
+
+Next, we use `initial_split()` to create training and testing samples according to our specifications (so 1000 in the training sample and 2500 in the testing sample, again preserving the fraction in each CYCLE.)
+
+```{r}
+nh_split <- initial_split(nh_3500, prop = 1000/3500, 
+                          strata = CYCLE)
+nh_training <- training(nh_split)
+nh_testing <- testing(nh_split)
+
+dim(nh_training)
+dim(nh_testing)
+```
+
+Now, let's check the fraction of subjects by `CYCLE` in each of our split samples.
+
+```{r}
+nh_training %>% tabyl(CYCLE)
+```
+
+```{r}
+nh_testing %>% tabyl(CYCLE)
+```
+
+OK. These match well to what we were looking for. We should be all set.
