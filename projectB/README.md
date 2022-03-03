@@ -9,7 +9,7 @@
     - The template uses [the `cardiac.csv` data](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/data/cardiac.csv) to fix ideas.
 3. Dr. Love wrote a toy NHANES example to demonstrate some data cleaning. [Here's the R Markdown](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/toy_nhanes_example.Rmd), and you can [view the HTML result at this RPubs link](https://rpubs.com/TELOVE/toy-nhanes-432)
 
-## Coming Later This Term
+## Project B Materials That Will Appear Later This Semester
 
 1. Dr. Love will decide between in-person and Zoom presentations by class time on 2022-03-15.
 2. The Project B Outline and Scheduling Google Form will appear on 2022-03-15 at http://bit.ly/432-2022-projectB-register.
