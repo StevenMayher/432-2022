@@ -22,7 +22,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ### A Few Last Thoughts on Project A
 
-I asked people in the Minute Paper to tell me what their biggest concern was about the Minute Paper. Some common concerns were:
+I asked people in the [Minute Paper](https://bit.ly/432-2022-min-14-feedback) to tell me what their biggest concern was about Project A. Some common concerns were:
 
 - Getting it finished on time.
 - Making sure I meet all of the requirements.
@@ -55,7 +55,7 @@ Here are some other issues that came up and that I want to talk about.
 
 ## Announcements
 
-1. Feedback on the Minute Paper after Class 14 **will be available by class time**.
+1. Feedback on the Minute Paper after Class 14 [is now available](https://bit.ly/432-2022-min-14-feedback).
 2. Remember that we do not have class next week, thanks to Spring Break. Our next class will be Tuesday 2022-03-15.
     - Dr. Love will be mostly away from email and not responding to Piazza from March 5-10. 
     - TA office hours are cancelled from March 5-11.
