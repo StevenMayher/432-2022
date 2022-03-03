@@ -35,6 +35,8 @@ A few other common issues:
     - Indeed it does. That's why I wouldn't do it.
 - I have one predictor which is on a very different scale than the others.
     - Have you considered rescaling it? If it's in thousands of dollars, rather than dollars, does that help?
+- I still have explosive coefficients.
+    - Look at what I talked about in Class 14. Another way this can happen is if you have a lot of collinearity. Are two of your predictors very highly correlated with each other? 
 - Improving my visualizations 
     - Generating attractive and readable versions of nomograms, plot(summary()) seem to be the main concern here. Be sure to show your data.
 - Working with missing data. 
