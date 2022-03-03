@@ -13,7 +13,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Agenda
 
-1. We'll discuss the [Project B instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectB) and I'll announce whether we'll use Zoom or in-person for the presentations.
+1. We'll discuss the [Project B instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectB) and I'll announce whether we'll use Zoom or in-person for the presentations, plus I'll open the [Project B Outline and Scheduling Google Form](http://bit.ly/432-2022-projectB-register).
 2. We'll discuss how Project A went.
 3. We'll see whether [this op-ed piece by Aubrey Clayton in the New York Times](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/nyt_clayton_2022-03-01.pdf) prompted any discussion on Piazza.
 4. We'll see examples of using multinomial models to fit regressions to predict nominal multi-categorical outcomes.
