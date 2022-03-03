@@ -1,0 +1,1133 @@
+---
+title: "432 Class 15 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-03-03"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+library(here); library(magrittr); library(janitor)
+library(conflicted); library(skimr)
+library(rms)
+library(MASS)
+library(nnet)
+library(tidyverse)
+
+theme_set(theme_bw())
+
+conflict_prefer("select", "dplyr")
+conflict_prefer("filter", "dplyr")
+```
+
+## Today's Materials
+
+**Regression Models for Ordered Multi-Categorical Outcomes**
+
+- Applying to Graduate School: An Example
+- Proportional Odds Logistic Regression Models
+- Using `polr`
+- Using `lrm`
+- Understanding and Interpreting the Model
+- Testing the Proportional Odds Assumption
+- Picturing the Model Fit
+
+**Not Discussed in Detail: slides 54-end**
+
+- Asbestos: A Second POLR example
+
+# Applying to Graduate School
+
+## These are **simulated** data
+
+This is a simulated data set of 530 students. 
+
+A study looks at factors that influence the decision of whether to apply to graduate school. 
+
+College juniors are asked if they are unlikely, somewhat likely, or very likely to apply to graduate school. Hence, our outcome variable has three categories. Data on parental educational status, whether the undergraduate institution is public or private, and current GPA is also collected. The researchers have reason to believe that the "distances" between these three points are not equal. For example, the "distance" between "unlikely" and "somewhat likely" may be shorter than the distance between "somewhat likely" and "very likely".
+
+```{r, message = FALSE}
+gradschool <- 
+  read_csv(here("data" , "gradschool_new.csv")) %>%
+  type.convert(as.is = FALSE)
+```
+
+## The `gradschool` data and my **Source**
+
+The **gradschool** example is adapted from [\textcolor{blue}{this UCLA site}](http://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/). 
+
+- There, they look at 400 students. 
+- I simulated a new data set containing 530 students.
+
+Variable | Description
+---------: | ----------------------------------------------
+`student` | subject identifying code (A001 - A530)
+`apply`   | 3-level ordered outcome: "unlikely", "somewhat likely" and "very likely" to apply
+`pared`   | 1 = at least one parent has a graduate degree, else 0
+`public`  | 1 = undergraduate institution is public, else 0
+`gpa`     | student's undergraduate grade point average (max 4.00)
+
+## Ensuring that our outcome is an ordered factor
+
+```{r}
+gradschool <- gradschool %>%
+    mutate(apply = fct_relevel(apply, "unlikely", 
+                        "somewhat likely", "very likely"),
+           apply = factor(apply, ordered = TRUE))
+
+is.ordered(gradschool$apply)
+```
+
+## Skim of the `gradschool` data
+
+```{r, echo = FALSE, fig.align = "center", out.width = '90%'}
+knitr::include_graphics(here("figures", "fig1.png"))
+```
+
+## Scatterplot Matrix (run with `message = F`)
+
+```{r, echo = FALSE, message = FALSE, fig.height = 6}
+GGally::ggpairs(gradschool %>% 
+                    select(gpa, pared, public, apply))
+```
+
+## Scatterplot Matrix (code, run with `message = F`)
+
+```{r, eval = FALSE, message = FALSE}
+GGally::ggpairs(gradschool %>% 
+                    select(gpa, pared, public, apply))
+```
+
+## Data (besides `gpa`) as Cross-Tabulation
+
+```{r}
+ftable(xtabs(~ public + apply + pared, data = gradschool))
+```
+
+## Bar Chart of `apply` classifications with %s
+
+```{r, echo = FALSE}
+ggplot(gradschool, aes(x = apply, fill = apply)) + 
+    geom_bar(aes(y = (..count..)/sum(..count..))) +
+    geom_text(aes(y = (..count..)/sum(..count..), 
+                  label = scales::percent((..count..) / 
+                                        sum(..count..))),
+              stat = "count", vjust = 1, 
+              color = "white", size = 5) +
+    scale_y_continuous(labels = scales::percent) +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none") + 
+    labs(y = "Percentage")
+```
+
+## Showing the percentages in each bar (code)
+
+```{r, eval = FALSE}
+ggplot(gradschool, aes(x = apply, fill = apply)) + 
+    geom_bar(aes(y = (..count..)/sum(..count..))) +
+    geom_text(aes(y = (..count..)/sum(..count..), 
+                  label = scales::percent((..count..) / 
+                                        sum(..count..))),
+              stat = "count", vjust = 1, 
+              color = "white", size = 5) +
+    scale_y_continuous(labels = scales::percent) +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none") + 
+    labs(y = "Percentage")
+```
+
+## Breakdown of `apply` percentages by `public`, `pared`
+
+```{r, echo = FALSE}
+ggplot(gradschool, aes(x = apply, fill = apply)) + 
+    geom_bar() +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none") + 
+    facet_grid(pared ~ public, labeller = "label_both")
+```
+
+## Breakdown of `apply` percentages by `public`, `pared` (code)
+
+```{r, eval = FALSE}
+ggplot(gradschool, aes(x = apply, fill = apply)) + 
+    geom_bar() +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none") + 
+    facet_grid(pared ~ public, labeller = "label_both")
+```
+
+## Breakdown of `gpa` by `apply`
+
+```{r, echo = FALSE}
+ggplot(gradschool, aes(x = apply, y = gpa, fill = apply)) + 
+    geom_violin(trim = TRUE) +
+    geom_boxplot(col = "white", width = 0.2) +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none")
+```
+
+## Breakdown of `gpa` by `apply` (code)
+
+```{r, eval = FALSE}
+ggplot(gradschool, aes(x = apply, y = gpa, fill = apply)) + 
+    geom_violin(trim = TRUE) +
+    geom_boxplot(col = "white", width = 0.2) +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none")
+```
+
+## Breakdown of `gpa` by all 3 other variables
+
+```{r, echo = FALSE}
+ggplot(gradschool, aes(x = apply, y = gpa)) +
+    geom_boxplot(aes(fill = apply), size = .75) +
+    geom_jitter(alpha = .25) +
+    facet_grid(pared ~ public, margins = TRUE, 
+               labeller = "label_both") +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none") +
+    theme(axis.text.x = 
+            element_text(angle = 45, hjust = 1, vjust = 1))
+```
+
+## Breakdown of `gpa` by all 3 other variables (code)
+
+```{r, eval = FALSE}
+ggplot(gradschool, aes(x = apply, y = gpa)) +
+    geom_boxplot(aes(fill = apply), size = .75) +
+    geom_jitter(alpha = .25) +
+    facet_grid(pared ~ public, margins = TRUE, 
+               labeller = "label_both") +
+    scale_fill_brewer(palette = "Set1") +
+    guides(fill = "none") +
+    theme(axis.text.x = 
+            element_text(angle = 45, hjust = 1, vjust = 1))
+```
+
+# Proportional Odds Logit Model via `polr`
+
+## Fitting the POLR model with `MASS::polr`
+
+We use the `polr` function from the `MASS` package:
+
+```{r}
+mod_p1 <- polr(apply ~ pared + public + gpa, 
+          data = gradschool, Hess=TRUE)
+```
+
+The `polr` name comes from proportional odds logistic regression, highlighting a key assumption of this model. 
+
+`polr` uses the standard formula interface in R for specifying a regression model with outcome followed by predictors. We also specify `Hess=TRUE` to have the model return the observed information matrix from optimization (called the Hessian) which is used to get standard errors.
+
+## Obtaining Predicted Probabilities from `mod_p1`
+
+To start we'll obtain predicted probabilities, which are usually the best way to understand the model.
+
+For example, we can vary `gpa` for each level of `pared` and `public` and calculate the model's estimated probability of being in each category of `apply`. 
+
+First, create a new tibble of values to use for prediction.
+
+```{r}
+newdat <- tibble(
+  pared = rep(0:1, 200),
+  public = rep(0:1, each = 200),
+  gpa = rep(seq(from = 1.9, to = 4, length.out = 100), 4))
+```
+
+## Obtaining Predicted Probabilities from `mod_p1`
+
+Now, make predictions using model `mod_p1`
+
+```{r}
+newdat_p1 <- cbind(newdat, 
+                 predict(mod_p1, newdat, type = "probs"))
+head(newdat_p1, 5)
+```
+
+## Reshape data
+
+Now, we reshape the data with `pivot_longer`
+
+```{r}
+newdat_long <- 
+  pivot_longer(newdat_p1, 
+               cols = c("unlikely":"very likely"),
+               names_to = "level",
+               values_to = "probability") %>%
+  mutate(level = fct_relevel(level, "unlikely",
+                             "somewhat likely"))
+
+head(newdat_long, 3)
+```
+
+## Plot the prediction results...
+
+```{r, echo = FALSE, fig.height = 6}
+ggplot(newdat_long, aes(x = gpa, y = probability, 
+                        color = level)) +
+    geom_line(size = 1.5) + 
+    scale_color_brewer(palette = "Set1") +
+    theme_bw() +
+    facet_grid(pared ~ public, labeller="label_both")
+```
+
+## Plot the prediction results... (code)
+
+```{r, eval = FALSE}
+ggplot(newdat_long, aes(x = gpa, y = probability, 
+                        color = level)) +
+    geom_line(size = 1.5) + 
+    scale_color_brewer(palette = "Set1") +
+    theme_bw() +
+    facet_grid(pared ~ public, labeller="label_both")
+```
+
+## Cross-Tabulation of Predicted/Observed Classifications
+
+Predictions in the rows, Observed in the columns
+
+```{r}
+addmargins(table(predict(mod_p1), gradschool$apply))
+```
+
+We only predict one subject to be in the "very likely" group by modal prediction.
+
+## Describing the Proportional Odds Logistic Model
+
+Our outcome, `apply`, has three levels. Our model has two logit equations: 
+
+- one estimating the log odds that `apply` will be less than or equal to 1 (`apply` = unlikely) 
+- one estimating the log odds that `apply` $\leq$ 2 (`apply` = unlikely or somewhat likely)
+
+That's all we need to estimate the three categories, since Pr(`apply` $\leq$ 3) = 1, because very likely is the maximum category for `apply`.
+
+- The parameters to be fit include two intercepts:
+    - $\zeta_1$ will be the `unlikely|somewhat likely` parameter
+    - $\zeta_2$ will be the `somewhat likely|very likely` parameter
+- We'll have a total of five free parameters when we add in the slopes ($\beta$) for `pared`, `public` and `gpa`.
+
+The two logistic equations that will be fit differ only by their intercepts.
+
+## `summary(mod_p1)`
+
+```{r, echo = F}
+summary(mod_p1)
+```
+
+## Understanding the Model
+
+$$ 
+logit[Pr(apply \leq 1)] = \zeta_1 - \beta_1 pared - \beta_2 public - \beta_3 gpa
+$$
+
+$$ 
+logit[Pr(apply \leq 2)] = \zeta_2 - \beta_1 pared - \beta_2 public - \beta_3 gpa
+$$
+
+So we have:
+$$ 
+logit[Pr(apply \leq unlikely)] = 3.87 - 1.15 pared - (-0.49) public - 1.14 gpa
+$$
+and
+$$
+logit[Pr(apply \leq somewhat)] = 5.94 - 1.15 pared - (-0.49) public - 1.14 gpa
+$$
+
+## `confint(mod_p1)`
+
+Confidence intervals for the slope coefficients on the log odds scale can be estimated in the usual way.
+
+```{r, echo = F}
+confint(mod_p1)
+```
+
+These CIs describe results in units of ordered log odds.
+
+- For example, for a one unit increase in `gpa`, we expect a 1.14 increase in the expected value of `apply` (95% CI 0.78, 1.51) in the log odds scale, holding `pared` and `public` constant.
+- This would be more straightforward if we exponentiated.
+
+## Exponentiating the Coefficients
+
+```{r}
+exp(coef(mod_p1))
+exp(confint(mod_p1))
+```
+
+## Interpreting the Coefficients
+
+Variable | Estimate | 95% CI
+--------: | -------: | --------------:
+`gpa` | 3.13 | (2.19, 4.53)
+`public` | 0.61 | (0.39, 0.93)
+`pared` | 3.17 | (2.07, 4.87)
+
+- When a student's `gpa` increases by 1 unit, the odds of moving from "unlikely" applying to "somewhat likely" or "very likely" applying are multiplied by 3.13 (95% CI 2.19, 4.52), all else held constant. 
+- For `public`, the odds of moving from a lower to higher `apply` status are multiplied by 0.61 (95% CI 0.39, 0.93) as we move from private to public, all else held constant.
+- How about `pared`?
+
+## Comparison to a Null Model
+
+```{r}
+mod_p0 <- polr(apply ~ 1, data = gradschool)
+
+anova(mod_p1, mod_p0)
+```
+
+## AIC and BIC are available, too
+
+We could also compare model `mod_p1` to the null model `mod_p0` with AIC or BIC.
+
+```{r}
+AIC(mod_p1, mod_p0)
+```
+
+```{r}
+BIC(mod_p1, mod_p0)
+```
+
+## Testing the Proportional Odds Assumption
+
+One way to test the proportional odds assumption is to compare the fit of the proportional odds logistic regression to a model that does not make that assumption. A natural candidate is a **multinomial logit** model, which is typically used to model unordered multi-categorical outcomes, and fits a slope to each level of the `apply` outcome in this case, as opposed to the proportional odds logit, which fits only one slope across all levels.
+
+Since the proportional odds logistic regression model is nested in the multinomial logit, we can perform a likelihood ratio test. To do this, we first fit the multinomial logit model, with the `multinom` function from the `nnet` package.
+
+## Fitting the multinomial model
+
+```{r}
+m1_multi <- multinom(apply ~ pared + public + gpa, 
+                      data = gradschool)
+```
+
+## The multinomial model
+
+```{r}
+m1_multi
+```
+
+## Comparing the Models
+
+The multinomial logit fits two intercepts and six slopes, for a total of 8 estimated parameters. 
+
+The proportional odds logit, as we've seen, fits two intercepts and three slopes, for a total of 5. The difference is 3, and we use that number in the sequence below to build our test of the proportional odds assumption.
+
+## Testing the Proportional Odds Assumption
+
+```{r}
+LL_1 <- logLik(mod_p1)
+LL_1m <- logLik(m1_multi)
+(G <- -2 * (LL_1[1] - LL_1m[1]))
+pchisq(G, 3, lower.tail = FALSE)
+```
+
+The *p* value is 0.018, so it indicates that the proportional odds model fits less well than the more complex multinomial logit. 
+
+## Comparing AIC and BIC
+
+```{r}
+AIC(mod_p1)
+AIC(m1_multi)
+```
+
+
+```{r}
+BIC(mod_p1)
+BIC(m1_multi)
+```
+
+## What to do in light of these results...
+
+- A non-significant *p* value here isn't always the best way to assess the proportional odds assumption, but it does provide some evidence of model adequacy.
+- The stronger BIC (and only slightly worse AIC) for our POLR model relative to the multinomial gives us some conflicting advice.
+    - One alternative would be to fit the multinomial model instead. 
+    - Another would be to fit a check of residuals (see Frank Harrell's RMS text.)
+    - Another would be to fit a different model for ordinal regression. Several are available (check out `orm` in the `rms` package, for instance.)
+
+# Using `lrm` for Proportional Odds Logistic Regression
+
+## Using `lrm` to work through this model
+
+```{r}
+d <- datadist(gradschool)
+options(datadist = "d")
+mod <- lrm(apply ~ pared + public + gpa, 
+           data = gradschool, x = T, y = T)
+```
+
+## `mod` output
+
+```{r, echo = FALSE, fig.align = "center", out.width = '90%'}
+knitr::include_graphics(here("figures", "fig2.png"))
+```
+
+## `summary(mod)`
+
+```{r, echo = FALSE}
+summary(mod)
+```
+
+## `plot(summary(mod))`
+
+```{r, echo = FALSE}
+plot(summary(mod))
+```
+
+## Coefficients in our equation
+
+```{r}
+mod$coef
+```
+
+## Nomogram of `mod` (code)
+
+```{r, eval = FALSE}
+fun.1 <- function(x) 1 - plogis(x)
+fun.3 <- function(x) 
+    plogis(x - mod$coef[1] + mod$coef[2])
+
+plot(nomogram(mod,
+    fun=list('Prob Y = 1 (unlikely)' = fun.1, 
+             'Prob Y = 3 (very likely)' = fun.3)))
+```
+
+## Nomogram of `mod` (result)
+
+```{r, echo = FALSE}
+fun.1 <- function(x) 1 - plogis(x)
+fun.3 <- function(x) 
+    plogis(x - mod$coef[1] + mod$coef[2])
+
+plot(nomogram(mod,
+    fun=list('Prob Y = 1 (unlikely)' = fun.1, 
+             'Prob Y = 3 (very likely)' = fun.3)))
+```
+
+## `set.seed(432); validate(mod)`
+
+```{r, echo = FALSE}
+set.seed(432); validate(mod)
+```
+
+## Some Sources for Ordinal Logistic Regression
+
+- A good source of information on fitting these models is https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/
+    + Another good source, that I leaned on heavily here, using a simple example, is 
+https://onlinecourses.science.psu.edu/stat504/node/177. 
+    + Also helpful is https://onlinecourses.science.psu.edu/stat504/node/178 which shows a more complex example nicely.
+
+## What's in the rest of this slide deck?
+
+The remaining slides present a second, detailed example, for fitting ordinal regression models using some data on asbestos, as well as comparing the fit of `lrm` models to multinomial alternatives. This material may be especially helpful in doing Lab 4.
+
+### What's coming after Spring Break
+
+- Fitting Models for Nominal Multi-Categorical Outcomes
+
+
+# A Second Example (Asbestos)
+
+## Setup for our Asbestos Example
+
+```{r packages, message=FALSE, warning=FALSE}
+library(knitr); library(janitor); library(magrittr)
+library(caret); library(nnet); library(MASS)
+library(broom); library(rms)
+library(conflicted)
+library(tidyverse)
+
+theme_set(theme_bw())
+
+conflict_prefer("select", "dplyr")
+conflict_prefer("summarize", "dplyr")
+```
+
+```{r data, message = FALSE}
+asbestos <- read_csv("data/asbestos.csv") %>% 
+    type.convert(as.is = FALSE)
+```
+
+## Asbestos Exposure in the U.S. Navy
+
+These data describe 83 Navy workers, engaged in jobs involving potential asbestos exposure. 
+
+- The workers were either removing asbestos tile or asbestos insulation, and we might reasonably expect that those exposures would be different (with more exposure associated with insulation removal). 
+- The workers either worked with general ventilation (like a fan or naturally occurring wind) or negative pressure (where a pump with a High Efficiency Particulate Air filter is used to draw air (and fibers) from the work area.) 
+- The duration of a sampling period (in minutes) was recorded, and their asbestos exposure was measured and classified in three categories: 
+    + low exposure (< 0.05 fibers per cubic centimeter), 
+    + action level (between 0.05 and 0.1) and 
+    + above the legal limit (more than 0.1 fibers per cc).
+
+**Source** Simonoff JS (2003) *Analyzing Categorical Data*. New York: Springer, Chapter 10.
+
+## Our Outcome and Modeling Task
+
+We'll predict the ordinal Exposure variable, in an ordinal logistic regression model with a proportional odds assumption, using the three predictors 
+
+- Task (Insulation or Tile), 
+- Ventilation (General or Negative pressure, which I'll abbreviate as NP) and 
+- Duration (in minutes). 
+
+Exposure is determined by taking air samples in a circle of diameter 2.5 feet around the worker's mouth and nose.
+
+## Summarizing the Asbestos Data
+
+We'll make sure the Exposure factor is ordinal...
+
+```{r}
+asbestos <- asbestos %>%
+    mutate(Exposure = factor(Exposure, ordered = TRUE))
+```
+
+```{r}
+summary(asbestos[,2:5])
+```
+
+# Fitting `polr` models with the ` MASS::polr` function
+
+## The Proportional-Odds Cumulative Logit Model
+
+We'll use the `polr` function in the `MASS` library to fit our ordinal logistic regression.
+
+- Clearly, Exposure group (3) Above legal limit, is worst, followed by group (2) Action level, and then group (1) Low exposure.
+- We'll have two indicator variables (one for Task and one for Ventilation) and then one continuous variable (for Duration). 
+- The model will have two logit equations: one comparing group (1) to group (2) and one comparing group (2) to group (3), and three slopes, for a total of five free parameters. 
+
+## Equations to be Fit
+
+The equations to be fit are:
+
+\[
+log(\frac{Pr(Exposure \leq 1)}{Pr(Exposure > 1)}) = \beta_{0[1]} + \beta_1 Task + \beta_2 Ventilation + \beta_3 Duration
+\]
+
+and
+
+\[
+log(\frac{Pr(Exposure \leq 2)}{Pr(Exposure > 2)}) = \beta_{0[2]} + \beta_1 Task + \beta_2 Ventilation + \beta_3 Duration
+\]
+
+where the intercept term is the only piece that varies across the two equations.
+
+- A positive coefficient $\beta$ means that increasing the value of that predictor tends to *lower* the Exposure category, and thus the asbestos exposure.
+
+## Fitting the Model with the `polr` function in `MASS`
+
+```{r fit model.A}
+model.A <- polr(Exposure ~ Task + Ventilation + Duration, 
+                data=asbestos, Hess = TRUE)
+```
+
+## Model Summary
+
+```{r}
+summary(model.A)
+```
+
+## Explaining the Model Summary
+
+The first part of the output provides coefficient estimates for the three predictors. 
+
+```
+Coefficients:
+                  Value Std. Error t value
+TaskTile      -2.251333   0.644793 -3.4916
+VentilationNP -2.156979   0.567541 -3.8006
+Duration      -0.000708   0.003799 -0.1864
+```
+
+- The estimated slope for Task = Tile is -2.25. This means that Task = Tile provides less exposure than does the other Task (Insulation) so long as the other predictors are held constant. 
+- Typically, we would express this in terms of an odds ratio.
+
+## Odds Ratios and CI for Model A
+
+```{r odds ratios for A}
+exp(coef(model.A))
+exp(confint(model.A))
+```
+
+
+## `tidy` for `polr` models...
+
+```{r, eval = FALSE}
+tidy(model.A, conf.int = TRUE)
+```
+
+```{r, echo = FALSE}
+a <- tidy(model.A, conf.int = TRUE) 
+
+a %>% select(term, estimate, std.error, statistic) %>%
+  kable(digits = 3)
+
+a %>% select(term, conf.low, conf.high, coef.type) %>% kable(digits = 3) 
+```
+
+## `tidy` for `polr` models, exponentiated..
+
+```{r, eval = FALSE}
+tidy(model.A, exponentiate = TRUE, conf.int = TRUE)
+```
+
+```{r, echo = FALSE}
+a <- tidy(model.A, exponentiate = TRUE, conf.int = TRUE) 
+
+a %>% select(term, estimate, std.error, statistic) %>%
+  kable(digits = 3)
+
+a %>% select(term, conf.low, conf.high, coef.type) %>% kable(digits = 3) 
+```
+
+
+## Assessing the Ventilation Coefficient
+
+```
+Coefficients:
+                  Value Std. Error t value
+TaskTile      -2.251333   0.644793 -3.4916
+VentilationNP -2.156979   0.567541 -3.8006
+Duration      -0.000708   0.003799 -0.1864
+```
+
+Similarly, the estimated slope for Ventilation = Negative pressure (-2.16) means that Negative pressure provides less exposure than does General Ventilation. We see a relatively modest effect (near zero) associated with Duration.
+
+## Summary of Model A: Estimated Intercepts
+
+```
+Intercepts:
+                      Value   Std. Error t value
+1_Low|2_Action        -2.0575  0.6611    -3.1123
+2_Action|3_AboveLimit -1.5111  0.6344    -2.3820
+```
+
+The first parameter (-2.06) is the estimated log odds of falling into category (1) low exposure versus all other categories, when all of the predictor variables (Task, Ventilation and Duration) are zero. So the first estimated logit equation is:
+
+\[
+log(\frac{Pr(Exposure \leq 1)}{Pr(Exposure > 1)}) = 
+\]
+
+\[
+-2.06 - 2.25 [Task=Tile] -2.16 [Vent=NP] - 0.0007 Duration
+\]
+
+
+## Summary of Model A: Estimated Intercepts
+
+```
+Intercepts:
+                      Value   Std. Error t value
+1_Low|2_Action        -2.0575  0.6611    -3.1123
+2_Action|3_AboveLimit -1.5111  0.6344    -2.3820
+```
+
+The second parameter (-1.51) is the estimated log odds of category (1) or (2) vs. (3). The estimated logit equation is:
+
+\[
+log(\frac{Pr(Exposure \leq 2)}{Pr(Exposure > 2)}) = 
+\]
+
+\[
+-1.51 - 2.25 [Task=Tile] -2.16 [Vent=NP] - 0.0007 Duration
+\]
+
+## Comparing Model A to an "Intercept only" Model
+
+```{r }
+model.1 <- polr(Exposure ~ 1, data=asbestos)
+anova(model.1, model.A)
+```
+
+What about AIC and BIC?
+
+## Comparing Model A to an "Intercept only" Model
+
+```{r}
+AIC(model.1, model.A)
+BIC(model.1, model.A)
+```
+
+## Comparing Model A to Model without Duration
+
+```{r}
+model.TV <- polr(Exposure ~ Task + Ventilation, data=asbestos)
+anova(model.A, model.TV)
+```
+
+## Comparing Model A to Model without Duration
+
+```{r}
+AIC(model.A, model.TV)
+BIC(model.A, model.TV)
+```
+
+## Is a Task*Ventilation Interaction helpful?
+
+```{r}
+model.TxV <- polr(Exposure ~ Task * Ventilation, data=asbestos)
+anova(model.TV, model.TxV)
+```
+
+## Is a Task*Ventilation Interaction helpful?
+
+```{r}
+AIC(model.TV, model.TxV)
+BIC(model.TV, model.TxV)
+```
+
+
+## `asbestos` Likelihood Ratio Tests
+
+Model | Elements | DF | Deviance | Test | *p*
+---: | --- | ---: | ---: | ---: | ---:
+1 | Intercept | 81 |  147.62 | -- | --
+2 | D | 80 | 142.29 | vs 1 | 0.021
+3 | T | 80 | 115.36 | vs 1 | < 0.0001
+4 | V | 80 | 115.45 | vs 1 | < 0.0001
+5 | T+V | 79 | 99.91 | vs 4 | < 0.0001
+6 | T*V | 78 | 99.64 | vs 5 | 0.60
+7 | T+V+D | 78 | 99.88 | vs 5 | 0.85
+
+- T = Task
+- V = Ventilation
+- D = Duration
+
+## In-Sample Predictions with our `T+V` model
+
+```{r}
+model.TV <- polr(Exposure ~ Task + Ventilation, 
+                 data=asbestos)
+
+asbestos <- asbestos %>%
+  mutate(TV_preds = predict(model.TV))
+
+asbestos %>% tabyl(TV_preds, Exposure) %>% 
+  adorn_title() %>% kable()
+```
+
+## Accuracy of These Classifications?
+
+```{r}
+asbestos %>% tabyl(TV_preds, Exposure) %>% 
+  adorn_title() %>% kable()
+```
+
+- Predicting Low exposure led to 42 right and 13 wrong.
+- We never predicted Action Level
+- Predicting Above Legal Limit led to 22 right and 6 wrong.
+
+Total: 64 right, 19 wrong. Accuracy = 64/83 = 77.1%
+
+## 5-fold cross-validation for `polr` model?
+
+We'll use some tools from the `caret` package for this work, rather than `tidymodels` because I want to use the `polr` engine.
+
+```{r}
+set.seed(2021)
+train.control <- trainControl(method = "cv", number = 5)
+modTV_cv <- train(Exposure ~ Task + Ventilation, 
+                       data = asbestos, method = "polr",
+                  trControl = train.control)
+```
+
+## Results of 5-fold cross-validation `modTV_cv`
+
+```{r, echo = FALSE}
+modTV_cv
+```
+
+## Which `kappa` is that?
+
+Fleiss' `kappa`, or $\kappa$ describes the extent to which the observed agreement between the predicted classifications and the actual classifications exceeds what would be expected if the predictions were made at random. 
+
+- Larger values of $\kappa$ indicate better model performance ($\kappa$ = 0 indicates very poor agreement between model and reality, $\kappa$ near 1 indicates almost perfect agreement.)
+
+```
+Resampling results across tuning parameters:
+
+  method    Accuracy   Kappa    
+  cauchit   0.7716503  0.5464191
+  cloglog   0.7605392  0.5277378
+  logistic  0.7716503  0.5464191
+  loglog    0.7716503  0.5464191
+  probit    0.7716503  0.5464191
+```
+
+## Is the proportional odds assumption reasonable?
+
+Alternative: fit a multinomial model?
+
+```{r}
+mult_TV <- multinom(Exposure ~ Task + Ventilation, 
+                       data = asbestos, trace = FALSE)
+```
+
+## View the Multinomial Model?
+
+```{r}
+mult_TV
+```
+
+## In-Sample Predictions with the multinomial `T+V` model
+
+```{r}
+asbestos <- asbestos %>%
+  mutate(TVmult_preds = predict(mult_TV))
+
+asbestos %>% tabyl(TVmult_preds, Exposure) %>% 
+  adorn_title() %>% kable()
+```
+
+## Compare Models with Likelihood Ratio Test?
+
+```{r}
+(LL_multTV <- logLik(mult_TV)) # multinomial model: 6 df
+(LL_polrTV <- logLik(model.TV)) # polr model: 4 df
+
+(G = -2 * (LL_polrTV[1] - LL_multTV[1]))
+
+pchisq(G, 2, lower.tail = FALSE)
+
+```
+
+*p* = 0.4 testing the difference in goodness of fit between the proportional odds model and the more complex multinomial logistic regression model. AIC and BIC?
+
+## AIC and BIC for multinomial vs. polr models
+
+```{r}
+AIC(mult_TV, model.TV)
+BIC(mult_TV, model.TV)
+```
+
+- `mult_TV` is the multinomial model
+- `model.TV` is the polr model
+
+# Using `rms` to fit ordinal logistic regression models
+
+## Proportional Odds Ordinal Logistic Regression with `lrm`
+
+```{r}
+d <- datadist(asbestos)
+options(datadist = "d")
+
+model_TV_LRM <- lrm(Exposure ~ Task + Ventilation,
+                 data = asbestos, x = TRUE, y = TRUE)
+
+# note that Exposure must be an ordered factor
+```
+
+## POLR results via `lrm` (slide 1)
+
+```{r, eval = FALSE}
+model_TV_LRM
+```
+
+```
+Logistic Regression Model
+ 
+ lrm(formula = Exposure ~ Task + Ventilation, 
+      data = asbestos, x = TRUE, y = TRUE)
+ 
+                                     Model Likelihood     
+                                        Ratio Test        
+ Obs                       83       LR chi2      47.71        
+  (1) Low exposure         45       d.f.             2        
+  (2) Action level          6       Pr(> chi2) <0.0001        
+  (3) Above legal limit    32                                 
+ max |deriv|            3e-10                             
+```
+
+## POLR results via `lrm` (slide 2)
+
+```
+ lrm(formula = Exposure ~ Task + Ventilation + Duration, 
+      data = asbestos, x = TRUE, y = TRUE)
+
+  Discrimination    Rank Discrim.    
+     Indexes          Indexes       
+  R2       0.526    C       0.854    
+  g        2.064    Dxy     0.708    
+  gr       7.877    gamma   0.839    
+  gp       0.371    tau-a   0.396    
+  Brier    0.127                     
+```
+
+## POLR results via `lrm` (slide 3)
+
+```
+ lrm(formula = Exposure ~ Task + Ventilation + Duration, 
+      data = asbestos, x = TRUE, y = TRUE)
+
+                               Coef   S.E.  Wald Z Pr(>|Z|)
+y>=(2) Action level            1.9713 0.4695  4.20  <0.0001 
+y>=(3) Above legal limit       1.4256 0.4348  3.28   0.0010  
+Task=Tile                     -2.2868 0.6173 -3.70   0.0002  
+Ventilation=Negative pressure -2.1596 0.5675 -3.81   0.0001  
+```
+
+## Plot effects of the coefficients (with `lrm`)
+
+```{r, fig.height = 5}
+plot(summary(model_TV_LRM))
+```
+
+
+## POLR results with `lrm`, plotted
+
+```{r, fig.height = 3}
+ggplot(Predict(model_TV_LRM))
+ggplot(Predict(model_TV_LRM, fun = plogis))
+```
+
+
+## Ordinal Logistic Regression for `T+V` with `orm`
+
+```{r}
+d <- datadist(asbestos)
+options(datadist = "d")
+
+model_TV_ORM <- orm(Exposure ~ Task + Ventilation,
+                 data = asbestos, x = TRUE, y = TRUE)
+
+# note that Exposure must be an ordered factor
+```
+
+## Results for `model_TV_ORM` fit with `orm`
+
+**(I'll neaten these up on the next two slides.)**
+
+```{r}
+model_TV_ORM
+```
+
+## `orm` fit for `T+V` model (slide 1 of 2)
+
+```{r, eval = FALSE}
+model_TV_ORM
+```
+
+```
+Logistic (Proportional Odds) Ordinal Regression Model
+
+orm(formula = Exposure ~ Task + Ventilation, 
+       data = asbestos, x = TRUE, y = TRUE)
+ 
+                              Model Likelihood
+                                 Ratio Test   
+ Obs                    83  LR chi2      47.71
+  (1) Low exposure      45  d.f.             2                     
+  (2) Action level       6  Pr(> chi2) <0.0001                     
+  (3) Above legal limit 32  Score chi2   42.42                     
+ Distinct Y      3          Pr(> chi2) <0.0001                                                  
+ Median Y        1                                                                               
+ max |deriv| 6e-05                                                                           
+```
+
+## `orm` fit for `T+V` model (slide 2 of 2)
+
+```
+Logistic (Proportional Odds) Ordinal Regression Model
+
+Discrimination Indexes 
+R2  0.526    rho  0.697
+g   2.064    gr   7.877   |Pr(Y>=median)-0.5| 0.301                   
+
+                                Coef   S.E.  Wald Z Pr(>|Z|)
+ y>=(2) Action level            1.9713 0.4695  4.20  <0.0001 
+ y>=(3) Above legal limit       1.4256 0.4348  3.28   0.0010  
+ Task=Tile                     -2.2868 0.6173 -3.70   0.0002  
+ Ventilation=Negative pressure -2.1596 0.5675 -3.81   0.0001  
+```
+
+## Plot effects of coefficients from `orm`
+
+```{r, fig.height = 5}
+plot(summary(model_TV_ORM))
+```
+
+## POLR model fit with `orm`, plotted
+
+```{r, fig.height = 3}
+ggplot(Predict(model_TV_ORM))
+ggplot(Predict(model_TV_ORM, fun = plogis))
+```
+
+## `rms::validate` results from `lrm`
+
+```{r, eval = FALSE}
+set.seed(432)
+validate(model_TV_LRM)
+```
+
+```
+             index                               index
+              orig training    test optimism corrected  n
+Dxy         0.7077   0.7175  0.7082   0.0093    0.6984 40
+R2          0.5260   0.5426  0.5183   0.0243    0.5017 40
+Intercept   0.0000   0.0000 -0.0279   0.0279   -0.0279 40
+Slope       1.0000   1.0000  0.9464   0.0536    0.9464 40
+```
+
+
+## `rms::validate` results from `orm`
+
+```{r}
+set.seed(4322021)
+validate(model_TV_ORM)
+```
+
+`rho` = Spearman's rank correlation between linear predictor and outcome
+`R2` = Nagelkerke R-square
+
+## Predictions (greater than or equal to)
+
+```{r}
+head(predict(model_TV_LRM, type = "fitted"),3)
+```
+
+## Predictions (individual)
+
+```{r}
+head(predict(model_TV_LRM, type = "fitted.ind"),3)
+```
+
+
+## Nomogram?
+
+First, we'll create the functions to estimate the probabilities of falling into groups 1, 2, and 3.
+
+```{r}
+model_TV_LRM$coef
+```
+
+So `plogis` by default uses the first intercept shown, and to get the machine to instead use the second one, we need:
+
+```{r}
+fun3 <- function(x) plogis(x - model_TV_LRM$coef[2])
+```
+
+## Plot the Nomogram
+
+```{r, eval = FALSE}
+plot(nomogram(model_TV_LRM, 
+         fun = list( 'Pr(y >= 2)' = plogis,
+                     'Pr(y >= 3)' = fun3)))
+```
+
+Shown on next slide.
+
+---
+
+```{r, echo = FALSE}
+plot(nomogram(model_TV_LRM, 
+         fun = list( 'Pr(y >= 2)' = plogis,
+                     'Pr(y >= 3)' = fun3)))
+
+```
