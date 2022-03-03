@@ -1,0 +1,247 @@
+---
+title: "Your Title (No more than 80 characters) goes here"
+author: "Your Name Goes Here"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+    number_sections: yes
+    code_folding: show
+    code_download: TRUE
+---
+
+```{r knitr_init, echo=FALSE, cache=FALSE, warning = FALSE}
+library(knitr); library(rmdformats)
+
+## Global options
+opts_chunk$set(echo=TRUE,
+               cache=FALSE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+For this template to work, you'll need to install the `rmdformats` package in your R session, using the command 
+```
+install.packages("rmdformats")
+```
+
+## Preliminaries {-}
+
+```{r load_necessary_packages_for_your_analyses}
+# I think every project will need at least these packages
+library(here)
+library(janitor)
+library(knitr)
+library(magrittr)
+
+library(naniar)
+library(gtsummary)
+library(broom); library(rsample); library(yardstick)
+library(rms)
+
+## add more packages here as desired
+
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+Be sure to add any additional packages you want to use, and leave the `tidyverse` last.
+
+# Background
+
+Describe the problem you are trying to solve, in such a way as to set up your research questions and data. 
+
+- Be sure you address the key question about your study - which is ... "So what?" Why should we care about this study and its conclusions? How might it advance our understanding of the world?
+- Note that you'll return to this "so what" idea at the end of your presentation, so you should be linking what you write here with what you write there.
+
+# Research Questions
+
+Specify your research questions.
+
+1. Research Question 1 goes here.
+
+2. Research Question 2 goes here.
+
+# My Data
+
+Describe your data source(s) here, being sure to give proper credit to the people responsible for collecting the data and making it available to you (including a URL if appropriate). Be sure to make it incredibly clear why these data relate to your research questions, and what the limitations and advantages are of your choice of data.
+
+## Data Ingest
+
+Note that the data I am using here describe 220 men and 338 women who underwent dobutamine stress echocardiography, and then were followed for 12 months, and this comprises the complete sample of patients included in the study. The `cardiac` data have no subject codes, so I'll add them as part of my data ingesting process.
+
+```{r load_data_here, message = FALSE}
+card0 <- read_csv(here("data", "cardiac.csv")) %>% 
+    clean_names() %>%
+    haven::zap_label() %>% # if you have any labeled data
+    type.convert() # creating factors from characters
+
+card0 <- card0 %>%
+    mutate(subject = as.character(1:nrow(card0)))
+```
+
+As originally loaded, the `card0` data contain `r nrow(card0)` rows and `r ncol(card0)` columns. 
+
+## Tidying, Data Cleaning and Data Management
+
+Here's where you place all of your data management work. You should be using tools from the `tidyverse` wherever possible. Either before or after the code, as I have suggested below, specify what the code does in English.
+
+There are several things going on in the next bit of code, which maintains the original as-imported data as `card0` but creates a new tibble called `stress_echo`. 
+
+```{r build_tidied_data}
+stress_echo <- card0 %>%
+    rename(female = gender) %>%
+    mutate(chestpain_c = as.factor(1 - chestpain),
+           se_res = 1 - pos_se,
+           se_res = factor(se_res, 
+                           levels = c(0, 1), 
+                           labels = c("Negative", "Positive")),
+           hx_smoking = as.factor(ifelse(hxofcig < 1, 
+                                         "smoker", "non-smoker")),
+           event = ifelse(death + new_mi + new_ptca + new_cabg < 4, 
+                          1, 0),
+           ecg = ifelse(pos_ecg == 0, "MI", 
+                        ifelse(equivecg == 0, 
+                               "Equivocal", "Normal")),
+           ecg = fct_relevel(ecg, "Normal")) %>%
+    select(subject, age, female, bhr, basebp, base_ef, dose, 
+           hx_smoking, chestpain_c, ecg, se_res, dob_ef, event) 
+```
+
+The remainder of this section would then describe what the code above does in sufficient detail to allow the reader (your target audience includes Dr. Love and yourself two years from now when you've forgotten half of what you know now about R) to understand what you've done.
+
+## Missingness
+
+Here, you should specify how much missing data you have, and your plan to deal with that missingness. To demonstrate missingness by variable or by subject, a selection of these summaries can help. Obviously, you don't need to present all of these, just the ones that are useful.
+
+```{r missingness}
+n_miss(stress_echo)
+gg_miss_var(stress_echo)
+miss_var_summary(stress_echo)
+miss_case_table(stress_echo)
+```
+
+In this case, we have `r n_miss(stress_echo)` missing observations in our `stress_echo` data set.
+
+## Tidied Tibble
+
+Conclude with a listing of your tidied tibble, prefaced by a brief description - something like this...
+
+Our tibble `stress_echo` contains `r nrow(stress_echo)` rows (patients) and `r ncol(stress_echo)` columns (variables). Each variable is contained in a column, and each row represents a single subject. All variables now have appropriate types.
+
+```{r list_the_tibble}
+stress_echo
+```
+
+Also, be sure to save the tidied tibble as an R data set (and provide this file to us if you are permitted to share the data.)
+
+```{r}
+saveRDS(stress_echo, here("data", "stress_echo.Rds"))
+```
+
+
+# Code Book and Clean Data Summary
+
+Display a useful code book listing each variable in your tidied data set. Include whatever information you feel will be helpful to the reader and to you in reacting to questions at your presentation.
+
+## A Nice Approach Dr. Love likes
+
+Start your codebook with five statements as follows.
+
+1. **Sample Size**: The data in our complete `stress_echo` sample consist of `r nrow(stress_echo)` subjects who completed a stress test. These data describe 220 men and 338 women who participated in the study by Garfinkel et al. (1999). Details on the inclusion and exclusion criteria are available in the Patient Population section of [the Garfinkel et al. article](http://www.onlinejacc.org/content/33/3/708). (If I had other inclusion/exclusion criteria, I would list them here.)
+2. **Missingness**: Of the `r nrow(stress_echo)` subjects, `r n_case_complete(stress_echo %>% select(age, female, bhr, basebp, base_ef, dose, hx_smoking, chestpain_c, ecg, se_res, dob_ef, event))` have complete data on all variables listed below.
+3. **Outcome(s)**: Our logistic regression outcome is `event`, which is a binary indicator of whether the subject had any of the following events in the year after their stress test: death or MI or PTCA or CABG. Our linear regression outcome is `dob_ef` which is a measure of the ejection fraction when on dobutamine.
+4. All other variables listed below will serve as candidate **predictors** for our models.
+5. The other variable contained in my tidy tibble is `patient` which is the subject identifying code.
+
+## Main Codebook Table
+
+Variables included in our analyses are summarized in the following table.
+
+```{r, warning = FALSE}
+stress_echo %>% 
+    select(dob_ef, event, age, female, bhr, basebp, base_ef, 
+           dose, hx_smoking, chestpain_c, ecg, se_res) %>%
+    tbl_summary(.,
+        label = list(
+            dob_ef = "dob_ef (ejection fraction on dobutamine)",
+            event = "event (death/MI/PTCA/CABG within 1 year)",
+            age = "age at baseline",
+            female = "female (1 indicates female sex)",
+            bhr = "bhr (baseline heart rate)",
+            basebp = "basebp (baseline systolic blood pressure)",
+            base_ef = "base_ef (baseline cardiac ejection fraction)",
+            dose = "dose (of dobutamine given)",
+            hx_smoking = "hx_smoking (history: smoker, non-smoker)",
+            chestpain_c = "chestpain_c (1 = experienced chest pain)",
+            ecg = "ecg (electocardiogram result)",
+            se_res = "se_res (stress echocardiogram result)"),
+        stat = list( all_continuous() ~ 
+                "{median} [{min} to {max}]" ))
+```
+
+
+
+
+## Data Distribution Description
+
+The `html` function applied to an `Hmisc::describe()` run has some appealing features, and I encourage you to add this at the end of your codebook section.
+
+```{r}
+stress_echo %>% describe(.) %>% Hmisc::html()
+```
+
+# Analyses
+
+Make the figures the focus of your writing and presentation. 
+
+- You should present at least two effective visualizations of your data that help me understand what can be said about your research question(s), at least one of which should help me explore your data, and at least one of which should help me evaluate the success of a particular model.
+- You are required to present at least one result that is derived from an appropriate regression model, using tools developed in 432. Treat this as a *minimum* standard. Your models should be clearly linked to your eventual conclusions about your research question(s).
+
+## Splitting the Data
+
+I expect most of you will start by splitting the data into separate training and testing samples, and then when discussing your models, show development results in the training sample and then validate those results in a test sample.
+
+## Meaningful description of figure/model/table in a few words
+
+The Figure/Model/Table itself goes here. Be sure to give Figures useful titles.
+
+Description (including motivation for analytic choices) and details, most especially including conclusions about the research question(s) based on this Figure/Model/Table.
+
+## Meaningful description of another figure/model/table in a few words
+
+The Figure/Model/Table itself.
+
+Description and details.
+
+etc.
+
+I'd expect most people to wind up with at least 5-6 figures/tables, and at least a couple of models.
+
+
+# Conclusions
+
+1. Here's where you very carefully state what the results say about your research questions.
+    - Don't speculate much - this isn't the place for a discussion that strays far away from the study's actual findings. 
+    - Specify the limitations of your approach, as best as you can.
+    - Restate the findings, carefully, and specify a logical next step or two that flows naturally from the questions you asked and the answers your study provides. Then move on.
+    - Be sure you address the key question about your study - which is ... "So what?" Why should we care about this study and its conclusions? How does it advance our understanding of the world?
+
+2. Include some reflections on what you have learned about statistics/R/data science as a result of doing the project.
+    - A way to get started is thinking about what you know now that you wish you'd known earlier, and how you got there.
+
+# References and Acknowledgments
+
+At the least, there should be a reference to the source of your data, and acknowledgment of people who helped you with the project.
+    
+# Session Information
+
+```{r}
+xfun::session_info()
+```
+
