@@ -29,5 +29,10 @@ Successful completion of Lab X will improve your course grade by as many as 2 po
 
 ## Some Completed Work on Lab X
 
+- [Alise Carlson](https://carlsoak.wixsite.com/alisecarlsonmd)
+- [Anushree Iyengar](https://ariyengar.github.io/ariyengar/)
 - [Cerag Oguztuzun](https://ceragoguztuzun.github.io/)
+- [Erika Hutt](https://erikahuttce.github.io/website/)
+- [Jacqueline Shaia](https://www.jacquelensphd.com/)
 - [Zi Jie (Jay) Wei](https://jayweiblog.netlify.app/)
+- [Sneha Yamsani](https://sneha-yamsani.owlstown.net/)
