@@ -18,8 +18,11 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 3. We'll see whether [this op-ed piece by Aubrey Clayton in the New York Times](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/nyt_clayton_2022-03-01.pdf) prompted any discussion on Piazza.
 4. We'll see examples of using multinomial models to fit regressions to predict nominal multi-categorical outcomes.
 
-![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/figures/peng_2019-04-17.png)
-
 ## Announcements
 
-1. To come.
+1. There is a Minute Paper after Class 16. Details to come.
+2. Thanks to those of you who completed [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX#some-completed-work-on-lab-x) over the break.
+
+## One Last Thing
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class16/figures/peng_2019-04-17.png)
