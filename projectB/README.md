@@ -11,10 +11,9 @@
 
 ## Project B Materials That Will Appear Later This Semester
 
-1. Dr. Love will decide between in-person and Zoom presentations by class time on 2022-03-15.
-2. The Project B Outline and Scheduling Google Form will appear on 2022-03-15 at http://bit.ly/432-2022-projectB-register.
-3. The Schedule for Project B Presentations will be posted in early April, once the Scheduling process is complete.
-4. You will submit your final portfolio and presentation materials for Project B to Canvas. That link is scheduled to open on 2022-04-25. 
+1. The Project B Outline and Scheduling Google Form will appear on 2022-03-17 at http://bit.ly/432-2022-projectB-register.
+2. The Schedule for Project B Presentations will be posted in early April, once the Scheduling process is complete.
+3. You will submit your final portfolio and presentation materials for Project B to Canvas. That link is scheduled to open on 2022-04-25. 
 
 ## What about Project A?
 
