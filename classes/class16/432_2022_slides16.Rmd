@@ -314,7 +314,7 @@ for $j = 2, 3, 4, 5$.
 
 ```{r, message = FALSE}
 gator2 <- read_csv(here("data/gator2.csv")) %>%
-    type.convert() # converts characters to factors
+    type.convert(as.is = FALSE) # characters to factors
 ```
 
 ```{r}
