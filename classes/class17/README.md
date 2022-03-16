@@ -9,8 +9,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/432_2022_slides17.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/432_2022_slides17.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
-Source: https://twitter.com/jmwooldridge/status/1501157439726575616
-
 ## Time to Event Data
 
 Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/). This is a very brief introduction to the topic. We offer a full-semester course (PQHS 435) every spring in Survival Analysis, which goes into much more detail.
@@ -21,6 +19,8 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
 - For more customization of plots like the Kaplan-Meier curves we'll build today, visit https://rpkgs.datanovia.com/survminer/ or https://github.com/kassambara/survminer/. 
     - For instance, they provide a [PDF cheat sheet](https://rpkgs.datanovia.com/survminer/survminer_cheatsheet.pdf) which was pretty helpful to me.
 - You may also be interested in learning more about concordance in survival analysis (and in general) [from this vignette](https://cran.r-project.org/web/packages/survival/vignettes/concordance.pdf) (pdf).
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/figures/wooldridge.png) Source: https://twitter.com/jmwooldridge/status/1501157439726575616
 
 ## Some Advice on Naming Things
 
