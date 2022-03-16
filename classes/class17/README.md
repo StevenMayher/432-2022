@@ -13,7 +13,7 @@ Source: https://twitter.com/jmwooldridge/status/1501157439726575616
 
 ## Time to Event Data
 
-Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/). This is a very brief introduction to the topic. We teach a full-semester course every spring in Survival Analysis, which goes into much more detail.
+Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/). This is a very brief introduction to the topic. We offer a full-semester course (PQHS 435) every spring in Survival Analysis, which goes into much more detail.
 
 - In today's slides, I make reference to [this PDF guide by David Diez on Survival Analysis in R from OpenIntro](https://www.openintro.org/book/surv_in_r/), which I also recommend, and which provides the `OISurv` package.
 - I strongly recommend you look at the (7-minute) video "[Survival Curves: Showing More by Showing Less](https://www.youtube.com/watch?v=EoIB_Obddrk)" on YouTube posted by Frank Harrell, which explains the logic behind several tools in the `rms` package which let you interact with a graph and a non-parametric survival function which saves a little more information than the usual Kaplan-Meier plot.
