@@ -33,16 +33,17 @@ Naming things is hard. [Jenny Bryan has you covered](https://speakerdeck.com/jen
 All good tips for R data frame names as well. I'll add 
 
 - don't name tibbles things that are also data frames or functions or other things in R
-- don't name tibbles things that make no sense in context
-- 8 characters is usually enough for a tibble name that you'll use often
+- don't name tibbles things that make no sense without a very detailed explanation
+- 8 characters is usually a good maximum for a tibble name that you'll use often
+- if you insist on separating words in a tibble name, use underscores.
 
-Here were the names of the main tibbles that people built for Project A...
+Here were the names of the main tibbles that people built for Project A, some of which were more useful than others...
 
-- `a_sample`, `analysis_data`, `brfss_2`, `chr_2021`, `climbers_train1`
-- `coffee_ratings`, `dat_ads`, `data_clean`, `final_A`, `final_data`
-- `FinalA`, `gss2021_423`, `hotel_final`, `hrs`, `hrsdata`
-- `infant_mort_sample`, `jobloss`, `llcp`, `main_df`, `New8`
-- `nhsda1999_oxy`, `place`, `places`, `projectA`, `split_tidy_data`
-- `starbucks`, and `starbucks` again, `tidy`, `tidy_tibble`, `tidy_tracks`, `tidydata`
-- `wine1` and `wine2`
+- `a_sample`, `analysis_data`, `data_clean`, `projectA`, `main_df`
+- `split_tidy_data`, `tidy`, `tidy_tibble`, `tidy_tracks`, `tidydata`
+- `final_A`, `final_data`, `FinalA`, `hotel_final`, `hrs`, `hrsdata`
+- `New8`, `place`, `places`, `climbers_train1`, `infant_mort_sample`, `gss2021_423`
+- `brfss_2`, `chr_2021`,  `dat_ads`,  `jobloss`, `llcp`, `nhsda1999_oxy`
+- `coffee_ratings`, `starbucks`, and `starbucks` again, `wine1` and `wine2`
+
 
