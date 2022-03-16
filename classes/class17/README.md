@@ -22,3 +22,27 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
     - For instance, they provide a [PDF cheat sheet](https://rpkgs.datanovia.com/survminer/survminer_cheatsheet.pdf) which was pretty helpful to me.
 - You may also be interested in learning more about concordance in survival analysis (and in general) [from this vignette](https://cran.r-project.org/web/packages/survival/vignettes/concordance.pdf) (pdf).
 
+## Some Advice on Naming Things
+
+Naming things is hard. [Jenny Bryan has you covered](https://speakerdeck.com/jennybc/how-to-name-files). The three principles are:
+
+- machine readable
+- human readable
+- play well with default ordering
+
+All good tips for R data frame names as well. I'll add 
+
+- don't name tibbles things that are also data frames or functions or other things in R
+- don't name tibbles things that make no sense in context
+- 8 characters is usually enough for a tibble name that you'll use often
+
+Here were the names of the main tibbles that people built for Project A...
+
+- `a_sample`, `analysis_data`, `brfss_2`, `chr_2021`, `climbers_train1`
+- `coffee_ratings`, `dat_ads`, `data_clean`, `final_A`, `final_data`
+- `FinalA`, `gss2021_423`, `hotel_final`, `hrs`, `hrsdata`
+- `infant_mort_sample`, `jobloss`, `llcp`, `main_df`, `New8`
+- `nhsda1999_oxy`, `place`, `places`, `projectA`, `split_tidy_data`
+- `starbucks`, and `starbucks` again, `tidy`, `tidy_tibble`, `tidy_tracks`, `tidydata`
+- `wine1` and `wine2`
+
