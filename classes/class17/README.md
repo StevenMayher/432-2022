@@ -30,7 +30,9 @@ Naming things is hard. [Jenny Bryan has you covered](https://speakerdeck.com/jen
 - human readable
 - play well with default ordering
 
-All good tips for R data frame names as well. I'll add 
+A perfectly lovely file name for project A was probably something like `2022-03-01_yourname_431projA.xxx`
+
+Naming R data frames (tibbles) can be challenging, as well. I'll add 
 
 - don't name tibbles things that are also data frames or functions or other things in R
 - don't name tibbles things that make no sense without a very detailed explanation
@@ -46,4 +48,8 @@ Here were the names of the main tibbles that people built for Project A, some of
 - `brfss_2`, `chr_2021`,  `dat_ads`,  `jobloss`, `llcp`, `nhsda1999_oxy`
 - `coffee_ratings`, `starbucks`, and `starbucks` again, `wine1` and `wine2`
 
+You want naming conventions? OK, [here are some from Harvard](https://datamanagement.hms.harvard.edu/collect/file-naming-conventions).
 
+# One Last Thing
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/figures/final.png) from [PhD Comics](https://phdcomics.com/comics/archive.php?comicid=1531)
