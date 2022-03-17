@@ -37,3 +37,4 @@ Successful completion of Lab X will improve your course grade by as many as 2 po
 - [Sneha Yamsani](https://sneha-yamsani.owlstown.net/)
 - [Zi Jie (Jay) Wei](https://jayweiblog.netlify.app/)
 - [Raunak Nair](https://raunaknairmd.netlify.app)
+- [David Selvaraj](https://www.datadavid.org/)
