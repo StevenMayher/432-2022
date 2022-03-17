@@ -25,8 +25,8 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
 1. [Lab 4](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04) is due Monday 2022-03-21 at 9 PM. You can complete it today.
 2. We want you to have read through Chapter 9 of Nate Silver's *The Signal and the Noise* before our next class. It's about chess, and if you like games, Chapter 10 is about poker, and you should have that read by 2022-03-29.
 3. [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) are available to be done now, and don't require any material you haven't seen.
-4. [Project B Outline and Scheduling Form](http://bit.ly/432-2022-projectB-register) is due **Sunday 2022-04-03 at 9 PM**. 
-    - I encourage you to read the [Project B instructions](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/projectB_instructions_2022.md) and look over the [Project B template](https://rpubs.com/TELOVE/projectB-template-432-2022) before you open and certainly before you complete the Outline and Scheduling Form. 
+4. [Project B Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register) is due **Sunday 2022-04-03 at 9 PM**. 
+    - I encourage you to read the [Project B instructions](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/projectB_instructions_2022.md) and look over the [Project B template](https://rpubs.com/TELOVE/projectB-template-432-2022) before you open and certainly before you complete the [Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register). 
     - You might also want to look at the [Toy NHANES data cleaning example](https://rpubs.com/TELOVE/toy-nhanes-432), even if you're not using NHANES data.
 5. [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is due Monday 2022-04-04 at 9 PM (**the day after the Project B form**). Lab 5 uses tidymodels to fit and assess the performance of some models. As such, you can complete it today. There's no new material on these topics coming.
 
