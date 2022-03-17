@@ -33,9 +33,9 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
 ## Announcements
 
 1. Feedback on the Minute Paper after Class 16 [is now available](https://bit.ly/432-2022-min-16-feedback).
-2. Project A Grading Status update coming in class.
-3. If you're not coming to class regularly, fix that. This **isn't a zoom class**. There should be 43 students in this class, and of late, we're under 30 attendees. This needs to stop now. Challenges shouldn't be happening twice a week for multiple weeks. If you're not here, you're not asking questions, and I don't know you. That is a problem.
-4. If I'm not referring to you by name when I see you in class, or when you stop by after class, I'd try to fix that, were I you.
+2. I updated the [Syllabus](https://thomaselove.github.io/432-2022-syllabus/) to reflect that your class Project Grade comes 40% from your worse project score and 60% from the better one.
+3. Project A Grading Status update is coming at class time.
+4. As I mentioned in an email last night, if you're not coming to class regularly, fix that. If I'm not referring to you by name when I see you in class, or when you stop by after class, I'd try to fix that, too, if I was in your place.
 
 ## Some Advice on Naming Things
 
