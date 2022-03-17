@@ -34,6 +34,10 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
 
 Comments to come.
 
+## Project A Grading Status
+
+Comments to come.
+
 ## Some Advice on Naming Things
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/figures/wooldridge.png) [Source](https://twitter.com/jmwooldridge/status/1501157439726575616)
