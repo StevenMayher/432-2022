@@ -34,7 +34,8 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
 
 1. Feedback on the Minute Paper after Class 16 [is now available](https://bit.ly/432-2022-min-16-feedback).
 2. Project A Grading Status update coming in class.
-3. If I'm not referring to you by name when I see you in class, or if you're not coming to class regularly, I encourage you to fix that. There should be 43 students in this class, and of late, we're under 30 attendees. This needs to stop now.
+3. If you're not coming to class regularly, fix that. This **isn't a zoom class**. There should be 43 students in this class, and of late, we're under 30 attendees. This needs to stop now. Challenges shouldn't be happening twice a week for multiple weeks. If you're not here, you're not asking questions, and I don't know you. That is a problem.
+4. If I'm not referring to you by name when I see you in class, or when you stop by after class, I'd try to fix that, were I you.
 
 ## Some Advice on Naming Things
 
