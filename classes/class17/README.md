@@ -30,13 +30,11 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
     - You might also want to look at the [Toy NHANES data cleaning example](https://rpubs.com/TELOVE/toy-nhanes-432), even if you're not using NHANES data.
 5. [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is due Monday 2022-04-04 at 9 PM (**the day after the Project B form**). Lab 5 uses tidymodels to fit and assess the performance of some models. As such, you can complete it today. There's no new material on these topics coming.
 
-## Minute Paper After Class 16
+## Announcements
 
-Comments to come.
-
-## Project A Grading Status
-
-Comments to come.
+1. Feedback on the Minute Paper after Class 16 [is now available](https://bit.ly/432-2022-min-16-feedback).
+2. Project A Grading Status update coming in class.
+3. If I'm not referring to you by name when I see you in class, or if you're not coming to class regularly, I encourage you to fix that.
 
 ## Some Advice on Naming Things
 
