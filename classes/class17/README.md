@@ -29,7 +29,7 @@ Naming things is hard. [Jenny Bryan has you covered](https://speakerdeck.com/jen
 - human readable
 - play well with default ordering
 
-A perfectly lovely file name for project A was probably something like `2022-03-01_yourname_431projA.xxx`
+A perfectly lovely **file name** convention for project A was `2022-03-01_yourname_432projA.xxx`
 
 Naming R data frames (tibbles) can be challenging, as well. I'll add 
 
