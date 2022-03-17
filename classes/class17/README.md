@@ -25,7 +25,7 @@ Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course N
 1. [Lab 4](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04) is due Monday 2022-03-21 at 9 PM. You can complete it today.
 2. We want you to have read through Chapter 9 of Nate Silver's *The Signal and the Noise* before our next class. It's about chess, and if you like games, Chapter 10 is about poker, and you should have that read by 2022-03-29.
 3. [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) are available to be done now, and don't require any material you haven't seen.
-4. [Project B Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register) is available now, and due **Sunday 2022-04-03 at 9 PM**. 
+4. The [Project B Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register) is available now, and due **Sunday 2022-04-03 at 9 PM**. 
     - I encourage you to read the [(lightly revised) Project B instructions](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/projectB_instructions_2022.md) and look over the [Project B template](https://rpubs.com/TELOVE/projectB-template-432-2022) before you open and certainly before you complete the [Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register).
     - To fill out the form, you'll need 
         - a partner (if you want one), a title, your data ingested into R, a description of the data source, a pair of research questions, your two outcomes, your two modeling strategies, and counts of the total number of rows in your data set, plus the number of complete observations for each of your outcomes. 
