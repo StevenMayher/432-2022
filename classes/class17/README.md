@@ -21,7 +21,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Some Advice on Naming Things
 
-![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/figures/wooldridge.png) Source: https://twitter.com/jmwooldridge/status/1501157439726575616
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class17/figures/wooldridge.png) [Source](https://twitter.com/jmwooldridge/status/1501157439726575616)
 
 Naming things is hard. [Jenny Bryan has you covered](https://speakerdeck.com/jennybc/how-to-name-files). The three principles are:
 
