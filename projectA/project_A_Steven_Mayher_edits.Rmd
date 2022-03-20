@@ -3,7 +3,7 @@ title: "Can We Utilize Diet, Age, and Other Health Metrics to Effectively Model 
 author: "Steven Mayher"
 date: " 2022-03-04"
 output:
-  rmdformats::readthedown:
+  rmdformats::downcute:
     highlight: kate
     number_sections: TRUE
     code_folding: show

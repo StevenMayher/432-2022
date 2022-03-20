@@ -1,0 +1,533 @@
+---
+title: Can We Utilize Diet, Age, and Other Health Metrics to Effectively Model Blood Pressure Measurements & Associated Diagnoses?
+author: "Steven Mayher"
+date: " 2022-03-04"
+output:
+  slidy_presentation: default
+  beamer_presentation:
+    theme: Madrid
+    colortheme: orchid
+    fonttheme: structurebold
+    fig_caption: no
+subtitle: Project A - PQHS 432
+---
+
+```{r setup, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA, warning = FALSE, message = FALSE, echo = FALSE)
+options(width = 60)
+```
+
+
+```{r packages, message=FALSE}
+library(knitr)
+library(rmdformats)
+library(janitor)
+library(magrittr)
+library(naniar)
+library(broom)
+library(patchwork)
+library(nhanesA)
+library(measurements)
+library(readxl)
+library(Epi)
+library(Hmisc)
+library(simputation)
+library(rms)
+library(pander)
+library(GGally)
+library(car)
+library(mice)
+library(ROCR)
+library(caret)
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+
+```{r data_load, echo = FALSE, results = FALSE, message = FALSE}
+DEMO_J_raw <- nhanes('DEMO_J') %>% tibble()
+BPXO_J_raw <- nhanes('BPXO_J') %>% tibble()
+BPQ_J_raw <- nhanes('BPQ_J') %>% tibble()
+BIOPRO_J_raw <- nhanes('BIOPRO_J') %>% tibble()
+DBQ_J_raw <- nhanes('DBQ_J') %>% tibble()
+SLQ_J_raw <- nhanes('SLQ_J') %>% tibble()
+
+saveRDS(DEMO_J_raw, "data/DEMO_J.Rds")
+saveRDS(BPXO_J_raw, "data/BPXO_J.Rds")
+saveRDS(BPQ_J_raw, "data/BPQ_J.Rds")
+saveRDS(BIOPRO_J_raw, "data/BIOPRO_J.Rds")
+saveRDS(DBQ_J_raw, "data/DBQ_J.Rds")
+saveRDS(SLQ_J_raw, "data/SLQ_J.Rds")
+
+DEMO_J_raw <- readRDS("data/DEMO_J.Rds")
+BPXO_J_raw <- readRDS("data/BPXO_J.Rds")
+BPQ_J_raw <- readRDS("data/BPQ_J.Rds")
+BIOPRO_J_raw <- readRDS("data/BIOPRO_J.Rds")
+DBQ_J_raw <- readRDS("data/DBQ_J.Rds")
+SLQ_J_raw <- readRDS("data/SLQ_J.Rds")
+
+DEMO_J_data = DEMO_J_raw %>% 
+  select(c(SEQN, RIDAGEYR)) %>%
+  filter(RIDAGEYR <= 79) %>%
+  filter(RIDAGEYR >= 18)
+
+BPXO_J_data = BPXO_J_raw %>% 
+  select(c(SEQN, BPXOSY3))
+
+BPQ_J_data = BPQ_J_raw %>%
+  select(c(SEQN, BPQ020)) %>%
+  filter(BPQ020 != 7) %>%
+  filter(BPQ020 != 9)
+
+SLQ_J_data = SLQ_J_raw %>%
+  select(c(SEQN, SLQ050)) %>%
+  filter(SLQ050 != 7) %>%
+  filter(SLQ050 != 9)
+
+BIOPRO_J_data = BIOPRO_J_raw %>% 
+  select(c(SEQN, LBXSNASI, LBXSKSI))
+
+DEMO_J_data = DEMO_J_data %>% 
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(RIDAGEYR = as.numeric(RIDAGEYR)) %>%
+  rename(Age = RIDAGEYR)
+
+BPXO_J_data = BPXO_J_data %>% 
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(BPXOSY3 = as.numeric(BPXOSY3)) %>%
+  rename("Systolic_BP" = BPXOSY3)
+
+BPQ_J_data = BPQ_J_data %>%
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(BPQ020 = fct_recode(as.factor(BPQ020),
+                             "Yes" = "1",
+                             "No" = "2")) %>%
+  mutate(BPQ020 = fct_relevel(BPQ020, "No", "Yes")) %>%
+  rename("High_BP" = BPQ020)
+
+SLQ_J_data = SLQ_J_data %>%
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(SLQ050 = fct_recode(as.factor(SLQ050),
+                             "Yes" = "1",
+                             "No" = "2")) %>%
+  mutate(SLQ050 = fct_relevel(SLQ050, "No", "Yes")) %>%
+  rename("Insomnia" = SLQ050)
+
+BIOPRO_J_data = BIOPRO_J_data %>% 
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(LBXSNASI = as.numeric(LBXSNASI)) %>%
+  mutate(LBXSKSI = as.numeric(LBXSKSI)) %>%
+  rename(Sodium = LBXSNASI) %>%
+  rename(Potassium = LBXSKSI)
+
+DBQ_J_data1 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223A)) %>%
+  filter(DBQ223A == 10) %>%
+  mutate(DBQ223A = as.numeric(DBQ223A))
+  
+DBQ_J_data2 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223B)) %>%
+  filter(DBQ223B == 11) %>%
+  mutate(DBQ223B = as.numeric(DBQ223B))
+  
+DBQ_J_data3 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223C)) %>%
+  filter(DBQ223C == 12) %>%
+  mutate(DBQ223C = as.numeric(DBQ223C))
+
+DBQ_J_data4 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223D)) %>%
+  filter(DBQ223D == 13) %>%
+  mutate(DBQ223D = as.numeric(DBQ223D))
+
+DBQ_J_data5 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223E)) %>%
+  filter(DBQ223E == 14) %>%
+  mutate(DBQ223E = as.numeric(DBQ223E))
+  
+DBQ_J_data6 = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223U)) %>%
+  filter(DBQ223U == 30) %>%
+  mutate(DBQ223U = as.numeric(DBQ223U))
+
+
+DBQ_J_data1_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223A)) %>%
+  filter(is.na(DBQ223A)) %>%
+  rename(DBQ223 = DBQ223A) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data2_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223B)) %>%
+  filter(is.na(DBQ223B)) %>%
+  rename(DBQ223 = DBQ223B) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+  
+DBQ_J_data3_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223C)) %>%
+  filter(is.na(DBQ223C)) %>%
+  rename(DBQ223 = DBQ223C) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data4_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223D)) %>%
+  filter(is.na(DBQ223D)) %>%
+  rename(DBQ223 = DBQ223D) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data5_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223E)) %>%
+  filter(is.na(DBQ223E)) %>%
+  rename(DBQ223 = DBQ223E) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+  
+DBQ_J_data6_NA = DBQ_J_raw %>%
+  select(c(SEQN, DBQ223U)) %>%
+  filter(is.na(DBQ223U)) %>%
+  rename(DBQ223 = DBQ223U) %>%
+  mutate(DBQ223 = as.numeric(DBQ223))
+
+DBQ_J_data_milk = full_join(
+  full_join(
+    full_join(
+      full_join(
+        full_join(DBQ_J_data1,
+                  DBQ_J_data2,
+                  by = c("SEQN")),
+        DBQ_J_data3,
+        by = c("SEQN")),
+      DBQ_J_data4,
+      by = c("SEQN")),
+    DBQ_J_data5,
+    by = c("SEQN")),
+  DBQ_J_data6,
+  by = c("SEQN"))
+
+DBQ_J_data_NA = inner_join(
+  inner_join(
+    inner_join(
+      inner_join(
+        inner_join(DBQ_J_data1_NA,
+                   DBQ_J_data2_NA,
+                   by = c("SEQN", "DBQ223")),
+        DBQ_J_data3_NA,
+        by = c("SEQN", "DBQ223")),
+      DBQ_J_data4_NA,
+      by = c("SEQN", "DBQ223")),
+    DBQ_J_data5_NA,
+    by = c("SEQN", "DBQ223")),
+  DBQ_J_data6_NA,
+  by = c("SEQN", "DBQ223"))
+
+DBQ_J_data_milk = DBQ_J_data_milk %>%
+  mutate(DBQ223 = rowSums(across(DBQ223A:DBQ223U), na.rm = TRUE)) %>%
+  select(c(SEQN, DBQ223)) %>%
+  filter(DBQ223 == 10 |
+           DBQ223 == 11 |
+           DBQ223 == 12 |
+           DBQ223 == 13 |
+           DBQ223 == 14 |
+           DBQ223 == 30)
+
+DBQ_J_data = full_join(DBQ_J_data_milk, DBQ_J_data_NA, by = c("SEQN", "DBQ223"))
+
+DBQ_J_data = DBQ_J_data %>%
+  mutate(SEQN = as.numeric(SEQN)) %>%
+  mutate(DBQ223 = fct_recode(as.factor(DBQ223),
+                                  "Whole Milk" = "10",
+                                  "2% Milk" = "11",
+                                  "1% Milk" = "12",
+                                  "Skim Milk" = "13",
+                                  "Soy Milk" = "14",
+                                  "Other Milk" = "30")) %>%
+  rename(Milk = DBQ223)
+
+analysis_data_raw = inner_join(inner_join(inner_join(inner_join(inner_join(DEMO_J_data, BPXO_J_data, by = c("SEQN")), BPQ_J_data, by = c("SEQN")), SLQ_J_data, by = c("SEQN")), BIOPRO_J_data, by = c("SEQN")), DBQ_J_data, by = c("SEQN")) %>%
+  rename(Subject_ID = SEQN)
+
+col_order = c("Subject_ID", "Systolic_BP", "High_BP", "Age", "Sodium", "Potassium", "Insomnia", "Milk")
+
+analysis_data_raw = analysis_data_raw[, col_order]
+
+set.seed(43202)
+
+analysis_data = analysis_data_raw %>%
+  slice_sample(n = 1200)
+
+analysis_data = analysis_data %>%
+  mutate(Milk = fct_recode(as.factor(Milk),
+         "1% or Skim Milk" = "1% Milk",
+         "1% or Skim Milk" = "Skim Milk",
+         "Soy or Other Milk" = "Soy Milk",
+         "Soy or Other Milk" = "Other Milk"))
+```
+
+
+```{r, echo = FALSE, results = FALSE}
+lin_mod_data = analysis_data %>%
+  filter(complete.cases(Systolic_BP))
+
+miss_var_summary(lin_mod_data) %>%
+  kable(digits = 4)
+
+set.seed(43202)
+dd = datadist(lin_mod_data)
+options(datadist = "dd")
+
+lin_mod_simp = lin_mod_data %>%
+  select(Systolic_BP, Sodium, Potassium, Age, High_BP, Insomnia, Milk) %>%
+  mice(., m = 1, method = c("", "midastouch", "midastouch", "", "", "", "cart"), printFlag = FALSE)
+
+set.seed(43202)
+dd = datadist(lin_mod_data)
+options(datadist = "dd")
+
+lin_mod_mimp = lin_mod_data %>%
+  select(Systolic_BP, Sodium, Potassium, Age, High_BP, Insomnia, Milk) %>%
+  mice(., m = 25, method = c("", "midastouch", "midastouch", "", "", "", "cart"), printFlag = FALSE)
+
+lin_mod_simp_data = lin_mod_simp %>% complete() %>% 
+    mutate(inv_sbp = (1/Systolic_BP))
+
+model_a_lm = fit.mult.impute(1/Systolic_BP ~ Sodium + Potassium + Age + High_BP + Insomnia + Milk,
+                    fitter = lm, xtrans = lin_mod_mimp,
+                    data = lin_mod_data, x = TRUE, y = TRUE, pr = FALSE)
+
+model_a_ols = fit.mult.impute(1/Systolic_BP ~ Sodium + Potassium + Age + High_BP + Insomnia + Milk,
+                    fitter = ols, xtrans = lin_mod_mimp,
+                    data = lin_mod_data, x = TRUE, y = TRUE, pr = FALSE)
+
+glance_mod_a = glance(model_a_lm) %>%
+    select(r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+    kable(digits = c(3, 3, 3, 1, 1))
+
+spear_lin_mod = spearman2(inv_sbp ~ Sodium + Potassium + Age + High_BP + Insomnia + Milk, data = lin_mod_simp_data)
+
+model_b_lm = fit.mult.impute(1/Systolic_BP ~ Potassium + rcs(Sodium, 4) + rcs(Age, 5) + High_BP + High_BP %ia% Sodium + Insomnia + Milk, fitter = lm, xtrans = lin_mod_mimp, data = lin_mod_data, x = TRUE, y = TRUE, pr = FALSE)
+model_b_ols = fit.mult.impute(1/Systolic_BP ~ Potassium + rcs(Sodium, 4) + rcs(Age, 5) + High_BP + High_BP %ia% Sodium + Insomnia + Milk, fitter = ols, xtrans = lin_mod_mimp, data = lin_mod_data, x = TRUE, y = TRUE, pr = FALSE)
+
+glance(model_b_lm) %>%
+    select(r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+    kable(digits = c(3, 3, 3, 1, 1))
+
+lin_mod_anova = anova(model_b_lm, model_a_lm)
+
+comp_table_lin = bind_rows( glance(model_a_lm), glance(model_b_lm) ) %>%
+  mutate(mod = c("Model A", "Model B"))
+
+comp_table_lin = comp_table_lin %>% select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+  kable(dig = c(0, 3, 3, 3, 1, 1))
+
+set.seed(43202)
+dd = datadist(analysis_data)
+options(datadist = "dd")
+
+log_mod_simp = analysis_data %>%
+  select(Systolic_BP, Sodium, Potassium, Age, High_BP, Insomnia, Milk) %>%
+  mice(., m = 1, method = c("midastouch", "midastouch", "midastouch", "", "", "", "cart"), printFlag = FALSE)
+
+set.seed(43202)
+dd = datadist(analysis_data)
+options(datadist = "dd")
+
+log_mod_mimp = analysis_data %>%
+  select(Systolic_BP, Sodium, Potassium, Age, High_BP, Insomnia, Milk) %>%
+  mice(., m = 25, method = c("midastouch", "midastouch", "midastouch", "", "", "", "cart"), printFlag = FALSE)
+
+set.seed(43202)
+dd = datadist(analysis_data)
+options(datadist = "dd")
+
+model_y_glm = fit.mult.impute(High_BP == "Yes" ~ Systolic_BP + Potassium + Sodium + Age + Insomnia + Milk, fitter = glm, xtrans = log_mod_mimp, data = analysis_data, x = TRUE, y = TRUE, pr = FALSE)
+model_y_lrm = fit.mult.impute(High_BP == "Yes" ~ Systolic_BP + Potassium + Sodium + Age + Insomnia + Milk, fitter = lrm, xtrans = log_mod_mimp, data = analysis_data, x = TRUE, y = TRUE, pr = FALSE)
+
+prob = predict(model_y_lrm, type="fitted")
+pred = prediction(prob, analysis_data$High_BP == "Yes")
+perf = performance(pred, measure = "tpr", x.measure = "fpr")
+auc = performance(pred, measure="auc")
+
+auc = round(auc@y.values[[1]],3)
+roc.data = data.frame(fpr=unlist(perf@x.values), 
+                       tpr = unlist(perf@y.values), 
+                       model="LRM")
+
+roc_mod_y = ggplot(roc.data, aes(x = fpr, ymin = 0, ymax = tpr)) +
+  geom_ribbon(alpha = 0.2, fill = "blue") +
+  geom_line(aes(y = tpr), col = "blue") +
+  geom_abline(intercept = 0, slope = 1, lty = "dashed") +
+  labs(title = paste0("Model Y: ROC Curve w/ AUC=", auc))
+
+model_y_aug = augment(model_y_glm, type.predict = "response")
+
+confuse_model_y = model_y_aug %>%
+  mutate(High_BP_obs = factor(`High_BP == "Yes"` == "TRUE"),
+         High_BP_pred = factor(.fitted >= 0.50),
+         High_BP_obs = fct_relevel(High_BP_obs, "TRUE"),
+         High_BP_pred = fct_relevel(High_BP_pred, "TRUE")) %$%
+  table(High_BP_pred, High_BP_obs)
+
+spear_log_mod = spearman2(High_BP == "Yes" ~ Systolic_BP + Sodium + Potassium + Age + Insomnia + Milk, data = complete(log_mod_simp))
+
+model_z_glm = fit.mult.impute(High_BP == "Yes" ~ rcs(Systolic_BP, 5) + Potassium + Sodium + rcs(Age, 5) + Insomnia + Milk, fitter = glm, xtrans = log_mod_mimp, data = analysis_data, x = TRUE, y = TRUE, pr = FALSE)
+model_z_lrm = fit.mult.impute(High_BP == "Yes" ~ rcs(Systolic_BP, 5) + Potassium + Sodium + rcs(Age, 5) + Insomnia + Milk, fitter = lrm, xtrans = log_mod_mimp, data = analysis_data, x = TRUE, y = TRUE, pr = FALSE)
+
+prob = predict(model_z_lrm, type="fitted")
+pred = prediction(prob, analysis_data$High_BP == "Yes")
+perf = performance(pred, measure = "tpr", x.measure = "fpr")
+auc = performance(pred, measure="auc")
+
+auc = round(auc@y.values[[1]],3)
+roc.data = data.frame(fpr=unlist(perf@x.values), 
+                       tpr = unlist(perf@y.values), 
+                       model="LRM")
+
+confuse_model_z = ggplot(roc.data, aes(x = fpr, ymin = 0, ymax = tpr)) +
+  geom_ribbon(alpha = 0.2, fill = "blue") +
+  geom_line(aes(y = tpr), col = "blue") +
+  geom_abline(intercept = 0, slope = 1, lty = "dashed") +
+  labs(title = paste0("Model Z: ROC Curve w/ AUC=", auc))
+
+log_mod_anova = anova(model_z_glm, model_y_glm)
+
+model_z_aug = augment(model_z_glm, type.predict = "response")
+
+confuse_model_z = model_z_aug %>%
+  mutate(High_BP_obs = factor(`High_BP == "Yes"` == "TRUE"),
+         High_BP_pred = factor(.fitted >= 0.50),
+         High_BP_obs = fct_relevel(High_BP_obs, "TRUE"),
+         High_BP_pred = fct_relevel(High_BP_pred, "TRUE")) %$%
+  table(High_BP_pred, High_BP_obs)
+```
+
+
+
+
+
+
+## The Data - Linear Regression Model
+
+The data for both regression analyses in this project will be the following health data as provided by the 2017-2018 NHANES survey results (all anonymous)
+The linear regression model for the project will ultimately use the following variables as specified:
+
+Variable | Role | Type | Description
+-------- | ---- | ---- | -----------------
+`Subject_ID` | Identifier | - | The unique numeric code assigned to each NHANES respondent/subject/participant.
+`Systolic_BP` | Outcome | Quantitative | Respondent's/Subject's/Participant's 3rd reading for their Systolic Blood Pressure, in mm Hg, as measured with an oscillometric device.
+`High_BP` | Input | 2-Categorical | Has the respondent/subject/participant been diagnosed with high blood pressure by their doctor? (Yes or No)
+`Age` | Input | Quantitative | What was the age of the respondent/subject/participant at the time the data was collected?
+`Sodium` | Input | Quantitative | Respondent's/Subject's/Participant's sodium level in mmol/L, as indicated by their blood test.
+`Potassium` | Input | Quantitative | Respondent's/Subject's/Participant's potassium level in mmol/L, as indicated by their blood test. 
+`Insomnia` | Input | 2-Categorical | Has the respondent/subject/participant disclosed that they have been having trouble sleeping to their doctor? (Yes or No)
+`Milk` | Input | 4-Categorical | What type of milk does the respondent/subject/participant mainly drink? (Whole Milk, 2% Milk, 1% or Skim Milk, Soy or Other Milk)
+
+
+## The Data - Logistic Regression Model
+
+The logistic regression model for the project will use all of the same variables, however this model will instead attempt to predict previous high blood pressure clinical diagnosis instead of systolic blood pressure like the linear regression model will attempt to find:
+
+Variable | Role | Type | Description
+-------- | ---- | ---- | -----------------
+`Subject_ID` | Identifier | - | The unique numeric code assigned to each NHANES respondent/subject/participant.
+`High_BP` | Outcome | 2-Categorical | Has the respondent/subject/participant been diagnosed with high blood pressure by their doctor? (Yes or No)
+`Systolic_BP` | Input | Quantitative | Respondent's/Subject's/Participant's 3rd reading for their Systolic Blood Pressure, in mm Hg, as measured with an oscillometric device.
+`Age` | Input | Quantitative | What was the age of the respondent/subject/participant at the time the data was collected?
+`Sodium` | Input | Quantitative | Respondent's/Subject's/Participant's sodium level in mmol/L, as indicated by their blood test.
+`Potassium` | Input | Quantitative | Respondent's/Subject's/Participant's potassium level in mmol/L, as indicated by their blood test. 
+`Insomnia` | Input | 2-Categorical | Has the respondent/subject/participant disclosed that they have been having trouble sleeping to their doctor? (Yes or No)
+`Milk` | Input | 4-Categorical | What type of milk does the respondent/subject/participant mainly drink? (Whole Milk, 2% Milk, 1% or Skim Milk, Soy or Other Milk)
+
+
+## Linear Regression Models - How Infuential are the Predictors?
+
+The summary plot below of the effect estimates clearly demonstrates that `Age`, and then `High_BP` were most influential predictors in the model:
+
+```{r}
+par(mar=c(2, 4, 4, 2) + 0.1)
+plot(summary(model_a_ols))
+```
+
+
+## How Effective is the Model?
+
+```{r}
+set.seed(43202)
+validate(model_a_ols)
+```
+
+
+```{r}
+glance(model_a_lm) %>%
+  select(r.squared, adj.r.squared, sigma, AIC, BIC) %>%
+  kable(dig = c(3, 3, 3, 1, 1))
+```
+
+
+- Regarding the R-square values:
+  
+  * the `index.orig` Nagelkerke R^2 value as shown above is 0.2320
+      - represents how well it fits the data used to create the model
+  
+  * the `index.corrected` Nagelkerke R^2 value as shown above is 0.2224
+      - represents how well it will fit new data
+
+
+
+## Logistic Regression Model - Which Predictors are the Most Influential?
+
+The summary plot below of the effect estimates clearly demonstrates that `Age` was a far more influential predictor than the rest that were selected:
+
+```{r}
+par(mar=c(2, 4, 4, 2) + 0.1)
+plot(summary(model_y_lrm))
+```
+
+
+## How Effective is the Model?
+
+```{r}
+set.seed(43202)
+validate(model_y_lrm)
+```
+
+
+```{r}
+glance(model_y_glm) %>%
+  select(AIC, BIC) %>%
+  kable(digits = 2)
+```
+
+- Regarding the R-square values:
+  
+  * the `index.orig` Nagelkerke R^2 value as shown above is 0.3840
+      - represents how well it fits the data used to create the model
+  
+  * the `index.corrected` Nagelkerke R^2 value as shown above is 0.3679
+      - represents how well it will fit new data
+      
+
+- The C statistic for this model is C = 0.5 + (Dxy/2) = 0.5 + (0.6311/2) = 0.816
+
+
+## Next Steps
+
+Considering the results of the above models, the following steps could be taken to improve the linear regression model:
+
+- Address outliers with high leverage and/or residuals
+
+  * While not shown in the presentation, both models for the linear regression analysis produced a number of points with unusually high residuals and some with high leverage values
+
+
+Considering the results of the above models, the following steps could be taken to improve either the linear or the logistic regression model:
+
+- Consider different predictors, for example:
+
+  * Other dietary predictors
+
+  * Lifestyle predictors
+
+    - Exercise Frequency
+
+  * bmi
+
+
