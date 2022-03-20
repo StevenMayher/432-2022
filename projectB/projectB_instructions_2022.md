@@ -1,7 +1,7 @@
 432 Project B Instructions for Spring 2022
 ================
 Thomas E. Love
-Last Updated: 2022-03-04 08:42:20
+Last Updated: 2022-03-15 10:55:14
 
 -   [1. Overview of Project B](#1-overview-of-project-b)
 -   [2. Deliverables and Deadlines](#2-deliverables-and-deadlines)
@@ -105,12 +105,13 @@ B, you can work individually or in a group of two people.
         proceed further.
 
 6.  After receiving Dr. Love’s approval, you will prepare a portfolio of
-    your results with R Markdown and HTML, and give a 15-minute
+    your results with R Markdown and HTML, and give a 12 to 15-minute
     presentation (if no one asked any questions) of your work to
-    Dr. Love in late April.
+    Dr. Love in late April. (Your total presentation time, including
+    questions and answers, will be 20 minutes.)
 
 7.  You will then make changes (as needed) in response to Dr. Love’s
-    comments during your presentation and submit the final version of
+    comments during your presentation) and submit the final version of
     the portfolio (Rmd and HTML and some data) to Canvas at the start of
     May.
 
@@ -124,10 +125,10 @@ There are three Project B deliverables:
 1.  A [Project B Outline and Scheduling Google
     Form](http://bit.ly/432-2022-projectB-register) to register your
     project and schedule your presentation.
-    -   The form will open for responses on 2022-03-15.
+    -   The form will open for responses on 2022-03-17.
     -   If you are working with a partner, exactly one of you will fill
         out the form, representing the team.
-2.  Your **presentation** to Dr. Love in late April, which is
+2.  Your 20-minute **presentation** to Dr. Love in late April, which is
     then followed by you revising your work in light of that
     conversation to produce …
 3.  Your **final version** of your portfolio and presentation materials.
@@ -405,10 +406,10 @@ remaining job is to build a very well-designed and well-analyzed study
 then present it to Dr. Love (orally and in a written HTML file)
 beautifully.
 
-Dr. Love will soon decide (and announce in class 2022-03-15) whether
-presentations will be given in person or via Zoom. In either case, your
-presentation is based on results contained in your portfolio, hitting on
-these four key points.
+Dr. Love will announce in class whether presentations will be given in
+person or via Zoom, or both, based on the results of the Minute Paper
+after Class 16. In either case, your presentation is based on results
+contained in your portfolio, hitting on these four key points.
 
 1.  What your research questions were and why they are important.
 2.  What data you used and why it was relevant to addressing your
@@ -461,8 +462,8 @@ your discussion of conclusions, effect sizes and limitations.
     -   You will need to be agile in responding to me. Anticipate tough
         questions. Dr. Love will be looking for clear answers, motivated
         by your results.
-    -   Rehearse your presentation so that it takes somewhere between 12
-        and 15 minutes if no one asks you any questions.
+    -   Rehearse your presentation so that it takes 12-15 minutes if no
+        one asks you any questions.
 -   If you work as a team, Dr. Love will pick one of you at random, on
     the spot, to deliver the first half of the presentation, and the
     other will do the second half. Dr. Love will address questions to
@@ -823,8 +824,8 @@ helpful.
 > observations for Project B?
 
 I wouldn’t, no. If you want to work with a huge data set, then I
-encourage you to sample it down to at most 1,500 observations in a model
-development sample first (and perhaps as many as another 1,500
+encourage you to sample it down to at most 2,000 observations in a model
+development sample first (and perhaps as many as another 2,000
 observations in a model testing sample.) There are three main reasons
 for this:
 
@@ -838,9 +839,9 @@ for this:
     about 1000 observations tend to be very difficult to interpret, even
     if they are quite large.
 
-Some of you want to work with data sets with more than 1,500 observations and
+Some of you want to work with data sets up to 10,000 observations and
 that’s certainly fine, but if you propose a project where your analyses
-will involve more than 2,000 observations in total, I will be very
+will involve more than 10,000 observations in total, I will be very
 likely to require you to take a sample from your current proposed data
 to proceed. It’s just not worth boiling the ocean in this project. Of
 course, after the course is over, you can always ramp back up to a
@@ -869,7 +870,7 @@ What I would definitely not do is scan a list of correlations in the
 current data to see which ones look promising, and then forget that I
 did that when it came time to evaluate the models I developed. It’s fine
 to go on a fishing expedition in Project B, but then you have to
-severely temper your claims, and in particular you have to give up on
+severely temper your claims, an in particular you have to give up on
 drawing any substantial conclusions about causation or explanation and
 focus instead on a question about prediction, and (of course) validation
 of your model becomes essential.
@@ -899,11 +900,11 @@ these approaches, great. If not, don’t force it.
 **Thanks**
 
 Thanks to those of you who’ve read all the way down to the bottom of
-these instructions. If you send an email to Dr. Love before the Project
-B Schedule and Outline Form is due, telling him the name of your
-favorite R function (please use the subject: *Favorite R function*), he
-will be grateful, and will give you some bonus class participation
-credit.
+these instructions. If you send an email to Dr. Love before the due date
+for the Project B Schedule and Outline Form, telling him the name of
+your favorite R function (please use the subject: *Favorite R
+function*), he will be grateful, and will give you some bonus class
+participation credit.
 
 # 12. Twelve Things We Want To See in Your Work
 
