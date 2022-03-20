@@ -1,7 +1,7 @@
 432 Project B Instructions for Spring 2022
 ================
 Thomas E. Love
-Last Updated: 2022-03-15 10:55:14
+Last Updated: 2022-03-16 23:47:05
 
 -   [1. Overview of Project B](#1-overview-of-project-b)
 -   [2. Deliverables and Deadlines](#2-deliverables-and-deadlines)
@@ -123,7 +123,7 @@ Calendar](https://thomaselove.github.io/432/calendar.html).
 There are three Project B deliverables:
 
 1.  A [Project B Outline and Scheduling Google
-    Form](http://bit.ly/432-2022-projectB-register) to register your
+    Form](https://bit.ly/432-2022-projectB-register) to register your
     project and schedule your presentation.
     -   The form will open for responses on 2022-03-17.
     -   If you are working with a partner, exactly one of you will fill
@@ -318,9 +318,9 @@ your portfolio after the presentation) in May:
 # 6. The Outline and Scheduling Google Form
 
 The [Project B Outline and Scheduling
-Form](http://bit.ly/432-2022-projectB-register) is a Google Form you
+Form](https://bit.ly/432-2022-projectB-register) is a Google Form you
 will be able to access (after logging into Google via CWRU) at
-<http://bit.ly/432-2022-projectB-register>.
+<https://bit.ly/432-2022-projectB-register>.
 
 This form allows you to register a brief description of your project for
 Dr. Love’s approval, *and* specify presentation times when you (and your
@@ -343,14 +343,18 @@ partner if applicable) are available.
         their distributions.
 -   You’ll need to specify how many cases are in your data with complete
     data on each of your study’s two outcomes.
+-   You’ll need to specify the title of your project.
+-   You’ll need to specify your research questions.
+-   You’ll need to specify who your partner is, if you have one.
 
 ## Signing Up for Presentation Times
 
-Dr. Love will make a series of time slots available.
+Dr. Love will make 21 hour-long time slots available.
 
--   You will specify a certain number of these time slots as times when
-    you (and your partner, if any) are available to give your project.
--   The time slots are scheduled on April 25, 26 and 28.
+-   You will specify at least six of these time slots as times when you
+    (and your partner, if any) are available to give your project.
+-   The time slots are scheduled on April 25 (morning and afternoon), 26
+    (morning and afternoon) and 28 (afternoon).
 
 Some people will have special circumstances that make it difficult for
 them to meet during some of these times. There will be an opportunity on
@@ -385,8 +389,9 @@ making changes as your work on the Project progresses. Once Dr. Love
 approves your proposed research questions, you should feel to free to
 make any change you like, so long as you are not materially changing the
 general topic of your work. If you feel that you need to change the
-title of your project, that’s the time to get Dr. Love’s approval again,
-but if the original title still works, you’ll be fine.
+title or one of the outcomes in your project, that’s the time to get
+Dr. Love’s approval again, but if the original title and outcomes still
+work, you’ll be fine.
 
 -   If you do need to change a title, request a re-approval via email by
     submitting both the initial title and research questions as well as
@@ -406,10 +411,9 @@ remaining job is to build a very well-designed and well-analyzed study
 then present it to Dr. Love (orally and in a written HTML file)
 beautifully.
 
-Dr. Love will announce in class whether presentations will be given in
-person or via Zoom, or both, based on the results of the Minute Paper
-after Class 16. In either case, your presentation is based on results
-contained in your portfolio, hitting on these four key points.
+Some presentations will be given in person and others via Zoom. In
+either case, your presentation is based on results contained in your
+portfolio, hitting on these four key points.
 
 1.  What your research questions were and why they are important.
 2.  What data you used and why it was relevant to addressing your
@@ -446,15 +450,15 @@ minimum possible time discussing the background of your data or your
 data cleaning. Focus on your research questions, your analytic work, and
 your discussion of conclusions, effect sizes and limitations.
 
--   If we do this via zoom, each time slot will be one hour long. You
-    will be placed in a group with (in most cases) two other projects
-    during that hour, and will listen to their presentation(s) as well
-    as your own during that hour.
--   If we do this “in person”, each presentation will happen with just
-    the investigators and Dr. Love in the room, for 20 minutes.
--   You should think of this as a 15 minute presentation if no one asked
-    any questions, but the time slots are 20 minutes each because
-    Dr. Love will ask questions of you, during and after your
+-   Via Zoom, each time slot will be one hour long. You will be placed
+    in a group with (in most cases) two other projects during that hour,
+    and will listen to their presentation(s) as well as your own during
+    that hour.
+-   Each “in person” presentation will happen with just the
+    investigators and Dr. Love in the room, for 20 minutes.
+-   You should think of this as no more than a 15 minute presentation if
+    no one asked any questions, but the time slots are 20 minutes each
+    because Dr. Love will ask questions of you, during and after your
     presentation.
     -   Your ability to address those questions effectively, using the
         results from your portfolio of work, is the thing that will
