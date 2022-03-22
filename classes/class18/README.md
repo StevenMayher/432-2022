@@ -19,7 +19,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. There is a Minute Paper after Class 18 due tomorrow (Wednesday 2022-03-23) at noon. **Details to come**.
 2. Project A Feedback should be in your hands by class time. 
-    - Project A overall grades ranged from 72 to 91. Grades between 70 and 85 are in the "B" range, 89-91 are "A" with 86-88 in between.
+    - Project A overall grades ranged from 72 to 91. 
+    - Grades between 70 and 85 are in the "B" range, 89-91 are "A" with grades in the 86-88 range falling in the "A-/B+" range.
     - Grades on the portfolio ranged from 35 to 46 (out of 50) and on the video ranged from 21 to 27 (out of 30.)
 3. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
 4. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
