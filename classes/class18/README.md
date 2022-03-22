@@ -22,9 +22,9 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 3. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
 4. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
 5. Today would be a good time to update R to version 4.1.3, as well as [your R Packages](https://thomaselove.github.io/432/r_packages.html). 
-    - R version 4.1.3 came out on 2022-03-10 and is now stable and available enough that I have made the switch and [encourage you to do so](http://cran.case.edu/).
+    - R version 4.1.3 came out on 2022-03-10 and is now stable. I have made the switch and [encourage you to do so](http://cran.case.edu/).
     - Here are [the installation instructions](https://thomaselove.github.io/432/software_install.html) from the start of the term.
-    - The current version of RStudio Desktop is 2022.02.0-443, and I have [also upgraded to that version](https://www.rstudio.com/products/rstudio/download/#download). You should, too.
+    - The current version of RStudio Desktop is 2022.02.0-443, and I [upgraded to that version](https://www.rstudio.com/products/rstudio/download/#download). You should, too.
     - Once you've done that, don't forget to hit the Update button in the Packages window, then select and install all of the updates. My current session information is available [here](2022-03-22_sesh.md).
 
 ## What Else Should I Be Working On?
