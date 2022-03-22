@@ -18,10 +18,12 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. There is a Minute Paper after Class 18 due tomorrow (Wednesday 2022-03-23) at noon. **Details to come**.
-2. Project A Feedback should be in your hands by class time. 
+2. Project A Feedback should be in your hands by class time. Look in your **CWRU email** for a link to a shared document you should be able to view in Google Drive.
     - Project A overall grades ranged from 72 to 91, with a median of 86 and mean of 85.5.
     - Grades between 70 and 85 are in the "B" range; 89-91 are "A" grades, and 86-88 falling in the "A-/B+" range.
     - Grades on the portfolio ranged from 35 to 46 (out of 50) and on the video ranged from 21 to 27 (out of 30.)
+    - Please review [the rubric for the portfolio (PDF)](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/projA_portfolio_rubric.pdf) to understand the item numbers and what we were looking for.
+    - If you have questions about the grading or comments, please email Dr. Love.
 3. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
 4. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
 5. Now would be a good time to update your versions of R, RStudio and [your R Packages](https://thomaselove.github.io/432/r_packages.html). 
