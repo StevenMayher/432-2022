@@ -1,0 +1,32 @@
+# 432 Class 18: 2022-03-22
+
+[Main Website](https://thomaselove.github.io/432/) | [Calendar](https://thomaselove.github.io/432/calendar.html) | [Syllabus](https://thomaselove.github.io/432-2022-syllabus/) | [Course Notes](https://thomaselove.github.io/432-notes/) | [Canvas](https://canvas.case.edu) | [Data and Code](https://github.com/THOMASELOVE/432-data) | [Sources](https://github.com/THOMASELOVE/432-2022/tree/main/references) | [Contact Us](https://thomaselove.github.io/432/contact.html)
+:-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
+for everything | deadlines | expectations | from Dr. Love | zoom info | downloads | read/watch | need help?
+
+## Materials for Today's Class
+
+- Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class18/432_2022_slides18.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class18/432_2022_slides18.Rmd). 
+- All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
+
+## Today's Agenda
+
+1. Announcements and other README materials.
+2. Cox Proportional Hazards Regression Models: An Introduction (in the slides.)
+3. We will spend some time helping people who are interested in finding a partner for Project B to do so.
+
+## Announcements
+
+1. There is a Minute Paper after Class 18 due tomorrow (Wednesday 2022-03-23) at noon. **Details to come**.
+2. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
+3. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
+4. Now would be a good time to update [your R Packages](https://thomaselove.github.io/432/r_packages.html) if you haven't done so recently.
+
+## What Else Should I Be Working On?
+
+Nothing due this coming Monday except reading through Chapter 10 (on poker) of *The Signal and the Noise*, but two things are due the following week.
+
+1. The [Project B Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register) is available now, and due **Sunday 2022-04-03 at 9 PM**. See the instructions as well as [the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17) for details on what you need for the form, and other materials that can help as you get going.
+2. [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is due **Monday 2022-04-04 at 9 PM** (**the day after the Project B form**). You can do Lab 5 now. Lab 6 is the Lab which works with time-to-event data.
+3. It's never a bad time to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY), as well.
+
