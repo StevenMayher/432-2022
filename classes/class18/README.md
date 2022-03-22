@@ -17,7 +17,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. There is a Minute Paper after Class 18 due tomorrow (Wednesday 2022-03-23) at noon. **Details to come**.
+1. There is a [Minute Paper after Class 18](https://bit.ly/432-2022-min-18) due tomorrow (Wednesday 2022-03-23) at noon.
 2. Project A Feedback should be in your hands by class time. Look in your **CWRU email** for a link to a shared document you should be able to view in Google Drive.
     - Project A overall grades ranged from 72 to 91, with a median of 86 and mean of 85.5.
     - Grades between 70 and 85 are in the "B" range; 89-91 are "A" grades, and 86-88 falling in the "A-/B+" range.
