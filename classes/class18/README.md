@@ -27,6 +27,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 Nothing due this coming Monday except reading through Chapter 10 (on poker) of *The Signal and the Noise*, but two things are due the following week.
 
 1. The [Project B Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register) is available now, and due **Sunday 2022-04-03 at 9 PM**. See the instructions as well as [the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17) for details on what you need for the form, and other materials that can help as you get going.
-2. [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is due **Monday 2022-04-04 at 9 PM** (**the day after the Project B form**). You can do Lab 5 now. Lab 6 is the Lab which works with time-to-event data.
+2. [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is due **Monday 2022-04-04 at 9 PM** (**the day after the Project B form**). You can do Lab 5 now. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06), due 2022-04-11, is the Lab which works with time-to-event data and is the final required Lab of the semester.
 3. It's never a bad time to work on [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY), as well.
 
