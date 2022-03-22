@@ -22,4 +22,4 @@ If you have questions about Lab 04, please ask them [at TA office hours](https:/
 
 ## Post-Deadline Materials
 
-will appear after the deadline.
+The Answer Sketch is now posted to our Shared Drive.
