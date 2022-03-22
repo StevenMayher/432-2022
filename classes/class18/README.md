@@ -24,7 +24,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - Grades on the portfolio ranged from 35 to 46 (out of 50) and on the video ranged from 21 to 27 (out of 30.)
     - Please review [the rubric for the portfolio (PDF)](https://github.com/THOMASELOVE/432-2022/blob/main/projectA/projA_portfolio_rubric.pdf) to understand the item numbers and what we were looking for.
     - If you have questions about the grading or comments, please email Dr. Love.
-3. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
+3. An Answer Sketch for Lab 4 is now available on our Shared Drive.
 4. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
 5. Now would be a good time to update your versions of R, RStudio and [your R Packages](https://thomaselove.github.io/432/r_packages.html). 
     - Here are [the installation instructions](https://thomaselove.github.io/432/software_install.html) from the start of the term.
