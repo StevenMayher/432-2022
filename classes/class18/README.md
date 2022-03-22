@@ -21,7 +21,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. Project A Feedback should be in your hands by class time. **Details to come.**
 3. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
 4. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
-5. Now would be a good time to update [your R Packages](https://thomaselove.github.io/432/r_packages.html) if you haven't done so recently.
+5. Today would be a good time to update [your R Packages](https://thomaselove.github.io/432/r_packages.html) if you haven't done so recently. You should certainly be running **R version 4.1.2** if at all possible. Just hit the Update button in the Packages window, then select and install all of the updates. My current session information is available [here](session_info.md).
 
 ## What Else Should I Be Working On?
 
