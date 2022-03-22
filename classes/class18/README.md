@@ -18,9 +18,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. There is a Minute Paper after Class 18 due tomorrow (Wednesday 2022-03-23) at noon. **Details to come**.
-2. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
-3. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
-4. Now would be a good time to update [your R Packages](https://thomaselove.github.io/432/r_packages.html) if you haven't done so recently.
+2. Project A Feedback should be in your hands by class time. **Details to come.**
+3. An Answer Sketch for Lab 4 **will be available by class time** on our Shared Drive.
+4. Materials on time-to-event outcomes are found in Chapters 22-24 of our [Course Notes](https://thomaselove.github.io/432-notes/), and in several other places I mentioned [in the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17). Our department offers a full-semester course (PQHS 435) every spring in Survival Analysis.
+5. Now would be a good time to update [your R Packages](https://thomaselove.github.io/432/r_packages.html) if you haven't done so recently.
 
 ## What Else Should I Be Working On?
 
