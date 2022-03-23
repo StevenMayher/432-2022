@@ -27,8 +27,13 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## One Last Thing
 
-
-
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck0.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck1.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck2.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck3.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck4.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck5.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck6.png)
 
 [Statistical Problems to Document and To Avoid](https://biostat.app.vumc.org/wiki/Main/ManuscriptChecklist)
 [Glossary of Statistical Terms (from Frank Harrell)](https://hbiostat.org/doc/glossary.pdf)
