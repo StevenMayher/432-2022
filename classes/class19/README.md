@@ -13,6 +13,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. I gave everyone credit for the Minute Paper after Class 18. Due to a mistake on my end, I wasn't able to associate a name with most of the submissions, and I know some people submitted more than once. [Feedback is now available, here](https://bit.ly/432-2022-min-18-feedback).
 2. Reminder: Now would be a good time to upgrade to [R version 4.1.3](https://cran.case.edu/), and to [RStudio version 2022.02.0-443](https://www.rstudio.com/products/rstudio/download/#download) as well as [updating your packages](https://thomaselove.github.io/432/r_packages.html). See the [Class 18 README](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class18/README.md) for more details.
+3. [rstudio::conf(2022)](https://www.rstudio.com/blog/rstudio-conf-2022-is-open-for-registration/) is now open for registration. If you can’t make it in person, virtual registration will be free and available closer to the date (2022-07-25 through 2022-07-28 in DC).
+4. [Mapping and geographic data analysis with the simple features package in R](https://paldhous.github.io/NICAR/2022/r-sf-mapping-geo-analysis.html) has a lot of nice material, prepared by P. Aldhous for the 2022 NICAR meeting.
 
 ## Upcoming (non-Minute Paper) Deliverables
 
@@ -22,4 +24,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 3. Monday 2022-04-04 at 9 PM: [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) due to Canvas.
 4. Monday 2022-04-11 at 9 PM: [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) due to Canvas.
 5. [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) and [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and even [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX), if you've finished reading *The Signal and the Noise*.
+
+## One Last Thing
+
+
+
+
+[Statistical Problems to Document and To Avoid](https://biostat.app.vumc.org/wiki/Main/ManuscriptChecklist)
+[Glossary of Statistical Terms (from Frank Harrell)](https://hbiostat.org/doc/glossary.pdf)
+
+[Source (Mark Zobeck's twitter thread)](https://twitter.com/MarkZobeck/status/1506615109170442244)
 
