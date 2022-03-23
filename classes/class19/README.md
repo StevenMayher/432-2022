@@ -35,8 +35,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck5.png)
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/zobeck6.png)
 
-[Statistical Problems to Document and To Avoid](https://biostat.app.vumc.org/wiki/Main/ManuscriptChecklist)
-[Glossary of Statistical Terms (from Frank Harrell)](https://hbiostat.org/doc/glossary.pdf)
-
-[Source (Mark Zobeck's twitter thread)](https://twitter.com/MarkZobeck/status/1506615109170442244)
+- [Statistical Problems to Document and To Avoid](https://biostat.app.vumc.org/wiki/Main/ManuscriptChecklist)
+- [Glossary of Statistical Terms (from Frank Harrell)](https://hbiostat.org/doc/glossary.pdf)
+- [Source (Mark Zobeck's twitter thread)](https://twitter.com/MarkZobeck/status/1506615109170442244)
 
