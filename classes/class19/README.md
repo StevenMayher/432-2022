@@ -11,8 +11,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. I gave everyone credit for the Minute Paper after Class 18. Due to a mistake on my end, I wasn't able to associate a name with most of the submissions, and I know some people submitted more than once. Feedback will be available by class time.
-2. A reminder that now would be a good time to upgrade to R version 4.1.3, and RStudio version 2022.02.0-443 as well as updating your packages. See the [Class 18 README](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class18/README.md) for more details.
+1. I gave everyone credit for the Minute Paper after Class 18. Due to a mistake on my end, I wasn't able to associate a name with most of the submissions, and I know some people submitted more than once. [Feedback is now available, here](https://bit.ly/432-2022-min-18-feedback).
+2. Reminder: Now would be a good time to upgrade to [R version 4.1.3](https://cran.case.edu/), and to [RStudio version 2022.02.0-443](https://www.rstudio.com/products/rstudio/download/#download) as well as [updating your packages](https://thomaselove.github.io/432/r_packages.html). See the [Class 18 README](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class18/README.md) for more details.
 
 ## Upcoming (non-Minute Paper) Deliverables
 
