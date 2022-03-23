@@ -12,6 +12,13 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/poorman1.png)
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class19/figures/poorman2.png)
 
+## Today's Agenda
+
+Today we'll focus on two things:
+
+1. survival analyses using Cox proportional hazards models for time-to-event outcomes with censoring. 
+2. robust linear models using Huber weights, or bisquare weights or quantile regression.
+
 ## Announcements
 
 1. I gave everyone credit for the Minute Paper after Class 18. Due to a mistake on my end, I wasn't able to associate a name with most of the submissions, and I know some people submitted more than once. [Feedback is now available, here](https://bit.ly/432-2022-min-18-feedback).
