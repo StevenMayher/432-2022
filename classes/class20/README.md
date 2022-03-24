@@ -11,12 +11,50 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Today's Agenda
 
-Today we'll introduce two ideas:
+Today we'll provide a brief survey demonstrating the use of R and two new ideas:
 
-1. working with survey weights
+1. working with weights in regression (aggregation and survey weights)
 2. CART (classification and regression trees)
 
 ## Announcements
 
-1. To come.
+1. To use the tools we'll demonstrate today for CART analyses, you'll need to install the `party`, `rpart` and `rpart.plot` packages.
+
+## Upcoming Deliverables
+
+See the [Calendar](https://thomaselove.github.io/432/calendar.html).
+
+## Additional Resources on Survey Weights
+
+The `survey` package home page: http://r-survey.r-forge.r-project.org/survey/index.html
+
+### Tutorials...
+
+- https://www.r-bloggers.com/2015/09/linear-models-with-weighted-observations/
+- https://stackoverflow.com/questions/10268689/weighted-regression-in-r
+- https://online.stat.psu.edu/stat501/lesson/r-help-13-weighted-least-squares
+
+### On NHANES specifically...
+
+- https://wwwn.cdc.gov/nchs/nhanes/analyticguidelines.aspx
+- https://wwwn.cdc.gov/nchs/nhanes/tutorials/Module3.aspx
+- https://stylizeddata.com/how-to-use-survey-weights-in-r/
+- https://stats.idre.ucla.edu/r/faq/how-can-i-do-regression-estimation-with-survey-data/
+- http://asdfree.com/national-health-and-nutrition-examination-survey-nhanes.html
+
+## Additional Resources on CART
+
+- [statmethods.net](http://www.statmethods.net/advstats/cart.html) (lots of the descriptions are here)
+- [CART with rpart](https://rpubs.com/minma/cart_with_rpart) (uses the titanic data)
+- [rpart vignette](https://cran.r-project.org/web/packages/rpart/vignettes/longintro.pdf)
+- [party vignette](https://cran.r-project.org/web/packages/party/vignettes/party.pdf)
+- [milbo.org](http://www.milbo.org/rpart-plot/prp.pdf) (tutorial on rpart.plot for tree plotting)
+- [CART talk (pdf)](http://statweb.stanford.edu/~lpekelis/13_datafest_cart/13_datafest_cart_talk.pdf)
+- [RandomForests](https://www.stat.berkeley.edu/~breiman/RandomForests/) is old, but still useful
+- [Tune and interpret decision trees for #TidyTuesday wind turbines](https://juliasilge.com/blog/wind-turbine/) by Julia Silge (includes video)
+- [Bagging with tidymodels and #TidyTuesday astronaut missions](https://juliasilge.com/blog/astronaut-missions-bagging/) also by Julia Silge (with video)
+
+# One Last Thing
+
+To come.
 
