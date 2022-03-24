@@ -17,10 +17,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 will be centered around replicable research as well as thinking about power issues through retrospective design. The main resources are:
 
-- Andrew Gelman and John Carlin [Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors](https://github.com/THOMASELOVE/432-2022/blob/master/classes/class22/references/Gelman_Carlin_2014_Beyond_Power_Calculations.pdf)
-- Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913), *The American Statistician*, 73:sup1, 1-19, DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913). The PDF of this article [is also available here](https://github.com/THOMASELOVE/432-2021/blob/master/classes/class21/references/ASA_2019_A_World_Beyond.pdf).
+- Andrew Gelman and John Carlin [Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/references/Gelman_Carlin_2014_Beyond_Power_Calculations.pdf)
+- Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar (2019) [Moving to a World Beyond "p < 0.05"](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913), *The American Statistician*, 73:sup1, 1-19, DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913). The PDF of this article [is also available here](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/references/ASA_2019_A_World_Beyond.pdf).
 - Ronald L. Wasserstein & Nicole A. Lazar (2016) [The ASA's Statement on p-Values: Context, Process, and Purpose](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108), *The American Statistician*, 70:2, 129-133, DOI:
-[10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108). PDF [also available here](https://github.com/THOMASELOVE/432-2022/blob/master/classes/class22/references/ASA_2016_Pvalues_Context_Process_Purpose.pdf).
+[10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108). PDF [also available here](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/references/ASA_2016_Pvalues_Context_Process_Purpose.pdf).
 
 ### Need to have a tough talk with someone about p values?
 
