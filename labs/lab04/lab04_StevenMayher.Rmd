@@ -1,0 +1,317 @@
+---
+title: "432 Lab 04"
+author: "Steven Mayher"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+    self_contained: true
+    number_sections: true
+    code_folding: show
+    df_print: paged
+---
+
+## Setup {-}
+
+```{r setup, message = FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+opts_chunk$set(comment=NA)
+opts_knit$set(width=75)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE, warning = FALSE}
+library(conflicted)
+library(here)
+library(magrittr)
+library(janitor)
+library(broom)
+library(rms)
+library(Hmisc)
+library(MASS)
+library(pscl)
+library(countreg)
+library(tidyverse)
+
+theme_set(theme_bw())
+conflict_prefer("select", "dplyr")
+conflict_prefer("filter", "dplyr")
+options(dplyr.summarise.inform = FALSE)
+```
+
+## Import the `oh_counties_2020` Data {-}
+
+```{r, message = FALSE}
+oh20 <- read_csv(here("labs/lab04/data", "oh_counties_2020.csv")) 
+
+oh20 <- oh20 %>%
+  clean_names() %>%
+  type.convert(as.is = FALSE) %>%
+  mutate(fips = as.character(fips))
+
+oh20
+```
+
+
+# Question 1
+
+As stated in prompt A, Jeff Leek remarks in his book *How to Be A Modern Scientist* that "Everyone is an internet scientist now." Upon reflection, I think that my work will change in regards to this remark, in particular regarding how much of my work may come from analyzing collected data from multiple studies as opposed to data collected on my own. While I do not think that this will mean in any way that I will necessarily stop producing data myself, the fact of the matter is that I may end up spending more time incorporating other collected data sets into studies than simply my own collected data in ways that have been previously untenable until the modern internet. Additionally, with Jeff Leek pointing out how "everyone is an internet scientist now", it illustrates more than ever the importance of developing the proper skills to sift through the large amounts of data online in an efficient and effective manner. As time progresses the amount of data made available online will only continue to increase. As such the value of and necessity for skilled individuals capable of interpreting data will only increase moving forward, and as such I see myself continuing to develop the skills necessary to analyze large sets of data from multiple different sources online as necessary, as these skills will only become more relevant as time progresses. Admittedly , this makes being a scientist, to me anyways, both more and less appealing at the same time - the availability and accessibility of study data has never been higher, however as a result far more rigor will likely be required to discern effectively which data to use, which is credible and which isn't, and many other related concerns for this matter.
+
+
+
+# Question 2
+
+For this question, we will attempt to model the percentage of a county's population that reports no leisure-time physical activity `inactive_pct` using the percentage of 16+ people who are unemployed but are looking for work (`unemployed`), the percentage of adults reporting a body mass index of 30 or higher (`obese_pct`), the percentage of people with access to places for physical activity (`exer_access`), percentage of people with frequent physical distress (`freq_phys_distress`), the percentage of people who get insufficient sleep (`insuff_sleep`), and the estimated median income of the county's population (`median_income`). To accomplish this, the initial dataset `oh20` shown above will first be filtered to not include Cuyahoga or Monroe counties, and the resultant sub-set of data will be used to generate the necessary models using the **lm()** and **ols()** as shown below:
+
+
+```{r}
+lab04_data = oh20 %>%
+  filter(county != "Cuyahoga") %>%
+  filter(county != "Monroe")
+
+d = datadist(lab04_data)
+options(datadist = "d")
+
+mod_q2_lm <- lm(inactive_pct ~ unemployed + obese_pct + exer_access + freq_phys_distress + insuff_sleep + median_income,
+data = lab04_data, x = TRUE, y = TRUE)
+
+mod_q2_ols <- ols(inactive_pct ~ unemployed + obese_pct + exer_access + freq_phys_distress + insuff_sleep + median_income,
+data = lab04_data, x = TRUE, y = TRUE)
+```
+
+
+To assess how well a linear model fits the data, the R-squared, adjusted R-squared, AIC, and BIC values have been provided below:
+
+
+```{r}
+glance_mod_q2_lm = glance(mod_q2_lm) %>%
+    select(r.squared, adj.r.squared, AIC, BIC) %>%
+    kable(digits = c(3, 3, 1, 1))
+
+glance_mod_q2_lm
+```
+
+
+The R-squared value of 0.651 and the adjusted R-squared value of 6.24. To further investigate this, an index-corrected R-square value for this model has been generated below with the following code:
+
+
+```{r}
+set.seed(43202)
+validate(mod_q2_ols)
+```
+
+The validated (i.e. index-corrected) R-square value for this model is 0.6147, which is technically better than the adjusted R-square value obtained above, albeit not by much.
+
+
+
+```{r}
+anova(mod_q2_lm)
+```
+
+
+To examine the linearity, normality, and other assumptions of the model, the following residual plots have been generated:
+
+
+```{r}
+par(mfrow = c(2,2)); plot(mod_q2_lm); par(mfrow = c(1,1))
+```
+
+The residual plots above suggest some issues with non-constant variance as well as some unusually high residuals, and at least one highly leveraged point, the latter of which has been identified below to be Delaware county:
+
+
+```{r}
+aug_mod_q2_lm = augment(mod_q2_lm, data = lab04_data)
+
+aug_mod_q2_lm %>% select(county, .hat) %>%
+  filter(.hat > 21/86) %>%
+  arrange(desc(.hat))
+```
+
+
+To see how well this model predicts the values for the Cuyahoga and Monroe counties the following code can be used:
+
+```{r}
+counties_test = oh20 %>% filter(county == "Cuyahoga" | county == "Monroe")
+
+augment(mod_q2_lm, newdata = counties_test) %>% select(county, inactive_pct, .fitted, .resid) %>% kable()
+```
+
+
+As can be seen above, the model predicts Monroe county's `inactive_pct` better than it predicts the Cuyahoga county's `inactive_pct`. For added benefit, a nomogram of the resultant model has been generated below:
+
+
+```{r fig.height=10, fig.width=16}
+plot(nomogram(mod_q2_ols))
+```
+
+
+
+# Question 3
+
+The following code generates the categorical version of the outcome variable as requested by the question prompt for use in generating the ordinal model:
+
+```{r}
+lab04_q3_data = lab04_data %>%
+    mutate(years_lost_rate_cat = factor(Hmisc::cut2(years_lost_rate, g = 3)))
+
+mosaic::favstats(years_lost_rate ~ years_lost_rate_cat, data = lab04_q3_data) %>% 
+    kable(digits = 3)
+
+lab04_q3_data = lab04_q3_data %>%
+    mutate(years_lost_rate_cat = fct_recode(years_lost_rate_cat,
+                                   low = "[4125, 7845)",
+                                   middle = "[7845, 9324)",
+                                   high = "[9324,13085]"))
+
+mosaic::favstats(years_lost_rate ~ years_lost_rate_cat, data = lab04_q3_data) %>% 
+    kable(digits = 3)
+```
+
+
+With the outcome variable prepared above, the code necessary for producing the model has been provided below:
+
+
+```{r}
+mod_q3_polr = polr(years_lost_rate_cat ~ sroh_fairpoor + inactive_pct + uninsured, data = lab04_q3_data, Hess = TRUE)
+
+dd = datadist(lab04_q3_data)
+options(datadist = "dd")
+
+mod_q3_lrm = lrm(years_lost_rate_cat ~ sroh_fairpoor + inactive_pct + uninsured, data = lab04_q3_data,, x = TRUE, y = TRUE)
+```
+
+
+The following code provides a few of the summary statistics necessary for assessing this model:
+
+
+```{r}
+summary(mod_q3_polr)
+```
+
+
+Nothing appears to be amiss with the coefficients for the model, and the model has an AIC of approximately 137.5492. The BIC value has been provided below:
+
+
+```{r}
+BIC(mod_q3_polr)
+```
+
+And as can be seen below, the index-corrected (i.e. validated) R-squared value for this model is approximately 0.5571, which isn't stellar, as that it just slightly better than randomly guessing the correct values:
+
+
+```{r}
+set.seed(43202)
+validate(mod_q3_lrm)
+```
+
+Lastly, the predictions for Cuyahoga county and Monroe county have been provided below with the following code:
+
+
+```{r}
+predict(mod_q3_lrm, newdata = counties_test, type = "fitted")
+predict(mod_q3_polr, newdata = counties_test, type = "p")
+```
+
+
+
+# Question 4
+
+To create the two regression models requested from this question, the outcome variable first needs to be generated as specified. The code below accomplishes this, labeling the outcome `sum`:
+
+```{r}
+lab04_q4_data = lab04_data %>%
+  mutate(sroh_fairpoor_bin = if_else(sroh_fairpoor < 17.15, 1, 0)) %>%
+  mutate(obese_pct_bin = if_else(obese_pct < 34.32, 1, 0)) %>%
+  mutate(exer_access_bin = if_else(exer_access > 67.76, 1, 0)) %>%
+  mutate(h2oviol_bin = if_else(h2oviol == "No", 1, 0))
+
+lab04_q4_data = lab04_q4_data %>%
+  mutate(sum = rowSums(lab04_q4_data[, c(44, 45, 46, 47)]))
+```
+
+
+With the outcome variable generated, the following two models have been generated, the first of which being just a standard linear regression model, and the second being a poisson regression model:
+
+
+```{r}
+mod_q4_lm = lm(sum ~ uninsured + food_insecure + inactive_pct, data = lab04_q4_data, x = TRUE, y = TRUE)
+mod_q4_lm_ols = ols(sum ~ uninsured + food_insecure + inactive_pct, data = lab04_q4_data, x = TRUE, y = TRUE)
+
+mod_q4_poiss = glm(sum ~ uninsured + food_insecure + inactive_pct, data = lab04_q4_data, x = TRUE, y = TRUE, family = poisson())
+```
+
+
+To compare how well both models fit the data, summaries of both have been provided below, with the first summary for the linear model:
+
+
+```{r}
+summary(mod_q4_lm)
+```
+
+
+And the second summary for the poisson model:
+
+
+```{r}
+summary(mod_q4_poiss)
+```
+
+The AIC and BIC values for the linear model appear to be better than those for the poisson model:
+
+
+```{r}
+glance_mod_q4_lm = glance(mod_q4_lm) %>%
+    select(r.squared, adj.r.squared, AIC, BIC) %>%
+    kable(digits = c(3, 3, 1, 1))
+
+glance_mod_q4_lm
+
+glance_mod_q4_poiss = glance(mod_q4_poiss) %>%
+    select(AIC, BIC) %>%
+    kable(digits = c(1, 1))
+
+glance_mod_q4_poiss
+```
+
+
+According to the following analyses of variance, the variance in both models is effectively identical:
+
+
+```{r}
+aov(mod_q4_lm)
+aov(mod_q4_poiss)
+```
+
+However as seen below there does appear to be a slight difference in residual degrees of freedom between the two models:
+
+
+```{r}
+anova(mod_q4_lm, mod_q4_poiss)
+```
+
+The validated R-square value for the linear model is as follows:
+
+```{r}
+set.seed(43202)
+validate(mod_q4_lm_ols)
+```
+
+
+
+Lastly, the following code provides the predictions for Cuyahoga county (1) and Monroe county (2) for both models:
+
+
+```{r}
+predict(mod_q4_lm, counties_test)
+predict(mod_q4_poiss, counties_test)
+```
+
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```
