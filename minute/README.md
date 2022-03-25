@@ -6,8 +6,7 @@ The Minute Papers are scheduled on the following Wednesdays. Minute Papers are a
 
 After Class | Due at NOON on | Link to Minute Paper Form | Link to Dr. Love's Feedback
 :-----------: | :-----: | :------: | :--------:
-16 (2022-03-15) | 2022-03-16 | https://bit.ly/432-2022-min-16 | https://bit.ly/432-2022-min-16-feedback
-18 (2022-03-22) | 2022-03-23 | To come. | To come.
+18 (2022-03-22) | 2022-03-23 | https://bit.ly/432-2022-min-18 | https://bit.ly/432-2022-min-18-feedback
 20 (2022-03-29) | 2022-03-30 | To come. | To come.
 22 (2022-04-05) | 2022-04-06 | To come. | To come.
 24 (2022-04-12) | 2022-04-13 | To come. | To come.
@@ -21,6 +20,7 @@ After Class | Due at NOON on | Link to Minute Paper Form | Link to Dr. Love's Fe
 9 (2022-02-08) | 2022-02-09 | https://bit.ly/432-2022-min-09 | https://bit.ly/432-2022-min-09-feedback
 11 (2022-02-15) | 2022-02-16 | https://bit.ly/432-2022-min-11 | https://bit.ly/432-2022-min-11-feedback
 14 (2022-03-01) | 2022-03-02 | https://bit.ly/432-2022-min-14 | https://bit.ly/432-2022-min-14-feedback
+16 (2022-03-15) | 2022-03-16 | https://bit.ly/432-2022-min-16 | https://bit.ly/432-2022-min-16-feedback
 
 ## What is a minute paper?
 

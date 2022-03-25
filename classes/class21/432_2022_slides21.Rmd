@@ -1,0 +1,518 @@
+---
+title: "432 Class 21 Slides"
+author: "thomaselove.github.io/432"
+date: "2022-03-31"
+output:
+    beamer_presentation:
+        theme: "Madrid"
+        colortheme: "orchid"
+        fonttheme: "structurebold"
+        fig_caption: FALSE
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(comment=NA)
+options(width = 60)
+```
+
+## Today's Agenda
+
+- Some Thoughts on Feature Selection
+  - Shrinkage
+  - Ridge Regression
+  - The Lasso
+
+## Setup
+
+```{r, warning = FALSE, message = FALSE}
+library(here); library(magrittr) 
+library(janitor); library(knitr)
+library(rms); library(broom)
+
+library(GGally) # scatterplot matrix
+library(skimr) # describe data frame
+library(MASS)
+library(lars) # new today
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+## The `maleptsd` data
+
+The `maleptsd` file on our web site contains information on PTSD (post traumatic stress disorder) symptoms following childbirth for 64 fathers^[Source: Ayers et al. 2007 *J Reproductive and Infant Psychology*. The data are described in more detail in Wright DB and London K (2009) *Modern Regression Techniques Using R* Sage Publications.].  There are ten predictors and the response is a measure of PTSD symptoms. The raw, untransformed values (`ptsd_raw`) are right skewed and contain zeros, so we will work with a transformation, specifically, `ptsd = log(ptsd_raw + 1)` as our outcome, which also contains a lot of zeros. 
+
+```{r, message = FALSE}
+maleptsd <- read_csv(here("data/maleptsd.csv")) %>% 
+  clean_names() %>%
+  mutate(ptsd = log(ptsd_raw + 1))
+```
+
+## `maleptsd %>% select(-id, -ptsd_raw) %>% skim()`
+
+![](figures/fig01.png)
+
+## Scatterplot Matrix, part 1
+
+```{r, echo = FALSE}
+temp1 <- maleptsd %>% 
+    dplyr::select(ptsd, over2, over3, over5, bond, posit)
+ggpairs(data = temp1)
+```
+
+## Scatterplot Matrix, part 2
+
+```{r, echo = FALSE}
+temp2 <- maleptsd %>% 
+    dplyr::select(ptsd, neg, contr, sup, cons, aff)
+ggpairs(data = temp2)
+```
+
+# A Kitchen Sink Model
+
+## Kitchen Sink Model: PTSD
+
+With 64 observations, a kitchen sink model with 10 predictors (not counting the intercept) is clearly overfit, but we'll take a look at collinearity and some related issues first using that model.
+
+```{r}
+d <- datadist(maleptsd)
+options(datadist = "d")
+m_ks <- ols(ptsd ~ over2 + over3 + over5 + bond + posit + 
+                    neg + contr + sup + cons + aff, 
+            data=maleptsd, x=TRUE, y=TRUE)
+```
+
+## `m_ks` output, part 1
+
+![](figures/fig02.png)
+
+## `m_ks` output, part 2
+
+![](figures/fig03.png)
+
+## Assessing collinearity in an `ols` object
+
+```{r}
+rms::vif(m_ks)
+```
+
+There are several VIF functions. With an `ols` object, you want the one in `rms`.
+
+Conclusions?
+
+## So, the model is too big?
+
+![](figures/bigmodel.jpg)
+
+## Four strategies for minimizing the chance of overfitting
+
+So, what **should** we be thinking about when confronted with a situation where a new model is under development, and we have some data and a lot of predictors to consider?
+
+1. Pre-specify well-motivated predictors and how to model them.
+2. Eliminate predictors without using the outcome.
+3. Use the outcome, but cross-validate the target measure of prediction error.
+4. Use the outcome, and **shrink** the coefficient estimates.
+
+## Stepwise Regression
+
+```{r}
+mod_ks <- lm(ptsd ~ over2 + over3 + over5 + bond + posit + 
+                    neg + contr + sup + cons + aff, 
+            data=maleptsd)
+```
+
+```{r, eval = F}
+step(mod_ks)
+```
+
+## Stepwise Results (edited)
+
+Backwards Elimination starting with the Kitchen Sink
+
+1. AIC starts at 28.41 for Kitchen Sink 
+2. Drop `aff` to get to AIC = 26.80
+3. Drop `contr` to move to AIC = 25.42
+4. Drop `over5` to move to AIC = 24.54
+5. Drop `posit` to move to AIC = 23.87
+6. Drop `over2` to move to AIC = 23.75
+7. No improvements available.
+
+This yields:
+
+```
+lm(ptsd ~ over3 + bond + neg + sup + cons, data = maleptsd)
+```
+
+## Why Not Use Stepwise Procedures?
+
+From Harrell:
+
+1. The R^2^ for a model selected in a stepwise manner is biased, high.
+2. The coefficient estimates and standard errors are biased.
+3. The *p* values for the individual-variable t tests are too small.
+4. In stepwise analyses of prediction models, the final model represented noise 20-74% of the time.
+5. In stepwise analyses, the final model usually contained less than half of the actual number of real predictors.
+6. It is not logical that a population regression coefficient would be exactly zero just because its estimate was not statistically significant.
+
+This last comment applies to things like our "best subsets" approach as well as standard stepwise procedures.
+
+## Flaws with Feature Selection as commonly done
+
+All subsets / best subsets / stepwise methods either include a variable or drop it from the model. Often, this choice is based on only a tiny difference in fit quality. 
+
+- Harrell: not reasonable to assume that a population regression coefficient would be exactly zero just because it failed to meet a criterion for significance. 
+- Efron: this approach is "overly greedy, impulsively eliminating covariates which are correlated with other covariates."
+- Greenland: Variable selection does more damage to confidence interval widths than to point estimates.
+- Greenland: Stepwise variable selection on confounders leaves important confounders uncontrolled.
+- Greenland: Shrinkage approaches (like ridge regression and the lasso) are far superior to variable selection.
+
+So, what's the alternative?
+
+# Ridge Regression
+
+## Ridge Regression
+
+**Ridge regression** involves a more smooth transition between useful and not useful predictors which can be obtained by constraining the overall size of the regression coefficients.
+
+Ridge regression assumes that the regression coefficients (after normalization) should not be very large. This is reasonable to assume when you have lots of predictors and you believe *many* of them have some effect on the outcome.
+
+Pros:
+
+1. Some nice statistical properties
+2. Can be calculated using only standard least squares approaches, so it's been around for a while.
+3. Available in the `MASS` package.
+
+
+## Ridge Regression
+
+Ridge regression takes the sum of the squared estimated standardized regression coefficients and constrains that sum to only be as large as some value $k$.
+
+$$
+\sum \hat{\beta_j}^2 \leq k.
+$$
+
+The value $k$ is one of several available measures of the amount of shrinkage, but the main one used in the `MASS` package is a value $\lambda$. As $\lambda$ increases, the amount of shrinkage goes up, and $k$ goes down.
+
+## Assessing a Ridge Regression Approach
+
+We'll look at a plot produced by the `lm.ridge` function for a ridge regression for the Male PTSD study.
+
+- Several (here 101) different values for $\lambda$, our shrinkage parameter, will be tested.
+- Results are plotted so that we see the coefficients across the various (standardized) predictors.
+    + Each selection of a $\lambda$ value implies a different vector of covariate values across the predictors we are studying.
+    + The idea is to pick a value of $\lambda$ for which the coefficients seem relatively stable.
+
+## Code for our Ridge Regression
+
+```{r, eval = FALSE}
+preds <- with(maleptsd, cbind(over2, over3, over5, bond, 
+                              posit, neg, contr, sup, 
+                              cons, aff))
+### requires MASS package
+x <- lm.ridge(maleptsd$ptsd~preds, 
+                    lambda=seq(0, 100, by=1))
+plot(x)
+title("Ridge Regression")
+abline(h=0)
+```
+
+Usually, you need to use trial and error to decide the range of $\lambda$ to be tested. Here, `seq(0, 100, by=1)` means going from 0 (no shrinkage) to 100 in steps of 1.
+
+## Resulting Ridge Regression Plot
+
+```{r, echo = FALSE}
+preds <- with(maleptsd, cbind(over2, over3, over5, bond, 
+                              posit, neg, contr, sup, 
+                              cons, aff))
+### requires MASS package
+x <- lm.ridge(maleptsd$ptsd~preds, 
+                    lambda=seq(0, 100, by=1))
+plot(x)
+title("Ridge Regression for the Male PTSD Data")
+abline(h=0)
+```
+
+## The `lm.ridge` plot - where do coefficients stabilize?
+
+Does $\lambda = 50$ seem like a stable spot here?
+
+```{r, eval = FALSE}
+x <- lm.ridge(maleptsd$ptsd~preds, lambda=seq(0, 100, by=1))
+plot(x)
+title("Ridge Regression for the Male PTSD Data")
+abline(h=0)
+abline(v=50, lty=2, col="black")
+```
+
+## Does $\lambda = 50$ seem like a stable spot here?
+
+```{r, echo = FALSE}
+x <- lm.ridge(maleptsd$ptsd~preds, lambda=seq(0, 100, by=1))
+plot(x)
+title("Ridge Regression for the Male PTSD Data")
+abline(h=0)
+abline(v=50, lty=2, col="black")
+```
+
+## Coefficient values at $\lambda = 50$
+
+The coefficients at $\lambda$ = 50 can be determined from the `lm.ridge` output. These are fully standardized coefficients. The original predictors are centered by their means and then scaled by their standard deviations and the outcome has also been centered, in these models.
+
+```{r}
+round(x$coef[,50],3)
+```
+
+### Was an intercept used?
+
+```{r}
+x$Inter
+```
+
+## Automated way to pick $\lambda$
+
+Use the `select` function in the `MASS` package, and since `select` is used by `dplyr`, for example, you'll have to specifically tell R to use the `MASS` version.
+
+```{r}
+MASS::select(x)
+```
+
+## I'll use the GCV estimate of $\lambda = 40$.
+
+```{r, eval = FALSE}
+x <- lm.ridge(maleptsd$ptsd~preds, lambda=seq(0, 100, by=1))
+plot(x)
+title("Ridge Regression for the Male PTSD Data")
+abline(h=0)
+abline(v=40, lty=2, col="black")
+```
+
+## I'll use the GCV estimate of $\lambda = 40$.
+
+```{r, echo = FALSE}
+x <- lm.ridge(maleptsd$ptsd~preds, lambda=seq(0, 100, by=1))
+plot(x)
+title("Ridge Regression for the Male PTSD Data")
+abline(h=0)
+abline(v=40, lty=2, col="black")
+```
+
+## Coefficients at $\lambda = 40$
+
+```{r}
+round(x$coef[,40],4) # Ridge Regression (standardized)
+```
+
+## A Scaled Linear Regression Model
+
+```{r}
+st.ptsd <- maleptsd %>% dplyr::select(-id, -ptsd_raw) %>% 
+    scale() %>% as.data.frame()
+mod_ks_sc <- lm(ptsd ~ over2 + over3 + over5 + bond + 
+                    posit + neg + contr + sup + cons + aff,
+                data=st.ptsd)
+```
+
+## Coefficients at $\lambda = 40$
+
+### Ridge Regression at $\lambda = 40$
+
+```{r}
+round(x$coef[,40],4) # Ridge Regression (standardized)
+```
+
+### Linear Regression (standardized variables)
+
+```{r}
+round(mod_ks_sc$coef,4)[-1] # do not show intercept
+```
+
+## Ridge Regression Conclusions
+
+The main problem with ridge regression is that all it does is shrink the coefficient estimates, but it's not so useful in practical settings because it still includes all variables.
+
+1. It's been easy to do ridge regression for many years, so you see it occasionally in the literature.
+2. It leads to the **lasso**, which incorporates the positive features of shrinking regression coefficients with the ability to wisely select some variables to be eliminated from the predictor pool.
+
+# The Lasso
+
+## The Lasso
+
+The lasso works by constraining the sum of the **absolute values** of the estimated standardized regression coefficients to be no larger than some value *k*.
+
+$$
+\sum \hat{|\beta_j|} \leq k.
+$$
+
+This looks like a minor change from ridge regression's $\sum \hat{\beta_j}^2 \leq k$ constraint, but it's not.
+
+### The Name
+
+The lasso is not an acronym, but rather refers to cowboys using a rope to pull cattle from the herd, much as we will pull predictors from a model.
+
+## Consequences of the Lasso Approach
+
+1. In ridge regression, while the individual coefficients shrink and sometimes approach zero, they seldom reach zero and are thus excluded from the model. With the lasso, some coefficients do reach zero and thus, those predictors do drop out of the model. 
+    + So the lasso leads to more parsimonious models than does ridge regression. 
+    + Ridge regression is a method of shrinkage but not model selection. The lasso accomplishes both tasks.
+2. If k is chosen to be too small, then the model may not capture important characteristics of the data. If k is too large, the model may over-fit the data in the sample and thus not represent the population of interest accurately.
+3. The lasso is far more difficult computationally than ridge regression (the problem requires an algorithm called least angle regression, which was published in 2004), although R has a package (`lars`) which can do the calculations pretty efficiently.
+
+## How The Lasso Works
+
+The `lars` package lets us compute the lasso coefficient estimates **and** do cross-validation to determine the appropriate amount of shrinkage. The main tool is a pair of graphs.
+
+1. The first plot (below) shows what coefficients get selected as we move from constraining all of the coefficients to zero (complete shrinkage) towards fewer constraints all the way up to ordinary least squares, showing which variables are included in the model at each point.
+2. The second plot (coming soon) suggests where on the first plot we should look for a good model choice, according to a cross-validation approach.
+
+```{r, eval = FALSE}
+## requires lars package
+lasso1 <- lars(preds, maleptsd$ptsd, type="lasso")
+plot(lasso1)
+```
+
+## Resulting Lasso Plot 1 (Coefficient Progress)
+
+```{r, echo = FALSE}
+## requires lars package
+lasso1 <- lars(preds, maleptsd$ptsd, type="lasso")
+plot(lasso1)
+```
+
+## Description of Lasso Plot 1
+
+- The y axis shows standardized regression coefficients. 
+    + The `lars` package standardizes all variables so the shrinkage doesn't penalize some coefficients because of their scale. 
+- The x-axis is labeled `|beta|/max|beta|`. 
+    + This ranges from 0 to 1.
+    + 0 means that the sum of the $|\hat{\beta_j}|$ is zero (completely shrunk)
+    + 1 means the ordinary least squares unbiased estimates.
+- The lasso graph starts at constraining all of the coefficients to zero, and then moves toward ordinary least squares. 
+
+Identifiers for the predictors (numbers) are shown to the right of the graph.
+
+- The vertical lines in the lasso plot show when a variable has been eliminated from the model, and in fact these are the only points that are actually shown in the default lasso graph. 
+- The labels on the top of the graph tell you how many predictors are in the model at that stage.
+
+## Summary for Lasso Graph 1
+
+```{r}
+summary(lasso1)
+```
+
+## Cross-Validation with the Lasso
+
+Normally, cross-validation methods are used to determine how much shrinkage should be used. We'll use the `cv.lars` function.
+
+- 10-fold (K = 10) cross-validation
+    + the data are randomly divided into 10 groups. 
+    + Nine groups are used to predict the remaining group for each group in turn.
+    + Overall prediction performance is computed, and the machine calculates a cross-validation criterion (mean squared error) and standard error for that criterion.
+    
+The cross-validation plot is the second lasso plot. We're looking to minimize cross-validated mean squared error in this plot.
+
+```{r, eval = FALSE}
+set.seed(432432)
+lassocv <- cv.lars(preds, maleptsd$ptsd, K=10)
+## default cv.lars K is 10
+```
+
+## Lasso Graph 2
+
+```{r, echo = FALSE}
+set.seed(432432)
+lassocv <- cv.lars(preds, maleptsd$ptsd, K=10)
+```
+
+## What value of the key fraction minimizes cross-validated MSE?
+
+```{r lasso frac calculation}
+frac <- lassocv$index[which.min(lassocv$cv)]
+frac
+```
+
+The cross-validation plot suggests we use a fraction of about 0.3, that's suggesting a model with 4-5 predictors, based on the top LASSO plot.
+
+## The Plots, Together
+
+```{r, echo = FALSE}
+par(mfrow=c(2,1))
+lasso1 <- lars(preds, maleptsd$ptsd, type="lasso")
+plot(lasso1)
+set.seed(432432)
+lassocv <- cv.lars(preds, maleptsd$ptsd, K=10)
+par(mfrow=c(1,1))
+```
+
+## Coefficients for the Model via Lasso Cross-Validation
+
+```{r}
+coef.cv <- coef(lasso1, s=frac, mode="fraction")
+round(coef.cv,4)
+```
+
+So the model suggested by the lasso includes `over3`, `bond`, `neg`, `sup` and `aff`. Note that our "best subsets" model with five predictors used the same five predictors.
+
+### Compare to original model (standardized)
+
+```{r, echo = FALSE}
+round(mod_ks_sc$coef,4)[-1] # do not show intercept
+```
+
+## Obtaining Fitted Values from Lasso
+
+```{r}
+fits.cv <- predict.lars(lasso1, preds, s=frac, 
+                        type="fit", mode="fraction")
+head(fits.cv$fit)
+```
+
+## Observed vs. Fitted (Lasso) `ptsd` values
+
+```{r, eval = F}
+temp_res <- tibble(observed = maleptsd$ptsd,
+                   fitted = fits.cv$fit,
+                   residual = observed - fitted)
+ggplot(temp_res, aes(x = fitted, y = observed)) +
+    geom_point(size = 3) +
+    geom_abline(intercept = 0, slope = 1, col = "red")
+```
+
+## Plot Observed and Fitted (Lasso) Values of `ptsd`
+
+```{r, echo = F, fig.height = 5}
+temp_res <- tibble(observed = maleptsd$ptsd,
+                   fitted = fits.cv$fit,
+                   residual = observed - fitted)
+ggplot(temp_res, aes(x = fitted, y = observed)) +
+    geom_point(size = 3) +
+    geom_abline(intercept = 0, slope = 1, col = "red")
+```
+
+## Plot Residuals vs. Fitted (Lasso) Values of `ptsd`
+
+```{r, echo = F}
+ggplot(temp_res, aes(x = fitted, y = residual)) +
+    geom_point(size = 3, col = "blue") +
+    geom_hline(yintercept = 0, col = "red")
+```
+
+## When is the Lasso Most Useful?
+
+The lasso is particularly useful when we believe the effects are sparse, in the sense that we believe that few of the many predictors we are evaluating have a meaningful effect. 
+
+Consider, for instance, the analysis of gene expression data, where we have good reason to believe that only a small number of genes have an influence on our response of interest.
+
+Or, in medical claims data, where we can have thousands of available codes to search through that may apply to some of the people included in a large analysis relating health care costs to outcomes.
+
+## Are there other, even fancier, approaches?
+
+Sure. The `glmnet` package is an interesting way to do several sets of model-building activities when the number of predictors is much larger than the sample size, especially if the predictors can be rescaled so as to avoid collinearity. An advantage of `glmnet` is that tidiers from `broom` are available.
+
+Check out, for instance, the elastic net (which bridges the gap between the lasso and ridge regression), and its performance comparison for a simulated study at [\textcolor{blue}{this link}](https://www4.stat.ncsu.edu/~post/josh/LASSO_Ridge_Elastic_Net_-_Examples.html)
+
+Or take a look at the `glmnet` package introduction at [\textcolor{blue}{this link}](https://glmnet.stanford.edu/articles/glmnet.html)
+
+## Next Time
+
+- Retrospective Design Analysis
+- Thinking about Power after the Fact
