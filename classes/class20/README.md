@@ -19,6 +19,7 @@ Today we'll provide a brief survey demonstrating the use of R and two new ideas:
 ## Announcements
 
 1. To use the tools we'll demonstrate today for CART analyses, you'll need to install the `party`, `rpart` and `rpart.plot` packages.
+2. Lab 4 grades and feedback [are now available](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04#post-deadline-materials), and we've also shared [essays we liked responding to each of the three prompts to Question 1](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04#post-deadline-materials).
 
 ## Upcoming Deliverables
 
