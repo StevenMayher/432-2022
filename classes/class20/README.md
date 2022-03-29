@@ -9,6 +9,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class20/432_2022_slides20.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class20/432_2022_slides20.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png)
+
+[Link at XKCD (with hover text)](https://xkcd.com/2599)
+
 ## Today's Agenda
 
 Today we'll provide a brief survey demonstrating the use of R and two new ideas:
@@ -18,8 +22,8 @@ Today we'll provide a brief survey demonstrating the use of R and two new ideas:
 
 ## Announcements
 
-1. There is a Minute Paper after today's class, due Wednesday at noon. You'll [find it here](https://bit.ly/432-2022-min-20).
-2. To use the tools we'll demonstrate today for CART analyses, you'll need to install the `party`, `rpart` and `rpart.plot` packages. I've added these packages to [our R Packages](https://thomaselove.github.io/432/r_packages.html) list.
+1. There is a [Minute Paper](https://bit.ly/432-2022-min-20) after today's class, due Wednesday at noon. 
+2. To use the tools we'll demonstrate today for CART analyses, you'll need to install the `party`, `rpart` and `rpart.plot` packages. I've added these three to [our R Packages](https://thomaselove.github.io/432/r_packages.html) list.
 3. Make sure you upgrade your version of R to 4.1.3 and RStudio to 2022.02.0-443 or later. See the [Class 18 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class18) for details.
 4. Lab 4 grades and feedback [are now available](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04#post-deadline-materials), and we've also shared [essays we liked responding to each of the three prompts to Question 1](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04#post-deadline-materials).
 
