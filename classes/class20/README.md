@@ -67,5 +67,8 @@ The `survey` package home page: http://r-survey.r-forge.r-project.org/survey/ind
 
 # One Last Thing
 
-To come.
+[A checklist for data graphics](https://statmodeling.stat.columbia.edu/2022/03/15/a-checklist-for-data-graphics/) from Christian Hennig, as posted by Andrew Gelman, with a few comments.
+
+**Think about goals, and audience.**
+
 
