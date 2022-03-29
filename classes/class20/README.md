@@ -26,6 +26,7 @@ Today we'll provide a brief survey demonstrating the use of R and two new ideas:
 2. To use the tools we'll demonstrate today for CART analyses, you'll need to install the `party`, `rpart` and `rpart.plot` packages. I've added these three to [our R Packages](https://thomaselove.github.io/432/r_packages.html) list.
 3. Make sure you upgrade your version of R to 4.1.3 and RStudio to 2022.02.0-443 or later. See the [Class 18 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class18) for details.
 4. Lab 4 grades and feedback [are now available](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04#post-deadline-materials), and we've also shared [essays we liked responding to each of the three prompts to Question 1](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab04#post-deadline-materials).
+5. As you've seen in your email, I'm giving a seminar on "[Stepped Wedge Designs in Practice: What Should We Think Hard About?](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class20/seminar_love_2022-04-01.pdf)" on Friday 2022-04-01 from 9-10 AM over Zoom. You're welcome to join for all or part of it.
 
 ## Upcoming Deliverables
 
