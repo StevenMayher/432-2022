@@ -24,7 +24,11 @@ Today we'll provide a brief survey demonstrating the use of R and two new ideas:
 
 ## Upcoming Deliverables
 
-See the [Calendar](https://thomaselove.github.io/432/calendar.html).
+See the [Calendar](https://thomaselove.github.io/432/calendar.html) for all deadlines.
+
+- [Minute Paper after Class 20](https://bit.ly/432-2022-min-20) is due tomorrow (Wednesday) at noon.
+- [Project B Outline and Scheduling Form](https://bit.ly/432-2022-projectB-register) is due Sunday at 9 PM. See [the Class 17 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class17) and [the Project B instructions](https://github.com/THOMASELOVE/432-2022/tree/main/projectB).
+- [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is due Monday at 9 PM.
 
 ## Additional Resources on Survey Weights
 
