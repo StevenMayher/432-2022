@@ -75,4 +75,4 @@ From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(stat
 
 Americans overestimate the size of minority groups and underestimate the size of most majority groups: "If you had to guess, what percentage of American adults..."
 
-![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/subgroups.png)
+[Click here to see the graph](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/subgroups.png)
