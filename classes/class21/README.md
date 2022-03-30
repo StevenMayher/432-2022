@@ -18,7 +18,22 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 Today we'll introduce two ideas, meant to help us think about variable selection in a linear model:
 
 1. ridge regression
-2. the lasso
+2. the LASSO (Least Absolute Shrinkage and Selection Operator) model
+
+## A Few References For Ridge Regression and the LASSO
+
+From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(statistics))
+
+> Just as ridge regression can be interpreted as linear regression for which the coefficients have been assigned normal prior distributions, lasso can be interpreted as linear regression for which the coefficients have Laplace prior distributions. The Laplace distribution is sharply peaked at zero (its first derivative is discontinuous at zero) and it concentrates its probability mass closer to zero than does the Normal. This (explains) why lasso tends to set some coefficients to zero, while ridge regression does not.
+
+> [Elastic net regularization](https://en.wikipedia.org/wiki/Elastic_net_regularization) adds an additional ridge regression-like penalty that improves performance when the number of predictors is larger than the sample size, allows the method to select strongly correlated variables together, and improves overall prediction accuracy.
+
+- [Machine Learning for Biostatistics](https://bookdown.org/tpinto_home/Regularisation/) text from the Biostatistics Collaboration of Australia
+    - includes chapters on Best Subset Selection, Stepwise Methods, Ridge Regression and the Lasso
+- [Linear, Lasso, and Ridge Regression with R](https://www.pluralsight.com/guides/linear-lasso-and-ridge-regression-with-r) using `glmnet` for some of the work, also includes Elastic Net Regression
+- [A lab from Smith College on Ridge Regression and the Lasso (with downloadable Rmd)](http://www.science.smith.edu/~jcrouser/SDS293/labs/lab10-r.html)
+- [Simple Guide To Ridge Regression In R](https://www.r-bloggers.com/2020/05/simple-guide-to-ridge-regression-in-r/)
+- [Lasso Regression Model with R code](https://www.r-bloggers.com/2021/05/lasso-regression-model-with-r-code/)
 
 ## Announcements
 
