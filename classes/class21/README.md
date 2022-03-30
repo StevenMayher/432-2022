@@ -20,6 +20,8 @@ Today we'll introduce two ideas, meant to help us think about variable selection
 1. ridge regression
 2. the LASSO (Least Absolute Shrinkage and Selection Operator) model
 
+My code for doing this work is largely out-of-date. It still works, but most people now use the `glmnet` package for this sort of work, and I will switch over next year. The references below all use something like `glmnet` to do the work.
+
 ## A Few References For Ridge Regression and the LASSO
 
 From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(statistics))
@@ -30,6 +32,13 @@ From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(stat
 
 - [Machine Learning for Biostatistics](https://bookdown.org/tpinto_home/Regularisation/) text from the Biostatistics Collaboration of Australia
     - includes chapters on Best Subset Selection, Stepwise Methods, Ridge Regression and the Lasso
+- YouTube Video from Julia Silge
+    - [LASSO regression using tidymodels and #TidyTuesday data for The Office](https://juliasilge.com/blog/lasso-the-office/)
+- YouTube Videos from StatQuest
+    - [Regularization Part 1: Ridge Regression](https://www.youtube.com/watch?v=Q81RR3yKn30)
+    - [Regularization Part 2: Lasso (L1) Regression](https://www.youtube.com/watch?v=NGf0voTMlcs)
+    - [Regularization Part 3: Elastic Net Regression](https://www.youtube.com/watch?v=1dKRdX9bfIo)
+    - [Ridge, Lasso and Elastic-Net Regression in R](https://www.youtube.com/watch?v=ctmNq7FgbvI)
 - [Linear, Lasso, and Ridge Regression with R](https://www.pluralsight.com/guides/linear-lasso-and-ridge-regression-with-r) using `glmnet` for some of the work, also includes Elastic Net Regression
 - [A lab from Smith College on Ridge Regression and the Lasso (with downloadable Rmd)](http://www.science.smith.edu/~jcrouser/SDS293/labs/lab10-r.html)
 - [Simple Guide To Ridge Regression In R](https://www.r-bloggers.com/2020/05/simple-guide-to-ridge-regression-in-r/)
