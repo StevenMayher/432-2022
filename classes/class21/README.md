@@ -13,6 +13,11 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
 
+## Two Quick Questions Before We Start
+
+1.  If you had to guess, what percentage of American adults live in New York City?
+2.  If you had to guess, what percentage of American adults
+
 ## Today's Agenda
 
 Today we'll introduce two ideas, meant to help us think about variable selection in a linear model:
