@@ -51,9 +51,6 @@ From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(stat
 - [Simple Guide To Ridge Regression In R](https://www.r-bloggers.com/2020/05/simple-guide-to-ridge-regression-in-r/)
 - [Lasso Regression Model with R code](https://www.r-bloggers.com/2021/05/lasso-regression-model-with-r-code/)
 
-## From [Richard Riley](https://twitter.com/richard_d_riley/status/1500759467402612738)
-
-![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
 
 ## Announcements
 
@@ -73,10 +70,13 @@ From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(stat
 4. The deadline for [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (optional) is 2022-04-20 at Noon. 
     - [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labZ) are also optional and due with all Project B materials at noon on 2022-05-02.
 
-## One Last Thing
+## Back To Our Questions From the Start of Class
 
-[From millionaires to Muslims, small subgroups of the population seem much larger to many Americans](https://today.yougov.com/topics/politics/articles-reports/2022/03/15/americans-misestimate-small-subgroups-population)
+Americans overestimate the size of minority groups and underestimate the size of most majority groups: "If you had to guess, what percentage of American adults..." and [click here to see the graph](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/subgroups.png).
 
-Americans overestimate the size of minority groups and underestimate the size of most majority groups: "If you had to guess, what percentage of American adults..."
+Source: [From millionaires to Muslims, small subgroups of the population seem much larger to many Americans](https://today.yougov.com/topics/politics/articles-reports/2022/03/15/americans-misestimate-small-subgroups-population)
 
-[Click here to see the graph](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/subgroups.png)
+## One Last Thing, from [Richard Riley](https://twitter.com/richard_d_riley/status/1500759467402612738)
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
+
