@@ -13,7 +13,7 @@ Part A: Take a moment to write down an estimate (0% to 100%) for each of these f
 3.  If you had to guess, what percentage of American adults **have flown on a plane**?
 4.  If you had to guess, what percentage of American adults **are vegan or vegetarian**?
 
-Part B: Now, **share** your responses with one or two people seated near you, and compare your responses to those of your colleague(s). Do you have similar responses? What should count as a "similar" response?
+Part B: Now, **share** your responses with one or two people seated near you, and compare your responses to those of your colleague(s). Do you have similar responses? What should count as a "similar" response? If you have time, see if you can identify whether you used similar reasoning to get to your estimates. What information did you use?
 
 ## Materials for Today's Class
 
