@@ -19,9 +19,13 @@ Today we'll introduce two ideas, meant to help us think about variable selection
 ## Announcements
 
 1. To come.
+2. [The `cols4all` package](https://github.com/mtennekes/cols4all) is a new R package for selecting color palettes. "Color for all" refers to our mission that colors should be usable for not just people with normal color vision, but also for people with color vision deficiency. Color palettes are well organized and made consistent with each other. While not yet available on CRAN, the package can be downloaded and used, by [following these instructions](https://github.com/mtennekes/cols4all#installation).
 
 
 ## One Last Thing
 
-[The `cols4all` package](https://github.com/mtennekes/cols4all) is a new R package for selecting color palettes. "Color for all" refers to our mission that colors should be usable for not just people with normal color vision, but also for people with color vision deficiency. Color palettes are well organized and made consistent with each other. While not yet available on CRAN, the package can be downloaded and used, by [following these instructions](https://github.com/mtennekes/cols4all#installation).
+[From millionaires to Muslims, small subgroups of the population seem much larger to many Americans](https://today.yougov.com/topics/politics/articles-reports/2022/03/15/americans-misestimate-small-subgroups-population)
 
+Americans overestimate the size of minority groups and underestimate the size of most majority groups: "If you had to guess, what percentage of American adults..."
+
+![]()
