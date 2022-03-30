@@ -6,14 +6,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Four Quick Questions Before We Start
 
-Take a moment to come up with an estimate (0% to 100%) for each of these four questions on your own.
+Part A: Take a moment to write down an estimate (0% to 100%) for each of these four questions **on your own**. Don't use the internet.
 
 1.  If you had to guess, what percentage of American adults have read a book in the past year?
 2.  If you had to guess, what percentage of American adults live in New York City?
 3.  If you had to guess, what percentage of American adults have flown on a plane?
 4.  If you had to guess, what percentage of American adults are vegan or vegetarian?
 
-Now, share your responses with one or two people seated near you. Compare your responses to those of your colleague(s). Do you have similar responses? What should count as a "similar" response?
+Part B: Now, **share** your responses with one or two people seated near you, and compare your responses to those of your colleague(s). Do you have similar responses? What should count as a "similar" response?
 
 ## Materials for Today's Class
 
