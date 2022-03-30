@@ -28,4 +28,4 @@ Today we'll introduce two ideas, meant to help us think about variable selection
 
 Americans overestimate the size of minority groups and underestimate the size of most majority groups: "If you had to guess, what percentage of American adults..."
 
-![]()
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/subgroups.png)
