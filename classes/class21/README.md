@@ -4,7 +4,7 @@
 :-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
 for everything | deadlines | expectations | from Dr. Love | zoom info | downloads | read/watch | need help?
 
-## Two Quick Questions Before We Start
+## Four Quick Questions Before We Start
 
 Take a moment to come up with an estimate (0% to 100%) for these four questions, then share your responses with someone next to you. 
 
@@ -19,10 +19,6 @@ Now compare your responses to those of your colleague(s). Do you have similar re
 
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/432_2022_slides21.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/432_2022_slides21.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
-
-## From [Richard Riley](https://twitter.com/richard_d_riley/status/1500759467402612738)
-
-![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
 
 ## Today's Agenda
 
@@ -54,6 +50,10 @@ From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(stat
 - [A lab from Smith College on Ridge Regression and the Lasso (with downloadable Rmd)](http://www.science.smith.edu/~jcrouser/SDS293/labs/lab10-r.html)
 - [Simple Guide To Ridge Regression In R](https://www.r-bloggers.com/2020/05/simple-guide-to-ridge-regression-in-r/)
 - [Lasso Regression Model with R code](https://www.r-bloggers.com/2021/05/lasso-regression-model-with-r-code/)
+
+## From [Richard Riley](https://twitter.com/richard_d_riley/status/1500759467402612738)
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
 
 ## Announcements
 
