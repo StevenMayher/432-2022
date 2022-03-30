@@ -6,10 +6,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Two Quick Questions Before We Start
 
-Take a minute to come up with an answer to each of these questions, and then share your answer with someone next to you. Please **don't** read down to the end of this document before doing so.
+Take a moment to come up with an estimate (0% to 100%) for these four questions, then share your responses with someone next to you. 
 
-1.  If you had to guess, what percentage of American adults live in New York City?
-2.  If you had to guess, what percentage of American adults have flown on a plane?
+1.  If you had to guess, what percentage of American adults have read a book in the past year?
+2.  If you had to guess, what percentage of American adults live in New York City?
+3.  If you had to guess, what percentage of American adults have flown on a plane?
+4.  If you had to guess, what percentage of American adults are vegan or vegetarian?
+
+Now compare your responses to those of your colleague(s). Do you have similar responses? What should count as a "similar" response?
 
 ## Materials for Today's Class
 
