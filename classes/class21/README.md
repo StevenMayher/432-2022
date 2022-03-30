@@ -19,3 +19,9 @@ Today we'll introduce two ideas, meant to help us think about variable selection
 ## Announcements
 
 1. To come.
+
+
+## One Last Thing
+
+[The `cols4all` package](https://github.com/mtennekes/cols4all) is a new R package for selecting color palettes. "Color for all" refers to our mission that colors should be usable for not just people with normal color vision, but also for people with color vision deficiency. Color palettes are well organized and made consistent with each other. While not yet available on CRAN, the package can be downloaded and used, by [following these instructions](https://github.com/mtennekes/cols4all#installation).
+
