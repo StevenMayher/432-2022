@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## From [Kevin Reuning](https://twitter.com/KevinReuning/status/796107864704188420)
 
-![](https://github.com/THOMASELOVE/432-2021/blob/master/classes/class21/figures/shruggies.png) 
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/figures/shruggies.png) 
 
 ## Announcements
 
