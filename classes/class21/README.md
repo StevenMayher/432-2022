@@ -4,6 +4,13 @@
 :-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
 for everything | deadlines | expectations | from Dr. Love | zoom info | downloads | read/watch | need help?
 
+## Two Quick Questions Before We Start
+
+Take a minute to come up with an answer to each of these questions, and then share your answer with someone next to you. Please **don't** read down to the end of this document before doing so.
+
+1.  If you had to guess, what percentage of American adults live in New York City?
+2.  If you had to guess, what percentage of American adults have flown on a plane?
+
 ## Materials for Today's Class
 
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/432_2022_slides21.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/432_2022_slides21.Rmd). 
@@ -12,11 +19,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## From [Richard Riley](https://twitter.com/richard_d_riley/status/1500759467402612738)
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
-
-## Two Quick Questions Before We Start
-
-1.  If you had to guess, what percentage of American adults live in New York City?
-2.  If you had to guess, what percentage of American adults
 
 ## Today's Agenda
 
