@@ -56,7 +56,7 @@ From the [Wikipedia page on the LASSO](https://en.wikipedia.org/wiki/Lasso_(stat
 
 1. On this, the last day of Woman's History Month, I thought I would share some of the American Statistical Association's stories celebrating [Women in Statistics](https://magazine.amstat.org/blog/2022/03/01/whm_2022/)
 2. [The `cols4all` package](https://github.com/mtennekes/cols4all) is a new R package for selecting color palettes. "Color for all" refers to our mission that colors should be usable for not just people with normal color vision, but also for people with color vision deficiency. Color palettes are well organized and made consistent with each other. While not yet available on CRAN, the package can be downloaded and used, by [following these instructions](https://github.com/mtennekes/cols4all#installation).
-3. Feedback on the Minute Papers after Class 20 **will be available by class time**.
+3. Feedback on the Minute Papers after Class 20 [is available now](https://bit.ly/432-2022-min-20-feedback).
 4. Make sure you upgrade your version of R to 4.1.3 and RStudio to 2022.02.0-443 or later. See the [Class 18 README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class18) for details.
 5. My seminar on "[Stepped Wedge Designs in Practice: What Should We Think Hard About?](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class20/seminar_love_2022-04-01.pdf)" is Friday 2022-04-01 from 9-10 AM over Zoom. You're welcome to join for all or part of it.
 
@@ -79,4 +79,8 @@ Source: [From millionaires to Muslims, small subgroups of the population seem mu
 ## One Last Thing, from [Richard Riley](https://twitter.com/richard_d_riley/status/1500759467402612738)
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class21/figures/reviewer.png)
+
+## One Other Last Thing
+
+I'm going to be in a show this Friday and Saturday night. It is called "A Gentlemen's Guide to Love and Murder" at the [Chagrin Valley Little Theater](https://cvlt.org/events/gentlemans-guide/). I was in a production of this show last Fall, and am coming in at the last moment to do two performances. I found this out last night, and will be working with one rehearsal, so we'll see how this goes. If you're interested, tickets are available at that link.
 
