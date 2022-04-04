@@ -1,5 +1,13 @@
 # Quiz 2 
 
+## When will the Quiz be available?
+
+When [the Calendar](https://thomaselove.github.io/432/calendar.html) says it will - at 5 PM on 2022-04-14.
+
+## What does the Quiz cover?
+
+The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know.
+
 ## Deadline
 
 The Quiz is due when [the Calendar](https://thomaselove.github.io/432/calendar.html) says it is, at 9 AM on Tuesday 2022-04-19. Note this is a change (pushing the deadline back 12 hours) from what was originally posted.
