@@ -1,0 +1,432 @@
+---
+title: "432 Project B"
+author: "Jacob James Rich & Steven Mayher"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    code_folding: show
+    self_contained: true
+    number_sections: true
+    df_print: paged
+---
+
+# Setup {-}
+
+```{r setup, message = FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+opts_chunk$set(comment=NA)
+opts_knit$set(width=75)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE}
+library(here) #here()
+library(doBy) #summaryBy()
+library(magrittr)
+library(janitor)
+library(conflicted) # conflict_prefer()
+
+library(rms) # rcs(), includes Hmisc package
+library(MASS) #polr()
+library(nnet)
+library(skimr)
+
+#install.packages("countreg", repos="http://R-Forge.R-project.org")
+library(countreg)
+
+library(broom) # tidy() 
+library(car) # outlierTest() 
+library(GGally) # ggpairs()
+library(mosaic)
+library(patchwork)
+library(naniar) # n_miss() 
+
+library(tidyverse)
+
+conflict_prefer("select", "dplyr")
+conflict_prefer("filter", "dplyr")
+conflict_prefer("sum", "base")
+```
+
+## Sources
+
+-Jacob Kaplan's Concatenated Files: Uniform Crime Reporting (UCR) Program [Data](https://www.openicpsr.org/openicpsr/project/102263/version/V14/view?path=/openicpsr/102263/fcr:versions/V14/ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds.zip&type=file): Arrests by Age, Sex, and Race, 1974-2020
+
+- Florida Uniform Crime Report (UCR) [Data](https://www.fdle.state.fl.us/FSAC/CJAB-Home/Uniform-Crime-Report/Data-Archives/UCR-Arrest-Data)
+
+https://www.fdle.state.fl.us/FSAC/Data-Statistics/UCR-Offense-Data.aspx
+
+# Build `FBI_1974_2020`
+
+## 1976 to 2020
+
+```{r}
+# Download all files
+FBI_1974_2020 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2020.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_2019 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2019.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2019)
+rm(FBI_2019)
+
+FBI_2018 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2018.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2018)
+rm(FBI_2018)
+
+FBI_2017 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2017.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2017)
+rm(FBI_2017)
+
+FBI_2016 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2016.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2016)
+rm(FBI_2016)
+
+FBI_2015 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2015.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2015)
+rm(FBI_2015)
+
+FBI_2014 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2014.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2014)
+rm(FBI_2014)
+
+FBI_2013 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2013.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2013)
+rm(FBI_2013)
+
+FBI_2012 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2012.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2012)
+rm(FBI_2012)
+
+FBI_2011 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2011.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2011)
+rm(FBI_2011)
+
+FBI_2010 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2010.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2010)
+rm(FBI_2010)
+
+FBI_2009 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2009.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2009)
+rm(FBI_2009)
+
+FBI_2008 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2008.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2008)
+rm(FBI_2008)
+
+FBI_2007 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2007.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2007)
+rm(FBI_2007)
+
+FBI_2005 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2005.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2005)
+rm(FBI_2005)
+
+FBI_2004 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2004.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2004)
+rm(FBI_2004)
+
+FBI_2003 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2003.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2003)
+rm(FBI_2003)
+
+FBI_2002 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2002.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2002)
+rm(FBI_2002)
+
+FBI_2001 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2001.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2001)
+rm(FBI_2001)
+
+FBI_2000 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_2000.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_2000)
+rm(FBI_2000)
+
+FBI_1999 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1999.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1999)
+rm(FBI_1999)
+
+FBI_1998 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1998.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1998)
+rm(FBI_1998)
+
+FBI_1997 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1997.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1997)
+rm(FBI_1997)
+
+FBI_1996 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1996.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1996)
+rm(FBI_1996)
+
+FBI_1995 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1995.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1995)
+rm(FBI_1995)
+
+FBI_1994 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1994.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1994)
+rm(FBI_1994)
+
+FBI_1993 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1993.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1993)
+rm(FBI_1993)
+
+FBI_1992 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1992.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1992)
+rm(FBI_1992)
+
+FBI_1991 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1991.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1991)
+rm(FBI_1991)
+
+FBI_1990 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1990.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1990)
+rm(FBI_1990)
+
+FBI_1989 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1989.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1989)
+rm(FBI_1989)
+
+FBI_1988 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1988.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1988)
+rm(FBI_1988)
+
+FBI_1987 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1987.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1987)
+rm(FBI_1987)
+
+FBI_1986 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1986.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1986)
+rm(FBI_1986)
+
+FBI_1985 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1985.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1985)
+rm(FBI_1985)
+
+FBI_1984 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1984.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1984)
+rm(FBI_1984)
+
+FBI_1983 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1983.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1983)
+rm(FBI_1983)
+
+FBI_1982 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1982.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1982)
+rm(FBI_1982)
+
+FBI_1981 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1981.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1981)
+rm(FBI_1981)
+
+FBI_1980 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1980.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1980)
+rm(FBI_1980)
+
+FBI_1979 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1979.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1979)
+rm(FBI_1979)
+
+FBI_1978 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1978.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1978)
+rm(FBI_1978)
+
+FBI_1977 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1977.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1977)
+rm(FBI_1977)
+
+FBI_1976 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1976.rds")) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1976)
+rm(FBI_1976)
+```
+
+## 1975 & 1974
+
+Drug saleession totals aren't explicitly available for the 1975 and 1974 years, but can be calculated by subtracting sale-associated arrests from the total drug arrests for each race.
+
+```{r, eval = FALSE}
+FBI_1975 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1975.rds")) %>%
+  mutate(sale_drug_total_tot_white = total_drug_tot_white - sum(sale_cannabis_tot_white, sale_heroin_coke_tot_white, sale_other_drug_tot_white, sale_synth_narc_adult_white),
+         sale_drug_total_tot_black = total_drug_tot_black - sum(sale_cannabis_tot_black, sale_heroin_coke_tot_black, sale_other_drug_tot_black, sale_synth_narc_tot_black),
+         sale_drug_total_tot_arrests = total_drug_tot_arrests - sum(sale_cannabis_tot_arrests, sale_heroin_coke_tot_arrests, sale_other_drug_tot_arrests, sale_synth_narc_tot_arrests)) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1975)
+rm(FBI_1975)
+
+FBI_1974 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1974.rds")) %>%
+  mutate(sale_drug_total_tot_white = total_drug_tot_white - sum(sale_cannabis_tot_white, sale_heroin_coke_tot_white, sale_other_drug_tot_white, sale_synth_narc_adult_white),
+         sale_drug_total_tot_black = total_drug_tot_black - sum(sale_cannabis_tot_black, sale_heroin_coke_tot_black, sale_other_drug_tot_black, sale_synth_narc_tot_black),
+         sale_drug_total_tot_arrests = total_drug_tot_arrests - sum(sale_cannabis_tot_arrests, sale_heroin_coke_tot_arrests, sale_other_drug_tot_arrests, sale_synth_narc_tot_arrests)) %>%
+  select(year, population, state,sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1974_2020 <- rbind(data = FBI_1974_2020, data = FBI_1974)
+rm(FBI_1974)
+
+#To save all of the data:
+#write.csv(FBI_1974_2020, file ="FBI_1974_2020.csv")
+```
+
+Original bind attempt:
+
+FBI_1974_2020 <- rbind(data = FBI_2020, data = FBI_2019, data = FBI_2018, data = FBI_2017, data = FBI_2016, data = FBI_2015, data = FBI_2014, data = FBI_2013, data = FBI_2012, data = FBI_2011, data = FBI_2010, data = FBI_2009, data = FBI_2008, data = FBI_2007, data = FBI_2006, data = FBI_2005, data = FBI_2004, data = FBI_2003, data = FBI_2002, data = FBI_2001, data = FBI_2000, data = FBI_1999, data = FBI_1998, data = FBI_1997, data = FBI_1996, data = FBI_1995, data = FBI_1994, data = FBI_1993, data = FBI_1992, data = FBI_1991, data = FBI_1990, data = FBI_1989, data = FBI_1988, data = FBI_1987, data = FBI_1986, data = FBI_1985, data = FBI_1984, data = FBI_1983, data = FBI_1982, data = FBI_1981, data = FBI_1980, data = FBI_1979, data = FBI_1978, data = FBI_1977, data = FBI_1976, data = FBI_1975, data = FBI_1974)
+
+# Build Panel
+
+## State level
+
+```{r}
+# Collapse by year and state
+FBI_state_years <- summaryBy(population + sale_drug_total_tot_white + sale_drug_total_tot_black + sale_drug_total_tot_arrests ~ year + state, data=FBI_1974_2020, FUN = sum, keep.names = TRUE)
+
+# Program "not in" operator
+'%!in%' <- function(x,y)!('%in%'(x,y))
+
+# Outcome variable calculations / remove puerto rico and guam
+FBI_state_years <- FBI_state_years %>% 
+  mutate(arrest_rate = sale_drug_total_tot_arrests / population * 100000,
+         proportion_black = sale_drug_total_tot_black / sale_drug_total_tot_arrests,
+         proportion_white = sale_drug_total_tot_white / sale_drug_total_tot_arrests) %>% 
+  filter(state %!in% c("puerto rico", "guam", "canal zone", "69", "98", "99", "american samoa", "virgin islands", "florida"),
+         year > 1975)
+
+# Return unique states
+unique(FBI_state_years$state)
+```
+
+## National level
+
+```{r}
+# Collapse by year only
+FBI_years <- summaryBy(population + sale_drug_total_tot_white + sale_drug_total_tot_black + sale_drug_total_tot_arrests ~ year, data=FBI_state_years, FUN = sum, keep.names = TRUE)
+
+# Outcome variable calculations
+FBI_years <- FBI_years %>% 
+  mutate(arrest_rate = sale_drug_total_tot_arrests / population * 100000,
+         proportion_black = sale_drug_total_tot_black / sale_drug_total_tot_arrests,
+         proportion_white = sale_drug_total_tot_white / sale_drug_total_tot_arrests)
+```
+
+## Return Panels
+
+```{r}
+FBI_state_years
+
+FBI_years
+```
+
+# Analysis
+
+## Plots
+
+```{r}
+plot_arrest_rate <- ggplot(FBI_years, aes(x = year)) +
+  geom_line(aes(y = arrest_rate), color = "darkred") +
+  labs(x = "Year", y = "Arrest Rate per 100,000", title = "Drug Sale Arrest Rate by Year") +
+  scale_color_manual(name = "Legend", values = c("Black_Arrest_Rate" = "darkred", "White_Arrest_Rate" = "steelblue", "Total_Arrest_Rate" = "green"))
+
+plot_proportions <- ggplot(FBI_years, aes(x = year)) +
+  geom_line(aes(y = proportion_black), color="steelblue") + 
+  geom_line(aes(y = proportion_white), color="green") +
+  labs(x = "Year", y = "", title = "Proportion by Race") +
+  scale_color_manual(name = "Legend", values = c("Proportion_Black" = "darkred", "Proportion_White" = "steelblue", "Total_Arrest_Rate" = "green"))
+
+plot_arrest_rate / plot_proportions
+```
+
+
+# Session Information
+
+```{r, eval = FALSE}
+sessioninfo::session_info()
+```
