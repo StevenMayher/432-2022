@@ -22,4 +22,6 @@ If you have questions about Lab 04, please ask them [at TA office hours](https:/
 
 ## Post-Deadline Materials
 
-The Answer Sketch is now posted to our Shared Drive.
+- The Answer Sketch for Lab 4 is now posted to our Shared Drive.
+- Lab 4 Grades are now posted to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grade and read our comments, visit the Lab 04 Tab on that Sheet using the Lab Code Dr. Love emailed to you on 2022-01-31. 
+- Some nice examples of Essays responding to Question 1 from Lab 4 (including responses to Prompts A, B and C) are now available [in our Shared Drive](https://docs.google.com/document/d/1FNMnx9pwYtAwA-72y-VPGnQtVfppGQZxMRZOwdHQ-dU/edit?usp=sharing).

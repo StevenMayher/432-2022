@@ -9,9 +9,20 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/432_2022_slides22.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/432_2022_slides22.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+## From [Kevin Reuning](https://twitter.com/KevinReuning/status/796107864704188420)
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/figures/shruggies.png) 
+
 ## Announcements
 
 1. To come.
+
+## Four things I hope you will do when you finish this course and go out into the world...
+
+1. be confident in your ability to use statistical thinking in developing scientific insight 
+2. make a consistent serious effort to identify and develop  effective research questions and study designs to address them
+3. make good, informed decisions about how to complete analytic work and produce results that avoid common pitfalls, and that are well-motivated by the data, and 
+4. finally (and probably most importantly) communicate your findings in a way that allows people to understand them, evaluate them, and then make good decisions based on them.
 
 ## Today's Discussion
 
