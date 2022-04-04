@@ -44,6 +44,13 @@ will be centered around replicable research as well as thinking about power issu
     - Some related pieces at LessLikely include "[Misplaced Confidence in Observed Power](https://lesslikely.com/statistics/misplaced-power/)" and "[P-Values Are Tough and S-Values Can Help](https://lesslikely.com/statistics/s-values/)".
 - Andrew Gelman: [Statistical-significance thinking is not just a bad way to publish, it’s also a bad way to think](https://statmodeling.stat.columbia.edu/2019/03/16/statistical-significance-thinking-is-not-just-a-bad-way-to-publish-its-also-a-bad-way-to-think/) - the money quote: "it’s ultimately not about what it takes, or should take, to get a result published, but rather how we as researchers can navigate through uncertainty and not get faked out by noise in our own data."
 
+## Some Additional Notes
+
+- If you'd like to read a little more about Fisher and the Lady Tasting Tea experiment, here's the [Wikipedia entry](https://en.wikipedia.org/wiki/Lady_tasting_tea). 
+    - If you'd like to read a good deal more about the issue and the statistical revolution that took place in the 1900s, there's a very nice book by David Salsburg called [The Lady Tasting Tea](https://en.wikipedia.org/wiki/The_Lady_Tasting_Tea) that I can heartily recommend. 
+    - R. A. Fisher himself has (at best) a troubling history that you can [read about here](https://en.wikipedia.org/wiki/Ronald_Fisher).
+- To learn more about current thinking on sample size requirements for linear regression, I suggest Peter C. Austin and Ewout W. Steyerberg (2015) The number of subjects per variable required in linear regression analyses J Clinical Epidemiology 68: 627-636, which is [available on our References page](https://github.com/THOMASELOVE/432-2022/blob/main/references/pdf/Austin_and_Steyerberg_2015_subjects_per_variable_in_linear_regression_jce.pdf).
+
 ## One Last Thing
 
 [The Eureka Phenomenon](https://www.yumpu.com/en/document/read/4657323/the-eureka-phenomenon-by-isaac-asimov) by Isaac Asimov is something you might want to be aware of.
