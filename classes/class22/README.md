@@ -15,7 +15,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. To come.
+1. There is a Minute Paper after Class 22 due tomorrow (2022-04-06) at Noon. **Details to come.**
+2. An answer sketch for Lab 5 will be posted to our Shared Drive **by class time**.
+3. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due next Monday 2022-04-11 at 9 PM.
+4. Quiz 2 will be in your hands on Thursday 2022-04-14 at 5 PM. It is **now due** Tuesday 2022-04-19 at 9 AM.
+5. Tuesday 2022-04-19 is a Project B working day, and we will have no 432 class that day.
+6. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
+7. [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labZ) are due by our final course deadline (2022-05-02 at noon.)
+8. I will announce the topics to be discussed in classes 24-26 as soon as possible.
 
 ## Four things I hope you will do when you finish this course and go out into the world...
 
@@ -33,7 +40,7 @@ will be centered around replicable research as well as thinking about power issu
 - Ronald L. Wasserstein & Nicole A. Lazar (2016) [The ASA's Statement on p-Values: Context, Process, and Purpose](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108), *The American Statistician*, 70:2, 129-133, DOI:
 [10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108). PDF [also available here](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class22/references/ASA_2016_Pvalues_Context_Process_Purpose.pdf).
 
-### Need to have a tough talk with someone about p values?
+### Need to have a tough talk with someone about statistical significance, and/or p values?
 
 - The ASA Section on Teaching of Statistics in the Health Sciences has [some interesting material](https://tshsblog.wixsite.com/main/single-post/2018/05/08/ReadyResources-Publications-for-teaching-p-values)
 - I've given these posts: [Why I've lost faith in p values, part 1](https://lucklab.ucdavis.edu/blog/2018/4/19/why-i-lost-faith-in-p-values) and [Why I've lost faith in p values, part 2](https://lucklab.ucdavis.edu/blog/2018/4/28/why-ive-lost-faith-in-p-values-part-2) to a few people. Maybe they'll help you.
