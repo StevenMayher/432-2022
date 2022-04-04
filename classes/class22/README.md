@@ -19,6 +19,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. An answer sketch for Lab 5 will be posted to our Shared Drive **by class time**.
 3. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due next Monday 2022-04-11 at 9 PM.
 4. Quiz 2 will be in your hands on Thursday 2022-04-14 at 5 PM. It is **now due** Tuesday 2022-04-19 at 9 AM.
+    - The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know during each of those classes (24 and 25).
 5. Tuesday 2022-04-19 is a Project B working day, and we will have no 432 class that day.
 6. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
 7. [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labZ) are due by our final course deadline (2022-05-02 at noon.)
