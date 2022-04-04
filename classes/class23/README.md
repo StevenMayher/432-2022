@@ -26,6 +26,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - [Workshop on Linear mixed effects models from the Quebec Centre for Biodiversity Science](https://wiki.qcbs.ca/r_workshop6) developed by Catherine Baltazar, Dalal Hanna and Jacob Ziegler
 - [A useful bibliography of mixed effect regression models](https://joelemartinez.com/2015/07/14/mixed-effect-models/) by Joel Eduardo Martinez
 - [Using `sjPlot` in R to summarize Mixed Models in HTML tables](https://strengejacke.github.io/sjPlot/articles/tab_mixed.html) and [Using `sjPlot` to Plot Model Estimates](https://strengejacke.github.io/sjPlot/articles/plot_model_estimates.html)
+- [UCLA example using mixed effects logistic regression](https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/)
 
 ## One Last Thing
 
