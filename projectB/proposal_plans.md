@@ -9,6 +9,8 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
 4 | [Alan Kiang](alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
+7 | [Cerag Oguztuzun and Abhishek Bhardwaj](cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
+8 | [Gen Li and Jiayue Yang](gen-li-and-jiayue-yang) | A study about smoking and drinking alcohol and several potential risks | Tue 9 AM
 3 | [Kyaw Oo Hla](kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 
@@ -58,7 +60,7 @@ Status | **Accepted.** Cut down the sample size, as indicated. How will you asse
 
 Project 3 | Kyaw Oo Hla
 -------: | :-------------------
-Title | Predicting Health Status and Premature Death using **County Health Rankings**
+Title | Predicting Health Status and Premature Death using **County Health Rankings** (**I have improved your title. Please use this one going forward.**)
 Source | [County Health Rankings](https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2019.csv) (2019)
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
@@ -118,5 +120,498 @@ RQ 2 | What is the relationship between median birth weight of babies born in 20
 Samples | 626 for each (how were these selected?)
 Status | **REVISION REQUIRED.** This proposal needs to be revised. Your link for County Health Rankings was for the 2021 measures. Be sure to get the correct measures for 2019. Your first research question had median, but you mean mean, I think. The main problem, though, is with model 2. I'd love for you to have a count outcome model, but while the number of visits for any particular mom can only be a whole number, and thus is appropriately modeled with a count, that's not true for the mean across all moms in the county, so I don't see what you've described as being a count outcome in model 2. You do need something other than a linear or (binary) logistic model in Outcome 2, but you'll have to convince me that county-level means are counts. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
 
+## Cerag Oguztuzun and Abhishek Bhardwaj
 
+Project 7 | Cerag Oguztuzun and Abhishek Bhardwaj
+-------: | :-------------------
+Title | **Exploring County-Level COVID-19 Case Rates** (**I have improved your title. Please use this one going forward.**)
+Source | [County Health Rankings](https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation) data (2021) and  NY Times' [Coronavirus (Covid-19) Data in the United States](https://github.com/nytimes/covid-19-data) from 2022.
+Public | Yes
+Model 1 | A model for a multi-categorical outcome
+Out 1 | We plan to categorize death numbers into 3 categories as High, Medium and Low which will indicate the Covid19 related death rate for each county in the US. (**I encourage you instead to divide into 4 categories with roughly equal numbers of counties in each.**)
+RQ 1 | Does flu vaccination predict lower covid19 deaths?
+Model 2 | A model for a count outcome
+Out 2 | A masking standard will be created by finding some thresholds that will act as a guideline to determine which counties meet most of the masking standards. We will then be able to understand how masking standards relate to health care access in a population.
+RQ 2 | Do counties with higher access to primary care physicians meet standardized mask guidelines?
+Samples | 2821 for Model 1, 
+Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. 
 
+## Gen Li and Jiayue Yang
+
+Project 8 | Gen Li and Jiayue Yang
+-------: | :-------------------
+Title | A study about smoking and drinking alcohol and several potential risks (**new title needed**)
+Source | [NHANES 2017-2018](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017) 
+Public | Yes
+Model 1 | A model for a count outcome
+Out 1 |  Frequency of drinking (variable ALQ121) is a categorical variable with 11 levels but we can build a new outcome as the level of frequency of drinking. (**this won't work - see below.**)
+RQ 1 | Which potential factors will make people drink more? / What's the feature for people drink more? (**revision needed**)
+Model 2 | A model for a multi-categorical outcome
+Out 2 | Smoking status (variable SMQ040) with three levels: Never smoke, smoking every day and smoking some days.
+RQ 2 | What kind of people will tend to smoke? / What's the feature for people smoking? (**revision needed**)
+Samples | 2232 for Model 1, 4545 for Model 2
+Status |  **REVISION REQUIRED.** You need a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15.
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
+
+## Template
+
+Project X | 
+-------: | :-------------------
+Title | 
+Source | 
+Public | 
+Model 1 | 
+Out 1 |  
+RQ 1 | 
+Model 2 | 
+Out 2 | 
+RQ 2 | 
+Samples | 
+Status |  
