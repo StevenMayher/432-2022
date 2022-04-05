@@ -9,8 +9,8 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
-7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
-8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | A study about smoking and drinking alcohol and several potential risks | Tue 9 AM
+7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
+8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
 3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 
@@ -168,7 +168,7 @@ Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going 
 
 Project 8 | Gen Li and Jiayue Yang
 -------: | :-------------------
-Title | A study about smoking and drinking alcohol and several potential risks (**new title needed**)
+Title | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** (**I have improved your title. Please use this one going forward.**)
 Source | [NHANES 2017-2018](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017) 
 Public | Yes
 Model 1 | A model for a count outcome
@@ -178,7 +178,7 @@ Model 2 | A model for a multi-categorical outcome
 Out 2 | Smoking status (variable SMQ040) with three levels: Never smoke, smoking every day and smoking some days.
 RQ 2 | What kind of people will tend to smoke? / What's the feature for people smoking? (**revision needed**)
 Samples | 2232 for Model 1, 4545 for Model 2
-Status |  **REVISION REQUIRED.** You need a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15.
+Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15.
 
 ## Ben Kramer and Jacqueline Shaia
 
@@ -228,13 +228,13 @@ RQ 2 | How does an NBA player's shooting rate and percentage from each area of t
 Samples | 598 in Model 1, 196 in Model 2
 Status | **Accepted.** Excellent start. Of course, you won't have the whole season's data yet, since the regular season isn't over until April 10. Do you propose to wait until then to finalize your data? Should you restrict Outcome 1 to players who played at least a certain number of minutes in the season or to those who started X games, or even to the players included in Outcome 2's model or something like that? Otherwise, won't you have a tremendous number of uninteresting zeros and ones among players who play infrequently?
 
-## Template
+## Paulameena Shultes
 
-Project X | 
+Project 12 | Paulameena Shultes
 -------: | :-------------------
-Title | 
+Title | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -244,13 +244,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Tyler Petrie
 
-Project X | 
+Project 13 | Tyler Petrie
 -------: | :-------------------
-Title | 
+Title | Predicting character class and moral alignment in Dungeons and Dragons
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -260,13 +260,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Jay Wei
 
-Project X | 
+Project 14 | Jay Wei
 -------: | :-------------------
-Title | 
+Title | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -276,13 +276,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Chris Jones
 
-Project X | 
+Project 15 | Chris Jones
 -------: | :-------------------
-Title | 
+Title | Do negative influences/substance abuse impact income and mental status?
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -292,13 +292,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Sneha Yamsani and Himani Sancheti
 
-Project X | 
+Project 16 | Understanding Volcano Types and Populations Around Volcanoes
 -------: | :-------------------
 Title | 
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -308,13 +308,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Jacob Rich and Steven Mayher
 
-Project X | 
+Project 17 | Jacob Rich and Steven Mayher
 -------: | :-------------------
-Title | 
+Title | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -324,13 +324,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Rock Lim
 
-Project X | 
+Project 18 | Rock Lim
 -------: | :-------------------
-Title | 
+Title | Gender-dependent spending and revenue in college sports
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -340,13 +340,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Harrison Lindley and Sarah Nock
 
-Project X | 
+Project 19 | Harrison Lindley and Sarah Nock
 -------: | :-------------------
-Title | 
+Title | Predicting geographic origin of coffee using cup quality and production metrics
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -356,13 +356,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Ziyin Zhao
 
-Project X | 
+Project 20 | Ziyin Zhao
 -------: | :-------------------
-Title | 
+Title | Predict kidney damage by gender, binge drinking, and tobacco exposure
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -372,13 +372,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Ava Fan
 
-Project X | 
+Project 21 | Ava Fan
 -------: | :-------------------
-Title | 
+Title | Racial Differences in Post-Secondary Education in the United States
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -388,13 +388,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## David Selvaraj
 
-Project X | 
+Project 22 | David Selvaraj 
 -------: | :-------------------
-Title | 
+Title | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
 Source | 
-Public | 
+Public | *Not available to the public*
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -404,13 +404,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Ria Tilve
 
-Project X | 
+Project 23 | Ria Tilve
 -------: | :-------------------
-Title | 
+Title | Using Body Measures Predict Exercise Levels and Arthritis in the MrOS Study
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -420,13 +420,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Kiran Desai and Grace Armstrong
 
-Project X | 
+Project 24 | Kiran Desai and Grace Armstrong
 -------: | :-------------------
-Title | 
+Title | The Impact of Social Independence on Health in Mexican American Elderly Adults
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -436,13 +436,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Siddharth Dugar
 
-Project X | 
+Project 25 | Siddharth Dugar
 -------: | :-------------------
-Title | 
+Title | Association of Left ventricle systolic velocity to ICU mortality in sepsis
 Source | 
-Public | 
+Public | *Not available to the public*
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -452,13 +452,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Carly Rose and Diya Yang
 
-Project X | 
+Project 26 | Carly Rose and Diya Yang
 -------: | :-------------------
-Title | 
+Title | Exploring Health-Related Factors and Physical Health Among US Residents
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -468,13 +468,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Alise Carlson
 
-Project X | 
+Project 27 | Alise Carlson
 -------: | :-------------------
-Title | 
+Title | Exploring Factors Associated with Successful Survivor Players
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -484,13 +484,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Makaela Mews
 
-Project X | 
+Project 28 | Makaela Mews
 -------: | :-------------------
-Title | 
+Title | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -500,13 +500,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Aaron Fletcher
 
-Project X | 
+Project 29 | Aaron Fletcher
 -------: | :-------------------
-Title | 
+Title | Exploring Common Observations in Outpatient Dietetics
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -516,13 +516,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Anushree Iyengar
 
-Project X | 
+Project 30 | Anushree Iyengar
 -------: | :-------------------
-Title | 
+Title | Factors Associated with Cognitive Issues Among the Aging
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
@@ -532,13 +532,13 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
+## Katie Heinzinger
 
-Project X | 
+Project 31 | Katie Heinzinger
 -------: | :-------------------
-Title | 
+Title | Predicting Dog Breed Rankings and Traits
 Source | 
-Public | 
+Public | Yes
 Model 1 | 
 Out 1 |  
 RQ 1 | 
