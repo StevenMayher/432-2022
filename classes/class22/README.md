@@ -19,13 +19,14 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. An answer sketch for Lab 5 will be posted to our Shared Drive **by class time**.
 3. The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
 4. My comments on your [Project B Proposal Plans](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md) are also available now. As we'll discuss, some of you will have to submit a revision to Canvas by this **Friday 2022-04-08 at 9 AM**. Note that's 9 in the morning, not evening.
+    - I was disappointed that more people didn't read the Project B instructions carefully. At the bottom of [section 11 (Questions and Answers)](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/projectB_instructions_2022.md#11-questions-and-answers) you'd have seen a note that only five of you followed up on. Thanks to those folks.
 5. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due next Monday 2022-04-11 at 9 PM.
 6. Quiz 2 will be in your hands on Thursday 2022-04-14 at 5 PM. It is **now due** Tuesday 2022-04-19 at 9 AM.
     - The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know during each of those classes (24 and 25).
 7. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
 8. I will announce the topics to be discussed in classes 24-26 as soon as possible.
 9. Lilianne Kim, Associate Director of Statistics of the Immunology Therapeutic Area of Janssen Pharmaceuticals, will give a Zoom talk today entitled "Education, Career Path and Professional Development: Perspective of a Clinical Statistician" at 4 PM today. I encourage you to attend, especially if you're a student in the PQHS department's MS program. [Zoom link is here](https://cwru.zoom.us/j/93836688830?pwd%3DV1dMN3RvS3EzekVBNzhKVGQ0b0hxdz09&sa=D&source=calendar&ust=1649182248889011&usg=AOvVaw32rmfR-GcppKXhktngsRi9)
-10. The show I stepped into at the last minute last weekend went smoothly. I hope not to have to do that again this weekend, but that's still up in the air.
+10. The show "[A Gentlemen's Guide to Love and Murder](https://cvlt.org/events/gentlemans-guide/)" that I stepped into at the last minute last weekend went smoothly. I hope not to have to do that again this weekend, on Friday and Saturday nights and Sunday afternoon, but that's still up in the air.
 
 ## Four things I hope you will do when you finish this course and go out into the world...
 
