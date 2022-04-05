@@ -1,5 +1,5 @@
 ---
-title: "432 Lab 02"
+title: "432 Lab 05"
 author: "Steven Mayher"
 date: "`r Sys.Date()`"
 output:
@@ -28,101 +28,439 @@ library(here)
 library(magrittr)
 library(janitor)
 library(broom)
+library(rsample)
+library(naniar)
+library(Hmisc)
+library(rstanarm)
+library(broom.mixed)
+library(tidymodels)
 library(tidyverse)
 
 theme_set(theme_bw())
 ```
 
-## Import the `oh_counties_2020` Data {-}
-
-```{r, message = FALSE}
-oh20 <- read_csv(here("data", "oh_counties_2020.csv")) 
-
-oh20 <- oh20 %>%
-  mutate(fips = as.character(fips)) %>%
-  clean_names()
-
-oh20
-```
-
 # Question 1
 
-```{r fig.height=6, fig.width=8}
-ggplot(data = oh20, aes(x = freq_mental_distress, y = age_adj_mortality, col = freq_phys_distress, color)) +
-    geom_point() +
-    geom_smooth(method = "lm", formula = y ~ x, se = FALSE) + 
-    scale_color_gradient(low = "dodgerblue", high = "firebrick1") +
-    labs(title = "Premature Age-Adjusted Mortality vs Mental & Physical Distress Frequency",
-         subtitle = "Examination of the effectiveness of physical and mental distress frequencies data for predicting premature age-\nadjusted mortality in Ohio Counties",
-         x = "Mental Distress Frequency (Population Percentage)",
-         y = "# of Premature Mortalities, Age-Adjusted",
-         color = "Physical\nDistress\nFrequency\n(Pop %)",
-         caption = "* Data above collected from the County Health Rankings report for 2020") 
+The following code accomplishes the first step of the question, which is to import the `countyhealthrankings_2017.csv` data into a tibble called `chr17`:
+
+
+```{r, message = FALSE}
+chr17 = read_csv(here("labs/lab05/data", "countyhealthrankings_2017.csv")) 
+```
+
+
+The next step is to clean the data and ensure all categorical variables are redefined as factors:
+
+
+```{r}
+chr17 = chr17 %>% clean_names() %>%
+  mutate(rural_cat = as.factor(rural_cat)) %>%
+  mutate(race_cat = as.factor(race_cat))
+
+chr17 %>% select(inactive, pct_smokers, pct_65plus, sroh_fairpoor, some_college, rural_cat, race_cat) %>%
+  glimpse()
+```
+
+
+The following code demonstrates that a two-way table generated from this data matches what's shown in the question prompt:
+
+
+```{r}
+chr17 %>% tabyl(rural_cat, race_cat) %>% 
+  adorn_totals(where = c("row", "col")) %>%
+  adorn_title(placement = "combined")
+```
+
+
+Lastly, the following code demonstrates that there is no missing data for any of the predictors or the outcome variable that will be used for models 1 and 2:
+
+
+```{r}
+chr17 %>% select(inactive, pct_smokers, rural_cat, pct_65plus, sroh_fairpoor, some_college, race_cat) %>%
+  miss_var_summary()
 ```
 
 
 # Question 2
 
-As instructed, a linear model for predicting `obese_pct` as a function of `food_env` that adjusts for `median_income` has been generated below, and has been accompanied with a tidy that contains the estimated coefficients and 90% confidence intervals for these estimates:
+The following code splits the `chr17` data into a training sample consisting of approximately 70% of the counties, and a test sample consisting of approximately 30% of the counties, and ensures that a very similar distribution of `race_cat` across both samples:
+
 
 ```{r}
-model_1 = lm(obese_pct ~ food_env*median_income, data = oh20)
+set.seed(2022)
 
-tidy(model_1, conf.int = TRUE, conf.level = 0.90) %>%
-    select(term, estimate, 
-           low90 = conf.low, high90 = conf.high, 
-           se = std.error, p = p.value) %>%
-    kable(digits = c(0,3,3,3,3,3))
+chr_split <- initial_split(chr17, prop = 0.70, strata = race_cat)
+chr_train = training(chr_split)
+chr_test = testing(chr_split)
 ```
 
-From the tidy above, we can see that the estimated coefficient of `food_env` in this model is approximately 55.153 - 0.858 = 54.295, with a 90% confidence interval that has a lower end of approximately 22.463 - 4.863 = 17.6, and an upper end of approximately 87.843 + 3.146 = 90.989. Written more concisely the approximate 90% confidence interval is (17.6, 90.989).
+
+The following code demonstrates that there is 2194 counties in the training sample and 942 counties in the test sample:
+
+
+```{r}
+count(chr_train)
+count(chr_test)
+```
+
 
 # Question 3
 
-The code below will generate a Residuals vs Fitted plot for `model_1`, and will also produce a Normal Q-Q plot, Scale-Location, and Residuals vs Leverage plot for `model_1` as well:
+The following code generates the requested Spearman p^2 plot for the data that will be used for model 2 from the `chr_train` training sample:
 
-```{r fig.height=6, fig.width=8}
-par(mfrow = c(2,2)); plot(model_1); par(mfrow = c(1,1))
+
+```{r}
+plot(spearman2(inactive ~ pct_65plus + sroh_fairpoor + some_college + race_cat, data = chr_train))
 ```
 
-From the plots above, we can see that the three most outlying counties are Logan county (point 46), Preble county (point 68), and Wayne county (point 85), having been flagged as such due to their unusually high residuals and standardized residuals. Further investigation into the reasons as to why these counties residuals are so high could lead us to adjust our model to better account for them, or potentially provide a justification for their removal from the dataset.
+
+From the plot above, it seems that both `sroh_fairpoor` and `some_college` would make excellent choices as potential non-linear terms. As the question requests we select a single predictor, `sroh_fairpoor` will be selected.
+
 
 # Question 4
 
-The code below both generates a new linear model, `model_2`, which only uses `food_env` as a predictor for `obese_pct`, and subsequently generates a table that compares this model to the first model generated above, which adjusts for `median_income` as an interaction term. Specifically, the table compares the overall fit of the two models by displaying their respective R^2, Adjusted R^2, sigma, AIC, and BIC values:
+The pre-processing recipe for Model 1 has been provided below, which normalizes all predictors, uses indicator variables for all factors, and generates a simple Box-Cox transformation on the `pct_smokers` variable:
+
 
 ```{r}
-model_2 = lm(obese_pct ~ food_env, data = oh20)
-
-comp_table = bind_rows( glance(model_1), glance(model_2) ) %>%
-  mutate(mod = c("model_1", "model_2"))
-
-comp_table %>% select(mod, r.squared, adj.r.squared, sigma, AIC, BIC) %>%
-  kable(dig = c(0, 3, 3, 3, 1, 1))
+model1_rec = 
+  recipe(inactive ~ pct_smokers + rural_cat, data = chr_train) %>%
+  step_BoxCox(pct_smokers) %>%
+  step_dummy(rural_cat) %>%
+  step_normalize(all_predictors())
 ```
- 
-Based on the metrics provided by the table above, I would conclude that `model_1`, which includes `median_income` as an interaction term, fits the Ohio 2020 data more effectively, as this model performs better across all of the above metrics, as `model_1` has a much higher R^2 and Adjusted R^2 value, and overall lower sigma, AIC, and BIC values than `model_2`.
+
+
+The pre-processing recipe for Model 2 has been provided below, which normalizes all predictors, uses indicator variables for all factors, and uses an orthogonal quadratic polynomial for the predictor variable identified in Question 3, `sroh_fairpoor`:
+
+
+```{r}
+model2_rec =
+  recipe(inactive ~ pct_65plus + sroh_fairpoor + some_college + race_cat, data = chr_train) %>%
+  step_poly(sroh_fairpoor, degree = 2) %>%
+  step_dummy(race_cat) %>%
+  step_normalize(all_predictors())
+```
+
 
 # Question 5
 
-In order to create a logistic regression model to predict the presence of a water violation (`h2oviol`) on the basis of `sev_housing` and `pm2.5`, the `h2oviol` variable needs to be re-coded from "Yes" and "No" to a "1" and "0" respectively first, which has been accomplished below:
+The following code specifies the `lm` modeling engine that will be necessary to create the workflows for both models:
+
 
 ```{r}
-oh20_q5 = oh20 %>%
-  mutate(h2oviol = fct_recode(h2oviol, "1" = "Yes", "0" = "No"))
+lm_model_eng = linear_reg() %>% set_engine("lm")
 ```
 
-Now that the variable has been properly re-coded, the logistic regression model and subsequent tidy containing the odds ratio associated with the `sev_housing` effect with a 90% confidence interval can be generated:
+
+With the `lm` modeling engine specified above under the variable name `lm_model_eng`, this model engine will be used below to generate the workflows for both Models 1 and 2:
+
 
 ```{r}
-log_mod = glm(h2oviol ~ sev_housing + pm2_5, data = oh20_q5, family = binomial(link = "logit"))
+model1_lm_wf = workflow() %>%
+  add_model(lm_model_eng) %>%
+  add_recipe(model1_rec)
 
-tidy(log_mod, exponentiate = TRUE, conf.int = TRUE) %>%
-  select(c(term, estimate, std.error, conf.low, conf.high)) %>%
-  kable(digits = c(0,3,3,3,3))
+model2_lm_wf = workflow() %>%
+  add_model(lm_model_eng) %>%
+  add_recipe(model2_rec)
 ```
 
-The resulting tidy above shows that the estimated odds ratio for `sev_housing` are 0.953, with (0.775, 1.155) as the approximate 90% confidence interval. To best explain this, lets say we have two counties, county A and county B, and county A's `sev_housing` is 1% higher than county B's `sev_housing`. This means that the odds of having a water violation in county A are 0.953 times as large as they are for county B.
+
+The workflows above for Models 1 and 2, each specified as `model1_lm_wf` and `model2_lm_wf` respectively, have been fit to the training data `chr_train` below:
+
+
+```{r}
+model1_fit = fit(model1_lm_wf, chr_train)
+
+model2_fit = fit(model2_lm_wf, chr_train)
+```
+
+
+The coefficients for Model 1 when fitted to the training data `chr_train` have been provided in the tidy below, and includes both the requested standard errors, and additionally the confidence intervals for additional insight:
+
+
+```{r}
+tidy(model1_fit, conf.int = T) %>%
+  select(term, estimate, std.error, conf.low, conf.high) %>%
+  kable(dig = 3)
+```
+
+
+As with Model 1, the coefficients for Model 2 when fitted to the training data `chr_train` have been provided in the tidy below, and includes both the requested standard errors, and additionally the confidence intervals for additional insight:
+
+
+```{r}
+tidy(model2_fit, conf.int = T) %>%
+  select(term, estimate, std.error, conf.low, conf.high) %>%
+  kable(dig = 3)
+```
+
+
+Lastly, as requested the number of observations (nobs), R^2, AIC, and BIC values for both fits have been provided below, and both the sigma and adjusted R^2 squared values have been provided as well for additional context: 
+
+
+```{r}
+model1_fit %>% extract_fit_parsnip() %>%
+  glance() %>%
+  select(12, 1:3, 8, 9) %>%
+  kable(dig = 3)
+
+model2_fit %>% extract_fit_parsnip() %>%
+  glance() %>%
+  select(12, 1:3, 8, 9) %>%
+  kable(dig = 3)
+```
+
+
+Based off of the standards of R^2, AIC, and BIC, Model 2 is the better of the two models, as it has both a higher R^2 value and lower AIC and BIC values than Model 1.
+
+
+# Question 6
+
+To assess the out-of-sample performance of Models 1 and 2 in the test data `chr_test` on the basis of their correlation-based R-square statistic (rsq), root mean squared error (rmse), and mean absolute error (mae), these metrics need to be selected for with the following function below:
+
+```{r}
+mets = metric_set(rsq, rmse, mae)
+```
+
+
+With the metrics set with the `metric_set()` function above, the values can now be calculate for both models. Model 1's values have been calculated below:
+
+
+```{r}
+model1_pred_test = 
+  predict(model1_fit, chr_test) %>%
+  bind_cols(chr_test %>% select(inactive))
+
+model1_res_test = 
+  mets(model1_pred_test, truth = inactive, estimate = .pred) %>%
+  kable(digits = 3)
+
+model1_res_test
+```
+
+
+And Model 2's values have been calculated below:
+
+
+```{r}
+model2_pred_test = 
+  predict(model2_fit, chr_test) %>%
+  bind_cols(chr_test %>% select(inactive))
+
+model2_res_test = 
+  mets(model2_pred_test, truth = inactive, estimate = .pred) %>%
+  kable(digits = 3)
+
+model2_res_test
+```
+
+
+Based on the above metrics, Model 1 actually performs better in the test data, as Model 1's correlation-based R-square value is higher than Model 2's, and both of Model 1's root mean squared error and mean absolute error are lower than Model 2's.
+
+
+# Question 7
+
+In order to generate a workflow that uses a Bayesian approach with `stan` to fit Model 2, the following code has been used to first generate the engine that will be needed to accomplish this:
+
+```{r}
+prior_dist_int = student_t(df = 1)
+prior_dist_preds = normal(0, 5)
+
+stan_model_eng <- linear_reg() %>%
+  set_engine("stan",
+             prior_intercept = prior_dist_int,
+             prior = prior_dist_preds)
+```
+
+
+Using the above engine, the workflow can now be generated as shown below:
+
+
+```{r}
+model2_stan_wf = workflow() %>%
+  add_model(stan_model_eng) %>%
+  add_recipe(model2_rec)
+```
+
+
+The training data `chr_train` can now be fit to the `stan` workflow above using the following code below:
+
+
+```{r, message = FALSE}
+set.seed(2022)
+model2_stan_fit = fit(model2_stan_wf, chr_train)
+```
+
+
+Lastly, the coefficients of the fitted data are shown in the tidy data table below:
+
+
+```{r}
+broom.mixed::tidy(model2_stan_fit, conf.int = T) %>% kable(dig = 3)
+```
+
+
+# Question 8
+
+The following code generates a plot of the coefficients comparing the `stan` fit to the `lm` fit:
+
+```{r}
+coefs_lm = tidy(model2_fit, conf.int = TRUE) %>%
+  select(term, estimate, conf.low, conf.high) %>%
+  mutate(mod = "lm")
+
+coefs_stan = tidy(model2_stan_fit, conf.int = TRUE) %>%
+  select(term, estimate, conf.low, conf.high) %>%
+  mutate(mod = "stan")
+
+coefs_comp = bind_rows(coefs_lm, coefs_stan)
+
+ggplot(coefs_comp, aes(x = term, y = estimate, col = mod, ymin = conf.low, ymax = conf.high)) +
+  geom_point(position = position_dodge2(width = 0.4)) +
+  geom_pointrange(position = position_dodge2(width = 0.4)) +
+  geom_hline(yintercept = 0, lty = "dashed") +
+  coord_flip() +
+  labs(x = "", y = "Estimate (with 95% confidence interval)",
+       title = "Comparing the lm and stan model coefficients")
+```
+
+It's difficult to draw any meaningful conclusions from this plot due to how far the intercepts for both models are from 0, however it appears that there may not be a *detectable* difference between the two models in regards to their coefficients. Again though I make this statement with reservations given that much of the detail is lost in this plot.
+
+
+# Quetion 9
+
+To assess the out-of-sample performance of the `lm` and `stan` fits for Model 2 in the test data `chr_test` on the basis of their correlation-based R-square statistic (rsq), root mean squared error (rmse), and mean absolute error (mae), these metrics need to be selected for with the following function below:
+
+```{r}
+mets = metric_set(rsq, rmse, mae)
+```
+
+
+With the metrics set with the `metric_set()` function above, the values can now be calculate for both models. The values for the `lm` fit of Model 2's have been calculated below:
+
+
+```{r}
+model2_pred_test = 
+  predict(model2_fit, chr_test) %>%
+  bind_cols(chr_test %>% select(inactive))
+
+model2_res_test = 
+  mets(model2_pred_test, truth = inactive, estimate = .pred) %>%
+  kable(digits = 3)
+
+model2_res_test
+```
+
+
+And Model 2's `stan` fit values have been calculated below:
+
+
+```{r}
+model2_stan_pred_test = 
+  predict(model2_stan_fit, chr_test) %>%
+  bind_cols(chr_test %>% select(inactive))
+
+model2_stan_res_test = 
+  mets(model2_stan_pred_test, truth = inactive, estimate = .pred) %>%
+  kable(digits = 3)
+
+model2_stan_res_test
+```
+
+
+Based on the above metrics, I would conclude that there is no detectable difference between the `lm` fit and `stan` fit for Model 2.
+
+
+# Question 10
+
+The pre-processing recipes for Model 1 and 2 will be regenerated below with the removal of the Box-Cox transformation from Model 1 and the non-linear term from Model 2:
+
+```{r}
+model1_lin_rec = 
+  recipe(inactive ~ pct_smokers + rural_cat, data = chr_train) %>%
+  step_dummy(rural_cat) %>%
+  step_normalize(all_predictors())
+
+model2_lin_rec =
+  recipe(inactive ~ pct_65plus + sroh_fairpoor + some_college + race_cat, data = chr_train) %>%
+  step_dummy(race_cat) %>%
+  step_normalize(all_predictors())
+```
+
+
+With the recipes above and the previously generated linear model engine `lm_model_eng`, the new workflows and sub-sequent fits for both models can be generated as follows:
+
+
+```{r}
+model1_lin_lm_wf = workflow() %>%
+  add_model(lm_model_eng) %>%
+  add_recipe(model1_lin_rec)
+
+model2_lin_lm_wf = workflow() %>%
+  add_model(lm_model_eng) %>%
+  add_recipe(model2_lin_rec)
+
+model1_lin_fit = fit(model1_lin_lm_wf, chr_train)
+
+model2_lin_fit = fit(model2_lin_lm_wf, chr_train)
+```
+
+
+The number of observations (nobs), R^2, AIC, and BIC values for both fits have been provided below, and both the sigma and adjusted R^2 squared values have been provided as well for additional context: 
+
+
+```{r}
+model1_lin_fit %>% extract_fit_parsnip() %>%
+  glance() %>%
+  select(12, 1:3, 8, 9) %>%
+  kable(dig = 3)
+
+model2_lin_fit %>% extract_fit_parsnip() %>%
+  glance() %>%
+  select(12, 1:3, 8, 9) %>%
+  kable(dig = 3)
+```
+
+
+Both models appear to have identical R^2 values (at least when rounded to 3 digits), however Model 2 appears to have slightly lower (i.e. slightly better) AIC and BIC values compared to Model 1.
+
+In order to assess the out-of-sample performance of these altered versions of Models 1 and 2 in the test data `chr_test` on the basis of their correlation-based R-square statistic (rsq), root mean squared error (rmse), and mean absolute error (mae), we simply need to run the following code to generate the results for Model 1:
+
+```{r}
+mets = metric_set(rsq, rmse, mae)
+
+model1_lin_pred_test = 
+  predict(model1_lin_fit, chr_test) %>%
+  bind_cols(chr_test %>% select(inactive))
+
+model1_lin_res_test = 
+  mets(model1_lin_pred_test, truth = inactive, estimate = .pred) %>%
+  kable(digits = 3)
+
+model1_lin_res_test
+```
+
+
+And the following code to obtain the results for Model 2:
+
+
+```{r}
+model2_lin_pred_test = 
+  predict(model2_lin_fit, chr_test) %>%
+  bind_cols(chr_test %>% select(inactive))
+
+model2_lin_res_test = 
+  mets(model2_lin_pred_test, truth = inactive, estimate = .pred) %>%
+  kable(digits = 3)
+
+model2_lin_res_test
+```
+
+
+Just as was the case with the previous models, based on the above metrics, Model 1 appears to perform better in the test data, as Model 1's correlation-based R-square value is higher than Model 2's, and both of Model 1's root mean squared error and mean absolute error are lower than Model 2's.
+
 
 # Session Information {-}
 
