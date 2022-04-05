@@ -22,7 +22,35 @@ Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
 5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
+9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery | Tue 11:35 AM
 1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
+10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
+11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
+
+## Not Yet Sorted
+
+Group | Investigator(s) | Project Title | Time
+:-----: | :-------: | :------------ | :-----
+12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
+13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
+14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
+15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
+16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
+17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
+18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
+19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
+20 | [Ziyin Zhao](#ziyin-zhao) | Predict kidney damage by gender, binge drinking, and tobacco exposure | Thu 12:20 PM
+21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
+22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
+23 | [Ria Tilve](#ria-tilve) | Using Body Measures Predict Exercise Levels and Arthritis in the MrOS Study | Thu 1:10 PM
+24 | [Kiran Desai and Grace Armstrong](#kiran-desai-and-grace-armstrong) | The Impact of Social Independence on Health in Mexican American Elderly Adults | Thu 1:10 PM
+25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
+26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
+27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
+28 | [Makaela Mews](#makaela-mews) | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio | Thu 3:40 PM
+29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
+30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
+31 | [Katie Heinzinger](#katie-heinzinger) | Predicting Dog Breed Rankings and Traits | Thu 4:45 PM
 
 ## Kristi Lin-Rahardja
 
@@ -38,7 +66,7 @@ Model 2 | A weighted linear regression model
 Out 2 | Adult cancer mortality risk (ranges from 0-1) where I want to down-weight some outlier values
 RQ 2 | Do larger animals have a higher cancer mortality risk than smaller animals?
 Samples | 191 for each
-Status | **Accepted.** Change the plan for Model 1 as indicated.
+Status | **Accepted.** Excellent start. Change the plan for Model 1 as indicated.
 
 ## Audrey Zhu
 
@@ -54,7 +82,7 @@ Model 2 | A logistic model fit using a generalized linear model and logit link
 Out 2 | Has the song has been on the Billboard Hot 100 more than once?
 RQ 2 | How well can a song's energy, speechiness, and length predict whether it will appear on the Billboard Hot 100 more than once?
 Samples | 9017 for each (**probably want to cut that down even beyond just looking at those since 2000**)
-Status | **Accepted.** Cut down the sample size, as indicated. How will you assess the number of times a song had "previously" been on the Hot 100 if their first time on the data yields the maximum number of weeks?
+Status | **Accepted.** Excellent start. Cut down the sample size, as indicated. How will you assess the number of times a song had "previously" been on the Hot 100 if their first time on the data yields the maximum number of weeks?
 
 ## Kyaw Oo Hla
 
@@ -152,53 +180,53 @@ RQ 2 | What kind of people will tend to smoke? / What's the feature for people s
 Samples | 2232 for Model 1, 4545 for Model 2
 Status |  **REVISION REQUIRED.** You need a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15.
 
-## Template
+## Ben Kramer and Jacqueline Shaia
 
-Project X | 
+Project 9 | Ben Kramer and Jacqueline Shaia
 -------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Title | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery (**I prefer the title in this order.**)
+Source | 1) TidyTuesday 2020 - [Great American Beer Festival](https://www.greatamericanbeerfestival.com/the-competition/winners/)  (Available via TidyTuesday Package) 2) [US Cities Data](https://simplemaps.com/data/us-cities), Updated 2021  3) [County Health Rankings](https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation) (2020).  
+Public | Yes
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  Medal (bronze, silver, gold) most often won by the county (among counties who have won at least one medal) in the Great American Beer Festival.
+RQ 1 | What county characteristics predict how well an award winning beer will do in the Great American Beer Festival?
+Model 2 | A logistic model fit using a generalized linear model and logit link
+Out 2 | County has won or not won an award. 
+RQ 2 | What county characteristics predict if it will be a winning county at the Great American Beer Festival?
+Samples | 467 for model 1, 3084 for model 2
+Status | **Accepted.** Excellent start.
 
-## Template
+## Michael Douglass
 
-Project X | 
+Project 10 | Michael Douglass
 -------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Title | International Violence & Conflict (1980-2000)
+Source | (1) Brecher, Michael, Jonathan Wilkenfeld, Kyle Beardsley, Patrick James and David Quinn (2021). [International Crisis Behavior Data Codebook, Version 14](http://sites.duke.edu/icbdata/data-collections/). (2) Khoury, Colin K; Bjorkman, Anne D; Dempewolf, Hannes; Ramirez Villegas, Julian; Guarino, Luigi; Jarvis, Andy; Rieseberg, Loren H; Struik, Paul C, 2015, "[Replication Data for: Increasing homogeneity in global food supplies and the implications for food security](https://doi.org/10.7910/DVN/HYOWIC)", Harvard Dataverse, V1 (3) [Sustainable Development Report](https://dashboards.sdgindex.org/downloads) from the UN's Statistics Division. 
+Public | Yes
+Model 1 | A model for a count outcome
+Out 1 |  The number of violent conflicts the country was involved in from the years 1980 to 2000, as derived from the ICB Project (Datasource 1).
+RQ 1 | Can I predict a country's **involvement in conflict** based on a static look at factors that describe the country in a global context?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | The status of the country's effort to achieve Goal 16 (Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels) of the UN's Sustainable Development Goals. Categories are: Goal Achievement, Challenges remain, Significant challenges, and Major challenges. (**as of what date?**)
+RQ 2 | Does a history of violent conflict predict a nation's current efforts toward peace?
+Samples | 152 for each.
+Status | **Accepted.** Excellent start. In RQ 1, note my small change. As of what date, for outcome 2? 
 
-## Template
+## Norman Luc
 
-Project X | 
+Project 11 | Norman Luc
 -------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Title | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season
+Source | 2021-2022 NBA regular season data from [NBA Player Statistics](https://www.nba.com/stats/players/) and [Basketball Reference](https://www.basketball-reference.com/)
+Public | Yes
+Model 1 | A model for a count outcome
+Out 1 | My count outcome is the number of 20 points games by a player as a "traditional" measure of scoring output.  
+RQ 1 | How does an NBA player's shooting rate and percentage from each area of the court predict the number of 20 point games in the 2021-2022 season?
+Model 2 | A linear model fit using ordinary least squares
+Out 2 | Offensive Win Share per 48 minutes is my linear model outcome. This is a catch-all measurement of offensive efficiency, normalized to the amount of time played.
+RQ 2 | How does an NBA player's shooting rate and percentage from each area of the court predict their Offensive Win Shares per 48 minutes in the 2021-2022 season?
+Samples | 598 in Model 1, 196 in Model 2
+Status | **Accepted.** Excellent start. Of course, you won't have the whole season's data yet, since the regular season isn't over until April 10. Do you propose to wait until then to finalize your data? Should you restrict Outcome 1 to players who played at least a certain number of minutes in the season or to those who started X games, or even to the players included in Outcome 2's model or something like that? Otherwise, won't you have a tremendous number of uninteresting zeros and ones among players who play infrequently?
 
 ## Template
 
