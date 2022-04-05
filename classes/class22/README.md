@@ -17,12 +17,12 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. There is a Minute Paper after Class 22 due tomorrow (2022-04-06) at Noon. **Details to come.**
 2. An answer sketch for Lab 5 will be posted to our Shared Drive **by class time**.
-3. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due next Monday 2022-04-11 at 9 PM.
-4. Quiz 2 will be in your hands on Thursday 2022-04-14 at 5 PM. It is **now due** Tuesday 2022-04-19 at 9 AM.
+3. The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
+4. My comments on your [Project B Proposal Plans](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md) are also available now. As we'll discuss, some of you will have to submit a revision to Canvas by this **Friday 2022-04-08 at 9 AM**. Note that's 9 in the morning, not evening.
+5. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due next Monday 2022-04-11 at 9 PM.
+6. Quiz 2 will be in your hands on Thursday 2022-04-14 at 5 PM. It is **now due** Tuesday 2022-04-19 at 9 AM.
     - The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know during each of those classes (24 and 25).
-5. Tuesday 2022-04-19 is a Project B working day, and we will have no 432 class that day.
-6. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
-7. [Lab Y](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labY) and [Lab Z](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labZ) are due by our final course deadline (2022-05-02 at noon.)
+7. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
 8. I will announce the topics to be discussed in classes 24-26 as soon as possible.
 
 ## Four things I hope you will do when you finish this course and go out into the world...
