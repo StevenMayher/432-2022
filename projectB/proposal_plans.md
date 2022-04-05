@@ -25,7 +25,7 @@ Group | Investigator(s) | Project Title | Time
 
 [Back to Top](#project-b-plans)
 
-## Revisions Requested for these Projects 
+## Projects Where Dr. Love Needs You To Submit a Revision 
 
 ### What Should I do if I need to complete a revision?
 
@@ -46,7 +46,7 @@ Group | Investigator(s) | Project Title | Time
 
 [Back to Top](#project-b-plans)
 
-## Not Yet Sorted
+## Projects Not Yet Sorted and Summarized Here
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
