@@ -15,7 +15,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. There is a Minute Paper after Class 22 due tomorrow (2022-04-06) at Noon. **Details to come.**
+1. There is a [Minute Paper after Class 22](https://bit.ly/432-2022-min-22) due tomorrow (2022-04-06) at Noon.
 2. An answer sketch for Lab 5 will be posted to our Shared Drive **by class time**.
 3. The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
 4. My comments on your [Project B Proposal Plans](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md) are also available now. As we'll discuss, some of you will have to submit a revision to Canvas by this **Friday 2022-04-08 at 9 AM**. Note that's 9 in the morning, not evening.
