@@ -500,6 +500,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Aaron Fletcher
 
 Project 29 | Aaron Fletcher
@@ -515,6 +517,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Anushree Iyengar
 
@@ -532,6 +536,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Katie Heinzinger
 
 Project 31 | Katie Heinzinger
@@ -548,98 +554,4 @@ RQ 2 |
 Samples | 
 Status |  
 
-## Template
-
-Project X | 
--------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
-
-## Template
-
-Project X | 
--------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
-
-## Template
-
-Project X | 
--------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
-
-## Template
-
-Project X | 
--------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
-
-## Template
-
-Project X | 
--------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
-
-## Template
-
-Project X | 
--------: | :-------------------
-Title | 
-Source | 
-Public | 
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+[Back to Top](#project-b-plans)
