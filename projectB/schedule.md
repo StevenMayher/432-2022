@@ -15,9 +15,9 @@ Time | Style | Investigator(s) | Title
 
 Time | Style | Investigator(s) | Title
 ---: | :---: | :-------------: | :--------------------
-9:00 - 9:25 AM | Zoom | Cerag Oguztuzun & Abhishek Bhardwaj | Examination of the Effects of Healthcare on Covid19 Cases
-11:10 - 11:35 AM | In Person | Gen Li & Jiayue Yang | A study about smoking and drinking alcohol and several potential risks
-11:35 - 12:00 Noon | In Person | Ben Kramer & Jacqueline Shaia | Factors Associated with a Successful Brewery: Which Counties Brew the Best Beer?
+9:00 - 9:25 AM | Zoom | Cerag Oguztuzun & Abhishek Bhardwaj | Exploring County-Level COVID-19 Case Rates
+11:10 - 11:35 AM | In Person | Gen Li & Jiayue Yang | Exploring Alcohol and Tobacco Use in NHANES 2017-18
+11:35 - 12:00 Noon | In Person | Ben Kramer & Jacqueline Shaia | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery
 12:00 Noon - 12:25 PM | In Person | Michael Douglass | International Violence & Conflict (1980-2000)
 12:25 PM - 12:50 PM | In Person | Norman Luc | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season
 1:20 PM - 1:45 PM | In Person | Paulameena Shultes | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges
@@ -33,10 +33,10 @@ Time | Style | Investigator(s) | Title
 Time | Style | Investigator(s) | Title
 ---: | :---: | :-------------: | :--------------------
 12:00 Noon - 12:20 PM | In Person | Harrison Lindley & Sarah Nock | Predicting geographic origin of coffee using cup quality and production metrics
-12:20 PM - 12:40 PM | In Person | Ziyin Zhao | Predict kidney damage by gender, binge drinking, and tobacco exposure
+12:20 PM - 12:40 PM | In Person | Ziyin Zhao | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES
 12:40 PM - 1:00 PM | In Person | Ava Fan | Racial Differences in Post-Secondary Education in the United States
 1:10 - 2:10 PM | Zoom (1/3) | David Selvaraj | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
-1:10 - 2:10 PM | Zoom (2/3) | Ria Tilve | Can Body Measures Predict Exercise Levels and Arthritis in the MrOS Study
+1:10 - 2:10 PM | Zoom (2/3) | Ria Tilve | Predicting Exercise Levels and Arthritis in MrOS
 1:10 - 2:10 PM | Zoom (3/3) | Kiran Desai & Grace Armstrong | The Impact of Social Independence on Health in Mexican American Elderly Adults
 2:15 - 3:15 PM | Zoom (1/3) | Siddharth Dugar | Association of Left ventricle systolic velocity to ICU mortality in sepsis
 2:15 - 3:15 PM | Zoom (2/3) | Carly Rose & Diya Yang | Exploring Health-Related Factors and Physical Health Among US Residents
