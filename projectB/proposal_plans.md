@@ -2,9 +2,28 @@
 
 The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
 
+## Project Proposals Accepted by Dr. Love 
+
+**Click on your name to review my comments and descriptions associated with your project closely. Substantial changes are bolded.**
+
+Group | Investigator(s) | Project Title | Time
+:-----: | :-------: | :------------ | :-----
+5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
+2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
+9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
+1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
+10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
+11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
+
 ## Revisions Requested for these Projects 
 
-**Revisions are due Thursday 2022-04-07 at 9 PM: see the Status section under your name for more details on what you need to address, and how to submit your revision.**
+### What Should I do if I need to complete a revision?
+
+1. Click on the link for your project to review my summary and comments on your proposal.
+2. Be sure to closely read all of what I have there, especially the Status section for more details on what you need to address. 
+3. You will need to write an email to Dr. Love with the subject line "**Revised 432 Project B Plans**".
+    - Your email should specify your project title, your revised project outcomes (1 and 2), revised research questions and revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each the comments I've made on your summary. If necessary, please specify the revised counts of complete data you have for your revised outcomes. If you've changed data sources, you'll need to specify that as well.
+4. Then send the email to Dr. Love **no later than 9 AM this Friday 2022-04-08**. Again, please make the subject "Revised 432 Project B Plans". Thank you.
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
@@ -13,19 +32,6 @@ Group | Investigator(s) | Project Title | Time
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
 3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
-
-## Project Proposals Accepted by Dr. Love 
-
-**Please review my comments and descriptions associated with your project closely. Substantial changes are bolded.**
-
-Group | Investigator(s) | Project Title | Time
-:-----: | :-------: | :------------ | :-----
-5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
-2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
-9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery | Tue 11:35 AM
-1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
-10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
-11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
 
 ## Not Yet Sorted
 
@@ -106,7 +112,7 @@ Model 2 | A logistic model fit using a generalized linear model and logit link (
 Out 2 | "Premature Death Value" variable (**which, again, you should describe in additional detail**) but split into two categories: Low and High (**and you need to specify the cutpoint you are using.**)  
 RQ 2 | How well can predict premature death rate of US by using physical inactivity status, obesity status, uninsured rate, unemployment rate, and graduate status of the people who are living in every county of the US in 2019 ? (**Again, this question needs to be repaired. Like your previous question it's not grammatically correct - start with something like "How well can we predict..." and also don't specify a complete set of predictors.**) 
 Samples | 3081 for each
-Status | **REVISION REQUIRED.** This proposal needs to be revised. Why, specifically are you using CHR from 2019 rather than some other year? In addition, I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. So you'll need to change either Model 1 or Model 2 accordingly. The simplest solution would be to split your planned outcome for Model 2 into four categories, rather than two, and these categories should be of roughly equal size. Then plan to predict the category using an appropriate model for a multi-categorical outcome. Finally, your predictors for Model 1 and Model 2 can overlap, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+Status | **REVISION REQUIRED.** This proposal needs to be revised. Why, specifically are you using CHR from 2019 rather than some other year? In addition, I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. So you'll need to change either Model 1 or Model 2 accordingly. The simplest solution would be to split your planned outcome for Model 2 into four categories, rather than two, and these categories should be of roughly equal size. Then plan to predict the category using an appropriate model for a multi-categorical outcome. Finally, your predictors for Model 1 and Model 2 can overlap, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data. 
 
 [Back to Top](#project-b-plans)
 
@@ -178,7 +184,7 @@ Model 2 | A model for a count outcome
 Out 2 | A masking standard will be created by finding some thresholds that will act as a guideline to determine which counties meet most of the masking standards. We will then be able to understand how masking standards relate to health care access in a population.
 RQ 2 | Do counties with higher access to primary care physicians meet standardized mask guidelines?
 Samples | 2821 for Model 1, 
-Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. 
+Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
 
 [Back to Top](#project-b-plans)
 
@@ -196,7 +202,7 @@ Model 2 | A model for a multi-categorical outcome
 Out 2 | Smoking status (variable SMQ040) with three levels: Never smoke, smoking every day and smoking some days.
 RQ 2 | What kind of people will tend to smoke? / What's the feature for people smoking? (**revision needed**)
 Samples | 2232 for Model 1, 4545 for Model 2
-Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15.
+Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
 
 [Back to Top](#project-b-plans)
 
@@ -259,16 +265,16 @@ Status | **Accepted.** Excellent start. Of course, you won't have the whole seas
 Project 12 | Paulameena Shultes
 -------: | :-------------------
 Title | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges
-Source | 
+Source | (1) Data Challenge Expo 2022- [Racial and Ethnic Representativeness of US Postsecondary Education Institutions](https://datacatalog.urban.org/dataset/racial-and-ethnic-representativeness-us-postsecondary-education-institutions) (2) [College Affordability and Tuition Costs](https://collegecost.ed.gov/affordability) (CATC) from the US Department of Education, 2014-2017.
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 | School Type (9 categories, including Public Selective, Public Non-Selective, Public More Selective, Private Non-profit Selective, Private Non-Profit More Selective, Private Non-Profit Non-Selective, Private For-Profit Selective, Private For-Profit Non-Selective, Private For-Profit More Selective) (**I do recommend you subset the data to focus on comparisons of, say, 4-5 of these options, but definitely not all nine.**)
+RQ 1 | If I consider the average ethnic composition of 4-year schools across the sampled school-years, does regression analysis reflect a relationship with the type of university (private vs public, selective vs. non-selective)? (**You'll need to rephrase this. When would regression analysis not reflect a relationship?**)
+Model 2 | A linear model fit using a Bayesian engine
+Out 2 | Diversity meta-score: I want to see how tuition changes year-by-year reflect changes in the diversity of different schools. I'm creating a metascore to try and summarize diversity based on the data I have from the Data Expo. For each ethnic group, I have the difference in % of the student body (col_ethnicgroup) and the % in the surrounding area (mkt_ethnicgroup) as dif_ethnicgroup. I want to penalize for having a skewed student population (skewed towards more white-representation).  My current metascore formula is as follows: diversity_score = dif_hispa + dif_black + dif_pacis + dif_amind + dif_twora +dif_asian - dif_white Please let me know if there is a better/more sophisticated method I should be using for creating my metascore outcome variable.
+RQ 2 | Do changes in tuition/cost of attendance reflect changes in ethnic composition of public 4-year schools?
+Samples | 2060 in Model 1, 7607 in Model 2.
+Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back the plan. I strongly recommend you focus on ethnic composition (and how will you measure that, exactly) in a single year, and that you focus on fewer school types in Model 1. In Model 2, I don't quite understand why you wouldn't simply look at diversity for the student body, rather than calculating a series of differences. But if this is what you want to do, then your research question should really change to focus on predicting this outcome, rather than predicting cost, as it seems to now. Not clear why you have so much more data in Model 2. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
 
 [Back to Top](#project-b-plans)
 
