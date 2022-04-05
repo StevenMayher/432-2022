@@ -8,11 +8,11 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
-4 | [Alan Kiang](alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
-7 | [Cerag Oguztuzun and Abhishek Bhardwaj](cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
-8 | [Gen Li and Jiayue Yang](gen-li-and-jiayue-yang) | A study about smoking and drinking alcohol and several potential risks | Tue 9 AM
-3 | [Kyaw Oo Hla](kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
-6 | [Olivia Wilcox](olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
+4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
+7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
+8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | A study about smoking and drinking alcohol and several potential risks | Tue 9 AM
+3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
+6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 
 ## Project Proposals Accepted by Dr. Love 
 
