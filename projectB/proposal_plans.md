@@ -10,7 +10,7 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 2. Substantial changes are bolded, in the listing below, and in the linked summaries.
 3. After you review my comments, if you have any questions, let us know. Otherwise, go forth and do your Project B.
 
-Group | Investigator(s) | Project Title | Time
+Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
 5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
@@ -35,7 +35,7 @@ Group | Investigator(s) | Project Title | Time
     - Your email should specify your project title, your revised project outcomes (1 and 2), revised research questions and revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each the comments I've made on your summary. If necessary, please specify the revised counts of complete data you have for your revised outcomes. If you've changed data sources, you'll need to specify that as well.
 4. Then send the email to Dr. Love **no later than 9 AM this Friday 2022-04-08**. The sooner, the better. Again, please make the subject "Revised 432 Project B Plans". Thank you.
 
-Group | Investigator(s) | Project Title | Time
+Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
