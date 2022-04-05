@@ -20,9 +20,9 @@ Group | Investigator(s) | Project Title | Time
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
-5 | [Alex Olejko](alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
-2 | [Audrey Zhu](audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
-1 | [Kristi Lin-Rahardja](kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
+5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
+2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
+1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
 
 ## Kristi Lin-Rahardja
 
