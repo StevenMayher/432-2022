@@ -49,7 +49,7 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
     - If I've asked any questions in the summary below, please answer them.
     - If necessary, please specify the revised counts of complete data you have for your revised outcomes. 
     - If you've changed data sources, you'll need to specify that as well.
-4. Submit your note to Canvas in the assignment called "Revised 432 Project B Plans" by the deadline, which is **Friday 2022-04-08 at 9 AM.**
+4. Submit your note to Canvas in the assignment called "Revised 432 Project B Plans" by the deadline, which is **Friday 2022-04-08 at 9 AM.** That's 9 in the MORNING, not 9 in the evening; our more usual time.
 
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
