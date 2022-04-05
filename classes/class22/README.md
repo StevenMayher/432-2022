@@ -24,6 +24,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know during each of those classes (24 and 25).
 7. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
 8. I will announce the topics to be discussed in classes 24-26 as soon as possible.
+9. Lilianne Kim, Associate Director of Statistics of the Immunology Therapeutic Area of Janssen Pharmaceuticals, will give a Zoom talk today entitled "Education, Career Path and Professional Development: Perspective of a Clinical Statistician" at 4 PM today. I encourage you to attend, especially if you're a student in the PQHS department's MS program. [Zoom link is here](https://cwru.zoom.us/j/93836688830?pwd%3DV1dMN3RvS3EzekVBNzhKVGQ0b0hxdz09&sa=D&source=calendar&ust=1649182248889011&usg=AOvVaw32rmfR-GcppKXhktngsRi9)
 
 ## Four things I hope you will do when you finish this course and go out into the world...
 
