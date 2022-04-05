@@ -4,6 +4,8 @@
 
 The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
 
+---------------
+
 ## Project Proposals Accepted by Dr. Love 
 
 1. Click on your name in the list below to go to my summary review, and comments associated with your project.
@@ -17,7 +19,10 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
 15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
 14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
+31 | [Katie Heinzinger](#katie-heinzinger) | Predicting Dog Breed Rankings and Traits | Thu 4:45 PM
+24 | [Kiran Desai and Grace Armstrong](#kiran-desai-and-grace-armstrong) | The Impact of Social Independence on Health in Mexican American Elderly Adults | Thu 1:10 PM
 1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
+28 | [Makaela Mews](#makaela-mews) | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio | Thu 3:40 PM
 10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
 16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
@@ -25,46 +30,47 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 
 [Back to Top](#project-b-plans)
 
+-------------
+
 ## Projects Where Dr. Love Needs You To Submit a Revision 
 
 ### What Should I do if I need to complete a revision?
 
 1. Click on the link for your project to review my summary and comments on your proposal.
-2. Be sure to closely read all of what I have there, especially the Status section for more details on what you need to address. 
-3. You will need to write an email to Dr. Love with the subject line "**Revised 432 Project B Plans**".
-    - Your email should specify your project title, your revised project outcomes (1 and 2), revised research questions and revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each the comments I've made on your summary. If necessary, please specify the revised counts of complete data you have for your revised outcomes. If you've changed data sources, you'll need to specify that as well.
-4. Then send the email to Dr. Love **no later than 9 AM this Friday 2022-04-08**. The sooner, the better. Again, please make the subject "Revised 432 Project B Plans". Thank you.
+2. Be sure to closely read all of what I have there, especially the Status section for more details on what you need to address. Some revision requests are more extensive than others.
+3. You will need to write a note to Dr. Love using (a) Word, or (b) PDF, or (c) R Markdown and HTML and post it to Canvas. Your note should include:
+    - your name (and that of your partner, if any), 
+    - your project title (make the change Dr. Love suggested if that's relevant), 
+    - your revised (as necessary) project outcomes (1 and 2), 
+    - your revised (as necessary) research questions (1 and 2) 
+    - and your revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each the comments I've made on your summary. 
+        - Available model types for Model 1 are: A model for a multi-categorical outcome, A model for a count outcome, A Cox model for a time-to-event outcome with censoring, A linear model fit using a Bayesian engine, and A logistic model fit using a Bayesian engine
+        - Available model types for Model 2 include all of those in Model 1, plus A weighted linear regression model, A linear model fit using ordinary least squares and A logistic model fit using a generalized linear model and logit link
+    - If I've asked any questions in the summary below, please answer them.
+    - If necessary, please specify the revised counts of complete data you have for your revised outcomes. 
+    - If you've changed data sources, you'll need to specify that as well.
+4. Submit your note to Canvas in the assignment called "Revised 432 Project B Plans" by the deadline, which is **Friday 2022-04-09 at 9 AM.**
 
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
+29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
+27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
+30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
+21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
+26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
+22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
+19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
 17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
 3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
+23 | [Ria Tilve](#ria-tilve) | **Predicting Exercise Levels and Arthritis in MrOS** | Thu 1:10 PM
 18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
-
-[Back to Top](#project-b-plans)
-
-## Projects Not Yet Sorted and Summarized Here
-
-Group | Investigator(s) | Project Title | Time
-:-----: | :-------: | :------------ | :-----
-19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
-20 | [Ziyin Zhao](#ziyin-zhao) | Predict kidney damage by gender, binge drinking, and tobacco exposure | Thu 12:20 PM
-21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
-22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
-23 | [Ria Tilve](#ria-tilve) | Using Body Measures Predict Exercise Levels and Arthritis in the MrOS Study | Thu 1:10 PM
-24 | [Kiran Desai and Grace Armstrong](#kiran-desai-and-grace-armstrong) | The Impact of Social Independence on Health in Mexican American Elderly Adults | Thu 1:10 PM
 25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
-26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
-27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
-28 | [Makaela Mews](#makaela-mews) | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio | Thu 3:40 PM
-29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
-30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
-31 | [Katie Heinzinger](#katie-heinzinger) | Predicting Dog Breed Rankings and Traits | Thu 4:45 PM
+20 | [Ziyin Zhao](#ziyin-zhao) | **Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES** | Thu 12:20 PM
 
 [Back to Top](#project-b-plans)
 
@@ -219,7 +225,7 @@ Status |  **REVISION REQUIRED.** You needed a new title that is much more specif
 Project 9 | Ben Kramer and Jacqueline Shaia
 -------: | :-------------------
 Title | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery (**I prefer the title in this order.**)
-Source | 1) TidyTuesday 2020 - [Great American Beer Festival](https://www.greatamericanbeerfestival.com/the-competition/winners/)  (Available via TidyTuesday Package) 2) [US Cities Data](https://simplemaps.com/data/us-cities), Updated 2021  3) [County Health Rankings](https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation) (2020).  
+Source | 1) TidyTuesday 2020 - [Great American Beer Festival](https://www.greatamericanbeerfestival.com/the-competition/winners/)  (TidyTuesday Package) 2) [US Cities Data](https://simplemaps.com/data/us-cities), Updated 2021  3) [County Health Rankings](https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation) (2020).  
 Public | Yes
 Model 1 | A model for a multi-categorical outcome
 Out 1 |  Medal (bronze, silver, gold) most often won by the county (among counties who have won at least one medal) in the Great American Beer Festival.
@@ -282,7 +288,7 @@ Model 2 | A linear model fit using a Bayesian engine
 Out 2 | Diversity meta-score: I want to see how tuition changes year-by-year reflect changes in the diversity of different schools. I'm creating a metascore to try and summarize diversity based on the data I have from the Data Expo. For each ethnic group, I have the difference in % of the student body (col_ethnicgroup) and the % in the surrounding area (mkt_ethnicgroup) as dif_ethnicgroup. I want to penalize for having a skewed student population (skewed towards more white-representation).  My current metascore formula is as follows: diversity_score = dif_hispa + dif_black + dif_pacis + dif_amind + dif_twora +dif_asian - dif_white Please let me know if there is a better/more sophisticated method I should be using for creating my metascore outcome variable.
 RQ 2 | Do changes in tuition/cost of attendance reflect changes in ethnic composition of public 4-year schools?
 Samples | 2060 in Model 1, 7607 in Model 2.
-Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back the plan. I strongly recommend you focus on ethnic composition (and how will you measure that, exactly) in a single year, and that you focus on fewer school types in Model 1. In Model 2, I don't quite understand why you wouldn't simply look at diversity for the student body, rather than calculating a series of differences. But if this is what you want to do, then your research question should really change to focus on predicting this outcome, rather than predicting cost, as it seems to now. Not clear why you have so much more data in Model 2. 
+Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back the plan. I strongly recommend you focus on ethnic composition (and how will you measure that, exactly) in a single year, and that you focus on fewer school types in Model 1. In Model 2, I don't quite understand why you wouldn't simply look at diversity for the student body, rather than calculating a series of differences. But if this is what you want to do, then your research question should really change to focus on predicting this outcome, rather than predicting cost, as it seems to now. Not clear why you have so much more data in Model 2. So I need you (as part of your revision) to specify your outcome 2 very precisely, and calculate the results for CWRU, as an example, so I'm sure I understand what you are doing. Tell me all of the predictors you plan to use in model 1 and also in model 2, and there should be at least two predictors in each model that aren't in the other model.
 
 [Back to Top](#project-b-plans)
 
@@ -399,16 +405,16 @@ Status | **REVISION REQUESTED**. In model 1, I don't understand why "region" wou
 Project 19 | Harrison Lindley and Sarah Nock
 -------: | :-------------------
 Title | Predicting geographic origin of coffee using cup quality and production metrics
-Source | 
+Source | 1) TidyTuesday 2020-07-07 ([Coffee Quality Database](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md)) 2) [Average latitude and longitude data by country](https://github.com/albertyw/avenews/blob/master/old/data/average-latitude-longitude-countries.csv) 3) [Average latitude for Hawaii](https://developers.google.com/public-data/docs/canonical/states_csv).
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  We plan to use the country of origin of coffee as our first outcome variable. The 36 countries in this multi-categorical variable are: Ethiopia, Guatemala, Brazil, Peru, United States, United States (Hawaii), Indonesia, China, Costa Rica, Mexico, Uganda, Honduras, Taiwan, Nicaragua, Tanzania, Kenya, Thailand, Colombia, Panama, Papua New Guinea, El Salvador,  Japan, Ecuador, United States (Puerto Rico), Haiti, Burundi, Vietnam, Philippines, Rwanda, Malawi, Laos, Zambia, Myanmar, Mauritius, Cote d'Ivoire, and India.   
+RQ 1 | How effectively can the country of origin of produced coffee be predicted with factors such as cup quality of brewed coffee and metrics of agricultural production?
+Model 2 | A linear model fit using ordinary least squares
+Out 2 | Quoting: "We intend to predict the mean altitude that coffee varieties are grown at using predictors such as coffee species, average altitude of production, and cup quality ratings like aroma, balance, and flavor. Mean altitude is a quantitative variable which ranges from 1 to 90164 in our set of data."
+RQ 2 | Are factors associated with coffee variety, growing conditions, and quality indicators (including coffee species, flavor rating, and latitude) predictive of the altitude at which coffee beans are grown?
+Samples | 1099 and 1109 so far
+Status | **REVISION REQUESTED**. What are the units of measurement here? What are the units of analysis (There are 1099 varieties of coffee?) That's way too many countries to look at as the outcome for a model in this project. You'd need much more data than you have. You'd be much better off restricting the data down to a much smaller set of countries (maybe 4-5 of them), and I'm not sure country is a particularly interesting outcome on its own, anyway. Your second model doesn't make sense to me. You mentioned that you would use average altitude of production to predict mean altitude at which the variety is grown. And again, why do we care about the altitude as an outcome? So I'd like you to select at least one if not two new outcomes, and focus on things of more clear use. Also, if possible, avoid an OLS linear fit or a GLM logistic fit.
 
 [Back to Top](#project-b-plans)
 
@@ -416,17 +422,17 @@ Status |
 
 Project 20 | Ziyin Zhao
 -------: | :-------------------
-Title | Predict kidney damage by gender, binge drinking, and tobacco exposure
-Source | 
+Title | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES (**Note revised title. Please use this going forward.**)
+Source | NHANES data from 2017-2018, including Demographic Variables and Sample Weights (DEMO_J), Cotinine, Hydroxycotinine, & Other Nicotine Metabolites and Analogs - Urine (UCOT_J), Alcohol Use (ALQ_J), and Albumin & Creatinine - Urine (ALB_CR_J). 
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A linear model fit using a Bayesian engine
+Out 1 | The Albumin creatinine ratio (mg/g) 
+RQ 1 | How do exposure to tobacco, gender and binge drinking influence the Albumin creatinine ratio?
+Model 2 | A model for a multi-categorical variable (**Note that I fixed this.**)
+Out 2 | ACR classified into three categories: A1 (<30mg/g), A2(30 - 300 mg/g), and A3 (> 300 mg/g), as specified by the National Kidney fundation.
+RQ 2 | How do exposure to tobacco, gender and binge drinking influence levels of chronic kidney disease?
+Samples | 1468 in each
+Status | **REVISION REQUESTED**. Why use data from 2017-18 instead of 2019-20? You need to be using a multi-categorical model in Model 2, not a binary logistic model. Your research questions are revised a bit, above, but you really need to be using at least two predictors in each model that are not part of the other model, so your revision should reflect this. Also, don't use cause in writing about these questions, as you won't be able to make causal inferences based on these models. Finally, please clarify that the reason you have 1468 observations is that's the number with complete data on ACR.
 
 [Back to Top](#project-b-plans)
 
@@ -435,16 +441,16 @@ Status |
 Project 21 | Ava Fan
 -------: | :-------------------
 Title | Racial Differences in Post-Secondary Education in the United States
-Source | 
+Source | Data Challenge Expo: American Statistical Association - Urban Institute: Racial and Ethnic Representativeness of US Postsecondary Education Institutions
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  The selectivity of the college/secondary institution: levels include: "non-selective", "selective", "more selective" or "two year" (which represents a two-year education instutition, such as a community college)
+RQ 1 | How does racial and ethnic representativeness vary depending on the selectivity of the post-secondary educational institution?
+Model 2 | A weighted linear regression model
+Out 2 | College Representation of Multiracial Population (College Percent minus Market Percent) (in other words - how well are certain racial and ethnic groups represented in the college based on their percent of eligible students in the country that fit in that racial/ethnic group)
+RQ 2 | What factors influence how racially representative a college is?
+Samples | 3924 for each
+Status | **REVISION REQUESTED**. I would not include two-year educational institutions in model 1 or model 2, and instead stick to the other three categories. But I'm mostly concerned about how you will measure racial and ethnic representativeness in both models. So I need you (as part of your revision) to specify that very precisely, and calculate the results for CWRU, as an example, so I'm sure I understand what you are doing. Tell me all of the predictors you plan to use in model 1 and then in model 2, and there should be at least two predictors in each model that aren't in the other model. I'm not certain I understand outcome 2 (college percent of what minus market percent of what?) so you need to describe that thoroughly, too, and demonstrate how you'll do it. If you're only looking at "multiracial" as a category, then that doesn't match your research question. If you're looking at multiple categories, then how is that one outcome?
 
 [Back to Top](#project-b-plans)
 
@@ -453,16 +459,16 @@ Status |
 Project 22 | David Selvaraj 
 -------: | :-------------------
 Title | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
-Source | 
+Source | The PACT study conducted by Professor Suchitra Nelson's lab of children **ages 3-6 covered by Medicaid** from University Hospitals and followed for 2 years. (**note repairs to your original, and that you should also specify the time period.**)
 Public | *Not available to the public*
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a count outcome
+Out 1 | The count of untreated decayed teeth each child has ranging from 0-24.
+RQ 1 | Can the count number of teeth with dental caries in 3-6 year old Medicaid enrolled children be predicted by the number of sugar sweetened beverages consumed per week, the level of deprivation in their neighborhood, the child’s age, the race of the child, and their caregivers educational attainment and marital status?
+Model 2 | A logistic model fit using a generalized linear model and logit link
+Out 2 | Caries experience: presence of current or past (filled teeth) decay on any of the teeth in the child's mouth.
+RQ 2 | Can caries experience be predicted the number of sugar sweetened beverages consumed per week, the level of deprivation in their neighborhood, the child’s age, the race of the child, and their caregiver’s educational attainment and marital status?
+Samples | 877 for each.
+Status | **REVISION REQUESTED**. This is a good start. I would drop outcome 2. Given your interest in looking at sugar sweetened beverages per week, I would model that, but that doesn't have to be the same sort of count model, right, so I'll let it slide as either another count model (less good for the project) or (better for our purposes) as a multi-categorical outcome dividing the kids into 3-4 roughly equal size groups based on that measure. It would help if you modified your model, outcome and research question (and samples, if necessary) for Model 2, along these lines, and submitted that as your revision. I hope you can arrange to have some more variation in the predictors for the two models, as well.
 
 [Back to Top](#project-b-plans)
 
@@ -470,17 +476,17 @@ Status |
 
 Project 23 | Ria Tilve
 -------: | :-------------------
-Title | Using Body Measures Predict Exercise Levels and Arthritis in the MrOS Study
-Source | 
+Title | **Predicting Exercise Levels and Arthritis in MrOS** (**Note changed title. Please use this one going forward.**)
+Source | [MrOS Online](https://mrosonline.ucsf.edu): The Osteoporotic Fractures in Men (MrOS) Study, a multi-center observational study involving six clinical centers in the United States who recruited 5,994 men at the baseline visit (2000 -2002).
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  Physical activity categorized into Sedentary, Lightly Active, Moderately Active, and Heavily Active.
+RQ 1 | Can abdominal adipose tissue, pelvic bone density, sodium levels, daily servings of bananas, a history of fractures be used to predict one's current level of physical activity?
+Model 2 | A model for a count outcome (**this doesn't make sense**) 
+Out 2 | Presence of Arthritis (**isn't this binary?**)
+RQ 2 | Can trunk fat levels, total cholesterol levels, max grip strength, average sleep time, and daily servings of spinach be used to predict arthritis diagnoses?
+Samples | 630 for each.
+Status | **REVISION REQUESTED**. How can presence of arthritis be a count outcome, as you suggested in Model 2? Isn't it binary (you have arthritis or you do not?) So you'll have to fix that. I'd love for you to work with a count outcome, but what you have isn't one. Model 1 is probably OK, although I'd like you to tell me how you did the categorization for the outcome from the original continuous variable.
 
 [Back to Top](#project-b-plans)
 
@@ -489,16 +495,16 @@ Status |
 Project 24 | Kiran Desai and Grace Armstrong
 -------: | :-------------------
 Title | The Impact of Social Independence on Health in Mexican American Elderly Adults
-Source | 
+Source | [Hispanic Established Populations for the Epidemiologic Study of the Elderly (HEPESE) Wave 5, 2004-2005](https://www.icpsr.umich.edu/web/ICPSR/studies/25041/datadocumentation), found on the the Inter-university Consortium for Political and Social Research (ICPSR) database. 
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  Self-reported health rating (excellent, good, fair, or poor)
+RQ 1 | Is the self-perception of one's health impacted by one's ability to do day-to-day tasks independently in Mexican-American elderly adults, after adjusting for age, marital status, income, and BMI? 
+Model 2 | A logistic model fit using a generalized linear model and logit link
+Out 2 | Diabetes status (yes or no) 
+RQ 2 | Can the independence score of the respondent predict whether or not they have a diabetes diagnosis, after adjusting for age, systolic blood pressure, income, and BMI of the respondents? 
+Samples | 1167 in model 1, 1162 in model 2.
+Status | **Accepted.** Excellent start. It's better to give more detail on the source, as I have here. Diabetes status doesn't look like a particularly interesting outcome. I'd like it if you could find something better. Predicting the independence score seems like it might be a better choice to me, but it's your call.
 
 [Back to Top](#project-b-plans)
 
@@ -507,16 +513,16 @@ Status |
 Project 25 | Siddharth Dugar
 -------: | :-------------------
 Title | Association of Left ventricle systolic velocity to ICU mortality in sepsis
-Source | 
+Source | Clinical data as part of our sepsis registry at Cleveland Clinic
 Public | *Not available to the public*
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A logistic model fit using a Bayesian engine
+Out 1 |  A categorical variable with 2 levels, death or survived till discharge from the intensive care unit.
+RQ 1 | The association of Left ventricle systolic function assessed by peak mitral velocity and intensive care unit mortality
+Model 2 | A Cox model for a time-to-event outcome with censoring
+Out 2 | A categorical variable with 2 levels, death or survived till 28 days from intensive care unit admission.
+RQ 2 | The association of Left ventricle systolic function assessed by peak mitral velocity and outcome at 28 days from ICU admission.
+Samples | 2441 for each.
+Status | **REVISION REQUESTED**. Neither of your research question is a question, ending with a question mark. I'm not quite sure what they are, actually. A Cox model doesn't take a categorical outcome, of course, right? It takes a time-to-event outcome. What is your time to event outcome? How much censoring is there? Your model 1 implies there is no censoring, so at least one of these models has to change. Also, I'd like you to specify what predictors you're planning to use in each model as part of your revision. I want to ensure that you're not using exactly the same predictors in each case.
 
 [Back to Top](#project-b-plans)
 
@@ -525,16 +531,16 @@ Status |
 Project 26 | Carly Rose and Diya Yang
 -------: | :-------------------
 Title | Exploring Health-Related Factors and Physical Health Among US Residents
-Source | 
+Source | NHANES from 2017-18 including only participants ages 55-65.
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A linear model fit using a Bayesian engine
+Out 1 | Ferritin level (in ng/mL), which is the protein that contains iron and is found in red blood cells.
+RQ 1 | Is higher daily alcohol intake associated with higher Ferritin levels in those ages 55-65 after adjusting for age, weight, and race-ethnicity?
+Model 2 | A logistic model fit using a generalized linear model and logit link
+Out 2 | Hepatitis B Core Antibody results, with 1 = Positive and 2 = Negative.
+RQ 2 | Is higher cocaine/heroin/methamphetamine use associated with a positive Hepatitis B diagnosis after adjusting for age, weight, race-ethnicity, and physical activity among US residents aged 55-65?
+Samples | 1129 in model 1, 1132 in model 2
+Status | **REVISION REQUESTED**. Why NHANES 2017-18 instead of 2019-20? More importantly, you really need to select one outcome that isn't either binary or quantitative, and with NHANES you have an immense array of options in this regard. I want to see you demonstrate the ability to build at least one model (I'd have preferred two, but I'll settle for one) for a different type of outcome than you used in Project A. Please specify the predictors you plan to use in each case, making sure that there are at least two predictors in each model that are not part of the other model.
 
 [Back to Top](#project-b-plans)
 
@@ -543,16 +549,16 @@ Status |
 Project 27 | Alise Carlson
 -------: | :-------------------
 Title | Exploring Factors Associated with Successful Survivor Players
-Source | 
+Source | TidyTuesday data containing information on [players (castaways) on the TV show Survivor](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-06-01/readme.md), published by Daniel Oehm.
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a count outcome
+Out 1 | Votes that each player accumulated throughout the time in the game. 
+RQ 1 | Does personality type predict the number of total votes a player will receive throughout their duration on the television show Survivor? 
+Model 2 | A Cox model for a time-to-event outcome with censoring
+Out 2 | The outcome for the model will be `day`, which will represent the number of days that the player survived in the game. The censoring variable will be `result`, which will indicate any reason that the player left the game. 
+RQ 2 | Does age predict overall survival time in the television show Survivor? 
+Samples | 744 for each
+Status | **REVISION REQUESTED**. For outcome 1, I assume you mean votes to be removed from the island, since it switches on the last cycle, right? Model 2 isn't going to work, because no one is censored. Everyone leaves the game for some reason (be it voted out, or something else) or wins. There's no missing information and no right-censoring. So you'll have to select something else. The `day` variable is just a quantity - really, it's a count.
 
 [Back to Top](#project-b-plans)
 
@@ -561,16 +567,16 @@ Status |
 Project 28 | Makaela Mews
 -------: | :-------------------
 Title | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio
-Source | 
+Source | [NHANES data](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017) from 2017-18
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A linear model fit using a Bayesian engine
+Out 1 |  Ratio of visceral fat mass (gm) to android lean mass (gm) that I converted to a percentage value (Range: 0.87 % - 37.27 %)
+RQ 1 | How reliably can age, sex, and basic laboratory measurements (glycated hemoglobin, LDL levels, hs-CRP) predict an individual's visceral fat mass to trunk lean mass ratio?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | How many times have you lost 10 lbs or more because you were trying to lose weight? Categories are Never (0), Rarely (1-2), Occasionally (3-5), Often (6-10), and Always (11 or more). 
+RQ 2 | How reliably can age, sex, basic labs (glycated hemoglobin, LDL levels, hs-CRP), and an individual's current visceral fat mass to trunk lean mass ratio predict how often an individual has lost 10 lbs or more when trying to lose weight when represented as an ordinal multi-categorical variable?
+Samples | 2739 for Model 1, 2731 for Model 2
+Status | **Accepted.** Excellent start. Why NHANES 2017-18 rather than 2019-20? I'd like to see more variation in the predictors. In particular, I'd like to see at least two predictors in each model that aren't part of the other model. Also, be sure that you have a reasonable number of observations in each of your outcome 2 categories. I'd want at least 270 in each, given a total sample of 2700.
 
 [Back to Top](#project-b-plans)
 
@@ -579,16 +585,16 @@ Status |
 Project 29 | Aaron Fletcher
 -------: | :-------------------
 Title | Exploring Common Observations in Outpatient Dietetics
-Source | 
+Source | [NHANES data](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017) from 2017-18
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A linear model fit using a Bayesian engine
+Out 1 | Glycohemoglobin (%).
+RQ 1 | Can serum triglycerides, systolic blood pressure, or age accurately predict serum glycohemoglobin?
+Model 2 | A logistic model fit using a Bayesian engine
+Out 2 | Whether or not a subject reported that they worried whether or not they would run out of food before they got money to buy more. (A three-category variable restated in just two categories.)
+RQ 2 | Can systolic blood pressure, serum glycohemoglobin, or smoking (yes/no) accurately predict whether or not a subject reports that they worried whether or not they would run out of food before they got money to buy more?
+Samples | 2023 in Model 1, 
+Status | **REVISION REQUESTED**. Why NHANES 2017-18 rather than 2019-20? In model 1, why does it make sense to use a linear model for a percentage, that must fall within a specific range of values? More importantly, you really need to select one outcome that isn't either binary or quantitative, and with NHANES you have an immense array of options in this regard. I want to see you demonstrate the ability to build at least one model (I'd have preferred two, but I'll settle for one) for a different type of outcome than you used in Project A. The obvious option is to **not** simplify the categories in outcome 2 down to two categories, but instead use all three, although this does require that you have at least, say, 200 subjects in each of the three groups. Please specify the predictors you plan to use in each case, making sure that there are at least two predictors in each model that are not part of the other model.
 
 [Back to Top](#project-b-plans)
 
@@ -597,16 +603,16 @@ Status |
 Project 30 | Anushree Iyengar
 -------: | :-------------------
 Title | Factors Associated with Cognitive Issues Among the Aging
-Source | 
+Source | 2020 [Health and Retirement Study (HRS) Core data](https://hrsdata.isr.umich.edu/data-products/2020-hrs-core) - sections B, C, and D. 
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 | "How would you rate your memory at the present time?" (5 categories, "Excellent", "Very Good", "Good", "Fair", and "Poor"; variable RD101)
+RQ 1 | How well can a person's rating of their own memory be predicted based on their binge drinking habits, fall history, and stroke history?
+Model 2 | A logistic model fit using a generalized linear model and logit link
+Out 2 | The second outcome, RC271, describes participant responses to the question, "" (**that's all I received.**)
+RQ 2 | How well can a person's depression history be predicted based on their binge drinking habits, education level, and marital status?
+Samples | 15002 in Model 1, 15688
+Status | **REVISION REQUESTED**. You need to reduce that sample size to something like 2500 complete cases at the most, and probably use 1500 to fit models, and 1000 to evaluate them afterwards. Tell me how you plan to do that. You didn't specify Outcome 2 in the form - all I received is listed above. I hope you can come up with something other than just a binary outcome there, but I'll allow it if that's what you really want to do.
 
 [Back to Top](#project-b-plans)
 
@@ -615,15 +621,15 @@ Status |
 Project 31 | Katie Heinzinger
 -------: | :-------------------
 Title | Predicting Dog Breed Rankings and Traits
-Source | 
+Source |  Tidy Tuesday archive put together by github user kkakey from the [American Kennel Club (AKC) on dog breeds]( https://github.com/kkakey/dog_traits_AKC/tree/main/data). I am combining two data sets. The first is a set of various traits of each breed. The second data set includes the ranking of each breed for each year.
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 | My outcome is barking level, which is a multicategorical variable with 4 categories: only to alert, quiet, loud, very vocal. 
+RQ 1 | How effectively can energy level and mental stimulation needs of a dog breed predict the breed's barking level?
+Model 2 | A linear model fit using ordinary least squares
+Out 2 | My outcome is the 2020 AKC ranking of the dog breed. Each breed is given a ranking so there are 194 distinct numbers for the 194 breeds.
+RQ 2 | How effectively can coat length and energy level of a dog breed predict the breed's 2020 AKC ranking?
+Samples | 194 for each
+Status | **Accepted.** Excellent start. Make sure you have the minimum number of predictors required for each model.
 
 [Back to Top](#project-b-plans)
