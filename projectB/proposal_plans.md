@@ -40,9 +40,11 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
+17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
 3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
+18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
 
 [Back to Top](#project-b-plans)
 
@@ -50,8 +52,6 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
-17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
-18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
 19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
 20 | [Ziyin Zhao](#ziyin-zhao) | Predict kidney damage by gender, binge drinking, and tobacco exposure | Thu 12:20 PM
 21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
@@ -363,16 +363,16 @@ Status | **Accepted.** Excellent start. How many do you have in each outcome cat
 Project 17 | Jacob Rich and Steven Mayher
 -------: | :-------------------
 Title | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity
-Source | 
+Source | Jacob Kaplan's Concatenated Files: [Uniform Crime Reporting (UCR) Program Data](https://www.openicpsr.org/openicpsr/project/102263/version/V14/view?path=/openicpsr/102263/fcr:versions/V14/ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds.zip&type=file): Arrests by Age, Sex, and Race, for 1980 and 1990:  [IPUMS microdata from the US Census](https://usa.ipums.org/usa-action/variables/group) for 1980 and 1990: 
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a count outcome
+Out 1 | Number of drug arrests that are black. The number of drug arrests that are black is an integer, which we can tie nicely to the predictor integer of the number of drug arrests.
+RQ 1 | How much of the increase in drug arrests were among black Americans.
+Model 2 | A linear model fit using a Bayesian engine
+Out 2 | Proportion of drug arrests that are black. A proportion takes a value between 0 and 1 on a continuous scale, which can be linked nicely to the drug arrest rate with a linear regression. 
+RQ 2 | How much of the increase in the proportion of drug arrests that are black is due to the change drug-related arrest rate.
+Samples | 3064 for each.
+Status | **REVISION REQUESTED**. You mention data for 1980 and 1990, but everything you describe is cross-sectional in the specification of the outcomes. The research question hints that you are looking at increases, but I shouldn't have to guess, and your outcomes need to be more clearly stated. How are you looking at both periods, or just one? So I want careful operational definitions of each of your outcomes. Also, I wouldn't treat a 0-1 variable as something a linear model was well-suited to address, unless there were essentially no values near 0 or near 1, and I'd be surprised if that were true. What would be a more appropriate model for aggregated (county-level) data on proportions that fell into a range between 0 and 1? (Hint: see Class 20.)
 
 [Back to Top](#project-b-plans)
 
@@ -381,16 +381,16 @@ Status |
 Project 18 | Rock Lim
 -------: | :-------------------
 Title | Gender-dependent spending and revenue in college sports
-Source | 
+Source | TidyTuesday, sourced from the [Equity in Athletics Data Analysis](https://ope.ed.gov/athletics/#/datafile/list) (EADA), with some credit to Data is Plural. (**Rock, please provide the direct link to the TidyTuesday data summary on Github.**)
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  The outcome variable will be the multi-categorical outcome "region." The data contains information on where each university is located in the form of state, city, and zip code. These data will be used to categorize each university to 1 of 5 regions: northwest, southwest, northeast, southeast (all in the USA), and Canada. 
+RQ 1 | Are there regional differences in what what collegiate sports get more funding, make more money, and what are the gender breakdowns of athletes competing in those sports?
+Model 2 | A model for a count outcome
+Out 2 | Count of women who participate in a given sport at a given university at the time of data collection.
 RQ 2 | 
-Samples | 
-Status |  
+Samples | 87,134 for each (**this doesn't make any sense to me**)
+Status | **REVISION REQUESTED**. In model 1, I don't understand why "region" would be of any interest as something to predict, and suggest you find a better outcome. Your research question implies that you want to use region as a predictor (which makes sense to me) for several different outcomes. You need to pick a single outcome and use that. In model 2, are you planning on looking at multiple sports simultaneously at each school - if so, that's multi-level data, and I won't let you do that. You could pick one sport and look at that each school, or you could look at the total number of women who compete in an intercollegiate sports team, or something, but not sport-by-sport within colleges. The sample size should be the number of schools, in each case, with one row of data per school. That wouldn't be 87,000 schoools.
 
 [Back to Top](#project-b-plans)
 
