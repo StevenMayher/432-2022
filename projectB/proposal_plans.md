@@ -52,6 +52,10 @@ Group | Investigator(s) | Project Title | Time
 30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 31 | [Katie Heinzinger](#katie-heinzinger) | Predicting Dog Breed Rankings and Traits | Thu 4:45 PM
 
+[Back to Top](#project-b-plans)
+
+-----------------------------
+
 ## Kristi Lin-Rahardja
 
 Project 1 | Kristi Lin-Rahardja
@@ -67,6 +71,8 @@ Out 2 | Adult cancer mortality risk (ranges from 0-1) where I want to down-weigh
 RQ 2 | Do larger animals have a higher cancer mortality risk than smaller animals?
 Samples | 191 for each
 Status | **Accepted.** Excellent start. Change the plan for Model 1 as indicated.
+
+[Back to Top](#project-b-plans)
 
 ## Audrey Zhu
 
@@ -84,6 +90,8 @@ RQ 2 | How well can a song's energy, speechiness, and length predict whether it 
 Samples | 9017 for each (**probably want to cut that down even beyond just looking at those since 2000**)
 Status | **Accepted.** Excellent start. Cut down the sample size, as indicated. How will you assess the number of times a song had "previously" been on the Hot 100 if their first time on the data yields the maximum number of weeks?
 
+[Back to Top](#project-b-plans)
+
 ## Kyaw Oo Hla
 
 Project 3 | Kyaw Oo Hla
@@ -99,6 +107,8 @@ Out 2 | "Premature Death Value" variable (**which, again, you should describe in
 RQ 2 | How well can predict premature death rate of US by using physical inactivity status, obesity status, uninsured rate, unemployment rate, and graduate status of the people who are living in every county of the US in 2019 ? (**Again, this question needs to be repaired. Like your previous question it's not grammatically correct - start with something like "How well can we predict..." and also don't specify a complete set of predictors.**) 
 Samples | 3081 for each
 Status | **REVISION REQUIRED.** This proposal needs to be revised. Why, specifically are you using CHR from 2019 rather than some other year? In addition, I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. So you'll need to change either Model 1 or Model 2 accordingly. The simplest solution would be to split your planned outcome for Model 2 into four categories, rather than two, and these categories should be of roughly equal size. Then plan to predict the category using an appropriate model for a multi-categorical outcome. Finally, your predictors for Model 1 and Model 2 can overlap, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+
+[Back to Top](#project-b-plans)
 
 ## Alan Kiang
 
@@ -116,6 +126,8 @@ RQ 2 | Does the mental health providers to population ratio predict the rate of 
 Samples | 3142 for Model 1, 2448 for Model 2
 Status | **REVISION REQUIRED.** This proposal needs to be revised. I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. The instructions explicitly said that you couldn't run two linear models. So you'll need to change either Model 1 or Model 2 accordingly. Finally, your predictors for Model 1 and Model 2 can overlap and you can use the same *key predictor* if you want, as you imply here, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
 
+[Back to Top](#project-b-plans)
+
 ## Alex Olejko
 
 Project 5 | Alex Olejko
@@ -131,6 +143,8 @@ Out 2 | Self-perception of your likelihood of graduating college, while enrolled
 RQ 2 | Does mental health predict one's perceptions of the college graduation likelihood above and beyond academic performance?
 Samples | 4191 in Model 1, 4806 in Model 2
 Status | **Accepted.** Excellent start.
+
+[Back to Top](#project-b-plans)
 
 ## Olivia Wilcox
 
@@ -148,6 +162,8 @@ RQ 2 | What is the relationship between median birth weight of babies born in 20
 Samples | 626 for each (how were these selected?)
 Status | **REVISION REQUIRED.** This proposal needs to be revised. Your link for County Health Rankings was for the 2021 measures. Be sure to get the correct measures for 2019. Your first research question had median, but you mean mean, I think. The main problem, though, is with model 2. I'd love for you to have a count outcome model, but while the number of visits for any particular mom can only be a whole number, and thus is appropriately modeled with a count, that's not true for the mean across all moms in the county, so I don't see what you've described as being a count outcome in model 2. You do need something other than a linear or (binary) logistic model in Outcome 2, but you'll have to convince me that county-level means are counts. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
 
+[Back to Top](#project-b-plans)
+
 ## Cerag Oguztuzun and Abhishek Bhardwaj
 
 Project 7 | Cerag Oguztuzun and Abhishek Bhardwaj
@@ -163,6 +179,8 @@ Out 2 | A masking standard will be created by finding some thresholds that will 
 RQ 2 | Do counties with higher access to primary care physicians meet standardized mask guidelines?
 Samples | 2821 for Model 1, 
 Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. 
+
+[Back to Top](#project-b-plans)
 
 ## Gen Li and Jiayue Yang
 
@@ -180,6 +198,8 @@ RQ 2 | What kind of people will tend to smoke? / What's the feature for people s
 Samples | 2232 for Model 1, 4545 for Model 2
 Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15.
 
+[Back to Top](#project-b-plans)
+
 ## Ben Kramer and Jacqueline Shaia
 
 Project 9 | Ben Kramer and Jacqueline Shaia
@@ -195,6 +215,8 @@ Out 2 | County has won or not won an award.
 RQ 2 | What county characteristics predict if it will be a winning county at the Great American Beer Festival?
 Samples | 467 for model 1, 3084 for model 2
 Status | **Accepted.** Excellent start.
+
+[Back to Top](#project-b-plans)
 
 ## Michael Douglass
 
@@ -212,6 +234,8 @@ RQ 2 | Does a history of violent conflict predict a nation's current efforts tow
 Samples | 152 for each.
 Status | **Accepted.** Excellent start. In RQ 1, note my small change. As of what date, for outcome 2? 
 
+[Back to Top](#project-b-plans)
+
 ## Norman Luc
 
 Project 11 | Norman Luc
@@ -227,6 +251,8 @@ Out 2 | Offensive Win Share per 48 minutes is my linear model outcome. This is a
 RQ 2 | How does an NBA player's shooting rate and percentage from each area of the court predict their Offensive Win Shares per 48 minutes in the 2021-2022 season?
 Samples | 598 in Model 1, 196 in Model 2
 Status | **Accepted.** Excellent start. Of course, you won't have the whole season's data yet, since the regular season isn't over until April 10. Do you propose to wait until then to finalize your data? Should you restrict Outcome 1 to players who played at least a certain number of minutes in the season or to those who started X games, or even to the players included in Outcome 2's model or something like that? Otherwise, won't you have a tremendous number of uninteresting zeros and ones among players who play infrequently?
+
+[Back to Top](#project-b-plans)
 
 ## Paulameena Shultes
 
@@ -244,6 +270,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Tyler Petrie
 
 Project 13 | Tyler Petrie
@@ -259,6 +287,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Jay Wei
 
@@ -276,6 +306,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Chris Jones
 
 Project 15 | Chris Jones
@@ -291,6 +323,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Sneha Yamsani and Himani Sancheti
 
@@ -308,6 +342,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Jacob Rich and Steven Mayher
 
 Project 17 | Jacob Rich and Steven Mayher
@@ -323,6 +359,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Rock Lim
 
@@ -340,6 +378,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Harrison Lindley and Sarah Nock
 
 Project 19 | Harrison Lindley and Sarah Nock
@@ -355,6 +395,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Ziyin Zhao
 
@@ -372,6 +414,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Ava Fan
 
 Project 21 | Ava Fan
@@ -387,6 +431,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## David Selvaraj
 
@@ -404,6 +450,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Ria Tilve
 
 Project 23 | Ria Tilve
@@ -419,6 +467,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Kiran Desai and Grace Armstrong
 
@@ -436,6 +486,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Siddharth Dugar
 
 Project 25 | Siddharth Dugar
@@ -451,6 +503,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Carly Rose and Diya Yang
 
@@ -468,6 +522,8 @@ RQ 2 |
 Samples | 
 Status |  
 
+[Back to Top](#project-b-plans)
+
 ## Alise Carlson
 
 Project 27 | Alise Carlson
@@ -483,6 +539,8 @@ Out 2 |
 RQ 2 | 
 Samples | 
 Status |  
+
+[Back to Top](#project-b-plans)
 
 ## Makaela Mews
 
