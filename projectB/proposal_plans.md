@@ -1,19 +1,27 @@
 # Project B Plans
 
+- **Note**: If you stumble across this page before Tuesday's class, please wait until after we discuss this in class before you do anything. Thanks.
+
 The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
 
 ## Project Proposals Accepted by Dr. Love 
 
-**Click on your name to review my comments and descriptions associated with your project closely. Substantial changes are bolded.**
+1. Click on your name in the list below to go to my summary review, and comments associated with your project.
+2. Substantial changes are bolded, in the listing below, and in the linked summaries.
+3. After you review my comments, if you have any questions, let us know. Otherwise, go forth and do your Project B.
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
 5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
+15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
+14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
 1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
 10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
+16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
+13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
 
 [Back to Top](#project-b-plans)
 
@@ -25,7 +33,7 @@ Group | Investigator(s) | Project Title | Time
 2. Be sure to closely read all of what I have there, especially the Status section for more details on what you need to address. 
 3. You will need to write an email to Dr. Love with the subject line "**Revised 432 Project B Plans**".
     - Your email should specify your project title, your revised project outcomes (1 and 2), revised research questions and revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each the comments I've made on your summary. If necessary, please specify the revised counts of complete data you have for your revised outcomes. If you've changed data sources, you'll need to specify that as well.
-4. Then send the email to Dr. Love **no later than 9 AM this Friday 2022-04-08**. Again, please make the subject "Revised 432 Project B Plans". Thank you.
+4. Then send the email to Dr. Love **no later than 9 AM this Friday 2022-04-08**. The sooner, the better. Again, please make the subject "Revised 432 Project B Plans". Thank you.
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
@@ -34,6 +42,7 @@ Group | Investigator(s) | Project Title | Time
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
 3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
+12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
 
 [Back to Top](#project-b-plans)
 
@@ -41,11 +50,6 @@ Group | Investigator(s) | Project Title | Time
 
 Group | Investigator(s) | Project Title | Time
 :-----: | :-------: | :------------ | :-----
-12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
-13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
-14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
-15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
-16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
 17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
 18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
 19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
@@ -287,16 +291,16 @@ Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back
 Project 13 | Tyler Petrie
 -------: | :-------------------
 Title | Predicting character class and moral alignment in Dungeons and Dragons
-Source | 
+Source | 3.5 months of self-reported data from the [Fifth Edition Character Sheet app](https://github.com/oganm/dndstats) in the Google Play store from 2018. Also see [Is your D&D Character Rare](https://fivethirtyeight.com/features/is-your-dd-character-rare/) at 538. 
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A logistic model fit using a Bayesian engine
+Out 1 |  Collapsed version of the characters' moral alignment: while there are nine combinations of "Chaotic, Neutral, or Lawful" and "Evil, Neutral, and Good". I will collapse these into "Good" or "Evil/Neutral". 
+RQ 1 | Can we predict character alignment from their race, class, and background?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | Character's Class (**please specify the available options**)
+RQ 2 | How well can we predict character class based on their ability scores?  (Here, ability scores refer to 6 quantitative variables (Strength, Constitution, Dexterity, Charisma, Intelligence, and Wisdom) that range from 1-25.)
+Samples | 249 for Model 1, 885 for Model 2
+Status | **Accepted.** Excellent start. You'll want to be ready to tell me why you have such differing sample sizes, how many characters do you have in the smaller group in outcome 1 (remember logistic regression requires lots and lots of data, so I'm concerned about this), and what is the list of character classes you will be trying to predict (and how many of your 885 have each class?)
 
 [Back to Top](#project-b-plans)
 
@@ -305,16 +309,16 @@ Status |
 Project 14 | Jay Wei
 -------: | :-------------------
 Title | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors
-Source | 
+Source | Tidytuesday's [data on powerlifting](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-08)
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 |  The recorded place of the lifter in the given division at the end of the meet. (1st place, 2nd place, and 3 or 3+ place) I grouped the 3 or 3+ place because observation for 3 is less than 30. 
+RQ 1 | How effectively can I predict the contest placement of the lifters using bodyweight, sex, and age? 
+Model 2 | A linear model fit using ordinary least squares
+Out 2 | Maximum of the first three successful attempts for the lift for bench press in kg (numeric variable)
+RQ 2 | How effectively can I predict the lifters' best bench press using bodyweight, sex, age class, and division? 
+Samples | 167 in each
+Status | **Accepted.** Excellent start. What are the divisions and age classes? I'm a little worried about sample size here, too, but perhaps this is all of the available data at TidyTuesday. Is there another source that you could use to increase the sample size?
 
 [Back to Top](#project-b-plans)
 
@@ -323,34 +327,34 @@ Status |
 Project 15 | Chris Jones
 -------: | :-------------------
 Title | Do negative influences/substance abuse impact income and mental status?
-Source | 
+Source | [BRFSS survey data from 2020](https://www.cdc.gov/brfss/annual_data/annual_2020.html)
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a count outcome
+Out 1 | For the past 30 days, how many days was your mental health not good?
+RQ 1 | Does exposure to substance abuse lead to an increase in poor mental health?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | Income level as a multicategorical variable. Groups consist of: Poor/Near-poor (35,000 or less) Middle class (35,000 - 75,000) Upper-middle class (75,000+)
+RQ 2 | Does increased exposure to substance abuse negatively impact an individual's income status?
+Samples | 394029 in Model 1, 321901 in Model 2
+Status | **Accepted.** Excellent start. I cannot encourage you enough to sample complete cases for each of your models, and select a single sample of, say, 2000 observations and use that same sample for each question. Then split that sample into two groups and build the models with 1200 then test them on the other 800. For this project, that's fine.
 
 [Back to Top](#project-b-plans)
 
 ## Sneha Yamsani and Himani Sancheti
 
-Project 16 | Understanding Volcano Types and Populations Around Volcanoes
+Project 16 | Sneha Yamsani and Himani Sancheti
 -------: | :-------------------
-Title | 
-Source | 
+Title | Understanding Volcano Types and Populations Around Volcanoes
+Source | [Volcano Eruptions data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-12/readme.md) from Tidy Tuesday 2020
 Public | Yes
-Model 1 | 
-Out 1 |  
-RQ 1 | 
-Model 2 | 
-Out 2 | 
-RQ 2 | 
-Samples | 
-Status |  
+Model 1 | A model for a multi-categorical outcome
+Out 1 | Primary type of volcano (3 categories: Stratovolcano, Shield Volcano, and Others)
+RQ 1 | Can we predict volcano type with tectonic plate settings, elevation, population living within 10 km of the volcano, and volcano explosivity index?
+Model 2 | A linear model fit using a Bayesian engine
+Out 2 | Outcome is total population within 30 km of the volcano
+RQ 2 | Does the population living within 30 km of a volcano impacted by the volcano's major rock type composition, elevation and tectonic plate settings of the volcano?
+Samples | 1500 for each, from the original data (n = 9828). 
+Status | **Accepted.** Excellent start. How many do you have in each outcome category for Model 1? I might consider building models using 1000 of the observations, then testing them on the remaining 500, or even building on the original 1500 and testing on the other 8000+.
 
 [Back to Top](#project-b-plans)
 
