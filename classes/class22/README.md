@@ -16,9 +16,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. There is a [Minute Paper after Class 22](https://bit.ly/432-2022-min-22) due tomorrow (2022-04-06) at Noon.
-2. An answer sketch for Lab 5 will be posted to our Shared Drive **by class time**.
+2. An answer sketch for [Lab 5](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab05) is now available in our Shared Drive.
 3. The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
-4. My comments on your [Project B Proposal Plans](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md) are also available now. As we'll discuss, some of you will have to submit a revision to Canvas by this **Friday 2022-04-08 at 9 AM**. Note that's 9 in the morning, not evening.
+4. My comments on your [Project B Proposal Plans](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md) are also available now. 
+    - As we'll discuss, a little over half of you need to submit a revision to Canvas by this **Friday 2022-04-08 at 9 AM**. Note that's 9 in the **morning**, not evening.
     - I was disappointed that more people didn't read the Project B instructions carefully. At the bottom of [section 11 (Questions and Answers)](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/projectB_instructions_2022.md#11-questions-and-answers) you'd have seen a note that only five of you followed up on. Thanks to those folks.
 5. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due next Monday 2022-04-11 at 9 PM.
 6. [Quiz 2](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2) will be in your hands on Thursday 2022-04-14 at 5 PM. It is **now due** Tuesday 2022-04-19 at 9 AM, giving you an extra 12 hours as compared to the initial plan.
