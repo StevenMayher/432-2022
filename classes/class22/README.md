@@ -28,7 +28,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 7. Optional [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) (website) is due Wednesday 2022-04-20 at noon. Congratulations to those of you who've already completed it. 
 8. I will announce the topics to be discussed in classes 24-26 as soon as possible.
 9. Lilianne Kim, Associate Director of Statistics of the Immunology Therapeutic Area of Janssen Pharmaceuticals, will give a Zoom talk today entitled "Education, Career Path and Professional Development: Perspective of a Clinical Statistician" at 4 PM today. I encourage you to attend, especially if you're a student in the PQHS department's MS program. [Zoom link is here](https://cwru.zoom.us/j/93836688830?pwd%3DV1dMN3RvS3EzekVBNzhKVGQ0b0hxdz09&sa=D&source=calendar&ust=1649182248889011&usg=AOvVaw32rmfR-GcppKXhktngsRi9)
-10. The show "[A Gentlemen's Guide to Love and Murder](https://cvlt.org/events/gentlemans-guide/)" that I stepped into at the last minute last weekend went smoothly. I hope not to have to do that again this weekend, on Friday and Saturday nights and Sunday afternoon, but that's still up in the air.
+10. The show "[A Gentlemen's Guide to Love and Murder](https://cvlt.org/events/gentlemans-guide/)" that I stepped into at the last minute last weekend went smoothly. So much so that I'm doing it for the rest of the run, which includes this Friday and Saturday night at 8 PM and Sunday afternoon at 2 PM. Tickets [are available here](https://cvlt.org/events/gentlemans-guide/).
 
 ## Four things I hope you will do when you finish this course and go out into the world...
 
