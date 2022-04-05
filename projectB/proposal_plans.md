@@ -15,6 +15,8 @@ Group | Investigator(s) | Project Title | Time
 10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
 
+[Back to Top](#project-b-plans)
+
 ## Revisions Requested for these Projects 
 
 ### What Should I do if I need to complete a revision?
@@ -32,6 +34,8 @@ Group | Investigator(s) | Project Title | Time
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
 3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
+
+[Back to Top](#project-b-plans)
 
 ## Not Yet Sorted
 
@@ -130,7 +134,7 @@ Model 2 | A linear model fit using ordinary least squares (**At least one of you
 Out 2 | Number of deaths due to suicide per 100,000 population
 RQ 2 | Does the mental health providers to population ratio predict the rate of deaths due to suicide?
 Samples | 3142 for Model 1, 2448 for Model 2
-Status | **REVISION REQUIRED.** This proposal needs to be revised. I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. The instructions explicitly said that you couldn't run two linear models. So you'll need to change either Model 1 or Model 2 accordingly. Finally, your predictors for Model 1 and Model 2 can overlap and you can use the same *key predictor* if you want, as you imply here, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+Status | **REVISION REQUIRED.** This proposal needs to be revised. I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. The instructions explicitly said that you couldn't run two linear models. So you'll need to change either Model 1 or Model 2 accordingly. Finally, your predictors for Model 1 and Model 2 can overlap and you can use the same *key predictor* if you want, as you imply here, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data.
 
 [Back to Top](#project-b-plans)
 
@@ -166,7 +170,7 @@ Model 2 | A model for a count outcome
 Out 2 | Mean number of pre-natal visits mothers in each county attended.
 RQ 2 | What is the relationship between median birth weight of babies born in 2019 and the number of prenatal visits the mother attended?
 Samples | 626 for each (how were these selected?)
-Status | **REVISION REQUIRED.** This proposal needs to be revised. Your link for County Health Rankings was for the 2021 measures. Be sure to get the correct measures for 2019. Your first research question had median, but you mean mean, I think. The main problem, though, is with model 2. I'd love for you to have a count outcome model, but while the number of visits for any particular mom can only be a whole number, and thus is appropriately modeled with a count, that's not true for the mean across all moms in the county, so I don't see what you've described as being a count outcome in model 2. You do need something other than a linear or (binary) logistic model in Outcome 2, but you'll have to convince me that county-level means are counts. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+Status | **REVISION REQUIRED.** This proposal needs to be revised. Your link for County Health Rankings was for the 2021 measures. Be sure to get the correct measures for 2019. Your first research question had median, but you mean mean, I think. The main problem, though, is with model 2. I'd love for you to have a count outcome model, but while the number of visits for any particular mom can only be a whole number, and thus is appropriately modeled with a count, that's not true for the mean across all moms in the county, so I don't see what you've described as being a count outcome in model 2. You do need something other than a linear or (binary) logistic model in Outcome 2, but you'll have to convince me that county-level means are counts.
 
 [Back to Top](#project-b-plans)
 
@@ -184,7 +188,7 @@ Model 2 | A model for a count outcome
 Out 2 | A masking standard will be created by finding some thresholds that will act as a guideline to determine which counties meet most of the masking standards. We will then be able to understand how masking standards relate to health care access in a population.
 RQ 2 | Do counties with higher access to primary care physicians meet standardized mask guidelines?
 Samples | 2821 for Model 1, 
-Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. 
 
 [Back to Top](#project-b-plans)
 
@@ -202,7 +206,7 @@ Model 2 | A model for a multi-categorical outcome
 Out 2 | Smoking status (variable SMQ040) with three levels: Never smoke, smoking every day and smoking some days.
 RQ 2 | What kind of people will tend to smoke? / What's the feature for people smoking? (**revision needed**)
 Samples | 2232 for Model 1, 4545 for Model 2
-Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15. 
 
 [Back to Top](#project-b-plans)
 
@@ -274,7 +278,7 @@ Model 2 | A linear model fit using a Bayesian engine
 Out 2 | Diversity meta-score: I want to see how tuition changes year-by-year reflect changes in the diversity of different schools. I'm creating a metascore to try and summarize diversity based on the data I have from the Data Expo. For each ethnic group, I have the difference in % of the student body (col_ethnicgroup) and the % in the surrounding area (mkt_ethnicgroup) as dif_ethnicgroup. I want to penalize for having a skewed student population (skewed towards more white-representation).  My current metascore formula is as follows: diversity_score = dif_hispa + dif_black + dif_pacis + dif_amind + dif_twora +dif_asian - dif_white Please let me know if there is a better/more sophisticated method I should be using for creating my metascore outcome variable.
 RQ 2 | Do changes in tuition/cost of attendance reflect changes in ethnic composition of public 4-year schools?
 Samples | 2060 in Model 1, 7607 in Model 2.
-Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back the plan. I strongly recommend you focus on ethnic composition (and how will you measure that, exactly) in a single year, and that you focus on fewer school types in Model 1. In Model 2, I don't quite understand why you wouldn't simply look at diversity for the student body, rather than calculating a series of differences. But if this is what you want to do, then your research question should really change to focus on predicting this outcome, rather than predicting cost, as it seems to now. Not clear why you have so much more data in Model 2. Please resubmit revised outcomes, revised research questions and revised specifications of models for both Model 1 and Model 2 that meet these requirements and address the comments below via email to Dr. Love by **9 PM this Thursday 2022-04-07** using the subject "Revised Project B Plans". Thank you.
+Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back the plan. I strongly recommend you focus on ethnic composition (and how will you measure that, exactly) in a single year, and that you focus on fewer school types in Model 1. In Model 2, I don't quite understand why you wouldn't simply look at diversity for the student body, rather than calculating a series of differences. But if this is what you want to do, then your research question should really change to focus on predicting this outcome, rather than predicting cost, as it seems to now. Not clear why you have so much more data in Model 2. 
 
 [Back to Top](#project-b-plans)
 
