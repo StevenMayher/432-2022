@@ -12,6 +12,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. Feedback on the [Minute Paper after Class 22 is now available](https://bit.ly/432-2022-min-22-feedback).
+2. Those of you who still [owe me a revision of your Project B Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md#projects-where-dr-love-needs-you-to-submit-a-revision), please submit that to Canvas by 9 AM Friday.
+3. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due Monday 2022-04-11 at 9 PM.
 
 ## Our Starting Point for Today
 
