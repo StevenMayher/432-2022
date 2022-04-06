@@ -18,10 +18,12 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
 15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
+17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
 14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
 31 | [Katie Heinzinger](#katie-heinzinger) | Predicting Dog Breed Rankings and Traits | Thu 4:45 PM
 24 | [Kiran Desai and Grace Armstrong](#kiran-desai-and-grace-armstrong) | The Impact of Social Independence on Health in Mexican American Elderly Adults | Thu 1:10 PM
 1 | [Kristi Lin-Rahardja](#kristi-lin-rahardja) | Influential Factors of Cancer Risk and Mortality Across Mammals | Mon 10 AM
+3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Unemployment Rate using County Health Rankings | Mon 1:45 PM
 28 | [Makaela Mews](#makaela-mews) | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio | Thu 3:40 PM
 10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
@@ -63,8 +65,6 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
 19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
-17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
-3 | [Kyaw Oo Hla](#kyaw-oo-hla) | Predicting Health Status and Premature Death using **County Health Rankings** | Mon 1:45 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
 23 | [Ria Tilve](#ria-tilve) | **Predicting Exercise Levels and Arthritis in MrOS** | Thu 1:10 PM
@@ -116,17 +116,19 @@ Status | **Accepted.** Excellent start. Cut down the sample size, as indicated. 
 
 Project 3 | Kyaw Oo Hla
 -------: | :-------------------
-Title | Predicting Health Status and Premature Death using **County Health Rankings** (**I have improved your title. Please use this one going forward.**)
+Title | Predicting Health Status and Unemployment Rate using County Health Rankings
 Source | [County Health Rankings](https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2019.csv) (2019)
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
-Out 1 | "Poor or Fair Health Value" (**which you should describe in additional detail**)
-RQ 1 | How well can predict unhealthy score of US by using the poor physical health days, poor mental health days, smoking status, drinking status, and obesity of the people who are living in every county of the US in 2019? (**This needs to be repaired - your research question should more accurately describe your predictors, and should not specify all of the predictors you are planning to use.**)
-Model 2 | A logistic model fit using a generalized linear model and logit link (**At least one of your models must be neither linear nor binary logistic.**)
-Out 2 | "Premature Death Value" variable (**which, again, you should describe in additional detail**) but split into two categories: Low and High (**and you need to specify the cutpoint you are using.**)  
-RQ 2 | How well can predict premature death rate of US by using physical inactivity status, obesity status, uninsured rate, unemployment rate, and graduate status of the people who are living in every county of the US in 2019 ? (**Again, this question needs to be repaired. Like your previous question it's not grammatically correct - start with something like "How well can we predict..." and also don't specify a complete set of predictors.**) 
+Out 1 | "Poor or Fair Health Value" (% of people in the county who described themselves as being in poor or fair health.)
+RQ 1 | How  well  can  we  predict  the  unhealthy  percent  of  the  US  population  by  using  their 
+unawareness data of the healthy way of lifestyle in 2019?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | "Unemployment Level" categorized into Low, Medium and High 
+RQ 2 | How well can we predict the unemployment levels of US population by using their health 
+and educational status data in 2019?
 Samples | 3081 for each
-Status | **REVISION REQUIRED.** This proposal needs to be revised. Why, specifically are you using CHR from 2019 rather than some other year? In addition, I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. So you'll need to change either Model 1 or Model 2 accordingly. The simplest solution would be to split your planned outcome for Model 2 into four categories, rather than two, and these categories should be of roughly equal size. Then plan to predict the category using an appropriate model for a multi-categorical outcome. Finally, your predictors for Model 1 and Model 2 can overlap, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data. 
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -372,13 +374,13 @@ Title | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equ
 Source | Jacob Kaplan's Concatenated Files: [Uniform Crime Reporting (UCR) Program Data](https://www.openicpsr.org/openicpsr/project/102263/version/V14/view?path=/openicpsr/102263/fcr:versions/V14/ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds.zip&type=file): Arrests by Age, Sex, and Race, for 1980 and 1990:  [IPUMS microdata from the US Census](https://usa.ipums.org/usa-action/variables/group) for 1980 and 1990: 
 Public | Yes
 Model 1 | A model for a count outcome
-Out 1 | Number of drug arrests that are black. The number of drug arrests that are black is an integer, which we can tie nicely to the predictor integer of the number of drug arrests.
+Out 1 | The difference in the number of drug arrests that are black from 1980 to 1990 at the county level.
 RQ 1 | How much of the increase in drug arrests were among black Americans.
 Model 2 | A linear model fit using a Bayesian engine
-Out 2 | Proportion of drug arrests that are black. A proportion takes a value between 0 and 1 on a continuous scale, which can be linked nicely to the drug arrest rate with a linear regression. 
+Out 2 | Percentage change in the proportion of drug-related arrests that are black from 1980 to 1990 at the county level 
 RQ 2 | How much of the increase in the proportion of drug arrests that are black is due to the change drug-related arrest rate.
 Samples | 3064 for each.
-Status | **REVISION REQUESTED**. You mention data for 1980 and 1990, but everything you describe is cross-sectional in the specification of the outcomes. The research question hints that you are looking at increases, but I shouldn't have to guess, and your outcomes need to be more clearly stated. How are you looking at both periods, or just one? So I want careful operational definitions of each of your outcomes. Also, I wouldn't treat a 0-1 variable as something a linear model was well-suited to address, unless there were essentially no values near 0 or near 1, and I'd be surprised if that were true. What would be a more appropriate model for aggregated (county-level) data on proportions that fell into a range between 0 and 1? (Hint: see Class 20.)
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
