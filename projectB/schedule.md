@@ -3,7 +3,7 @@
 - **Zoom** information will go out via email to affected students in mid-April. Please arrive at the Zoom call on time and ready to share your screen. If you're working with a partner, one of you should share the screen for both parts of your presentation.
 - **In person** presentations will be in Dr. Love's office on the ground floor of the Wood building, in Wood WG82-J. Please make sure yo know how to get to that room and arrive 5 minutes early.
 
-## Monday 2022-04-25 (6 projects are scheduled)
+## Monday 2022-04-25 (6 projects are scheduled and confirmed by Minute Paper after Class 22)
 
 Project | Time | Style | Investigator(s) | Title
 ---: | ---: | :---: | :-------------: | :--------------------
@@ -14,7 +14,7 @@ Project | Time | Style | Investigator(s) | Title
 05 | 2:15 - 3:15 PM | Zoom (2/3) | Alex Olejko | Comparing objective versus subjective factors predicting educational attainment
 06 | 2:15 - 3:15 PM | Zoom (3/3) | Olivia Wilcox | Assessing the Average Birth Weights of Babies Born in 2019
 
-## Tuesday 2022-04-26 (12 projects are scheduled)
+## Tuesday 2022-04-26 (12 projects are scheduled and confirmed by Minute Paper after Class 22)
 
 Project | Time | Style | Investigator(s) | Title
 ---: | ---: | :---: | :-------------: | :--------------------
@@ -31,7 +31,7 @@ Project | Time | Style | Investigator(s) | Title
 17 | 3:30 PM - 3:55 PM | In Person | Jacob Rich & Steven Mayher | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity
 18 | 3:55 PM - 4:20 PM | In Person | Rock Lim | Gender-dependent spending and revenue in college sports
 
-## Thursday 2022-04-28 (13 projects are scheduled)
+## Thursday 2022-04-28 (13 projects are scheduled, 12 are confirmed via Minute Paper after Class 22)
 
 Project | Time | Style | Investigator(s) | Title
 ---: | ---: | :---: | :-------------: | :--------------------
@@ -41,7 +41,7 @@ Project | Time | Style | Investigator(s) | Title
 22 | 1:10 - 2:10 PM | Zoom (1/3) | David Selvaraj | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
 23 | 1:10 - 2:10 PM | Zoom (2/3) | Ria Tilve | Predicting Exercise Levels and Arthritis in MrOS
 24 | 1:10 - 2:10 PM | Zoom (3/3) | Kiran Desai & Grace Armstrong | The Impact of Social Independence on Health in Mexican American Elderly Adults
-25 | 2:15 - 3:15 PM | Zoom (1/3) | Siddharth Dugar | Association of Left ventricle systolic velocity to ICU mortality in sepsis
+25 | 2:15 - 3:15 PM | Zoom (1/3) | **Siddharth Dugar** | Association of Left ventricle systolic velocity to ICU mortality in sepsis
 26 | 2:15 - 3:15 PM | Zoom (2/3) | Carly Rose & Diya Yang | Exploring Health-Related Factors and Physical Health Among US Residents
 27 | 2:15 - 3:15 PM | Zoom (3/3) | Alise Carlson | Exploring Factors Associated with Successful Survivor Players
 28 | 3:40 - 4:00 PM | In Person | Makaela Mews | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio
