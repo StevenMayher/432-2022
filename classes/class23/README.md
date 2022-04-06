@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. To come.
+1. Feedback on the [Minute Paper after Class 22 is now available](https://bit.ly/432-2022-min-22-feedback).
 
 ## Our Starting Point for Today
 
