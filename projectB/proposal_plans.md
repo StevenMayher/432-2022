@@ -43,7 +43,7 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
     - your project title (make the change Dr. Love suggested if that's relevant), 
     - your revised (as necessary) project outcomes (1 and 2), 
     - your revised (as necessary) research questions (1 and 2) 
-    - and your revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each the comments I've made on your summary. 
+    - and your revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each of the comments I've made on your summary. 
         - Available model types for Model 1 are: A model for a multi-categorical outcome, A model for a count outcome, A Cox model for a time-to-event outcome with censoring, A linear model fit using a Bayesian engine, and A logistic model fit using a Bayesian engine
         - Available model types for Model 2 include all of those in Model 1, plus A weighted linear regression model, A linear model fit using ordinary least squares and A logistic model fit using a generalized linear model and logit link
     - If I've asked any questions in the summary below, please answer them.
