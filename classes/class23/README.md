@@ -9,6 +9,9 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/432_2022_slides23.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/432_2022_slides23.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/silver_2022-03-31.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/silver_2022-03-31_2.png)
+
 ## Announcements
 
 1. Feedback on the [Minute Paper after Class 22 is now available](https://bit.ly/432-2022-min-22-feedback).
@@ -30,7 +33,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - [Using `sjPlot` in R to summarize Mixed Models in HTML tables](https://strengejacke.github.io/sjPlot/articles/tab_mixed.html) and [Using `sjPlot` to Plot Model Estimates](https://strengejacke.github.io/sjPlot/articles/plot_model_estimates.html)
 - [UCLA example using mixed effects logistic regression](https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/)
 
-## One Last Thing
+## Some Machine Learning Sources from Frank Harrell (and friends)
 
 I've been asked to talk a bit about machine learning, so I'll send you to my main sources.
 
@@ -38,3 +41,9 @@ I've been asked to talk a bit about machine learning, so I'll send you to my mai
 - Drew Levy on [Navigating Statistical Modeling and Machine Learning](https://www.fharrell.com/post/stat-ml2/) is a great follow-up discussion of Frank's main post.
 - Frank also has a video of a talk called [Musings on Statistical Models vs. Machine Learning in Health Research](https://www.fharrell.com/talk/mlhealth/) available.
 - Another helpful video on some related issues from Frank is [Controversies in Predictive Modeling, Machine Learning, and Validation](https://www.fharrell.com/talk/stratos19/).
+
+## One Last Thing
+
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/harris_2022-04-02.png)
+
+This is a **terrible** graph. Right?
