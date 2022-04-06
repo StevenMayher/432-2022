@@ -10,7 +10,7 @@ Project | Time | Style | Investigator(s) | Title
 ---: | ---: | :---: | :-------------: | :--------------------
 01 | 10:00 - 10:45 AM | Zoom (1/2) | Kristi Lin-Rahardja | Influential Factors of Cancer Risk and Mortality Across Mammals
 02 | 10:00 - 10:45 AM | Zoom (2/2) | Audrey Zhu | Exploring How Songs Get On and Stay On the Billboard Hot 100
-03 | 1:45 - 2:10 PM | In Person | Kyaw Oo Hla | Predicting Health Status and Premature Death using County Health Rankings
+03 | 1:45 - 2:10 PM | In Person | Kyaw Oo Hla | Predicting Health Status and Unemployment Rate using County Health Rankings
 04 | 2:15 - 3:15 PM | Zoom (1/3) | Alan Kiang | Predictors of poor mental health and suicide rates in US counties
 05 | 2:15 - 3:15 PM | Zoom (2/3) | Alex Olejko | Comparing objective versus subjective factors predicting educational attainment
 06 | 2:15 - 3:15 PM | Zoom (3/3) | Olivia Wilcox | Assessing the Average Birth Weights of Babies Born in 2019
