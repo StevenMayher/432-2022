@@ -15,6 +15,7 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
 5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
+30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
 15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
@@ -58,7 +59,6 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
 27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
-30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
 26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
@@ -611,10 +611,11 @@ Model 1 | A model for a multi-categorical outcome
 Out 1 | "How would you rate your memory at the present time?" (5 categories, "Excellent", "Very Good", "Good", "Fair", and "Poor"; variable RD101)
 RQ 1 | How well can a person's rating of their own memory be predicted based on their binge drinking habits, fall history, and stroke history?
 Model 2 | A logistic model fit using a generalized linear model and logit link
-Out 2 | The second outcome, RC271, describes participant responses to the question, "" (**that's all I received.**)
+Out 2 | The second outcome, RC271, describes participant responses to the question, "Has a doctor ever told you that 
+you have had problems with depression?" (Yes or No)
 RQ 2 | How well can a person's depression history be predicted based on their binge drinking habits, education level, and marital status?
-Samples | 15002 in Model 1, 15688
-Status | **REVISION REQUESTED**. You need to reduce that sample size to something like 2500 complete cases at the most, and probably use 1500 to fit models, and 1000 to evaluate them afterwards. Tell me how you plan to do that. You didn't specify Outcome 2 in the form - all I received is listed above. I hope you can come up with something other than just a binary outcome there, but I'll allow it if that's what you really want to do.
+Samples | 2500 in each, split into 1500 for model building and 1000 for model testing.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
