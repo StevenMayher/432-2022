@@ -12,6 +12,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/silver_2022-03-31.png)
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/silver_2022-03-31_2.png)
 
+[Source 1](https://twitter.com/natesilver538/status/1509547201290244098) [Source 2](https://twitter.com/davesruns/status/1509578299839856644)
+
 ## Announcements
 
 1. Feedback on the [Minute Paper after Class 22 is now available](https://bit.ly/432-2022-min-22-feedback).
@@ -45,5 +47,7 @@ I've been asked to talk a bit about machine learning, so I'll send you to my mai
 ## One Last Thing
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/harris_2022-04-02.png)
+
+[Source](https://twitter.com/KamalaHarris/status/1510408494628941825)
 
 This is a **terrible** graph. Right?
