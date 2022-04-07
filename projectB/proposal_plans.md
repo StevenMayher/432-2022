@@ -1,7 +1,5 @@
 # Project B Plans
 
-- **Note**: If you stumble across this page before Tuesday's class, please wait until after we discuss this in class before you do anything other than read it. Thanks.
-
 The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md) is now available. Please review your appointment and make sure there are no issues.
 
 ---------------
