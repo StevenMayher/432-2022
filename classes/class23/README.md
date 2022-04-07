@@ -20,6 +20,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. Those of you who still [owe me a revision of your Project B Proposal](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/proposal_plans.md#projects-where-dr-love-needs-you-to-submit-a-revision), please submit that to Canvas by 9 AM Friday.
     - If I asked a question like "Why did you do X?" that doesn't mean "You should instead do Y." It means you should either defend your selection of X, or make a switch to Y in light of my question. Either is appropriate. You should be able to defend your choices. That goes for every single one of my questions - if I asked you why you did something, you need to have a good reason for doing so, or you need to switch, but either option is fine.
 3. [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) is due Monday 2022-04-11 at 9 PM.
+4. NIH has a new [Data Sharing Site](https://sharing.nih.gov/). There's an [introduction from Mike Lauer here](https://nexus.od.nih.gov/all/2022/04/05/introducing-nihs-new-scientific-data-sharing-website/).
 
 ## Our Starting Point for Today
 
