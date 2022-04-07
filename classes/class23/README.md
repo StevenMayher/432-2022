@@ -44,10 +44,14 @@ I've been asked to talk a bit about machine learning, so I'll send you to my mai
 - Frank also has a video of a talk called [Musings on Statistical Models vs. Machine Learning in Health Research](https://www.fharrell.com/talk/mlhealth/) available.
 - Another helpful video on some related issues from Frank is [Controversies in Predictive Modeling, Machine Learning, and Validation](https://www.fharrell.com/talk/stratos19/).
 
-## One Last Thing
+## One Next-to-Last Thing
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class23/figures/harris_2022-04-02.png)
 
 [Source](https://twitter.com/KamalaHarris/status/1510408494628941825)
 
 This is a **terrible** graph. Right?
+
+## One Last Thing
+
+The show "[A Gentlemen's Guide to Love and Murder](https://cvlt.org/events/gentlemans-guide/)" that I stepped into at the last minute last weekend went smoothly. So much so that I'm doing it for the rest of the run, which includes this Friday and Saturday night at 8 PM and Sunday afternoon at 2 PM. Tickets [are available here](https://cvlt.org/events/gentlemans-guide/).
