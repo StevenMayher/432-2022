@@ -14,7 +14,9 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
+29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
 5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
+27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
 30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
@@ -30,6 +32,7 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
 16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
 13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
+20 | [Ziyin Zhao](#ziyin-zhao) | **Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES** | Thu 12:20 PM
 
 [Back to Top](#project-b-plans)
 
@@ -56,9 +59,7 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
-29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
-27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
 21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
 26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
@@ -70,7 +71,6 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 23 | [Ria Tilve](#ria-tilve) | **Predicting Exercise Levels and Arthritis in MrOS** | Thu 1:10 PM
 18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
 25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
-20 | [Ziyin Zhao](#ziyin-zhao) | **Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES** | Thu 12:20 PM
 
 [Back to Top](#project-b-plans)
 
@@ -424,17 +424,17 @@ Status | **REVISION REQUESTED**. What are the units of measurement here? What ar
 
 Project 20 | Ziyin Zhao
 -------: | :-------------------
-Title | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES (**Note revised title. Please use this going forward.**)
+Title | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES
 Source | NHANES data from 2017-2018, including Demographic Variables and Sample Weights (DEMO_J), Cotinine, Hydroxycotinine, & Other Nicotine Metabolites and Analogs - Urine (UCOT_J), Alcohol Use (ALQ_J), and Albumin & Creatinine - Urine (ALB_CR_J). 
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
 Out 1 | The Albumin creatinine ratio (mg/g) 
-RQ 1 | How do exposure to tobacco, gender and binge drinking influence the Albumin creatinine ratio?
-Model 2 | A model for a multi-categorical variable (**Note that I fixed this.**)
+RQ 1 | How do Hydroxycotinine concentration in urine, gender and binge drinking influence the Albumin creatinine ratio?
+Model 2 | A model for a multi-categorical variable
 Out 2 | ACR classified into three categories: A1 (<30mg/g), A2(30 - 300 mg/g), and A3 (> 300 mg/g), as specified by the National Kidney fundation.
-RQ 2 | How do exposure to tobacco, gender and binge drinking influence levels of chronic kidney disease?
+RQ 2 | How do Cotinine concentration in urine, race, and age influence levels of chronic kidney disease?
 Samples | 1468 in each
-Status | **REVISION REQUESTED**. Why use data from 2017-18 instead of 2019-20? You need to be using a multi-categorical model in Model 2, not a binary logistic model. Your research questions are revised a bit, above, but you really need to be using at least two predictors in each model that are not part of the other model, so your revision should reflect this. Also, don't use cause in writing about these questions, as you won't be able to make causal inferences based on these models. Finally, please clarify that the reason you have 1468 observations is that's the number with complete data on ACR.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -554,13 +554,14 @@ Title | Exploring Factors Associated with Successful Survivor Players
 Source | TidyTuesday data containing information on [players (castaways) on the TV show Survivor](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-06-01/readme.md), published by Daniel Oehm.
 Public | Yes
 Model 1 | A model for a count outcome
-Out 1 | Votes that each player accumulated throughout the time in the game. 
-RQ 1 | Does personality type predict the number of total votes a player will receive throughout their duration on the television show Survivor? 
-Model 2 | A Cox model for a time-to-event outcome with censoring
-Out 2 | The outcome for the model will be `day`, which will represent the number of days that the player survived in the game. The censoring variable will be `result`, which will indicate any reason that the player left the game. 
-RQ 2 | Does age predict overall survival time in the television show Survivor? 
+Out 1 | Total vote count against (to be removed from the island) that each player accumulated throughout their time in the game.
+RQ 1 | Does personality type predict the number of total votes against a player will receive 
+throughout their duration in the game on the television show Survivor? 
+Model 2 | A linear model fit using ordinary least squares
+Out 2 | Total duration of game play (in days). 
+RQ 2 | How effectively can age, region of residence, and number of immunity idols won predict the duration of gameplay (in days) of players on the television show Survivor? 
 Samples | 744 for each
-Status | **REVISION REQUESTED**. For outcome 1, I assume you mean votes to be removed from the island, since it switches on the last cycle, right? Model 2 isn't going to work, because no one is censored. Everyone leaves the game for some reason (be it voted out, or something else) or wins. There's no missing information and no right-censoring. So you'll have to select something else. The `day` variable is just a quantity - really, it's a count.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -586,17 +587,17 @@ Status | **Accepted.** Excellent start. Why NHANES 2017-18 rather than 2019-20? 
 
 Project 29 | Aaron Fletcher
 -------: | :-------------------
-Title | Exploring Common Observations in Outpatient Dietetics
+Title | Exploring Common Observations in Outpatient Dietetics (**Email me about this title**)
 Source | [NHANES data](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017) from 2017-18
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
-Out 1 | Glycohemoglobin (%).
-RQ 1 | Can serum triglycerides, systolic blood pressure, or age accurately predict serum glycohemoglobin?
-Model 2 | A logistic model fit using a Bayesian engine
-Out 2 | Whether or not a subject reported that they worried whether or not they would run out of food before they got money to buy more. (A three-category variable restated in just two categories.)
+Out 1 | LDL Cholesterol.
+RQ 1 | Can serum triglycerides, glycohemoglobin, or age accurately predict LDL cholesterol? 
+Model 2 | A model for a multi-categorical outcome
+Out 2 | Whether or not a subject reported that they worried whether or not they would run out of food before they got money to buy more. (A three-category variable.)
 RQ 2 | Can systolic blood pressure, serum glycohemoglobin, or smoking (yes/no) accurately predict whether or not a subject reports that they worried whether or not they would run out of food before they got money to buy more?
-Samples | 2023 in Model 1, 
-Status | **REVISION REQUESTED**. Why NHANES 2017-18 rather than 2019-20? In model 1, why does it make sense to use a linear model for a percentage, that must fall within a specific range of values? More importantly, you really need to select one outcome that isn't either binary or quantitative, and with NHANES you have an immense array of options in this regard. I want to see you demonstrate the ability to build at least one model (I'd have preferred two, but I'll settle for one) for a different type of outcome than you used in Project A. The obvious option is to **not** simplify the categories in outcome 2 down to two categories, but instead use all three, although this does require that you have at least, say, 200 subjects in each of the three groups. Please specify the predictors you plan to use in each case, making sure that there are at least two predictors in each model that are not part of the other model.
+Samples | 2103 in each 
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
