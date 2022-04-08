@@ -119,12 +119,10 @@ Source | [County Health Rankings](https://www.countyhealthrankings.org/sites/def
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
 Out 1 | "Poor or Fair Health Value" (% of people in the county who described themselves as being in poor or fair health.)
-RQ 1 | How  well  can  we  predict  the  unhealthy  percent  of  the  US  population  by  using  their 
-unawareness data of the healthy way of lifestyle in 2019?
+RQ 1 | How  well  can  we  predict  the  unhealthy  percent  of  the  US  population  by  using  their unawareness data of the healthy way of lifestyle in 2019?
 Model 2 | A model for a multi-categorical outcome
 Out 2 | "Unemployment Level" categorized into Low, Medium and High 
-RQ 2 | How well can we predict the unemployment levels of US population by using their health 
-and educational status data in 2019?
+RQ 2 | How well can we predict the unemployment levels of US population by using their health and educational status data in 2019?
 Samples | 3081 for each
 Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
@@ -553,8 +551,7 @@ Source | TidyTuesday data containing information on [players (castaways) on the 
 Public | Yes
 Model 1 | A model for a count outcome
 Out 1 | Total vote count against (to be removed from the island) that each player accumulated throughout their time in the game.
-RQ 1 | Does personality type predict the number of total votes against a player will receive 
-throughout their duration in the game on the television show Survivor? 
+RQ 1 | Does personality type predict the number of total votes against a player will receive throughout their duration in the game on the television show Survivor? 
 Model 2 | A linear model fit using ordinary least squares
 Out 2 | Total duration of game play (in days). 
 RQ 2 | How effectively can age, region of residence, and number of immunity idols won predict the duration of gameplay (in days) of players on the television show Survivor? 
@@ -610,8 +607,7 @@ Model 1 | A model for a multi-categorical outcome
 Out 1 | "How would you rate your memory at the present time?" (5 categories, "Excellent", "Very Good", "Good", "Fair", and "Poor"; variable RD101)
 RQ 1 | How well can a person's rating of their own memory be predicted based on their binge drinking habits, fall history, and stroke history?
 Model 2 | A logistic model fit using a generalized linear model and logit link
-Out 2 | The second outcome, RC271, describes participant responses to the question, "Has a doctor ever told you that 
-you have had problems with depression?" (Yes or No)
+Out 2 | The second outcome, RC271, describes participant responses to the question, "Has a doctor ever told you that you have had problems with depression?" (Yes or No)
 RQ 2 | How well can a person's depression history be predicted based on their binge drinking habits, education level, and marital status?
 Samples | 2500 in each, split into 1500 for model building and 1000 for model testing.
 Status | Dr. Love approved your revision on Canvas. See Canvas for details.
