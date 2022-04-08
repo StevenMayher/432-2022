@@ -45,10 +45,10 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
 26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
 22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
-8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
+8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | Exploring Alcohol and Tobacco Use in NHANES 2017-18 | Tue 9 AM
 19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
 12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
-23 | [Ria Tilve](#ria-tilve) | **Predicting Exercise Levels and Arthritis in MrOS** | Thu 1:10 PM
+23 | [Ria Tilve](#ria-tilve) | Predicting Exercise Levels and Arthritis in MrOS | Thu 1:10 PM
 18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
 25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
 
