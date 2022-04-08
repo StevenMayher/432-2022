@@ -17,10 +17,12 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
 30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
+21 | [Ava Fan](#ava-fan) | Representation of Underrepresented Minorities in 4-year Universities in the US | Thu 12:40 PM
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery | Tue 11:35 AM
 26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
 15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
+22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
 8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | Exploring Alcohol and Tobacco Use in NHANES 2017-18 | Tue 9 AM
 19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Relating the geographic origin of coffee to quality of roast | Thu 12 Noon
 17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
@@ -35,22 +37,11 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
 23 | [Ria Tilve](#ria-tilve) | Predicting Exercise Levels and Arthritis in MrOS | Thu 1:10 PM
+18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college basketball | Tue 3:55 PM
+25 | [Siddharth Dugar](#siddharth-dugar) | Factors associated with severity of aortic stenosis and ICU mortality in sepsis | Thu 2:15:PM
 16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
 13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
 20 | [Ziyin Zhao](#ziyin-zhao) | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES | Thu 12:20 PM
-
-[Back to Top](#project-b-plans)
-
--------------
-
-## Projects Where Dr. Love Is Reviewing Your Revision Submitted to Canvas
-
-Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
-:-----: | :-------: | :------------ | :-----
-18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
-21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
-22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
-25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
 
 [Back to Top](#project-b-plans)
 
@@ -393,17 +384,17 @@ Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 Project 18 | Rock Lim
 -------: | :-------------------
-Title | Gender-dependent spending and revenue in college sports
-Source | TidyTuesday, sourced from the [Equity in Athletics Data Analysis](https://ope.ed.gov/athletics/#/datafile/list) (EADA), with some credit to Data is Plural. (**Rock, please provide the direct link to the TidyTuesday data summary on Github.**)
+Title | Gender-dependent spending and revenue in college basketball
+Source | [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-29/readme.md), sourced from the [Equity in Athletics Data Analysis](https://ope.ed.gov/athletics/#/datafile/list) (EADA), with some credit to Data is Plural. 
 Public | Yes
 Model 1 | A model for a multi-categorical outcome
-Out 1 |  The outcome variable will be the multi-categorical outcome "region." The data contains information on where each university is located in the form of state, city, and zip code. These data will be used to categorize each university to 1 of 5 regions: northwest, southwest, northeast, southeast (all in the USA), and Canada. 
-RQ 1 | Are there regional differences in what what collegiate sports get more funding, make more money, and what are the gender breakdowns of athletes competing in those sports?
-Model 2 | A model for a count outcome
-Out 2 | Count of women who participate in a given sport at a given university at the time of data collection.
-RQ 2 | 
-Samples | 87,134 for each (**this doesn't make any sense to me**)
-Status | **REVISION REQUESTED**. In model 1, I don't understand why "region" would be of any interest as something to predict, and suggest you find a better outcome. Your research question implies that you want to use region as a predictor (which makes sense to me) for several different outcomes. You need to pick a single outcome and use that. In model 2, are you planning on looking at multiple sports simultaneously at each school - if so, that's multi-level data, and I won't let you do that. You could pick one sport and look at that each school, or you could look at the total number of women who compete in an intercollegiate sports team, or something, but not sport-by-sport within colleges. The sample size should be the number of schools, in each case, with one row of data per school. That wouldn't be 87,000 schoools.
+Out 1 |  The outcome will be the derived variable "NCAAdiv" which describes seven categories. 
+RQ 1 | Does the number of male and female athletes as well as their financial support differ by divisions of the NCAA? 
+Model 2 | A model for a linear model fit using a Bayesian engine
+Out 2 | Fraction of the revenue for a basketball program that comes from female athletes.
+RQ 2 | What are the traits of NCAA universities/colleges which are strongly associated with earning more of their basketball revenue from female athletics? 
+Samples | 5410 for each? (probably will split into 2/3 model development and 1/3 model testing)
+Status | Dr. Love approved your revision on Canvas with some edits, including changing your outcome for Model 2. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -447,17 +438,17 @@ Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 Project 21 | Ava Fan
 -------: | :-------------------
-Title | Racial Differences in Post-Secondary Education in the United States
+Title | Representation of Underrepresented Minorities in 4-year Universities in the US
 Source | Data Challenge Expo: American Statistical Association - Urban Institute: Racial and Ethnic Representativeness of US Postsecondary Education Institutions
 Public | Yes
 Model 1 | A model for a multi-categorical outcome
-Out 1 |  The selectivity of the college/secondary institution: levels include: "non-selective", "selective", "more selective" or "two year" (which represents a two-year education instutition, such as a community college)
-RQ 1 | How does racial and ethnic representativeness vary depending on the selectivity of the post-secondary educational institution?
+Out 1 |  The selectivity of the college/secondary institution: levels include: "non-selective", "selective", "more selective" (3 levels)
+RQ 1 | What factors affect the selectiveness of a four-year university? 
 Model 2 | A weighted linear regression model
-Out 2 | College Representation of Multiracial Population (College Percent minus Market Percent) (in other words - how well are certain racial and ethnic groups represented in the college based on their percent of eligible students in the country that fit in that racial/ethnic group)
-RQ 2 | What factors influence how racially representative a college is?
-Samples | 3924 for each
-Status | **REVISION REQUESTED**. I would not include two-year educational institutions in model 1 or model 2, and instead stick to the other three categories. But I'm mostly concerned about how you will measure racial and ethnic representativeness in both models. So I need you (as part of your revision) to specify that very precisely, and calculate the results for CWRU, as an example, so I'm sure I understand what you are doing. Tell me all of the predictors you plan to use in model 1 and then in model 2, and there should be at least two predictors in each model that aren't in the other model. I'm not certain I understand outcome 2 (college percent of what minus market percent of what?) so you need to describe that thoroughly, too, and demonstrate how you'll do it. If you're only looking at "multiracial" as a category, then that doesn't match your research question. If you're looking at multiple categories, then how is that one outcome?
+Out 2 | percentage of under-represented minorities in the student body (groups include: African Americans, Hispanics, Pacific Islanders, and American Indians/Indigenous Americans)
+RQ 2 | What factors affect the representation of underrepresented minorities at four-year universities?
+Samples | 1878 for each
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -466,16 +457,16 @@ Status | **REVISION REQUESTED**. I would not include two-year educational instit
 Project 22 | David Selvaraj 
 -------: | :-------------------
 Title | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
-Source | The PACT study conducted by Professor Suchitra Nelson's lab of children **ages 3-6 covered by Medicaid** from University Hospitals and followed for 2 years. (**note repairs to your original, and that you should also specify the time period.**)
+Source | The PACT study conducted by Professor Suchitra Nelson's lab of children **ages 3-6 covered by Medicaid** from University Hospitals and followed for 2 years (2017-19).
 Public | *Not available to the public*
 Model 1 | A model for a count outcome
 Out 1 | The count of untreated decayed teeth each child has ranging from 0-24.
-RQ 1 | Can the count number of teeth with dental caries in 3-6 year old Medicaid enrolled children be predicted by the number of sugar sweetened beverages consumed per week, the level of deprivation in their neighborhood, the child’s age, the race of the child, and their caregivers educational attainment and marital status?
+RQ 1 | How well can the number of teeth with untreated dental caries in 3-6 year old Medicaid enrolled children be predicted by the number of sugar sweetened beverages consumed per week, the level of deprivation in their neighborhood, the child’s age, the race of the child, and their caregivers educational attainment and marital status?
 Model 2 | A logistic model fit using a generalized linear model and logit link
-Out 2 | Caries experience: presence of current or past (filled teeth) decay on any of the teeth in the child's mouth.
-RQ 2 | Can caries experience be predicted the number of sugar sweetened beverages consumed per week, the level of deprivation in their neighborhood, the child’s age, the race of the child, and their caregiver’s educational attainment and marital status?
+Out 2 | An ordinal multi-categorical variable that specifics the typical number of sugar sweetened beverages consumed in 5 categories (Never/Rarely, 1-2 times per week, daily, twice daily, 3+ times per day)
+RQ 2 | How well can the level of sugar sweetened beverage consumption be predicted by the level of area deprivation (ADI) in their neighborhoods, the child’s age, race of the child, their caregiver’s educational attainment, the marital status of the caregiver and their food environment?
 Samples | 877 for each.
-Status | **REVISION REQUESTED**. This is a good start. I would drop outcome 2. Given your interest in looking at sugar sweetened beverages per week, I would model that, but that doesn't have to be the same sort of count model, right, so I'll let it slide as either another count model (less good for the project) or (better for our purposes) as a multi-categorical outcome dividing the kids into 3-4 roughly equal size groups based on that measure. It would help if you modified your model, outcome and research question (and samples, if necessary) for Model 2, along these lines, and submitted that as your revision. I hope you can arrange to have some more variation in the predictors for the two models, as well.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -490,8 +481,7 @@ Model 1 | A linear model fit using a Bayesian engine
 Out 1 | Average Minutes of Physical Activity (3.0+ METS) per day 
 RQ 1 | Can abdominal adipose tissue, pelvic bone density, sodium levels, daily servings of bananas, a history of fractures be used to predict one's daily physical activity?
 Model 2 | A model for a multi-categorical outcome
-Out 2 | Number of Arthritis Diagnoses (The study population has patients that have 1, 2, 3, 4, or 5+ diagnoses of arthritis. These diagnoses include arthritis of the 
-hand, elbow, neck, back, hip, knee, foot, arm, shoulder, wrist, and other joints.)
+Out 2 | Number of Arthritis Diagnoses (The study population has patients that have 1, 2, 3, 4, or 5+ diagnoses of arthritis. These diagnoses include arthritis of the hand, elbow, neck, back, hip, knee, foot, arm, shoulder, wrist, and other joints.)
 RQ 2 | Can trunk fat levels, total cholesterol levels, max grip strength, average sleep time, and daily servings of spinach be used to predict arthritis diagnoses?
 Samples | 630 for each.
 Status | Dr. Love approved your revision on Canvas. See Canvas for details.
@@ -520,17 +510,17 @@ Status | **Accepted.** Excellent start. It's better to give more detail on the s
 
 Project 25 | Siddharth Dugar
 -------: | :-------------------
-Title | Association of Left ventricle systolic velocity to ICU mortality in sepsis
+Title | Factors associated with severity of aortic stenosis and ICU mortality in sepsis
 Source | Clinical data as part of our sepsis registry at Cleveland Clinic
 Public | *Not available to the public*
-Model 1 | A logistic model fit using a Bayesian engine
-Out 1 |  A categorical variable with 2 levels, death or survived till discharge from the intensive care unit.
-RQ 1 | The association of Left ventricle systolic function assessed by peak mitral velocity and intensive care unit mortality
-Model 2 | A Cox model for a time-to-event outcome with censoring
-Out 2 | A categorical variable with 2 levels, death or survived till 28 days from intensive care unit admission.
-RQ 2 | The association of Left ventricle systolic function assessed by peak mitral velocity and outcome at 28 days from ICU admission.
-Samples | 2441 for each.
-Status | **REVISION REQUESTED**. Neither of your research question is a question, ending with a question mark. I'm not quite sure what they are, actually. A Cox model doesn't take a categorical outcome, of course, right? It takes a time-to-event outcome. What is your time to event outcome? How much censoring is there? Your model 1 implies there is no censoring, so at least one of these models has to change. Also, I'd like you to specify what predictors you're planning to use in each model as part of your revision. I want to ensure that you're not using exactly the same predictors in each case.
+Model 1 | A model for a multi-categorical outcome
+Out 1 | Aortic stenosis in echocardiography is categorized into 4 categories (Absent/Mild/Moderate/Severe) based on measured aortic valve area
+RQ 1 | How well can the severity of aortic stenosis assessed by aortic valve be predicted by peak aortic velocity, age, gender, body surface area and left ventricle ejection fraction? 
+Model 2 | A logistic model fit using a generalized linear model and logit link
+Out 2 | Intensive care unit mortality
+RQ 2 | How well can peak aortic velocity, age, gender, left ventricle ejection fraction, acute physiological score(APS) score and severity of sepsis accurately predict whether a patient survived or died during their intensive care unit stay?
+Samples | 487 for Model 1, 2051 for Model 2.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
