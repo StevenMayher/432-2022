@@ -17,7 +17,8 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
 30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
-9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | **Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery** | Tue 11:35 AM
+9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery | Tue 11:35 AM
+7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
 15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
 17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
 14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
@@ -28,13 +29,32 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 28 | [Makaela Mews](#makaela-mews) | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio | Thu 3:40 PM
 10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
+6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
 16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
 13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
-20 | [Ziyin Zhao](#ziyin-zhao) | **Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES** | Thu 12:20 PM
+20 | [Ziyin Zhao](#ziyin-zhao) | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES | Thu 12:20 PM
 
 [Back to Top](#project-b-plans)
 
 -------------
+
+## Projects Where Dr. Love Is Reviewing Your Revision Submitted to Canvas
+
+Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
+:-----: | :-------: | :------------ | :-----
+21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
+26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
+22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
+8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
+19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
+12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
+23 | [Ria Tilve](#ria-tilve) | **Predicting Exercise Levels and Arthritis in MrOS** | Thu 1:10 PM
+18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
+25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
+
+[Back to Top](#project-b-plans)
+
+-----------------------------
 
 ## Projects Where Dr. Love Needs You To Submit a Revision 
 
@@ -58,17 +78,6 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
 4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
-21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
-26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
-7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | **Exploring County-Level COVID-19 Case Rates** | Tue 9 AM
-22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
-8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** | Tue 9 AM
-19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
-6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
-12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
-23 | [Ria Tilve](#ria-tilve) | **Predicting Exercise Levels and Arthritis in MrOS** | Thu 1:10 PM
-18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
-25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
 
 [Back to Top](#project-b-plans)
 
@@ -174,11 +183,11 @@ Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
 Out 1 | Average birth weight in grams for babies born in a county. 
 RQ 1 | How accurately can I predict the **mean** birth weight (grams) of babies born in 2019 at a county level after adjusting for insurance status,  unemployment, ratio of primary care providers, and median household income?
-Model 2 | A model for a count outcome
-Out 2 | Mean number of pre-natal visits mothers in each county attended.
-RQ 2 | What is the relationship between median birth weight of babies born in 2019 and the number of prenatal visits the mother attended?
-Samples | 626 for each (how were these selected?)
-Status | **REVISION REQUIRED.** This proposal needs to be revised. Your link for County Health Rankings was for the 2021 measures. Be sure to get the correct measures for 2019. Your first research question had median, but you mean mean, I think. The main problem, though, is with model 2. I'd love for you to have a count outcome model, but while the number of visits for any particular mom can only be a whole number, and thus is appropriately modeled with a count, that's not true for the mean across all moms in the county, so I don't see what you've described as being a count outcome in model 2. You do need something other than a linear or (binary) logistic model in Outcome 2, but you'll have to convince me that county-level means are counts.
+Model 2 | Likely to wind up as a Model for a multi-categorical outcome.
+Out 2 | Probably the rate of live births / population in a county (categorized into 4 roughly equal groups)
+RQ 2 | What is the relationship between number of babies born in 2019 at a county level and the county’s mean birth weight?
+Samples | 626 for each
+Status | Dr. Love approved your revision on Canvas, but you'll need to make some adjustments to Model 2. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -186,17 +195,17 @@ Status | **REVISION REQUIRED.** This proposal needs to be revised. Your link for
 
 Project 7 | Cerag Oguztuzun and Abhishek Bhardwaj
 -------: | :-------------------
-Title | **Exploring County-Level COVID-19 Case Rates** (**I have improved your title. Please use this one going forward.**)
+Title | Exploring County-Level COVID-19 Case Rates
 Source | [County Health Rankings](https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation) data (2021) and  NY Times' [Coronavirus (Covid-19) Data in the United States](https://github.com/nytimes/covid-19-data) from 2022.
 Public | Yes
 Model 1 | A model for a multi-categorical outcome
-Out 1 | We plan to categorize death numbers into 3 categories as High, Medium and Low which will indicate the Covid19 related death rate for each county in the US. (**I encourage you instead to divide into 4 categories with roughly equal numbers of counties in each.**)
+Out 1 | We plan to categorize COVID-19 death rates into 4 categories as low, lower medium, upper medium and high which will indicate the Covid19 related death rate for each county in the US.
 RQ 1 | Does flu vaccination predict lower covid19 deaths?
 Model 2 | A model for a count outcome
-Out 2 | A masking standard will be created by finding some thresholds that will act as a guideline to determine which counties meet most of the masking standards. We will then be able to understand how masking standards relate to health care access in a population.
-RQ 2 | Do counties with higher access to primary care physicians meet standardized mask guidelines?
-Samples | 2821 for Model 1, 
-Status | **REVISION REQUIRED.** This proposal needs to be revised. You're going to need to flesh out the details of Outcome 1 and Outcome 2 more completely. In Outcome 1, how are you calculating death rates, and over what period of time? In Outcome 2, I need to know how many thresholds you're going to identify (so I know what the maximum count will be) and you need to be able to demonstrate that you will be able to get the data you need from these sources. I can't accept "will be created" - you have to create it. The only data I'm sure they have is survey responses related to frequency of masking, and that's not going to lead to what I think you'd need. 
+Out 2 | 0-5 count for each county based on the fraction of people who say (in a survey) that they mask never/rarely/sometimes/frequently/always
+RQ 2 | Do counties with higher densities of primary care physicians also have more people who say they mask frequently?
+Samples | 2821 for each, I think.
+Status | Dr. Love approved your revision on Canvas, with some caveats. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
