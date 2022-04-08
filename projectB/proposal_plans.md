@@ -18,8 +18,11 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
 2 | [Audrey Zhu](#audrey-zhu) | Exploring How Songs Get On and Stay On the Billboard Hot 100 | Mon 10 AM
 9 | [Ben Kramer and Jacqueline Shaia](#ben-kramer-and-jacqueline-shaia) | Which Counties Brew the Best Beer? Factors Associated with a Successful Brewery | Tue 11:35 AM
+26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
 7 | [Cerag Oguztuzun and Abhishek Bhardwaj](#cerag-oguztuzun-and-abhishek-bhardwaj) | Exploring County-Level COVID-19 Case Rates | Tue 9 AM
 15 | [Chris Jones](#chris-jones) | Do negative influences/substance abuse impact income and mental status? | Tue 2:15 PM
+8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | Exploring Alcohol and Tobacco Use in NHANES 2017-18 | Tue 9 AM
+19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Relating the geographic origin of coffee to quality of roast | Thu 12 Noon
 17 | [Jacob Rich and Steven Mayher](#jacob-rich-and-steven-mayher) | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity | Tue 3:30 PM
 14 | [Jay Wei](#jay-wei) | Predicting Bench Press Contests Winnings with sex, bodyweight, and other factors | Tue 2:15 PM
 31 | [Katie Heinzinger](#katie-heinzinger) | Predicting Dog Breed Rankings and Traits | Thu 4:45 PM
@@ -30,6 +33,8 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 10 | [Michael Douglass](#michael-douglass) | International Violence & Conflict (1980-2000) | Tue 12 Noon
 11 | [Norman Luc](#norman-luc) | Predicting Explosive Scoring and Offensive Efficiency in the '21-'22 NBA Season | Tue 12:25 PM
 6 | [Olivia Wilcox](#olivia-wilcox) | Assessing the Average Birth Weights of Babies Born in 2019 | Mon 2:15 PM
+12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
+23 | [Ria Tilve](#ria-tilve) | Predicting Exercise Levels and Arthritis in MrOS | Thu 1:10 PM
 16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
 13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
 20 | [Ziyin Zhao](#ziyin-zhao) | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES | Thu 12:20 PM
@@ -42,14 +47,9 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
-21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
-26 | [Carly Rose and Diya Yang](#carly-rose-and-diya-yang) | Exploring Health-Related Factors and Physical Health Among US Residents | Thu 2:15 PM
-22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
-8 | [Gen Li and Jiayue Yang](#gen-li-and-jiayue-yang) | Exploring Alcohol and Tobacco Use in NHANES 2017-18 | Tue 9 AM
-19 | [Harrison Lindley and Sarah Nock](#harrison-lindley-and-sarah-nock) | Predicting geographic origin of coffee using cup quality and production metrics | Thu 12 Noon
-12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
-23 | [Ria Tilve](#ria-tilve) | Predicting Exercise Levels and Arthritis in MrOS | Thu 1:10 PM
 18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college sports | Tue 3:55 PM
+21 | [Ava Fan](#ava-fan) | Racial Differences in Post-Secondary Education in the United States | Thu 12:40 PM
+22 | [David Selvaraj](#david-selvaraj) | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries | Thu 1:10 PM
 25 | [Siddharth Dugar](#siddharth-dugar) | Association of Left ventricle systolic velocity to ICU mortality in Sepsis | Thu 2:15:PM
 
 [Back to Top](#project-b-plans)
@@ -213,17 +213,17 @@ Status | Dr. Love approved your revision on Canvas, with some caveats. See Canva
 
 Project 8 | Gen Li and Jiayue Yang
 -------: | :-------------------
-Title | **Exploring Alcohol and Tobacco Use in NHANES 2017-18** (**I have improved your title. Please use this one going forward.**)
+Title | Exploring Alcohol and Tobacco Use in NHANES 2017-18
 Source | [NHANES 2017-2018](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017) 
 Public | Yes
 Model 1 | A model for a count outcome
-Out 1 |  Frequency of drinking (variable ALQ121) is a categorical variable with 11 levels but we can build a new outcome as the level of frequency of drinking. (**this won't work - see below.**)
-RQ 1 | Which potential factors will make people drink more? / What's the feature for people drink more? (**revision needed**)
+Out 1 |  Frequency of drinking: use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 11 or higher on ALQ121 as having a count of 11
+RQ 1 | How well can we predict frequency of drinking?
 Model 2 | A model for a multi-categorical outcome
 Out 2 | Smoking status (variable SMQ040) with three levels: Never smoke, smoking every day and smoking some days.
-RQ 2 | What kind of people will tend to smoke? / What's the feature for people smoking? (**revision needed**)
+RQ 2 | How well can we predict smoking status of subjects in NHANES?
 Samples | 2232 for Model 1, 4545 for Model 2
-Status |  **REVISION REQUIRED.** You needed a new title that is much more specific about what you're doing and does not include the words "A study about". Why are you using NHANES 2017-18 instead of 2019-20? "What's the feature for..." isn't an acceptable construction for a research question. Try something like "How well can we predict frequency of drinking using ... (list key variables)?" I'm OK with Outcome 2, I think, but in Outcome 1, you will need to specify how you will use the data in ALQ121 to create a count variable. I'm virtually certain that you cannot do so. You could, on the other hand, use two variables together (ALQ121 (to identify the zeros) and then ALQ130 (Average number of drinks per day over the past 12 months)) to obtain a count, treating anyone with a 15 on ALQ121 as having a count of 15. 
+Status | Dr. Love approved your revision on Canvas, with some comments. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -289,13 +289,13 @@ Title | Relationships between Tuition, Ethnic Composition, and Types of 4-Year C
 Source | (1) Data Challenge Expo 2022- [Racial and Ethnic Representativeness of US Postsecondary Education Institutions](https://datacatalog.urban.org/dataset/racial-and-ethnic-representativeness-us-postsecondary-education-institutions) (2) [College Affordability and Tuition Costs](https://collegecost.ed.gov/affordability) (CATC) from the US Department of Education, 2014-2017.
 Public | Yes
 Model 1 | A model for a multi-categorical outcome
-Out 1 | School Type (9 categories, including Public Selective, Public Non-Selective, Public More Selective, Private Non-profit Selective, Private Non-Profit More Selective, Private Non-Profit Non-Selective, Private For-Profit Selective, Private For-Profit Non-Selective, Private For-Profit More Selective) (**I do recommend you subset the data to focus on comparisons of, say, 4-5 of these options, but definitely not all nine.**)
-RQ 1 | If I consider the average ethnic composition of 4-year schools across the sampled school-years, does regression analysis reflect a relationship with the type of university (private vs public, selective vs. non-selective)? (**You'll need to rephrase this. When would regression analysis not reflect a relationship?**)
+Out 1 | School Type (6 categories, including Public Selective, Public Non-Selective, Public More Selective, Private Selective, Private More Selective, Private Non-Selective)
+RQ 1 | How well can the type of 4-year school (public vs private, differences in selectivity) be predicted by the diversity of their student body, averaged from 2014-2017 ?
 Model 2 | A linear model fit using a Bayesian engine
-Out 2 | Diversity meta-score: I want to see how tuition changes year-by-year reflect changes in the diversity of different schools. I'm creating a metascore to try and summarize diversity based on the data I have from the Data Expo. For each ethnic group, I have the difference in % of the student body (col_ethnicgroup) and the % in the surrounding area (mkt_ethnicgroup) as dif_ethnicgroup. I want to penalize for having a skewed student population (skewed towards more white-representation).  My current metascore formula is as follows: diversity_score = dif_hispa + dif_black + dif_pacis + dif_amind + dif_twora +dif_asian - dif_white Please let me know if there is a better/more sophisticated method I should be using for creating my metascore outcome variable.
-RQ 2 | Do changes in tuition/cost of attendance reflect changes in ethnic composition of public 4-year schools?
-Samples | 2060 in Model 1, 7607 in Model 2.
-Status | **REVISION REQUIRED.** You're trying to boil the ocean here. Scale back the plan. I strongly recommend you focus on ethnic composition (and how will you measure that, exactly) in a single year, and that you focus on fewer school types in Model 1. In Model 2, I don't quite understand why you wouldn't simply look at diversity for the student body, rather than calculating a series of differences. But if this is what you want to do, then your research question should really change to focus on predicting this outcome, rather than predicting cost, as it seems to now. Not clear why you have so much more data in Model 2. So I need you (as part of your revision) to specify your outcome 2 very precisely, and calculate the results for CWRU, as an example, so I'm sure I understand what you are doing. Tell me all of the predictors you plan to use in model 1 and also in model 2, and there should be at least two predictors in each model that aren't in the other model.
+Out 2 | Diversity meta-score, which has been well described on Canvas.
+RQ 2 | How well do yearly changes in ethnic composition of public 4-year college student populations reflect changes in the tuition/cost of attendance?
+Samples | 1814 in Model 1, 2267 in Model 2.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -411,17 +411,17 @@ Status | **REVISION REQUESTED**. In model 1, I don't understand why "region" wou
 
 Project 19 | Harrison Lindley and Sarah Nock
 -------: | :-------------------
-Title | Predicting geographic origin of coffee using cup quality and production metrics
+Title | Relating the geographic origin of coffee to quality of roast
 Source | 1) TidyTuesday 2020-07-07 ([Coffee Quality Database](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md)) 2) [Average latitude and longitude data by country](https://github.com/albertyw/avenews/blob/master/old/data/average-latitude-longitude-countries.csv) 3) [Average latitude for Hawaii](https://developers.google.com/public-data/docs/canonical/states_csv).
 Public | Yes
 Model 1 | A model for a multi-categorical outcome
-Out 1 |  We plan to use the country of origin of coffee as our first outcome variable. The 36 countries in this multi-categorical variable are: Ethiopia, Guatemala, Brazil, Peru, United States, United States (Hawaii), Indonesia, China, Costa Rica, Mexico, Uganda, Honduras, Taiwan, Nicaragua, Tanzania, Kenya, Thailand, Colombia, Panama, Papua New Guinea, El Salvador,  Japan, Ecuador, United States (Puerto Rico), Haiti, Burundi, Vietnam, Philippines, Rwanda, Malawi, Laos, Zambia, Myanmar, Mauritius, Cote d'Ivoire, and India.   
+Out 1 |  We plan to use the country of origin of coffee as our first outcome variable. The 5 countries in this multi-categorical variable are: Mexico, Brazil, United States (Hawaii), Colombia, Guatemala.   
 RQ 1 | How effectively can the country of origin of produced coffee be predicted with factors such as cup quality of brewed coffee and metrics of agricultural production?
 Model 2 | A linear model fit using ordinary least squares
-Out 2 | Quoting: "We intend to predict the mean altitude that coffee varieties are grown at using predictors such as coffee species, average altitude of production, and cup quality ratings like aroma, balance, and flavor. Mean altitude is a quantitative variable which ranges from 1 to 90164 in our set of data."
-RQ 2 | Are factors associated with coffee variety, growing conditions, and quality indicators (including coffee species, flavor rating, and latitude) predictive of the altitude at which coffee beans are grown?
-Samples | 1099 and 1109 so far
-Status | **REVISION REQUESTED**. What are the units of measurement here? What are the units of analysis (There are 1099 varieties of coffee?) That's way too many countries to look at as the outcome for a model in this project. You'd need much more data than you have. You'd be much better off restricting the data down to a much smaller set of countries (maybe 4-5 of them), and I'm not sure country is a particularly interesting outcome on its own, anyway. Your second model doesn't make sense to me. You mentioned that you would use average altitude of production to predict mean altitude at which the variety is grown. And again, why do we care about the altitude as an outcome? So I'd like you to select at least one if not two new outcomes, and focus on things of more clear use. Also, if possible, avoid an OLS linear fit or a GLM logistic fit.
+Out 2 |  Sweetness rating of unique coffee varieties (we expect to use a squared transformation)
+RQ 2 |  How effectively can we use coffee variety, growing conditions and location, and cup quality indicators to predict sweetness rating of different types of coffee?
+Samples | 718 and 1176 so far
+Status | Dr. Love approved your revision on Canvas with some edits. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -483,17 +483,18 @@ Status | **REVISION REQUESTED**. This is a good start. I would drop outcome 2. G
 
 Project 23 | Ria Tilve
 -------: | :-------------------
-Title | **Predicting Exercise Levels and Arthritis in MrOS** (**Note changed title. Please use this one going forward.**)
+Title | Predicting Exercise Levels and Arthritis in MrOS
 Source | [MrOS Online](https://mrosonline.ucsf.edu): The Osteoporotic Fractures in Men (MrOS) Study, a multi-center observational study involving six clinical centers in the United States who recruited 5,994 men at the baseline visit (2000 -2002).
 Public | Yes
-Model 1 | A model for a multi-categorical outcome
-Out 1 |  Physical activity categorized into Sedentary, Lightly Active, Moderately Active, and Heavily Active.
-RQ 1 | Can abdominal adipose tissue, pelvic bone density, sodium levels, daily servings of bananas, a history of fractures be used to predict one's current level of physical activity?
-Model 2 | A model for a count outcome (**this doesn't make sense**) 
-Out 2 | Presence of Arthritis (**isn't this binary?**)
+Model 1 | A linear model fit using a Bayesian engine
+Out 1 | Average Minutes of Physical Activity (3.0+ METS) per day 
+RQ 1 | Can abdominal adipose tissue, pelvic bone density, sodium levels, daily servings of bananas, a history of fractures be used to predict one's daily physical activity?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | Number of Arthritis Diagnoses (The study population has patients that have 1, 2, 3, 4, or 5+ diagnoses of arthritis. These diagnoses include arthritis of the 
+hand, elbow, neck, back, hip, knee, foot, arm, shoulder, wrist, and other joints.)
 RQ 2 | Can trunk fat levels, total cholesterol levels, max grip strength, average sleep time, and daily servings of spinach be used to predict arthritis diagnoses?
 Samples | 630 for each.
-Status | **REVISION REQUESTED**. How can presence of arthritis be a count outcome, as you suggested in Model 2? Isn't it binary (you have arthritis or you do not?) So you'll have to fix that. I'd love for you to work with a count outcome, but what you have isn't one. Model 1 is probably OK, although I'd like you to tell me how you did the categorization for the outcome from the original continuous variable.
+Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 
 [Back to Top](#project-b-plans)
 
@@ -542,12 +543,12 @@ Source | NHANES from 2017-18 including only participants ages 55-65.
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
 Out 1 | Ferritin level (in ng/mL), which is the protein that contains iron and is found in red blood cells.
-RQ 1 | Is higher daily alcohol intake associated with higher Ferritin levels in those ages 55-65 after adjusting for age, weight, and race-ethnicity?
-Model 2 | A logistic model fit using a generalized linear model and logit link
-Out 2 | Hepatitis B Core Antibody results, with 1 = Positive and 2 = Negative.
-RQ 2 | Is higher cocaine/heroin/methamphetamine use associated with a positive Hepatitis B diagnosis after adjusting for age, weight, race-ethnicity, and physical activity among US residents aged 55-65?
+RQ 1 | Is higher daily alcohol intake associated with higher Ferritin levels in those ages 55-65 after adjusting for age, weight, and race-ethnicity and whether the subject has a liver condition?
+Model 2 | A model for a multi-categorical outcome.
+Out 2 | HUQ051 from the Hospital Utilization and Access to Care data set from the questionnaire data sets. This is the number of times the patient has received healthcare over the past year. We plan to condense the levels to 3 rather than 9 levels currently listed. These levels will be (0-1 times: 374 samples, 2-5 times: 567 samples, 6+ times: 322 samples).
+RQ 2 |  Is higher cocaine/heroin/methamphetamine use associated with the number of times somone receives healthcare in a year after adjusting for age, weight, race-ethnicity, and physical activity among US residents aged 55-65?
 Samples | 1129 in model 1, 1132 in model 2
-Status | **REVISION REQUESTED**. Why NHANES 2017-18 instead of 2019-20? More importantly, you really need to select one outcome that isn't either binary or quantitative, and with NHANES you have an immense array of options in this regard. I want to see you demonstrate the ability to build at least one model (I'd have preferred two, but I'll settle for one) for a different type of outcome than you used in Project A. Please specify the predictors you plan to use in each case, making sure that there are at least two predictors in each model that are not part of the other model.
+Status | Dr. Love approved your revision on Canvas. See Canvas for his comments.
 
 [Back to Top](#project-b-plans)
 
