@@ -30,19 +30,19 @@ Project | Time | Style | Investigator(s) | Title
 15 | 2:15 PM - 3:15 PM | Zoom (2/3) | Chris Jones | Do negative influences/substance abuse impact income and mental status?
 16 | 2:15 PM - 3:15 PM | Zoom (3/3) | Sneha Yamsani & Himani Sancheti | Understanding Volcano Types and Populations Around Volcanoes
 17 | 3:30 PM - 3:55 PM | In Person | Jacob Rich & Steven Mayher | Just Say No: The Effect of Increasing Drug-Related Arrests On Racial Equity
-18 | 3:55 PM - 4:20 PM | In Person | Rock Lim | Gender-dependent spending and revenue in college sports
+18 | 3:55 PM - 4:20 PM | In Person | Rock Lim | Gender-dependent spending and revenue in college basketball
 
 ## Thursday 2022-04-28 (13 projects)
 
 Project | Time | Style | Investigator(s) | Title
 ---: | ---: | :---: | :-------------: | :--------------------
-19 | 12:00 Noon - 12:20 PM | In Person | Harrison Lindley & Sarah Nock | Predicting geographic origin of coffee using cup quality and production metrics
+19 | 12:00 Noon - 12:20 PM | In Person | Harrison Lindley & Sarah Nock | Relating the geographic origin of coffee to quality of roast
 20 | 12:20 PM - 12:40 PM | In Person | Ziyin Zhao | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES
-21 | 12:40 PM - 1:00 PM | In Person | Ava Fan | Racial Differences in Post-Secondary Education in the United States
+21 | 12:40 PM - 1:00 PM | In Person | Ava Fan | Representation of Underrepresented Minorities in 4-year Universities in the US
 22 | 1:10 - 2:10 PM | Zoom (1/3) | David Selvaraj | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
 23 | 1:10 - 2:10 PM | Zoom (2/3) | Ria Tilve | Predicting Exercise Levels and Arthritis in MrOS
 24 | 1:10 - 2:10 PM | Zoom (3/3) | Kiran Desai & Grace Armstrong | The Impact of Social Independence on Health in Mexican American Elderly Adults
-25 | 2:15 - 3:15 PM | Zoom (1/3) | Siddharth Dugar | Association of Left ventricle systolic velocity to ICU mortality in sepsis
+25 | 2:15 - 3:15 PM | Zoom (1/3) | Siddharth Dugar | Factors associated with severity of aortic stenosis and ICU mortality in sepsis
 26 | 2:15 - 3:15 PM | Zoom (2/3) | Carly Rose & Diya Yang | Exploring Health-Related Factors and Physical Health Among US Residents
 27 | 2:15 - 3:15 PM | Zoom (3/3) | Alise Carlson | Exploring Factors Associated with Successful Survivor Players
 28 | 3:40 - 4:00 PM | In Person | Makaela Mews | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio
