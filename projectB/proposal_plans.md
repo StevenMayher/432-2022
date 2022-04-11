@@ -39,7 +39,7 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 12 | [Paulameena Shultes](#paulameena-shultes) | Relationships between Tuition, Ethnic Composition, and Types of 4-Year Colleges | Tue 1:20 PM
 23 | [Ria Tilve](#ria-tilve) | Predicting Exercise Levels and Arthritis in MrOS | Thu 1:10 PM
 18 | [Rock Lim](#rock-lim) | Gender-dependent spending and revenue in college basketball | Tue 3:55 PM
-25 | [Siddharth Dugar](#siddharth-dugar) | Factors associated with severity of aortic stenosis and ICU mortality in sepsis | Thu 2:15:PM
+25 | [Siddharth Dugar and Raunak Nair](#siddharth-dugar-and-raunak-nair) | Factors associated with severity of aortic stenosis and ICU mortality in sepsis | Thu 2:15:PM
 16 | [Sneha Yamsani and Himani Sancheti](#sneha-yamsani-and-himani-sancheti) | Understanding Volcano Types and Populations Around Volcanoes | Tue 2:15 PM
 13 | [Tyler Petrie](#tyler-petrie) | Predicting character class and moral alignment in Dungeons and Dragons | Tue 1:45 PM
 20 | [Ziyin Zhao](#ziyin-zhao) | Exploring Kidney Damage via Albumin-Creatinine Ratio in NHANES | Thu 12:20 PM
@@ -480,9 +480,9 @@ Status | **Accepted.** Excellent start. It's better to give more detail on the s
 
 [Back to Top](#project-b-plans)
 
-## Siddharth Dugar
+## Siddharth Dugar and Raunak Nair
 
-Project 25 | Siddharth Dugar
+Project 25 | Siddharth Dugar and Raunak Nair
 -------: | :-------------------
 Title | Factors associated with severity of aortic stenosis and ICU mortality in sepsis
 Source | Clinical data as part of our sepsis registry at Cleveland Clinic
