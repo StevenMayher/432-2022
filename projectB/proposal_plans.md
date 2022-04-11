@@ -169,7 +169,7 @@ RQ 1 | Does flu vaccination predict lower covid19 deaths?
 Model 2 | A model for a count outcome
 Out 2 | 0-5 count for each county based on the fraction of people who say (in a survey) that they mask never/rarely/sometimes/frequently/always
 RQ 2 | Do counties with higher densities of primary care physicians also have more people who say they mask frequently?
-Samples | 2821 for each, I think.
+Samples | 3143 for Model 1, and 2821 for Model 2.
 Status | Dr. Love approved your revision on Canvas, with some caveats. See Canvas for details.
 
 [Back to Top](#project-b-plans)
