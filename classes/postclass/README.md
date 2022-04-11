@@ -4,6 +4,10 @@
 
 The course website and all materials on it will go private and disappear on 2022-06-01 or shortly thereafter. This includes all materials on our Shared Drive and all of the recorded class sessions. Please grab anything you want to keep before then.
 
+## Want to be a Teaching Assistant for 431 next Fall?
+
+If you are interested in serving as a TA for 431, please consider getting involved, if that fits well with your plans next Fall. I always need help, and so do the incoming students! Information on applying for a TA position will be available in early May, and I will make sure all students who complete 432 receive it via email.
+
 ## A Few Resources for Further Learning
 
 1. Frank Harrell's [Biostatistics for Biomedical Research](https://fharrell.com/#teaching) course.
@@ -26,6 +30,3 @@ The course website and all materials on it will go private and disappear on 2022
 17. [The Epidemiologist R Handbook](https://epirhandbook.com/index.html) can help you learn about R for applied epidemiology and public health.
 18. Building something and want to cite the R packages involved? Check out the [grateful package](https://github.com/Pakillo/grateful) which makes this easier to do.
 
-## Want to be a Teaching Assistant for 431 next Fall?
-
-If you are interested in serving as a TA for 431, please consider getting involved, if that fits well with your plans next Fall. I always need help, and so do the incoming students!
