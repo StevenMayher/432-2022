@@ -23,3 +23,4 @@ If you have questions about Lab 05, please ask them [at TA office hours](https:/
 ## Post-Deadline Materials
 
 - The Answer Sketch for Lab 5 is now posted to our Shared Drive.
+- Lab 5 Grades are now posted to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grade and read our comments, visit the Lab 05 Tab on that Sheet using the Lab Code Dr. Love emailed to you on 2022-01-31. 
