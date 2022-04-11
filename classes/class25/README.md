@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Reminder
 
-Next Tuesday, 2022-04-19, is a Project B working day. We will not hold 432 class that day. Our final 432 class (Class 26) will be one week from today (2022-04-23).
+Next Tuesday, 2022-04-19, is a Project B working day. We will not hold 432 class that day. Our final 432 class ([Class 26](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class26)) will be one week from today (2022-04-23).
 
 ## Course Evaluations
 
