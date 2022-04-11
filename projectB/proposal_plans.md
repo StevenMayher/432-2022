@@ -7,12 +7,13 @@ The [Schedule for Project B Presentations](https://github.com/THOMASELOVE/432-20
 ## Project Proposals Accepted by Dr. Love 
 
 1. Click on your name in the list below to go to my summary review, and comments associated with your project.
-2. Substantial changes are bolded, in the listing below, and in the linked summaries.
+2. Substantial changes are bolded, in the listing below, and in the linked summaries, or on Canvas, as indicated.
 3. After you review my comments, if you have any questions, let us know. Otherwise, go forth and do your Project B.
 
 Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
 :-----: | :-------: | :------------ | :-----
 29 | [Aaron Fletcher](#aaron-fletcher) | Exploring Common Observations in Outpatient Dietetics | Thu 4:00 PM
+4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
 5 | [Alex Olejko](#alex-olejko) | Comparing objective versus subjective factors predicting educational attainment | Mon 2:15 PM
 27 | [Alise Carlson](#alise-carlson) | Exploring Factors Associated with Successful Survivor Players | Thu 2:15 PM
 30 | [Anushree Iyengar](#anushree-iyengar) | Factors Associated with Cognitive Issues Among the Aging | Thu 4:25 PM
@@ -45,34 +46,7 @@ Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/
 
 [Back to Top](#project-b-plans)
 
------------------------------
-
-## Projects Where Dr. Love Needs You To Submit a Revision 
-
-### What Should I do if I need to complete a revision?
-
-1. Click on the link for your project to review my summary and comments on your proposal.
-2. Be sure to closely read all of what I have there, especially the Status section for more details on what you need to address. Some revision requests are more extensive than others.
-3. You will need to write a note to Dr. Love using (a) Word, or (b) PDF, or (c) R Markdown and HTML and post it to Canvas. Your note should include:
-    - your name (and that of your partner, if any), 
-    - your project title (make the change Dr. Love suggested if that's relevant), 
-    - your revised (as necessary) project outcomes (1 and 2), 
-    - your revised (as necessary) research questions (1 and 2) 
-    - and your revised specifications of models for **both** Model 1 and Model 2 that meet the project B requirements and also address each of the comments I've made on your summary. 
-        - Available model types for Model 1 are: A model for a multi-categorical outcome, A model for a count outcome, A Cox model for a time-to-event outcome with censoring, A linear model fit using a Bayesian engine, and A logistic model fit using a Bayesian engine
-        - Available model types for Model 2 include all of those in Model 1, plus A weighted linear regression model, A linear model fit using ordinary least squares and A logistic model fit using a generalized linear model and logit link
-    - If I've asked any questions in the summary below, please answer them.
-    - If necessary, please specify the revised counts of complete data you have for your revised outcomes. 
-    - If you've changed data sources, you'll need to specify that as well.
-4. Submit your note to Canvas in the assignment called "Revised 432 Project B Plans" by the deadline, which is **Friday 2022-04-08 at 9 AM.** That's 9 in the MORNING, not 9 in the evening; our more usual time.
-
-Group | Investigator(s) | Project Title | [Time](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/schedule.md)
-:-----: | :-------: | :------------ | :-----
-4 | [Alan Kiang](#alan-kiang) | Predictors of poor mental health and suicide rates in US counties | Mon 2:15 PM
-
-[Back to Top](#project-b-plans)
-
------------------------------
+-----------------
 
 ## Kristi Lin-Rahardja
 
@@ -133,16 +107,16 @@ Status | Dr. Love approved your revision on Canvas. See Canvas for details.
 Project 4 | Alan Kiang
 -------: | :-------------------
 Title | Predictors of poor mental health and suicide rates in US counties
-Source | [County Health Rankings](https://www.countyhealthrankings.org/sites/default/files/media/document/2021%20County%20Health%20Rankings%20Data%20-%20v1.xlsx) (**which year(s) - I think 2021, but I shouldn't have to guess?**)
+Source | [County Health Rankings 2021](https://www.countyhealthrankings.org/sites/default/files/media/document/2021%20County%20Health%20Rankings%20Data%20-%20v1.xlsx)
 Public | Yes
 Model 1 | A linear model fit using a Bayesian engine
 Out 1 | Average number of poor mental health days per month
-RQ 1 | Does the mental health providers to population ratio predict the average number of poor mental health days per month? (**I want you to improve this to indicate what else you'll be adjusting for, or to specify a direction for the effect that you posit is true.**)
-Model 2 | A linear model fit using ordinary least squares (**At least one of your models must be neither linear nor binary logistic.**)
-Out 2 | Number of deaths due to suicide per 100,000 population
+RQ 1 | In US counties, is a higher ratio of mental health providers to population associated with a greater number of poor mental health days per month, after adjusting for education, income, race, age, and rates of alcohol abuse?
+Model 2 | A model for a multi-categorical outcome
+Out 2 | Quintiles (5-category created variable) based on Number of deaths due to suicide per 100,000 population
 RQ 2 | Does the mental health providers to population ratio predict the rate of deaths due to suicide?
 Samples | 3142 for Model 1, 2448 for Model 2
-Status | **REVISION REQUIRED.** This proposal needs to be revised. I want you to demonstrate the ability (in either Model 1 or Model 2) to work with something other than a linear or logistic model. The instructions explicitly said that you couldn't run two linear models. So you'll need to change either Model 1 or Model 2 accordingly. Finally, your predictors for Model 1 and Model 2 can overlap and you can use the same *key predictor* if you want, as you imply here, but I want at least two predictors in each model that aren't in the other model if you're using County Health Rankings data.
+Status | Dr. Love approved your revision on Canvas.
 
 [Back to Top](#project-b-plans)
 
