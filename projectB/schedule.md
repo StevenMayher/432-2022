@@ -42,7 +42,7 @@ Project | Time | Style | Investigator(s) | Title
 22 | 1:10 - 2:10 PM | Zoom (1/3) | David Selvaraj | Relating Sugar-Sweetened Beverages, Area Deprivation and Dental Caries
 23 | 1:10 - 2:10 PM | Zoom (2/3) | Ria Tilve | Predicting Exercise Levels and Arthritis in MrOS
 24 | 1:10 - 2:10 PM | Zoom (3/3) | Kiran Desai & Grace Armstrong | The Impact of Social Independence on Health in Mexican American Elderly Adults
-25 | 2:15 - 3:15 PM | Zoom (1/3) | Siddharth Dugar | Factors associated with severity of aortic stenosis and ICU mortality in sepsis
+25 | 2:15 - 3:15 PM | Zoom (1/3) | Siddharth Dugar & Raunak Nair | Factors associated with severity of aortic stenosis and ICU mortality in sepsis
 26 | 2:15 - 3:15 PM | Zoom (2/3) | Carly Rose & Diya Yang | Exploring Health-Related Factors and Physical Health Among US Residents
 27 | 2:15 - 3:15 PM | Zoom (3/3) | Alise Carlson | Exploring Factors Associated with Successful Survivor Players
 28 | 3:40 - 4:00 PM | In Person | Makaela Mews | Predictive value of sex and basic labs on visceral fat to trunk lean mass ratio
