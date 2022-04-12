@@ -10,7 +10,7 @@ If you are interested in serving as a TA for 431, please consider getting involv
 
 ## A Few Resources for Further Learning
 
-1. Frank Harrell's [Biostatistics for Biomedical Research](https://fharrell.com/#teaching) course.
+1. Frank Harrell's [Biostatistics for Biomedical Research](https://fharrell.com/#teaching) course. Frank also has several videos posted on [RMS Regression](https://www.youtube.com/watch?v=EoIB_Obddrk).
 2. Richard McElreath's [Statistical Rethinking 2022](https://github.com/rmcelreath/stat_rethinking_2022) and [YouTube Playlist](https://www.youtube.com/playlist?list=PLDcUM9US4XdMROZ57-OIRtIK0aOynbgZN)
 3. [Edward Tufte](https://www.edwardtufte.com/tufte/) has an online video course on Analyzing/Presenting Data and Information. [Details are here](https://www.edwardtufte.com/tufte/courses). For full-time teaching faculty, students, postdocs, the fee is $160.
     - [Inge Druckrey: Teaching to See](https://vimeo.com/45232468) produced by Edward Tufte helps you see like an artist and understand some of the roots of graphic design. It is a captivating, joyful and free film.
@@ -39,8 +39,7 @@ If you are interested in serving as a TA for 431, please consider getting involv
 19. The best book to learn a lot about modern statistical learning remains James/Witten/Hastie/Tibshriani's [Introduction to Statistical Learning](https://www.statlearning.com/)
 20. [Statistical Thinking for the 21st Century](https://statsthinking21.org/) is an open source textbook for statistics, with companions for R and Python by Russell Poldrack at Stanford.
 21. Daniel Westreich and Sander Greenland on [The Table 2 Fallacy: Presenting and Interpreting Confounder and Modifier Coefficients](https://academic.oup.com/aje/article/177/4/292/147738) from *Amer J Epidemiology* 2013.
-22. [A review of Bayesian perspectives on sample size derivation for confirmatory trials
-](https://arxiv.org/abs/2006.15715) as recommended by [Frank Harrell](https://twitter.com/f2harrell/status/1374103378654068745).
-22. [The Epidemiologist R Handbook](https://epirhandbook.com/index.html) can help you learn about R for applied epidemiology and public health.
-23. Building something and want to cite the R packages involved? Check out the [grateful package](https://github.com/Pakillo/grateful) which makes this easier to do.
+22. [A review of Bayesian perspectives on sample size derivation for confirmatory trials](https://arxiv.org/abs/2006.15715) as recommended by [Frank Harrell](https://twitter.com/f2harrell/status/1374103378654068745).
+23. [The Epidemiologist R Handbook](https://epirhandbook.com/index.html) can help you learn about R for applied epidemiology and public health.
+24. Building something and want to cite the R packages involved? Check out the [grateful package](https://github.com/Pakillo/grateful) which makes this easier to do.
 
