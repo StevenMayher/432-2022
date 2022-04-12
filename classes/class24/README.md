@@ -9,6 +9,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class24/432_2022_slides24.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class24/432_2022_slides24.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](figures/lynott.png)
+
 ## Announcements
 
 1. There is a [Minute Paper after today's class](https://bit.ly/432-2022-min-24) (our final one for the semester.) Please complete it by Noon Wednesday 2022-04-13.
