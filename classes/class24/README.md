@@ -16,9 +16,22 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 3. An Answer Sketch for Lab 6 should be **posted by class time** to our Shared Drive.
 4. I've posted several opportunities on Piazza for you to contribute to the class. Please take advantage of as many of them as you can by the posted deadlines for a little additional class participation credit.
 5. Quiz 2 will be available to you at 5 PM Thursday 2022-04-14 and is due on Tuesday 2022-04-19 at 9 AM, as posted on the [Calendar](https://thomaselove.github.io/432/calendar.html). I will discuss Quiz 2 on Thursday in class.
+6. RStudio has re-styled and made available all of the [original R Manuals](https://rstudio.github.io/r-manuals/) which may be of help to you.
 
 ## Some Reminders about Project B, and the end of the semester
 
 Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
 
+## Sources for Today's Class
+
+The principal source is Chapter 7 of Frank E. Harrell's [Regression Modeling Strategies](https://github.com/THOMASELOVE/432-2022/blob/main/references/pdf/Harrell_Regression_Modeling_Strategies_2015_2e_protected.pdf), 2nd Edition, 2015.
+
+- Dr. Harrell includes references to many other sources for working with longitudinal data.
+- Lucy D'Agostino McGowan fits a generalized least squares model in R [on YouTube here](https://www.youtube.com/watch?v=xtqRe8MPKoY), also making use of the `nlme` package, but not Frank's `rms` packages. This is a nice tutorial.
+
 ## One Last Thing
+
+[The Red/Blue COVID Divide Includes A Pretty Eyebrow-Raising Coincidental Data Point](https://acasignups.net/22/03/17/redblue-covid-divide-includes-pretty-eyebrow-raising-coincidental-data-point) by Charles Gaba.
+
+![](figures/gaba.png)
+
