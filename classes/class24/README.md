@@ -26,7 +26,7 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 
 ## Sources for Today's Class
 
-The principal source is Chapter 7 of Frank E. Harrell's [Regression Modeling Strategies](https://github.com/THOMASELOVE/432-2022/blob/main/references/pdf/Harrell_Regression_Modeling_Strategies_2015_2e_protected.pdf), 2nd Edition, 2015.
+Today, we'll discuss Generalized Least Squares models for Longitudinal Data (these are also called Growth Curve models.) My principal source is Chapter 7 of Frank E. Harrell's [Regression Modeling Strategies](https://github.com/THOMASELOVE/432-2022/blob/main/references/pdf/Harrell_Regression_Modeling_Strategies_2015_2e_protected.pdf), 2nd Edition, 2015.
 
 - Dr. Harrell includes references to many other sources for working with longitudinal data.
 - Lucy D'Agostino McGowan fits a generalized least squares model in R [on YouTube here](https://www.youtube.com/watch?v=xtqRe8MPKoY), also making use of the `nlme` package, but not Frank's `rms` packages. This is a nice tutorial.
