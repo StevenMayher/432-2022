@@ -19,6 +19,7 @@ Cluster Analysis, most especially K-Means Clustering.
 2. Next Tuesday, 2022-04-19, is a Project B working day, thus 432 will not meet that day. 
     - Our final 432 class ([Class 26](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class26)) will be one week from today (2022-04-23).
 3. Another in the series of presentations called "Conversations about your future: Career Paths and Professional Development" is happening next Tuesday 2022-04-19 at 4 PM. This one is "Industry or Academia: A Factor Analysis" by Ying Jiang, MD, PhD, MS at Zymeworks, Inc. All are encouraged to attend, and the [Zoom link is here](https://cwru.zoom.us/j/93836688830?pwd=V1dMN3RvS3EzekVBNzhKVGQ0b0hxdz09).
+4. (Optional) [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX) is due **next Wednesday** 2022-04-20 at Noon.
 
 ## Quiz 2
 
