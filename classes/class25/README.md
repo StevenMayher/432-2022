@@ -17,7 +17,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. Feedback on the Minute Paper after Class 24 will be **available by class time**.
 2. Next Tuesday, 2022-04-19, is a Project B working day, and so we will not hold 432 class. Our final 432 class ([Class 26](https://github.com/THOMASELOVE/432-2022/tree/main/classes/class26)) will be one week from today (2022-04-23).
-3. Zoom information for all Project B presentations is on our Shared Drive in a Doc called **432 Project Presentation Zoom Information**. 
+3. Another in the series of presentations called "Conversations about your future: Career Paths and Professional Development" is happening next Tuesday 2022-04-19 at 4 PM. This one is "Industry or Academia: A Factor Analysis" by Ying Jiang, MD, PhD, MS at Zymeworks, Inc. All are encouraged to attend, and the [Zoom link is here](https://cwru.zoom.us/j/93836688830?pwd=V1dMN3RvS3EzekVBNzhKVGQ0b0hxdz09).
+4. Zoom information for all Project B presentations is on our Shared Drive in a Doc called **432 Project Presentation Zoom Information**. 
     - If you are presenting Project B via Zoom, please arrive at the Zoom call on time and ready to share your screen. You will be placed into a Waiting Room on Zoom until Dr. Love is ready for you. If you're working with a partner, one of you should share the screen for both parts of your presentation. 
     - **In person** Project B presentations will be in Dr. Love's office on the ground floor of the Wood building, in Wood WG82-J. Please make sure you know how to get to that room and arrive 5 minutes early. 
     - If on the day of your Project B presentation, you need to instead give your talk via Zoom instead of in person for whatever reason, you will find the Zoom information on our Shared Drive. Please let Dr. Love know via email as far as possible in advance of your presentation time if you need to switch to Zoom.
