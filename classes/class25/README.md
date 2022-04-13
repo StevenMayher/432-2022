@@ -51,5 +51,8 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 - [Hierarchical Clustering in R: Step-by-Step Example](https://www.statology.org/hierarchical-clustering-in-r/) at Statology
 - [How many groups of Star Wars characters are there? R-squared and cross-validation approaches](https://joshuamrosenberg.com/posts/how-many-groups-of-star-wars-characters-are-there-r-squared-and-cross-validation-approaches/) by Joshua Rosenberg
 
-## One Last Thing
+## Two Last Things
+
+- [Advice on Soft Skills for Academics](https://statmodeling.stat.columbia.edu/2018/07/25/advice-soft-skills-academics/) from Bob Carpenter
+- [ggdag: An R Package for visualizing and analyzing causal directed acyclic graphs](https://ggdag.malco.io/index.html)
 
