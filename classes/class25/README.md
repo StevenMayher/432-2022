@@ -9,6 +9,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class25/432_2022_slides25.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class25/432_2022_slides25.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+## Today's Main Topic
+
+Cluster Analysis, most especially K-Means Clustering.
+
 ## Announcements
 
 1. Feedback on the Minute Paper after Class 24 will be **available by class time**.
