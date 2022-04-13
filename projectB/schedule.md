@@ -1,7 +1,8 @@
 # Project B Presentation Schedule
 
-- **Zoom** information will go out via email to affected students in mid-April. Please arrive at the Zoom call on time and ready to share your screen. If you're working with a partner, one of you should share the screen for both parts of your presentation.
-- **In person** presentations will be in Dr. Love's office on the ground floor of the Wood building, in Wood WG82-J. Please make sure yo know how to get to that room and arrive 5 minutes early.
+- **Zoom** information is now available on our Shared Drive in a Google Doc called **432 Project Presentation Zoom Information**. Please arrive at the Zoom call on time and ready to share your screen. If you're working with a partner, one of you should share the screen for both parts of your presentation.
+- **In person** presentations will be in Dr. Love's office on the ground floor of the Wood building, in Wood WG82-J. Please make sure you know how to get to that room and arrive 5 minutes early. 
+    - If on the day of your presentation, you need to instead give your talk via Zoom for whatever reason, you will find the Zoom information on our Shared Drive. Please let Dr. Love know via email at least 30 minutes in advance of your presentation time if you need to switch to Zoom.
 - The 31 presentation times and styles listed below have each been confirmed by your responses to the Minute Paper after Class 22.
 
 ## Monday 2022-04-25 (6 projects)
