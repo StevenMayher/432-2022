@@ -20,3 +20,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Some Reminders about Project B, and the end of the semester
 
 Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
+
+![](https://imgs.xkcd.com/comics/land_mammals.png) [Source: XKCD](https://xkcd.com/1338)
+
