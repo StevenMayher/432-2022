@@ -6,7 +6,7 @@ When [the Calendar](https://thomaselove.github.io/432/calendar.html) says it wil
 
 ## What does the Quiz cover?
 
-The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know.
+The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include any of the new material from Classes 23 or 24, but may include things from Class 25. Dr. Love will let you know.
 
 ## Deadline
 
