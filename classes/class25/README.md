@@ -38,5 +38,18 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class25/figures/radcliffe.png) [Source](http://scientificmarketer.com/2007/02/clustering-considered-harmful-i-outline.html)
 
+## A Few References Related to K-Means Clustering
+
+- [K-means clustering with tidy data principles](https://www.tidymodels.org/learn/statistics/k-means/) at the Tidymodels page.
+- [Clustering in R – A Survival Guide on Cluster Analysis in R for Beginners!](https://data-flair.training/blogs/clustering-in-r-tutorial/)
+- K-means Clustering chapter in [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/k-means-clustering.html) by Roger Peng
+- [YouTube: k-Means and Hierarchial Clustering using R-Studio](https://www.youtube.com/watch?v=tkAJT8gWBSY) by BioPandit.
+- [A k-means example using the iris data](https://shiny.rstudio.com/gallery/kmeans-example.html) which you can explore (a little) via R Shiny
+- [K-Means Clustering in R: Algorithm and Practical Examples](https://www.datanovia.com/en/lessons/k-means-clustering-in-r-algorith-and-practical-examples/)
+- [What is Cluster analysis?](https://datascience.com.co/what-is-cluster-analysis-336362f15ed0) by Jose Miguel Arrieta
+- [K-Means Clustering in R: Step-by-Step Example](https://www.statology.org/k-means-clustering-in-r/) at Statology
+- [Hierarchical Clustering in R: Step-by-Step Example](https://www.statology.org/hierarchical-clustering-in-r/) at Statology
+- [How many groups of Star Wars characters are there? R-squared and cross-validation approaches](https://joshuamrosenberg.com/posts/how-many-groups-of-star-wars-characters-are-there-r-squared-and-cross-validation-approaches/) by Joshua Rosenberg
+
 ## One Last Thing
 
