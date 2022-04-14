@@ -31,7 +31,7 @@ All of the information we'll provide will appear at the [Quiz 2 page](https://gi
 
 ## Some Reminders about Project B, and the end of the semester
 
-Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). This now includes the information in the announcements above about Zoom links for presentations. The new information is summarized below.
+Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). The new information (about Zoom links for presentations) is there now, and also summarized below.
 
 Zoom information for all Project B presentations is on our Shared Drive in a Doc called **432 Project Presentation Zoom Information**. 
 
