@@ -61,6 +61,8 @@ Zoom information for all Project B presentations is on our Shared Drive in a Doc
 - [Penguin data: Multivariate EDA](https://rpubs.com/friendly/penguin-biplots) by Michael Friendly
 - [PCA Signal Extraction with recipes](https://recipes.tidymodels.org/reference/step_pca.html)
 - [PCA with Tidymodels in R](https://cmdlinetips.com/2020/06/pca-with-tidymodels-in-r/)
+- [A One-Stop Shop for Principal Component Analysis](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c) by Matt Brems
+- [Principal Component Analysis Explained Visually](https://setosa.io/ev/principal-component-analysis/) by Victor Powell and Lewis Lehe
 
 ## One Last Thing
 
