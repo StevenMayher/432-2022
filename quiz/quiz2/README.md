@@ -7,7 +7,7 @@ When [the Calendar](https://thomaselove.github.io/432/calendar.html) says it wil
 ## What is available now?
 
 - The [instructions for the Quiz](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2_2022_instructions_only.pdf) are available now, in PDF. This file will disappear when the 31-page Main Document (which includes these Instructions but also the Questions) is posted.
-- The five data sets Dr. Love has provided to you are available on our Shared Drive, [and also here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2/data).
+- The five data sets Dr. Love has provided to you are available on our Shared Drive in the Quiz 2 Materials folder, [and are also found here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2/data).
 - The Google Form Answer Sheet you will use to submit your responses to the Quiz is not yet available.
 
 ## What does the Quiz cover?
