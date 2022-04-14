@@ -11,7 +11,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Today's Main Topic
 
-Cluster Analysis, most especially K-Means Clustering.
+Cluster Analysis, most especially K-Means Clustering, plus just a little bit of Principal Components Analysis.
 
 ![](https://imgs.xkcd.com/comics/machine_learning.png) [Source: XKCD](https://xkcd.com/1838)
 
@@ -53,6 +53,14 @@ Zoom information for all Project B presentations is on our Shared Drive in a Doc
 - [K-Means Clustering in R: Step-by-Step Example](https://www.statology.org/k-means-clustering-in-r/) at Statology
 - [Hierarchical Clustering in R: Step-by-Step Example](https://www.statology.org/hierarchical-clustering-in-r/) at Statology
 - [How many groups of Star Wars characters are there? R-squared and cross-validation approaches](https://joshuamrosenberg.com/posts/how-many-groups-of-star-wars-characters-are-there-r-squared-and-cross-validation-approaches/) by Joshua Rosenberg
+
+## Palmer Penguins and Principal Components Analysis
+
+- [PCA with penguins and recipes](https://allisonhorst.github.io/palmerpenguins/articles/pca.html) by Allison Horst
+- [PCA and UMAP with tidymodels and #TidyTuesday cocktail recipes](https://juliasilge.com/blog/cocktail-recipes-umap/) by Julia Silge
+- [Penguin data: Multivariate EDA](https://rpubs.com/friendly/penguin-biplots) by Michael Friendly
+- [PCA Signal Extraction with recipes](https://recipes.tidymodels.org/reference/step_pca.html)
+- [PCA with Tidymodels in R](https://cmdlinetips.com/2020/06/pca-with-tidymodels-in-r/)
 
 ## One Last Thing
 
