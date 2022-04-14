@@ -27,7 +27,7 @@ Cluster Analysis, most especially K-Means Clustering, plus just a little bit of 
 
 ## Quiz 2
 
-All of the information we'll provide will appear at the [Quiz 2 page](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2) by 5 PM Thursday 2022-04-14. We remind you that Quiz 2 is due at 9 AM (9 in the **morning**) on Tuesday 2022-04-19.
+All of the information we'll provide will appear at the [Quiz 2 page](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2) by 5 PM Thursday 2022-04-14. Some is available now, and we'll take a look at it. We remind you that Quiz 2 is due at 9 AM (9 in the **morning**) on Tuesday 2022-04-19.
 
 ## Some Reminders about Project B, and the end of the semester
 
