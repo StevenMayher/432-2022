@@ -1,4 +1,4 @@
-# 432 Class 26: 2022-04-23
+# 432 Class 26: 2022-04-21
 
 [Main Website](https://thomaselove.github.io/432/) | [Calendar](https://thomaselove.github.io/432/calendar.html) | [Syllabus](https://thomaselove.github.io/432-2022-syllabus/) | [Course Notes](https://thomaselove.github.io/432-notes/) | [Canvas](https://canvas.case.edu) | [Data and Code](https://github.com/THOMASELOVE/432-data) | [Sources](https://github.com/THOMASELOVE/432-2022/tree/main/references) | [Contact Us](https://thomaselove.github.io/432/contact.html)
 :-----------: | :--------------: | :----------: | :---------: | :-------------: | :-----------: | :------------: | :-------------:
@@ -9,6 +9,17 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/432_2022_slides26.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/432_2022_slides26.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+## Announcements
+
+1. I'll share some thoughts on the results of Quiz 2.
+2. TA office hours continue through this Sunday 2022-04-24.
+3. We'll talk a little about the submissions I received for [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
+4. We'll talk a little about your suggestions on Piazza for future students, and your thoughts on our two books from this semester.
+5. I'll share some interesting visualizations, and also discuss a few topics briefly and leave you with some advice. I'll also point you to the post-class README for things to do to maintain and enhance what you've learned in the course.
+
 ## Some Reminders about Project B, and the end of the semester
 
 Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
+
+![](https://imgs.xkcd.com/comics/land_mammals.png) [Source: XKCD](https://xkcd.com/1338)
+

@@ -1,16 +1,16 @@
 # Quiz 2 
 
-## When will the Quiz be available?
+## All Quiz Materials are now available. The Quiz is due at 9 AM on Tuesday 2022-04-19.
 
-When [the Calendar](https://thomaselove.github.io/432/calendar.html) says it will - at 5 PM on 2022-04-14.
+1. The [Main Document for the Quiz](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2_2022.pdf) is now available. This is a [31-page PDF](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2_2022.pdf) containing the Instructions and all 30 questions. Be sure you have all 31 pages.
+2. The five **data sets** Dr. Love has provided to you are available on our Shared Drive in the Quiz 2 Materials folder, [and are also found here](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2/data). 
+3. The [Google Form Answer Sheet](https://bit.ly/432-2022-quiz-02-answer-sheet) you will use to submit your responses to the Quiz is now available at https://bit.ly/432-2022-quiz-02-answer-sheet.
 
-## What does the Quiz cover?
-
-The Quiz definitely includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include anything from Class 23, but may include things from Classes 24-25. Dr. Love will let you know.
+Note: If you want to look at a larger version of the **nomogram in Question 15**, you'll find it in our Shared Drive in the Quiz 2 Materials folder.
 
 ## Deadline
 
-The Quiz is due when [the Calendar](https://thomaselove.github.io/432/calendar.html) says it is, at 9 AM on Tuesday 2022-04-19. Note this is a change (pushing the deadline back 12 hours) from what was originally posted.
+The Quiz is due when [the Calendar](https://thomaselove.github.io/432/calendar.html) says it is, at 9 AM on Tuesday 2022-04-19. 
 
 - No late work will be accepted, so do not wait until the last minute to enter your work in the Google Form Answer Sheet and press Submit. We will not accept Quizzes received after 9:15 AM.
 - You can edit your work on the Answer Sheet after you submit, up until the deadline. 
@@ -19,5 +19,8 @@ The Quiz is due when [the Calendar](https://thomaselove.github.io/432/calendar.h
 - Piazza will be closed to public posts (but still open for private ones) while the Quiz is available.
 - All questions received via Piazza or email to `431-help` by 9 PM on Monday 2022-04-18 will be answered by that time.
 
-## Additional information on Quiz 2 will appear here, when available.
+## What does the Quiz cover?
+
+The Quiz includes materials from 432 classes **1-22**, plus all of *The Signal and the Noise* and all of Jeff Leek's *How To Be a Modern Scientist*. The Quiz does not include any of the new material from Classes 23 - 25.
+
 
