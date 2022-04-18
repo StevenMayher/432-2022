@@ -1,5 +1,9 @@
 # Quiz 2 
 
+## There was a typo in Question 27
+
+In the setup for Question 27, we refer to the `dat27` data set. In the chunks that form the potential responses for Question 27, we refer to the `data27` data set. This was just a typo. The data set should have been named `data27` throughout. As a hint, I'll tell you that at least one of the three chunks does what it is supposed to do, so that answer D is incorrect for Question 27.
+
 ## All Quiz Materials are now available. The Quiz is due at 9 AM on Tuesday 2022-04-19.
 
 1. The [Main Document for the Quiz](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2_2022.pdf) is now available. This is a [31-page PDF](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2_2022.pdf) containing the Instructions and all 30 questions. Be sure you have all 31 pages.
