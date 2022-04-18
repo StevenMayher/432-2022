@@ -1,6 +1,6 @@
 # Quiz 2 
 
-# Updates since the Quiz was made available.
+# There has been one update since the Quiz was made available.
 
 ## There was a typo in Question 27
 
