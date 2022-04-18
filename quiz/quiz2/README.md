@@ -4,7 +4,7 @@
 
 ## There was a typo in Question 27
 
-In the setup for Question 27, we refer to the `dat27` data set. In the chunks that form the potential responses for Question 27, we refer to the `data27` data set. This was just a typo. The data set should have been named `data27` throughout. As a hint, I'll tell you that at least one of the three chunks does what it is supposed to do, so that answer D is incorrect for Question 27.
+In the setup for Question 27, we refer to the `dat27` data set. In the chunks that form the potential responses for Question 27, we refer to the `data27` data set. This was just a typo. The data set should have been named `data27` throughout. As a hint, I'll tell you that at least one of the three chunks does what it is supposed to do, so that answer D is incorrect for Question 27. The version of the Main Document now posted below fixes this error, but that's the only change.
 
 ## All Quiz Materials are now available. The Quiz is due at 9 AM on Tuesday 2022-04-19.
 
