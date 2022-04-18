@@ -40,5 +40,5 @@ Successful completion of Lab X will improve your course grade by as many as 2 po
 - [David Selvaraj](https://www.datadavid.org/)
 - [Kristi Lin-Rahardja](https://kristilinr.netlify.app/)
 - [Olivia Wilcox](https://www.oliviawilcoxx.com/)
-
+- [Himani Sancheti](https://himanisancheti27.wixsite.com/biostat)
 
