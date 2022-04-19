@@ -27,27 +27,26 @@ This Lab is optional. To receive credit, you must complete it no later than Wedn
 
 Successful completion of Lab X will improve your course grade by as many as 2 points, and will earn you some of Dr. Love's respect. Also, no one exists these days in a professional capacity without a website. If you're looking for Dr. Love to write a letter of recommendation for you in the fullness of time, he's going to want to see your website.
 
-## Some Completed Work on Lab X
+## Students with Completed Work on Lab X
 
+- [Aaron Fletcher](https://afletcher80.wixsite.com/website-1)
 - [Alise Carlson](https://carlsoak.wixsite.com/alisecarlsonmd)
 - [Anushree Iyengar](https://ariyengar.github.io/ariyengar/)
 - [Cerag Oguztuzun](https://ceragoguztuzun.github.io/)
-- [Erika Hutt](https://erikahuttce.github.io/website/)
-- [Jacqueline Shaia](https://www.jacquelensphd.com/)
-
-- [Raunak Nair](https://raunaknairmd.netlify.app)
-- [Sneha Yamsani](https://sneha-yamsani.owlstown.net/)
-- [Zi Jie (Jay) Wei](https://jayweiblog.netlify.app/)
 - [David Selvaraj](https://www.datadavid.org/)
-- [Kristi Lin-Rahardja](https://kristilinr.netlify.app/)
-
-- [Olivia Wilcox](https://www.oliviawilcoxx.com/)
-- [Himani Sancheti](https://himanisancheti27.wixsite.com/biostat)
-- [Aaron Fletcher](https://afletcher80.wixsite.com/website-1)
-- [Rock Lim](https://625f0bc581a54a0008cb16bd--rocklim.netlify.app/)
-- [Makaela Mews](https://m-mews.github.io/makaelamews/)
-
-- [Jacob Rich](http://jacobrich.com/index.html)
+- [Erika Hutt](https://erikahuttce.github.io/website/)
 - [Harrison Lindley](https://www.harrisonlindley.com/)
+- [Himani Sancheti](https://himanisancheti27.wixsite.com/biostat)
+- [Jacob Rich](http://jacobrich.com/index.html)
+- [Jacqueline Shaia](https://www.jacquelensphd.com/)
+- [Zi Jie (Jay) Wei](https://jayweiblog.netlify.app/)
+- [Kristi Lin-Rahardja](https://kristilinr.netlify.app/)
+- [Makaela Mews](https://m-mews.github.io/makaelamews/)
+- [Olivia Wilcox](https://www.oliviawilcoxx.com/)
+- [Raunak Nair](https://raunaknairmd.netlify.app)
 - [Ria Tilve](https://ria-tilve.netlify.app/)
+- [Rock Lim](https://625f0bc581a54a0008cb16bd--rocklim.netlify.app/)
+- [Sneha Yamsani](https://sneha-yamsani.owlstown.net/)
+
+
 
