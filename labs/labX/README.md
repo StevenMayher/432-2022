@@ -34,16 +34,19 @@ Successful completion of Lab X will improve your course grade by as many as 2 po
 - [Cerag Oguztuzun](https://ceragoguztuzun.github.io/)
 - [Erika Hutt](https://erikahuttce.github.io/website/)
 - [Jacqueline Shaia](https://www.jacquelensphd.com/)
+
+- [Raunak Nair](https://raunaknairmd.netlify.app)
 - [Sneha Yamsani](https://sneha-yamsani.owlstown.net/)
 - [Zi Jie (Jay) Wei](https://jayweiblog.netlify.app/)
-- [Raunak Nair](https://raunaknairmd.netlify.app)
 - [David Selvaraj](https://www.datadavid.org/)
 - [Kristi Lin-Rahardja](https://kristilinr.netlify.app/)
+
 - [Olivia Wilcox](https://www.oliviawilcoxx.com/)
 - [Himani Sancheti](https://himanisancheti27.wixsite.com/biostat)
 - [Aaron Fletcher](https://afletcher80.wixsite.com/website-1)
 - [Rock Lim](https://625f0bc581a54a0008cb16bd--rocklim.netlify.app/)
 - [Makaela Mews](https://m-mews.github.io/makaelamews/)
+
 - [Jacob Rich](http://jacobrich.com/index.html)
 - [Harrison Lindley](https://www.harrisonlindley.com/)
 - [Ria Tilve](https://ria-tilve.netlify.app/)
