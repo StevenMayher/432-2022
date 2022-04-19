@@ -9,15 +9,15 @@ This Lab asks you to build a professional personal webpage for yourself.
 
 ## Option A
 
-If you did not build a personal website for yourself in 431, then use [these instructions from Keith McNulty to create and host a simple, clean personal website in a few minutes using R](https://towardsdatascience.com/create-and-host-your-personal-website-in-a-few-minutes-using-r-9c94e87e2942) then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achivement and containing a link to your page for your fellow students to be inspired by.
+If you did not build a personal website for yourself in 431, then use [these instructions from Keith McNulty to create and host a simple, clean personal website in a few minutes using R](https://towardsdatascience.com/create-and-host-your-personal-website-in-a-few-minutes-using-r-9c94e87e2942) then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achievement and containing a link to your page for your fellow students to be inspired by.
 
 ## Option B
 
-Alternatively, if you didn't build a personal website for yourself in 431, then use [the instructions from Lab X in 431 to build a website for yourself](https://github.com/THOMASELOVE/431-2021/tree/main/labs/labX). Then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achivement and containing a link to your page for your fellow students to be inspired by.
+Alternatively, if you didn't build a personal website for yourself in 431, then use [the instructions from Lab X in 431 to build a website for yourself](https://github.com/THOMASELOVE/431-2021/tree/main/labs/labX). Then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achievement and containing a link to your page for your fellow students to be inspired by.
 
 ## Option C
 
-If you already have a personal website that you built for 431 or for some other reason, then improve it in some way (add a blog post - anything) that clearly shows that you've improved the page in 2022. Then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achivement, providing a link to your page for your fellow students to be inspired by, and adding a short description of what you have improved about your site in 2022.
+If you already have a personal website that you built for 431 or for some other reason, then improve it in some way (add a blog post - anything) that clearly shows that you've improved the page in 2022. Then post a non-anonymous Note to the **labX** folder in Piazza celebrating your achievement, providing a link to your page for your fellow students to be inspired by, and adding a short description of what you have improved about your site in 2022.
 
 ## Deadline
 
