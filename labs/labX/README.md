@@ -41,4 +41,10 @@ Successful completion of Lab X will improve your course grade by as many as 2 po
 - [Kristi Lin-Rahardja](https://kristilinr.netlify.app/)
 - [Olivia Wilcox](https://www.oliviawilcoxx.com/)
 - [Himani Sancheti](https://himanisancheti27.wixsite.com/biostat)
+- [Aaron Fletcher](https://afletcher80.wixsite.com/website-1)
+- [Rock Lim](https://625f0bc581a54a0008cb16bd--rocklim.netlify.app/)
+- [Makaela Mews](https://m-mews.github.io/makaelamews/)
+- [Jacob Rich](http://jacobrich.com/index.html)
+- [Harrison Lindley](https://www.harrisonlindley.com/)
+- [Ria Tilve](https://ria-tilve.netlify.app/)
 
