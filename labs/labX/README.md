@@ -35,6 +35,7 @@ Successful completion of Lab X will improve your course grade by as many as 2 po
 - [Anushree Iyengar](https://ariyengar.github.io/ariyengar/)
 - [Avantika Bhaduri](https://axb978.wixsite.com/avantikabhaduri)
 - [Ben Kramer](https://www.bptkramer.com/)
+- [Carly Rose](https://cxr367.owlstown.net/)
 - [Cerag Oguztuzun](https://ceragoguztuzun.github.io/)
 - [Cong Fan](https://acfan345.github.io/academic-resume/)
 - [David Selvaraj](https://www.datadavid.org/)
