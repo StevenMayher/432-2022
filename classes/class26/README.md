@@ -27,7 +27,7 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 ## Some Miscellaneous Stuff
 
 1. I have settled into using ROUTE or TENOR most of the time in doing [Wordle](https://www.nytimes.com/games/wordle/index.html) and [Dordle](https://zaratustra.itch.io/dordle). When doing longer Wordles ([Quordle](https://www.quordle.com/#/), [Octordle](https://octordle.com/), [Sedecordle](https://www.sedecordle.com/) and [Duotrigordle](https://duotrigordle.com/)) I use SPORE, GUILT and CANDY as my first three guesses, or sometimes modest variants, like PROSE or SPORT/GUILE. I also like [Squareword](https://squareword.org/), [Waffle](https://wafflegame.net/), and more recently, [Xordle](https://xordle.xyz/).
-2. My family and I do the New York Times crossword together on Thursday-Sunday. I do them (usually alone) on Monday-Wednesday. Our current streak is 171, and our longest streak is 303, all since the pandemic. We've solved 1110 puzzles through Wednesday of this week. My personal fastest time for a Monday puzzle is 4:13, but our family did one in under four minutes earlier this month. Our average times by day of the week are:
+2. My family and I do the New York Times crossword together on Thursday-Sunday. I do them (usually alone) on Monday-Wednesday. Our current streak (begun on 2021-11-01) is 171, and our longest streak is 303, back in 2020-21. We've solved 1110 puzzles through Wednesday of this week. My personal fastest time for a Monday puzzle is 4:13, but our family did one in under four minutes earlier this month. Our average times by day of the week are:
 
 Time Frame | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
 :------: | :-----: | :----: | :-----: | :----: | :-----: | :----: | :-----: 
