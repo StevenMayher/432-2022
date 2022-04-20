@@ -15,7 +15,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 2. TA office hours continue through this Sunday 2022-04-24.
 3. We'll talk a little about the submissions I received for [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
 4. We'll talk a little about your suggestions on Piazza for future students, and your thoughts on our two books from this semester.
-5. I'll share some interesting visualizations, and also discuss a few topics briefly and leave you with some advice. I'll also point you to the post-class README for things to do to maintain and enhance what you've learned in the course.
+5. I'll share some interesting visualizations, and also discuss a few topics briefly and leave you with some advice. 
+6. I'll also point you to the [post-class README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/postclass) for things to do to maintain and enhance what you've learned in the course.
 
 ## Some Reminders about Project B, and the end of the semester
 
