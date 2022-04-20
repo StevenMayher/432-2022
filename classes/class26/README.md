@@ -31,7 +31,7 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 
 Time Frame | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
 :------: | :-----: | :----: | :-----: | :----: | :-----: | :----: | :-----: 
-All Time | 9:08 | 11:10 | 16:23 | 17:27 | 16:52 | 19:17 | 32:21
+All Time | 9:08 | 11:10 | 16:19 | 17:27 | 16:52 | 19:17 | 32:21
 Since 2021-11-01 | -- | -- | -- | -- | -- | -- | --
 Best Time | 3:46 | 5:08 | 6:05 | 8:15 | 9:54 | 8:52 | 15:43
 
