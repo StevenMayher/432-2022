@@ -23,3 +23,14 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 
 ![](https://imgs.xkcd.com/comics/land_mammals.png) [Source: XKCD](https://xkcd.com/1338)
 
+## Some Miscellaneous Stuff
+
+1. I have settled into using ROUTE or TENOR most of the time in doing [Wordle](https://www.nytimes.com/games/wordle/index.html) and [Dordle](https://zaratustra.itch.io/dordle). When doing longer Wordles ([Quordle](https://www.quordle.com/#/), [Octordle](https://octordle.com/), [Sedecordle](https://www.sedecordle.com/) and [Duotrigordle](https://duotrigordle.com/)) I use SPORE, GUILT and CANDY as my first three guesses, or sometimes modest variants, like PROSE or SPORT/GUILE.
+2. My family and I do the New York Times crossword together on Thursday-Sunday. I do them on Monday-Wednesday. Our current streak is 170, and our longest streak is 303. We've solved 1109 puzzles through Tuesday of this week. My personal fastest time for a Monday puzzle is 4:20, but our family did one in under four minutes earlier this year. Our average times by day of the week are:
+
+Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+:-----: | :----: | :-----: | :----: | :-----: | :----: | :-----: 
+9:08 | 11:10 | 16:23 | 17:27 | 16:52 | 19:17 | 32:21
+
+
+
