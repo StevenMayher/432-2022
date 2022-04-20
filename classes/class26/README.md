@@ -9,6 +9,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 - Today's Slides: [PDF version](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/432_2022_slides26.pdf), as well as [R Markdown code](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/432_2022_slides26.Rmd). 
 - All 432 classes are video-recorded, and archived on [Canvas](https://canvas.case.edu). Links to all recordings are on our Shared Google Drive.
 
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/figures/signal.png) [Source: Saturday Morning Breakfast Cereal](http://smbc-comics.com/comic/signal)
+
 ## Announcements
 
 1. I'll share some thoughts on the results of Quiz 2.
@@ -21,8 +23,6 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Some Reminders about Project B, and the end of the semester
 
 Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
-
-![](https://imgs.xkcd.com/comics/land_mammals.png) [Source: XKCD](https://xkcd.com/1338)
 
 ## Some Miscellaneous Stuff
 
@@ -43,4 +43,4 @@ n | 25 | 25 | 25 | 24 | 24 | 24 | 24
 Fastest Time | 3:46 | 5:08 | 7:37 | 8:15 | 11:32 | 11:22 | 15:43
 Slowest Time | 11:48 | 16:01 | 25:26 | 21:14 | 30:58 | 33:12 | 34:08
 
-3. http://smbc-comics.com/comic/signal
+![](https://imgs.xkcd.com/comics/land_mammals.png) [Source: XKCD](https://xkcd.com/1338)
