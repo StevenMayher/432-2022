@@ -29,9 +29,15 @@ Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main
 1. I have settled into using ROUTE or TENOR most of the time in doing [Wordle](https://www.nytimes.com/games/wordle/index.html) and [Dordle](https://zaratustra.itch.io/dordle). When doing longer Wordles ([Quordle](https://www.quordle.com/#/), [Octordle](https://octordle.com/), [Sedecordle](https://www.sedecordle.com/) and [Duotrigordle](https://duotrigordle.com/)) I use SPORE, GUILT and CANDY as my first three guesses, or sometimes modest variants, like PROSE or SPORT/GUILE. I also like [Squareword](https://squareword.org/), [Waffle](https://wafflegame.net/), and more recently, [Xordle](https://xordle.xyz/).
 2. My family and I do the New York Times crossword together on Thursday-Sunday. I do them (usually alone) on Monday-Wednesday. Our current streak (begun on 2021-11-01) is 171, and our longest streak is 303, back in 2020-21. We've solved 1110 puzzles through Wednesday of this week. My personal fastest time for a Monday puzzle is 4:13, but our family did one in under four minutes earlier this month. Our average times by day of the week are:
 
-Time Frame | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+All Time | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
 :------: | :-----: | :----: | :-----: | :----: | :-----: | :----: | :-----: 
-All Time | 9:08 | 11:10 | 16:19 | 17:27 | 16:52 | 19:17 | 32:21
-Since 2021-11-01 | 6:07 | 8:22 | 13:48 | 13:58 | 16:19 | 17:16 | 25:16
+Daily Mean | 9:08 | 11:10 | 16:19 | 17:27 | 16:52 | 19:17 | 32:21
 Best Time | 3:46 | 5:08 | 6:05 | 8:15 | 9:54 | 8:52 | 15:43
 
+Since 2021-11-01 | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+:------: | :-----: | :----: | :-----: | :----: | :-----: | :----: | :-----: 
+Mean | 6:07 | 8:40 | 13:48 | 13:58 | 16:19 | 17:16 | 25:16
+SD | 1:49 | 2:46 | 4:22 | 3:08 | 3:46 | 5:11 | 3:31
+Median | 5:42 | 8:02 | 13:48 | 13:32 | 15:45 | 16:05 | 25:27
+n | 25 | 25 | 25 | 24 | 24 | 24 | 24
+Best Time | 3:46 | 5:08 | 7:37 | 8:15 | 11:32 | 11:22 | 15:43
