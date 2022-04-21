@@ -14,7 +14,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 ## Announcements
 
 1. I'll share some thoughts on the results of Quiz 2.
-2. TA office hours continue through this Sunday 2022-04-24.
+    - An [answer sketch for Quiz 2 is available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
+    - Dr. Love will email you your grades on Quiz 2 as soon as possible.
+    - Almost everyone did well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
+2. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
 3. We'll talk a little about the submissions I received for [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
 4. We'll talk a little about your suggestions on Piazza for future students, and your thoughts on our two books from this semester.
 5. I'll share some interesting visualizations, and also discuss a few topics briefly and leave you with some advice. 
