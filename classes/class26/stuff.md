@@ -56,6 +56,14 @@ If you want to produce 2D and 3D hillshaded maps of elevation matrices, you want
 5. Christine P. Chai in Chance on [The Importance of Data Cleaning: Three Visualization Examples](https://chance.amstat.org/2020/02/data-cleaning/).  
 6. [25 examples of tables built using the `gt` package in R](https://frm1789.github.io/gt_examples/).
 
+## Flowing Data is a remarkable source of ideas
+
+Visit Nathan Yau's work at [flowingdata.com](https://flowingdata.com/). It's a wonderful site. Three brief examples:
+
+1. [Literacy Scores by Country, in Reading, Math, and Science](https://flowingdata.com/2022/04/04/literacy-scores-by-country-in-reading-math-and-science/) from 2022-04-04.
+2. [Years You Have Left to Live, Probably](https://flowingdata.com/2015/09/23/years-you-have-left-to-live-probably/) from 2015-09-23.
+3. [How Much the Everyday Changes When You Have Kids](https://flowingdata.com/2019/06/14/kids-nokids/)
+
 ## [Ten Simple Rules for Effective Statistical Practice](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961)
 
 This insightful article from Robert E. Kass, Brian S. Caffo, Marie Davidian, Xiao-Li Meng, Bin Yu, and Nancy Reid in 2016 in [PLOS Computational Biology](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961) as part of their "Ten Simple Rules" series is very helpful. The Ten Rules are...
