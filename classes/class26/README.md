@@ -13,8 +13,8 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. I'll share some thoughts on the results of Quiz 2.
-    - An [answer sketch for Quiz 2 is available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
+1. I've graded Quiz 2.
+    - An [answer sketch for Quiz 2 is available](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
     - Dr. Love emailed you your grades on Quiz 2 on Wednesday evening 2022-04-20.
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
 2. Grades on Lab 6 should be available on the Course Grading Roster on our Shared Drive by class time. 
