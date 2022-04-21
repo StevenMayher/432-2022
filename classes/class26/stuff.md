@@ -87,6 +87,6 @@ I'll also remind you of the existence of [the References page](https://github.co
 
 ## Advice for Graduate Students, from David Robinson
 
-![]https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/figures/gradschool.png)
+![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/figures/gradschool.png)
 
 # and remember ... statistics is too important to leave to statisticians.
