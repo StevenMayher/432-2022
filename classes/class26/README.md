@@ -15,6 +15,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 1. I've graded [Quiz 2](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2).
     - An [answer sketch for Quiz 2 is available](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
+    - The questions that didn't go well were 2-3 (imputation), 20 (Silver), 22 (LASSO), 26 (predicted counts comparison) and 29 (Leek where all statements were true).
     - Dr. Love emailed you your grades on Quiz 2 on Wednesday evening 2022-04-20.
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
 2. Grades on [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) are now available on the Course Grading Roster on our Shared Drive. 
