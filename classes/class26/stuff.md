@@ -92,6 +92,7 @@ I'll also remind you of the existence of [the References page](https://github.co
 ![](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/figures/broman1.png) 
 
 - That's from Karl Broman who has some [initial steps toward reproducible research](https://kbroman.org/steps2rr/)
+- More on reproducible research from Frank Harrell [here](https://hbiostat.org/rr/#content)
 
 ## Advice for Graduate Students, from David Robinson
 
