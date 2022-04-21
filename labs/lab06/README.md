@@ -22,4 +22,5 @@ If you have questions about Lab 06, please ask them [at TA office hours](https:/
 
 ## Post-Deadline Materials
 
-will appear after the deadline.
+- The Answer Sketch for Lab 6 is now posted to our Shared Drive.
+- Lab 6 Grades are now posted to the **432 Spring 2022 Grading Roster** Google Sheet on our Shared Drive. To identify your grade and read our comments, visit the Lab 05 Tab on that Sheet using the Lab Code Dr. Love emailed to you on 2022-01-31. 
