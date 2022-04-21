@@ -13,11 +13,11 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Announcements
 
-1. I've graded Quiz 2.
+1. I've graded [Quiz 2](https://github.com/THOMASELOVE/432-2022/tree/main/quiz/quiz2).
     - An [answer sketch for Quiz 2 is available](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
     - Dr. Love emailed you your grades on Quiz 2 on Wednesday evening 2022-04-20.
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
-2. Grades on Lab 6 should be available on the Course Grading Roster on our Shared Drive by class time. 
+2. Grades on [Lab 6](https://github.com/THOMASELOVE/432-2022/tree/main/labs/lab06) are now available on the Course Grading Roster on our Shared Drive. 
     - The Answer Sketch for Lab 6 is also available in the Lab 06 Materials folder on our Shared Drive.
     - Five of the essays written in response to Question 1 are also available in a document on our Shared Drive. Congratulations!
     - If you need a regrade on Labs 1-6, you should submit the [Lab Regrade Form](http://bit.ly/432-2022-lab-regrade-requests) as soon as possible. [See here for details](https://github.com/THOMASELOVE/432-2022/tree/main/labs#regrade-requests).
@@ -40,7 +40,7 @@ Again, those key reminders [will be found here](https://github.com/THOMASELOVE/4
 
 ## A Few Last Things
 
-1. Erika Hutt had her baby (a little girl) last Friday. Everyone is OK - last I heard.
+1. Erika Hutt had her baby (a little girl) last Friday. Everyone is OK.
 2. Let me take one last opportunity to thank our Teaching Assistants, especially Wyatt, Stephanie and Shiying who are here with us today.
 3. Yes, the [Mets](https://www.mlb.com/mets) are off to a fine start, with 9 wins in 13 games. This is a key to my daily mood, I'm afraid.
 4. I have settled into using ROUTE or TENOR most of the time in doing [Wordle](https://www.nytimes.com/games/wordle/index.html) and [Dordle](https://zaratustra.itch.io/dordle). When doing longer Wordles ([Quordle](https://www.quordle.com/#/), [Octordle](https://octordle.com/), [Sedecordle](https://www.sedecordle.com/) and [Duotrigordle](https://duotrigordle.com/)) I use SPORE, GUILT and CANDY as my first three guesses, or sometimes modest variants, like PROSE or SPORT/GUILE. I also like [Squareword](https://squareword.org/), [Waffle](https://wafflegame.net/), and more recently, [Xordle](https://xordle.xyz/).
