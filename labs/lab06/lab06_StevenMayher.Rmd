@@ -1,0 +1,262 @@
+---
+title: "432 Lab 06"
+author: "Steven Mayher"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+    self_contained: true
+    number_sections: true
+    code_folding: show
+    df_print: paged
+---
+
+## Setup {-}
+
+```{r setup, message = FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+opts_chunk$set(comment=NA)
+opts_knit$set(width=75)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE, warning = FALSE}
+library(here)
+library(magrittr)
+library(janitor)
+library(broom)
+library(naniar)
+library(survminer)
+library(survival)
+library(rms)
+library(tidyverse)
+
+theme_set(theme_bw())
+```
+
+# Question 1
+
+While I’m not entirely certain yet as to how this will specifically affect my scientific and other endeavors after my time here at Case, at least one way attempting to capture as much signal and as little noise as possible will affect both during my remaining time here is in relation to the experiments I’m currently running as part of my responsibilities as a research assistant here. The purpose of some of the experiments we are currently running in my P.I.’s lab is to test drug treatments against different cystic fibrosis genotypes and record the results to examine the effectiveness of each drug treatment on a genotype basis, as there are over 1000 different mutations that can cause the disease. Without getting into too much detail, the experiments are performed by running a current through the cultured tissue cells and recording the changes in the current and resistance as the various drugs are added to the cells over a period of approximately 1 – 1 ½ hours. Naturally, there’s several avenues that noise can be introduced into this process - tissue contamination, current instability, and improper technique are just a few examples. We as a lab already actively strive to reduce the occurrence of these as much as possible, however it's important to not forget to examine and consider the cellular mechanisms we’re actually testing and ensure that we are not mistakenly concluding causation for correlation, as well as ensure that we do not accidentally misinterpret the noise as the signal in any given experiments. This is just one way this concept will apply to my scientific endeavors moving forward, and I have little doubt that this will also apply to my future endeavors post-graduate school / post-CWRU as well.
+
+
+# Question 2
+
+In order to build a Cox model using the `umaru.csv` data, the data first needs to be imported, which has been accomplished with the following code:
+
+
+```{r, message = FALSE}
+umaru = read_csv(here("labs/lab06/data", "umaru.csv")) %>% type.convert(as.is = FALSE) %>%
+  clean_names()
+
+umaru %>% glimpse()
+```
+
+
+From the glimpse of the data above, it is apparent that a few of the variables will need to be reformatted as factors - specifically `hercoc`, `ivhx`, `race`, and `censor` - before any models can be generated. To that end, the following code re-formats the above specified variables as factor variables:
+
+
+```{r}
+umaru = umaru %>%
+  mutate(hercoc = as.factor(hercoc)) %>%
+  mutate(ivhx = as.factor(ivhx)) %>%
+  mutate(race = as.factor(race)) %>%
+  mutate(censor = as.factor(censor))
+
+glimpse(umaru)
+```
+
+
+With the above accomplished, the requested spearman p^2 plot can be generated to see if we should consider any non-linear variables when generating this first model:
+
+
+```{r}
+plot(spearman2(time ~ age + beck + hercoc + ivhx + ndrugtx + race + treat + site, data = umaru))
+```
+
+According to the results above, `ivhx`, `treat`, `race`, `ndrugtx` and `beck` appear to be the best options for choices as non-linear terms, however as all of these variables except for `beck` are either binary or multi-categorical variables and as such can't be fit with a polynomial or spline, the `beck` term will be used as the non-linear term, and will be used as an interaction term with`treat`. With this in mind, the Cox model will be generated below, additionally using `ivhx`, `ndrugtx`, `age`, and `site` variables as non-linear terms:
+
+
+```{r}
+units(umaru$time) = "days"
+
+d <- datadist(umaru)
+options(datadist="d")
+
+survival = Surv(time = umaru$time, event = umaru$censor==1)
+
+cox_q2_cph = cph(survival ~ treat * beck + ivhx + ndrugtx + age + site, data = umaru, x = TRUE, y = TRUE, surv = TRUE)
+
+cox_q2_coxph = coxph(formula = Surv(time, censor == 1) ~ treat * beck + ivhx + ndrugtx + age + site, data = umaru, model = TRUE)
+```
+
+
+As shown below, the resultant model uses under 12 degrees of freedom:
+
+
+```{r}
+cox_q2_cph
+```
+
+
+To interpret the hazard ratio for this model, we need to examine the model's exponentiated coefficients - the exponentiated coefficients for the point estimates are provided above, and the exponentiated confidence intervals have been provided below with the following code:
+
+
+```{r}
+exp(confint(cox_q2_coxph))
+```
+
+
+According to the results of the hazard ratio shown above, which represents the multiplicative effect of the covariates on the hazard function for drug relapse, short treatments (`treat` = Short) had estimated coefficient above 1, indicating that the risk of relapse increased for short treatments, however the confidence interval included 1, so this cannot be concluded to be a statistically detectable increase. Additionally, the estimated coefficient for the interaction between `treat` and `beck` for short treatments was just below 1, however it also includes 1 as part of its confidence interval, and thus cannot be considered statistically detectable.
+
+
+# Question 3
+
+Using the imported data set above, the new Cox model utilizing `treat`, `age`, `beck`, `site`, `ivhx`, and `ndrugtx` as main effect predictors was generated with the following code:
+
+
+```{r}
+#umaru = umaru %>%
+#  mutate(treat = fct_relevel(treat, "Long", "Short"))
+
+units(umaru$time) = "days"
+
+d <- datadist(umaru)
+options(datadist="d")
+
+survival = Surv(time = umaru$time, event = umaru$censor==1)
+
+cox_q3_cph = cph(survival ~ treat + age + beck + site + ivhx + ndrugtx, data = umaru, x = TRUE, y = TRUE, surv = TRUE)
+
+cox_q3_coxph = coxph(formula = Surv(time, censor == 1) ~ treat + ivhx + ndrugtx + beck + age + site, data = umaru, model = TRUE)
+```
+
+
+The hazard ratio for this model has been provided below with the following code just as was done with the first model:
+
+
+```{r}
+cox_q3_coxph
+exp(confint(cox_q3_coxph))
+```
+
+As with the first model in question 2, short treatments (`treat` = Short) has estimated coefficient above 1 in this model as well (specifically ~1.269407 when exponentiated), indicating that the risk of relapse increased for short treatments, however the confidence interval for this model (barely) does not include 1, so this can technically be considered to be a statistically detectable increase in risk of drug relapse.
+
+
+# Question 4
+
+To assess the quality of fit for both models, validated R^2 values were calculated for both models with the code below:
+
+```{r}
+set.seed(43201)
+validate(cox_q2_cph)
+validate(cox_q3_cph)
+```
+
+
+The AIC and BIC values were calculated for both models as well with the code below, where `mod1` was the first model (i.e. the model from question 2 with the interaction term) and `mod2` was the second model (i.e. the model from question 3 without the interaction term):
+
+
+```{r}
+comp_table = bind_rows( glance(cox_q2_coxph), glance(cox_q3_coxph) ) %>%
+  mutate(mod = c("mod1", "mod2"))
+
+comp_table %>% select(mod, AIC, BIC) %>%
+  kable(dig = c(0, 3, 3, 3, 1, 1))
+```
+
+
+From the summary statistics above, I'd conclude that the second model from question 3 was marginally better than the first model (model containing the interaction term) from question 2, as the non-interaction model had a slightly better validated R^2 value, AIC, and BIC values.
+
+With that in mind, we can assess the proportional hazard assumptions for both models with the following code:
+
+
+```{r}
+cox_q2_pha = cox.zph(cox_q2_cph, transform = "km", global = TRUE)
+cox_q2_pha
+
+cox_q3_pha = cox.zph(cox_q3_cph, transform = "km", global = TRUE)
+cox_q3_pha
+```
+
+As can be seen above, the global p-values for both models are well above 0.05 (at ~ 0.420 and ~ 0.374 respectively), showing that the proportional hazard assumption holds for both models. For completeness, the proportional hazard plots for models have been provided below as well, with the following providing the code for the plot for the interaction model (question 2 model):
+
+```{r}
+ggcoxzph(cox_q2_pha)
+```
+
+
+And the following providing the code for the plot for the non-interaction (question 3) model:
+
+
+```{r}
+ggcoxzph(cox_q3_pha)
+```
+
+
+
+
+# Question 5
+
+In order to create the Kaplan-Meier estimate and the log rank test, the remission data needs to be imported, which is accomplished with the following code:
+
+
+```{r, message = FALSE}
+remission = read_csv(here("labs/lab06/data", "remission.csv")) %>% type.convert(as.is = FALSE) %>%
+  clean_names()
+
+remission %>% glimpse()
+```
+
+
+With this accomplished, the Kaplan-Meier estimate can now be calculated:
+
+```{r}
+survival2 = Surv(time = remission$time, event = remission$censored==1)
+
+kmfit = with(remission, Surv(time = time, event = 1 - censored))
+
+kmfit2 = survfit(kmfit ~ remission$treatment)
+
+print(kmfit2, print.rmean = TRUE)
+```
+
+
+And plotted below:
+
+
+```{r}
+ggsurvplot(kmfit2, data = remission, risk.table = TRUE, risk.table.height = 0.3, xlab = "Time in days", ylab = "Remission-Free\nSurvival Probability")
+```
+
+
+From the plot above, it would appear that treatment A was better than treatment B in taking less time to remission.
+
+
+The Log Rank test:
+
+```{r}
+units(remission$time) = "days"
+
+dd <- datadist(remission)
+options(datadist="dd")
+
+
+
+cox_q5 = coxph(formula = Surv(time, censored == 0) ~ treatment, data = remission, model = TRUE)
+
+summary(cox_q5)
+survdiff(kmfit ~ remission$treatment)
+```
+
+
+While treatment A looks better than B in the KM test, the p-value of 0.2 for the log rank test suggests that the benefit of treatment A isn't as pronounced as the Kaplan-Meier test suggest. Perhaps an increase in sample size will then show us that treatment A would be superior to treatment B, or perhaps it could should that the p value will increase dramatically, indicating a no difference between the treatment groups.
+
+
+# Session Information {-}
+
+```{r}
+xfun::session_info()
+```

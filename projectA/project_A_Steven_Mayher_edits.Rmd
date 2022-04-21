@@ -1,8 +1,10 @@
 ---
 title: "Can We Utilize Diet, Age, and Other Health Metrics to Effectively Model Blood Pressure Measurements & Associated Diagnoses?"
 author: "Steven Mayher"
-date: " 2022-03-04"
-output: rtf_document
+date: "2022-03-04"
+output:
+  md_document:
+    variant: markdown
   # rmdformats::downcute:
   #   highlight: kate
   #   number_sections: TRUE

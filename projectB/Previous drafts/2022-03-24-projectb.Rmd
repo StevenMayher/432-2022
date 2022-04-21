@@ -1,0 +1,196 @@
+---
+title: "432 Project B"
+author: "Jacob James Rich & Steven Mayher"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    code_folding: show
+    self_contained: true
+    number_sections: true
+    df_print: paged
+---
+
+# Setup {-}
+
+```{r setup, message = FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+opts_chunk$set(comment=NA)
+opts_knit$set(width=75)
+```
+
+## Package Loading {-}
+
+```{r load_packages, message = FALSE}
+library(here) #here()
+library(doBy) #summaryBy()
+library(magrittr)
+library(janitor)
+library(conflicted) # conflict_prefer()
+
+library(rms) # rcs(), includes Hmisc package
+library(MASS) #polr()
+library(nnet)
+library(skimr)
+
+#install.packages("countreg", repos="http://R-Forge.R-project.org")
+library(countreg)
+
+library(broom) # tidy() 
+library(car) # outlierTest() 
+library(GGally) # ggpairs()
+library(mosaic)
+library(patchwork)
+library(naniar) # n_miss() 
+library(ipumsr) # IPUMS data
+
+library(tidyverse)
+
+conflict_prefer("select", "dplyr")
+conflict_prefer("filter", "dplyr")
+conflict_prefer("sum", "base")
+```
+
+## Sources
+
+-Jacob Kaplan's Concatenated Files: Uniform Crime Reporting (UCR) Program [Data](https://www.openicpsr.org/openicpsr/project/102263/version/V14/view?path=/openicpsr/102263/fcr:versions/V14/ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds.zip&type=file): Arrests by Age, Sex, and Race, 1974-2020
+
+- Florida Uniform Crime Report (UCR) [Data](https://www.fdle.state.fl.us/FSAC/CJAB-Home/Uniform-Crime-Report/Data-Archives/UCR-Arrest-Data)
+
+https://www.fdle.state.fl.us/FSAC/Data-Statistics/UCR-Offense-Data.aspx
+
+# Build `FBI_1980_1990`
+
+## 1980 & 1990
+
+```{r}
+# Download all files
+FBI_1990  <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1990.rds")) %>%
+  select(year, population, fips_state_county_code, sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1980 <- readRDS(here("ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds", "ucr_arrests_monthly_all_crimes_race_sex_1980.rds")) %>%
+  select(year, population, fips_state_county_code, sale_drug_total_tot_white, sale_drug_total_tot_black, sale_drug_total_tot_arrests)
+
+FBI_1980_1990 <- rbind(data = FBI_1990, data = FBI_1980)
+```
+
+# Build `ipums`
+
+```{r}
+ddi <- read_ipums_ddi("usa_00004.xml")
+
+ipums <- read_ipums_micro(ddi)
+
+ipums
+```
+
+# Build Panels
+
+## FBI county level
+
+```{r}
+# Collapse by year and fips_state_county_code
+FBI_county_years <- summaryBy(population + sale_drug_total_tot_white + sale_drug_total_tot_black + sale_drug_total_tot_arrests ~ year + fips_state_county_code, data=FBI_1980_1990, FUN = sum, keep.names = TRUE)
+
+#Determine which counties don't have a match for both years
+subset(FBI_1990, !(fips_state_county_code %in% FBI_1980$fips_state_county_code))
+
+# Program "not in" operator
+'%!in%' <- function(x,y)!('%in%'(x,y))
+
+# Outcome variable calculations / remove puerto rico, guam, american samoa, virgin islands, florida / remove nonmatched counties
+FBI_county_years <- FBI_county_years %>% 
+  mutate(arrest_rate = sale_drug_total_tot_arrests / population * 100000,
+         proportion_black = sale_drug_total_tot_black / sale_drug_total_tot_arrests,
+         proportion_white = sale_drug_total_tot_white / sale_drug_total_tot_arrests,
+         fips_state = substr(fips_state_county_code, 1, 2)) %>%
+  filter(fips_state_county_code %!in% c(02188, 02100, 02060, 04012, 02060, 02070, 02013, 	04012),
+         fips_state %!in% c(72, 66, 60, 78, 12))
+
+#Verify same number of observations for both periods
+FBI_county_years %>% 
+  filter(year > 1980)
+
+FBI_county_years %>% 
+  filter(year < 1990)
+```
+
+## FBI national level
+
+```{r}
+# Collapse by year only
+FBI_years <- summaryBy(population + sale_drug_total_tot_white + sale_drug_total_tot_black + sale_drug_total_tot_arrests ~ year, data=FBI_county_years, FUN = sum, keep.names = TRUE)
+
+# Outcome variable calculations
+FBI_years <- FBI_years %>% 
+  mutate(arrest_rate = sale_drug_total_tot_arrests / population * 100000,
+         proportion_black = sale_drug_total_tot_black / sale_drug_total_tot_arrests,
+         proportion_white = sale_drug_total_tot_white / sale_drug_total_tot_arrests)
+```
+
+## IPUMS predictor variables
+
+```{r}
+# Calculate individual weights
+ipums_panel <- ipums %>% 
+  mutate(sex_base = if_else(SEX %in% c(1,2), PERWT, 0),
+         male = if_else(SEX %in% c(1), PERWT, 0),
+         female = if_else(SEX %in% c(2), PERWT, 0),
+         income_base = if_else(INCWAGE %!in% c(999999, 999998), PERWT, 0),
+         income = if_else(INCWAGE %!in% c(999999, 999998), INCWAGE*PERWT, 0),
+         poverty_base = if_else(POVERTY %!in% c(000), PERWT, 0),
+         poverty = if_else(POVERTY < 100, if_else(POVERTY == 0, 0, PERWT),0),
+         age_base = if_else(AGE < 91, PERWT, 0),
+         age = if_else(AGE < 91, AGE*PERWT, 0),
+         race_base = if_else(RACE < 8, PERWT, 0),
+         black = if_else(RACE %in% c(2), PERWT, 0),
+         white = if_else(RACE %in% c(1), PERWT, 0),
+         hispanic_base = if_else(HISPAN %!in% c(9), PERWT, 0),
+         hispanic = if_else(HISPAN %in% c(1, 2, 3, 4), PERWT, 0)
+         )
+
+# Collapse into counties
+ipums_panel
+```
+
+## Return complete panel
+
+```{r}
+FBI_county_years
+```
+
+# Analysis
+
+## Plots
+
+```{r}
+plot_arrest_rate <- ggplot(FBI_years, aes(x = year)) +
+  geom_line(aes(y = arrest_rate), color = "darkred") +
+  labs(x = "Year", y = "Arrest Rate per 100,000", title = "Drug Sale Arrest Rate by Year") +
+  scale_color_manual(name = "Legend", values = c("Black_Arrest_Rate" = "darkred", "White_Arrest_Rate" = "steelblue", "Total_Arrest_Rate" = "green"))
+
+plot_proportions <- ggplot(FBI_years, aes(x = year)) +
+  geom_line(aes(y = proportion_black), color="steelblue") + 
+  geom_line(aes(y = proportion_white), color="green") +
+  labs(x = "Year", y = "", title = "Proportion by Race") +
+  scale_color_manual(name = "Legend", values = c("Proportion_Black" = "darkred", "Proportion_White" = "steelblue", "Total_Arrest_Rate" = "green"))
+
+plot_arrest_rate / plot_proportions
+```
+
+# References
+
+Steven Ruggles, Sarah Flood, Sophia Foster, Ronald Goeken, Jose Pacas, Megan Schouweiler and Matthew Sobek. IPUMS USA: Version 11.0 [dataset]. Minneapolis, MN: IPUMS, 2021. 
+https://doi.org/10.18128/D010.V11.0
+
+Kaplan, Jacob. Jacob Kaplan’s Concatenated Files: Uniform Crime Reporting (UCR) Program Data: Arrests by Age, Sex, and Race, 1974-2020: ucr_arrests_monthly_all_crimes_race_sex_1974_2020_rds.zip. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2021-09-27. https://doi.org/10.3886/E102263V14-103320
+
+# Session Information
+
+```{r, eval = FALSE}
+sessioninfo::session_info()
+```

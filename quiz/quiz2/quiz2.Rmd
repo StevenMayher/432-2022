@@ -1,0 +1,403 @@
+---
+title: "quiz 2"
+author: "Steven Mayher"
+date: "4/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# R Packages
+
+```{r}
+library(conflicted)
+library(here)
+library(knitr)
+library(janitor)
+library(magrittr)
+library(naniar)
+library(patchwork)
+library(countreg)
+library(equatiomatic)
+library(fivethirtyeight)
+library(GGally)
+library(ggrepel)
+library(lars)
+library(nhanesA)
+library(nnet)
+library(pROC)
+library(pscl)
+library(simputation)
+library(survey)
+library(survival)
+library(survminer)
+library(rms) # includes Hmisc
+library(tidymodels) # includes broom, rsample, etc.
+library(tidyverse) # includes dplyr, ggplot, etc.
+
+# Note that all data files were downloaded onto
+# my machine into a subfolder called data below
+# my main R Project directory for Quiz 2.
+
+theme_set(theme_bw())
+opts_chunk$set(comment = NA)
+options(dplyr.summarise.inform = FALSE)
+conflict_prefer("summarize", "dplyr")
+conflict_prefer("filter", "dplyr")
+conflict_prefer("select", "dplyr")
+conflict_prefer("zeroinfl", "pscl")
+```
+
+
+
+# Question 1
+
+```{r}
+quizd01 = read_csv(here("data", "quizd01.csv")) %>%
+  clean_names()
+
+glimpse(quizd01)
+
+quiz01_complete = quizd01 %>% filter(complete.cases(alive, treated, age, female, comor))
+
+quizd01 = quizd01 %>%
+  mutate(female = as.factor(female)) %>%
+  mutate(female = case_when(female == 1 ~ "female",
+                            female == 0 ~ "not Female")) %>%
+  mutate(alive = as.factor(alive)) %>%
+  mutate(alive = case_when(alive == 1 ~ "alive",
+                           alive == 0 ~ "deceased")) %>%
+  mutate(treated = as.factor(treated)) %>%
+  mutate(treated = case_when(treated == 1 ~ "treated",
+                             treated == 0 ~ "control")) %>%
+  mutate(comor = as.factor(comor))
+
+glimpse(quizd01)
+```
+
+
+# Question 2
+
+
+```{r}
+set.seed(43237)
+dd = datadist(quizd01)
+options(datadist = "dd")
+
+fit_q2 = aregImpute(~ alive + age + treated + comor + female,
+                    nk = c(0, 3),
+                    tlinear = TRUE,
+                    data = quizd01,
+                    B = 10,
+                    pr = FALSE,
+                    n.impute = 20)
+
+model_q2 = fit.mult.impute(alive == "alive" ~ treated + age + female + comor, fitter = lrm, xtrans = fit_q2, data = quizd01, x = TRUE, y = TRUE, pr = FALSE)
+```
+
+
+
+# Question 3
+
+
+```{r}
+summary(model_q2)
+exp(coef(model_q2))
+#exp(confint(model_q2))
+```
+
+
+# Question 8
+
+```{r}
+quizd08 = read_rds("data/quizd08.Rds")
+quizd08_test = read_rds("data/quizd08.Rds")
+
+zap_test = haven::zap_label(quizd08)
+
+glimpse(quizd08)
+
+test_q8 = quizd08 %>%
+  mutate(RIAGENDR = as.numeric(RIAGENDR)) %>%
+  mutate(FEMALE = 2 - RIAGENDR)
+```
+
+
+# Question 9
+
+
+```{r}
+miss_var_summary(quizd08)
+
+quizd08_cc = quizd08 %>%
+  filter(complete.cases(HSD010))
+
+quizd08_q9 = quizd08_cc %>%
+  filter(HSD010 == 1 | HSD010 == 2)
+
+q9_answer = (count(quizd08_q9)/count(quizd08_cc))*100
+
+q9_answer
+```
+
+
+```{r}
+svytotal( ~ one, nh_design)
+```
+
+
+
+```{r}
+svyby( ~ one, ~ RIDRETH3, nh_design, svytotal)
+```
+
+
+
+
+# Question 10
+
+```{r}
+nh_design = svydesign(
+  id = ~ SEQN,
+  weights = ~ WTINT2YR,
+  data = quizd08_cc)
+
+nh_design = update(nh_design, one = 1)
+```
+
+
+
+
+# Question 18
+
+
+```{r}
+quizd17 = read_rds("data/quizd17.Rds")
+```
+
+
+
+```{r}
+mv17_BV = multinom(mmsa ~ binge + vax_pneumo, data = quizd17, trace = FALSE)
+
+tidy(mv17_BV, exponentiate = TRUE, conf.int = TRUE) %>%
+  kable(digits = 3)
+```
+
+
+```{r}
+quizd17a = quizd17 %>%
+  mutate(city = mmsa) %>%
+  select(c(city, vax_pneumo, binge))
+
+mv17_BVa = multinom(city ~ binge + vax_pneumo, data = quizd17a, trace = FALSE)
+```
+
+
+```{r}
+mosaic::favstats(quizd17$vax_pneumo)
+mosaic::favstats(quizd17$binge)
+summary(quizd17$vax_pneumo)
+summary(quizd17$binge)
+```
+
+
+```{r}
+# newdat = tibble(
+#   mmsa = rep(0:2, 1532),
+#   vax_pneumo = rep(0:1, 2298),
+#   binge = rep(0:1, 2298)
+# )
+# newdat_fin = newdat[1:4593,] %>%
+#   mutate(mmsa = case_when(mmsa == 0 ~ "CIN",
+#                           mmsa == 1 ~ "CLE"))
+```
+
+
+```{r}
+# newdat2 <- tibble(
+#   pared = rep(0:1, 200),
+#   public = rep(0:1, each = 200),
+#   gpa = rep(seq(from = 1.9, to = 4, length.out = 100), 4))
+```
+
+
+```{r}
+newdat_p1 = cbind(quizd17, predict(mv17_BV, quizd17, type = "probs"))
+```
+
+
+```{r}
+newdat_long = pivot_longer(newdat_p1,
+                           cols = c("CIN":"DAY"),
+                           names_to = "city",
+                           values_to = "prob") %>%
+  mutate(prob = round(prob, digits = 4))
+```
+
+
+
+```{r displayC}
+ggplot(newdat_long, aes(x = city, y = prob, fill = city)) +
+  geom_label(aes(label = prob), col = "white", size = 6) +
+  guides(fill = "none") +
+  facet_grid(binge ~ vax_pneumo, labeller = "label_both") +
+  labs(y = "Model-Estimated Probability of Residing in City",
+       x = "City")
+```
+
+
+```{r displayD}
+ggplot(newdat_long, aes(x = city, y = prob, fill = city)) +
+  geom_label(aes(label = prob), col = "white", size = 6) +
+  guides(fill = "none") +
+  facet_grid(binge ~ vax_pneumo, labeller = "label_both") +
+  labs(y = "Model-Estimated Probability of Residing in City",
+       x = "City")
+```
+
+
+```{r display E}
+ggplot(newdat_long, aes(x = city, y = prob, fill = city)) +
+  geom_label(aes(label = prob), col = "white", size = 6) +
+  guides(fill = "none") +
+  facet_grid(binge ~ vax_pneumo, labeller = "label_both") +
+  labs(y = "Model-Estimated Probability of Residing in City",
+       x = "City")
+```
+
+
+
+
+# Question 24
+
+```{r}
+quizd24 = read.csv("data/quizd24.csv") %>%
+  clean_names()
+
+glimpse(quizd24)
+
+quizd24 = quizd24 %>%
+  mutate(x2 = as.numeric(x2))
+
+glimpse(quizd24)
+```
+
+
+```{r}
+mod_poiss = glm(y ~ x1 + x2 + x3, family = poisson(), data = quizd24)
+summary(mod_poiss)
+confint(mod_poiss)
+```
+
+```{r}
+mod_nb = glm.nb(y ~ x1 + x2 + x3, link = log, data = quizd24)
+summary(mod_nb)
+confint(mod_nb)
+```
+
+
+```{r}
+glance(mod_poiss)
+glance(mod_nb)
+```
+
+
+
+```{r}
+logLik(mod_nb)
+```
+
+
+```{r}
+logLik(mod_poiss)
+```
+
+
+```{r}
+2 * (logLik(mod_nb) - logLik(mod_poiss))
+```
+
+
+```{r}
+pchisq(2 * (logLik(mod_nb) - logLik(mod_poiss)), df = 1, lower.tail = FALSE)
+```
+
+```{r}
+rootogram(mod_poiss, max = 6)
+```
+
+
+```{r}
+rootogram(mod_nb, max = 6)
+```
+
+
+
+```{r}
+q25_data = read.csv("data/q25_data.csv") %>%
+  clean_names() %>%
+  mutate(x1 = as.numeric(x1)) %>%
+  mutate(x2 = as.numeric(x2)) %>%
+  mutate(x3 = as.numeric(x3))
+
+glimpse(q25_data)
+```
+
+```{r}
+q25_data1 = data_frame(subj = c("Abigail", "Brad", "Chen"),
+                      x1 = c(4, 3, 2),
+                      x2 = c(1, 0, 1),
+                      x3 = c(0, 4, 6))
+
+q25_data1  
+
+predict(mod_poiss, newdata = q25_data1, se.fit = TRUE, type  = "response")
+
+predict(mod_poiss, newdata = q25_data1, se.fit = TRUE, type  = "response") %>%
+  kable(digits = 0)
+```
+
+
+# Question 26
+
+
+```{r}
+quizd26 = quizd24 %>%
+  mutate(y = as.factor(y))
+
+glimpse(quizd26)
+```
+
+```{r}
+mod_ord = polr(y ~ x1 + x2 + x3, data = quizd26)
+summary(mod_ord)
+```
+
+
+```{r}
+predict(mod_ord, q25_data, type = "p") %>%
+  kable(digits = 3)
+```
+
+
+```{r}
+predict(mod_ord, q25_data, type = "response")
+predict
+```
+
+
+
+```{r}
+sm_poiss = augment(mod_poiss, q25_data, type.predict = "response")
+
+sm_poiss %>%
+  select(y, .fitted) %>%
+  head()
+```
+
+
+
