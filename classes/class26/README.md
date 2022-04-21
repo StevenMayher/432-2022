@@ -17,17 +17,21 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - An [answer sketch for Quiz 2 is available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
     - Dr. Love emailed you your grades on Quiz 2 on Wednesday evening 2022-04-20.
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
-2. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
-3. We'll talk a little about the submissions I received for [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
-4. We'll talk a little about your suggestions on Piazza for future students, and your thoughts on our two books from this semester.
-5. I'll share [a few interesting visualizations, and also discuss a few topics briefly](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/stuff.md) and leave you with some advice. 
-6. I'll also point you to the [post-class README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/postclass) for things to do to maintain and enhance what you've learned in the course.
+2. Thanks to those of you who submitted [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
+3. Thanks also to those of you who contributed suggestions on Piazza for future students, and who shared thoughts on our two books from this semester.
+4. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
+
+## Today's Presentation
+
+1. I'll start with slides, as usual.
+2. Then I'll share [a few interesting visualizations, and also discuss a few topics briefly](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/stuff.md) and leave you with some advice. 
+3. I'll also point you to the [post-class README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/postclass) for things to do to maintain and enhance what you've learned in the course.
 
 ## Some Reminders about Project B, and the end of the semester
 
 Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
 
-## Some Miscellaneous Stuff
+## A Few Last Things
 
 1. I have settled into using ROUTE or TENOR most of the time in doing [Wordle](https://www.nytimes.com/games/wordle/index.html) and [Dordle](https://zaratustra.itch.io/dordle). When doing longer Wordles ([Quordle](https://www.quordle.com/#/), [Octordle](https://octordle.com/), [Sedecordle](https://www.sedecordle.com/) and [Duotrigordle](https://duotrigordle.com/)) I use SPORE, GUILT and CANDY as my first three guesses, or sometimes modest variants, like PROSE or SPORT/GUILE. I also like [Squareword](https://squareword.org/), [Waffle](https://wafflegame.net/), and more recently, [Xordle](https://xordle.xyz/).
 2. My family and I do the New York Times crossword together on Thursday-Sunday. I do them (usually alone) on Monday-Wednesday. Our current streak (begun on 2021-11-01) is 171, and our longest streak is 303, back in 2020-21. We've solved 1110 puzzles through Wednesday of this week. My personal fastest time for a Monday puzzle is 4:13, but our family did one in under four minutes earlier this month. Our average times by day of the week are:
