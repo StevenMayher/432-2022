@@ -39,7 +39,7 @@ Again, those key reminders [will be found here](https://github.com/THOMASELOVE/4
 
 ## A Few Last Things
 
-1. Erika Hutt had her baby last Friday. Everyone is OK - last I heard.
+1. Erika Hutt had her baby (a little girl) last Friday. Everyone is OK - last I heard.
 2. Let me take one last opportunity to thank our Teaching Assistants, especially Wyatt, Stephanie and Shiying who are here with us today.
 3. Yes, the [Mets](https://www.mlb.com/mets) are off to a fine start, with 9 wins in 13 games. This is a key to my daily mood, I'm afraid.
 4. I have settled into using ROUTE or TENOR most of the time in doing [Wordle](https://www.nytimes.com/games/wordle/index.html) and [Dordle](https://zaratustra.itch.io/dordle). When doing longer Wordles ([Quordle](https://www.quordle.com/#/), [Octordle](https://octordle.com/), [Sedecordle](https://www.sedecordle.com/) and [Duotrigordle](https://duotrigordle.com/)) I use SPORE, GUILT and CANDY as my first three guesses, or sometimes modest variants, like PROSE or SPORT/GUILE. I also like [Squareword](https://squareword.org/), [Waffle](https://wafflegame.net/), and more recently, [Xordle](https://xordle.xyz/).
