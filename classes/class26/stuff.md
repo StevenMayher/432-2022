@@ -44,10 +44,6 @@ If you want to produce 2D and 3D hillshaded maps of elevation matrices, you want
 
 ![](https://www.rayshader.com/reference/figures/README_ggplots-1.png)
 
-### Another dangerous thing...
-
-[How to turn your ggplot2 visualization into an interactive tweet](https://datatitian.com/how-to-turn-your-ggplot2-visualization-into-an-interactive-tweet/) from The Datatitian.
-
 ## Visualization
 
 1. Want to build your linear regression diagnostic plots using ggplot2? Take a look at [the `lindia` package](https://github.com/yeukyul/lindia).
