@@ -19,6 +19,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
 2. Grades on Lab 6 should be available on the Course Grading Roster on our Shared Drive by class time. 
     - The Answer Sketch for Lab 6 is also available on our Shared Drive.
+    - A set of five of the essays written in response to Question 1 is also available on our Shared Drive. Congratulations!
     - If you need a regrade on Labs 1-6, you should submit the [Lab Regrade Form](http://bit.ly/432-2022-lab-regrade-requests) as soon as possible. [See here for details](https://github.com/THOMASELOVE/432-2022/tree/main/labs#regrade-requests).
 3. Thanks to those of you who submitted [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
 4. Thanks also to those of you who contributed suggestions on Piazza for future students, and who shared thoughts on our two books from this semester.
