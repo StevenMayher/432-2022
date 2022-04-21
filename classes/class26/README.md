@@ -22,9 +22,9 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - Five of the essays written in response to Question 1 are also available in a document on our Shared Drive. Congratulations!
     - If you need a regrade on Labs 1-6, you should submit the [Lab Regrade Form](http://bit.ly/432-2022-lab-regrade-requests) as soon as possible. [See here for details](https://github.com/THOMASELOVE/432-2022/tree/main/labs#regrade-requests).
 3. Thanks to those of you who submitted [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
-4. Thanks also to those of you who contributed suggestions on Piazza for future students, and who shared thoughts on our two books from this semester.
-5. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
-6. All notes I have for you after today can be found at 
+4. Thanks also to the 14 of you who contributed suggestions on Piazza for future students (and this is still an open opportunity until 2022-05-02 at Noon), and the 18 who shared thoughts on Leek, and 15 who shared thoughts on The Signal and the Noise (these oppportunities are now closed for grading purposes.) 
+5. TA office hours continue through this Sunday 2022-04-24. We **implore** you to take advantage of this resource while it lasts. While Piazza will remain open until 2022-05-02 at Noon, we'll be watching it less closely after this Sunday.
+6. All notes I will have for you after today can be found at 
     - the [reminders page about Project B and the end of the semester](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md), along with
     - the [post-class README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/postclass).
 
