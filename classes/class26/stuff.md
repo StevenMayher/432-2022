@@ -62,7 +62,7 @@ Visit Nathan Yau's work at [flowingdata.com](https://flowingdata.com/). It's a w
 
 1. [Literacy Scores by Country, in Reading, Math, and Science](https://flowingdata.com/2022/04/04/literacy-scores-by-country-in-reading-math-and-science/) from 2022-04-04.
 2. [Years You Have Left to Live, Probably](https://flowingdata.com/2015/09/23/years-you-have-left-to-live-probably/) from 2015-09-23.
-3. [How Much the Everyday Changes When You Have Kids](https://flowingdata.com/2019/06/14/kids-nokids/)
+3. Another great thing Nathan does is link to other interesting efforts. For example, [Price increases people have noticed](https://flowingdata.com/2022/03/10/price-increases-people-have-noticed/) takes us to [this piece in the New York Times](https://www.nytimes.com/interactive/2022/03/09/upshot/where-americans-have-noticed-inflation.html)
 
 ## [Ten Simple Rules for Effective Statistical Practice](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961)
 
