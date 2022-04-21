@@ -17,10 +17,15 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - An [answer sketch for Quiz 2 is available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
     - Dr. Love emailed you your grades on Quiz 2 on Wednesday evening 2022-04-20.
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
-2. Grades on Lab 6 should be available on the Course Grading Roster by class time. If you need a regrade on Labs 1-6, you should submit the Lab Regrade Form as soon as possible.
+2. Grades on Lab 6 should be available on the Course Grading Roster on our Shared Drive by class time. 
+    - The Answer Sketch for Lab 6 is also available on our Shared Drive.
+    - If you need a regrade on Labs 1-6, you should submit the [Lab Regrade Form](http://bit.ly/432-2022-lab-regrade-requests) as soon as possible. [See here for details](https://github.com/THOMASELOVE/432-2022/tree/main/labs#regrade-requests).
 3. Thanks to those of you who submitted [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
 4. Thanks also to those of you who contributed suggestions on Piazza for future students, and who shared thoughts on our two books from this semester.
 5. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
+6. All notes I have for you after today can be found at 
+    - the [reminders page about Project B and the end of the semester](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md), along with
+    - the [post-class README](https://github.com/THOMASELOVE/432-2022/tree/main/classes/postclass).
 
 ## Today's Presentation
 
@@ -30,7 +35,7 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
 
 ## Some Reminders about Project B, and the end of the semester
 
-Reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
+Again, those key reminders [will be found here](https://github.com/THOMASELOVE/432-2022/blob/main/projectB/reminders.md). Please take a look.
 
 ## A Few Last Things
 
