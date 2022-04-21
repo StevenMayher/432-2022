@@ -53,11 +53,8 @@ If you want to produce 2D and 3D hillshaded maps of elevation matrices, you want
 2. [Plots within Plots with ggplot2 and ggmap](https://statisticaloddsandends.wordpress.com/2019/02/24/plots-within-plots-with-ggplot2-and-ggmap/).
 3. from Timo Grossenbacher, some [bivariate maps with ggplot2 and sf](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/)
 4. The [colorblindr package](https://github.com/clauswilke/colorblindr) may be of interest to some of you. It lets you make a figure in ggplot2 and then look at it in various color-vision-deficiency simulations. Still doesn't cover everyone, but it might help a bit. It also provides an alternative to viridis that some people like. [Color Oracle](https://colororacle.org/) can also help.
-5. Here's a new article from Christine P. Chai in Chance on [The Importance of Data Cleaning: Three Visualization Examples](https://chance.amstat.org/2020/02/data-cleaning/).  
+5. Christine P. Chai in Chance on [The Importance of Data Cleaning: Three Visualization Examples](https://chance.amstat.org/2020/02/data-cleaning/).  
 6. [25 examples of tables built using the `gt` package in R](https://frm1789.github.io/gt_examples/).
-7. In my early days learning to visualize data in R, the most useful book for me was Winston Cheng's [R Graphics Cookbook](https://r-graphics.org/), and the second edition is [available online, for free](https://r-graphics.org/)!
-8. All books by Howard Wainer for popular audiences come with my strong recommendation, especially *Medical Illuminations*, *Graphic Discovery* and *Picturing the Uncertain World*. [The work of Edward Tufte](https://www.edwardtufte.com/tufte/) is also definitely worth your time.
-    - If you loved Speigelhalter's *The Art of Statistics*, I definitely recommend Wainer's *Truth or Truthiness: Distinguishing Fact from Fiction by Learning to Think Like a Data Scientist*, if you're looking for a book at a similar level.
 
 ## [Ten Simple Rules for Effective Statistical Practice](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961)
 
@@ -80,7 +77,7 @@ This insightful article from Robert E. Kass, Brian S. Caffo, Marie Davidian, Xia
 - [Ten Simple Rules for Better Figures](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833) by Rougier NP Droettboom M Bourne PE 2014
 - [Ten Simple Rules for Creating a Good Data Management Plan](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004525) by Michener WK 2015
 
-I'll also remind you of the existence of [the References page](https://github.com/THOMASELOVE/2020-432/blob/master/references/README.md), which has all sorts of good things to read.
+I'll also remind you of the existence of [the References page](https://github.com/THOMASELOVE/432-2022/tree/main/references), which has all sorts of good things to read.
 
 ## Why Do Replicable/Reproducible Research?
 
