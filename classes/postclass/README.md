@@ -45,6 +45,7 @@ If you are interested in serving as a TA for 431, please consider getting involv
 24. [The Epidemiologist R Handbook](https://epirhandbook.com/index.html) can help you learn about R for applied epidemiology and public health.
 25. Building something and want to cite the R packages involved? Check out the [grateful package](https://github.com/Pakillo/grateful) which makes this easier to do.
 26. I'd also encourage you to consider joining the [American Statistical Association](https://www.amstat.org/asa/membership/home.aspx). Student membership is very inexpensive.
+27. Don't forget about all of the [great stuff](https://github.com/THOMASELOVE/432-2022/blob/main/classes/class26/stuff.md) Dr. Love shared at the end of our last class on visualization and various other issues.
 
 ## A Few Important Issues in Statistics
 
