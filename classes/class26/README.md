@@ -17,9 +17,10 @@ for everything | deadlines | expectations | from Dr. Love | zoom info | download
     - An [answer sketch for Quiz 2 is available now](https://github.com/THOMASELOVE/432-2022/blob/main/quiz/quiz2/432_quiz2sketch_2022.pdf). This document includes details on how each question was graded.
     - Dr. Love emailed you your grades on Quiz 2 on Wednesday evening 2022-04-20.
     - Almost everyone did pretty well on the Quiz. Nearly all scores were between 70 and 100 out of 100 points, and the median was 84.
-2. Thanks to those of you who submitted [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
-3. Thanks also to those of you who contributed suggestions on Piazza for future students, and who shared thoughts on our two books from this semester.
-4. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
+2. Grades on Lab 6 should be available on the Course Grading Roster by class time. If you need a regrade on Labs 1-6, you should submit the Lab Regrade Form as soon as possible.
+3. Thanks to those of you who submitted [Lab X](https://github.com/THOMASELOVE/432-2022/tree/main/labs/labX).
+4. Thanks also to those of you who contributed suggestions on Piazza for future students, and who shared thoughts on our two books from this semester.
+5. TA office hours continue through this Sunday 2022-04-24. We implore you to take advantage of this resource while it lasts.
 
 ## Today's Presentation
 
